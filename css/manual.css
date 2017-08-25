@@ -262,6 +262,10 @@ table tbody a:hover{
     text-decoration: none;
 
 }
+/* таблица отображения */
+#tableAllMaterialsForOrder tbody, #tableFildMaterialToAddToOrder tbody{
+    width: 500px;
+}
 /*выравнивание по вертикали*/
 .fontSizeMedium {
     font-size: medium;
