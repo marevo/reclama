@@ -1,0 +1,63 @@
+
+
+<div id="modalAddMaterialToOrder" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">добавляем материалы к заказу
+                <button class="close" data-dismiss="modal">закрыть</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" style="background-color: #c0c7d2;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                    <h3 class="text-center">таблица всех материалов что есть в базе</h3>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <div id="rezShowFormAddMaterialToOrder">результат зароса</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <table id="tableFildMaterialToAddToOrder"><!--таблица для показа всех материалов что есть в базе--></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="idInputNameMaterial">введите название материала</label>
+                            <input type="text"  name="inputNameMaterial" id="idInputNameMaterial" placeholder="название материала"/>
+                            <button name="buttonSearchNameMaterial" > искать </button>
+                        </div>
+                        <div class="col-lg-6" id="rezZaprosAddCountMaterial">
+                            результат запроса на сервер
+                        </div>
+                    </div>
+                    <div class="row" style="background-color: #2aabd2;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <h3>таблица найденных по запросу материалов что есть в базе</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <table id="tbSearchMaterialOnName"><!--таблица найденных по запросу материалов --></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                           </div><!--modal-body-->
+            <div class="modal-futer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >закрыть</button>
+            </div>
+        </div><!--modal content-->
+    </div><!--modal-dialog-->
+</div><!--modal-fade -->
+
+<script type="text/javascript" src="../js/addMaterialToOrder.js"> </script>
