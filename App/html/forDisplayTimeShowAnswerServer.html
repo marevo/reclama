@@ -1,0 +1,17 @@
+<!--структура для отображения времени и результатов запросов к серверу-->
+<div class="row forDisplayTimeShowAnswerServer">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 forDisplayTime text-center ">
+        сегодня: <div class="dateToday"></div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="rezZaprosaKServer" >
+        <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
+        <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> ошибка обратитесь к разработчику</span></div>
+        <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
+        <div class="divForAnswerServer"></div>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" id="rezShow"> что пришло с сервера</div>
+</div>
+<script text = "javascript" src ='../../js/ajax_post_get.js'></script>
+<script>
+    $('.dateToday').text(getDate());
+</script>
