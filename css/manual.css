@@ -1,0 +1,317 @@
+/*.highlight{
+    background-color: #2aabd2;
+}
+.highlight2{
+    background-color: #d0d299;
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+}*/
+.container{
+    /*border: #d21f12 solid 1px;*/
+    /*background-color: #d9534f;*/
+    height: 100vh;
+}
+.backForDiv{
+    /*background-color: #2aabd2;*/
+    /*border: #d0d299 solid 1px;*/
+}
+.divForTable {
+    overflow-y: auto;
+    /*width: 100%;*/
+}
+table{
+    /*table-layout: fixed;*/
+    width: 100% ;
+    /*text-align: center;*/
+}
+thead td {
+    background-color: #efefef;
+    padding: 10px;
+    /*text-align: start;*/
+}
+
+tbody td{
+   padding: 10px;
+}
+
+.header{
+    margin: auto;
+    /*line-height: 6rem;*/
+    border-radius: 1em;
+    background-color: #ffb335;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.header img{
+    height: 100px !important;
+    display: block;
+    /*padding-left: 30%;*/
+}
+.header span{
+    display: block;
+    margin-top: 2.2rem;
+    padding-top: -1rem;
+    font-size: 4.3rem;
+    background-color: #ffb335;
+}
+.header + div{
+    margin: 5px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 4em;
+    background-color:#d7d7c8;
+}
+
+.nav li a{
+    /*border-radius:2em;*/
+}
+.header li{
+    /*border-radius: 2rem;*/
+    /*background-color:#8bc34a;*/
+}
+body{
+    background-color: ghostwhite;
+    /*background-color: #99ccd2;*/
+    /*width: 1024px;*/
+   
+    /*overflow: auto;*/
+    /*padding:20px; */
+}
+
+.img-icon{
+    max-height: 16px;
+    vertical-align:top;
+    margin-right: 4px;
+}
+footer{
+    background-color: lavenderblush;
+    margin: 10px;
+}
+.forDisplayTimeShowAnswerServer {
+    background-color: #9db9d2;
+    height: 50px;
+    /*display: flex;*/
+    /*display: inline-flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.forDisplayTimeShowAnswerServer>div{
+    height: 100%;
+}
+.forDisplayTime {
+    background-color: #2aabd2;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+    flex-wrap: wrap;
+}
+.forDisplayTime div div{
+    /*background-color: #2844d2;*/
+    /*display: flex;*/
+    /*!*display: inline-flex;*!*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+article{
+    padding: 10px;
+    border: 1px solid burlywood;
+    border-radius: 1em;
+    background-color: #7fcfff;
+}
+article h1,h2,h4{
+    /*background-color: antiquewhite;*/
+    /*border-radius:1rem;*/
+}
+article li{
+     list-style-type: none ;
+     }
+
+article footer{
+    border-radius:1rem;
+       background-color: #d6d699;
+}
+/*подсветка кликнутой строки в таблице (в действительности <td> в строке tr*/
+.highLightTd{
+    background-color: #d6d3c6;
+}
+.textBold{
+    font-weight: bold;
+}
+/*viewAllOrders*/
+.orderNewRow{
+    background-color: #f9f1d7;
+}
+.orderNewCell{
+    background-color: #f9e5a9;
+}
+.orderSuccessRow{
+    background-color: #83dc83;
+
+}
+.orderSuccessCell{
+    background-color: #c4eb7c;
+
+}
+.orderNoSuccessRow{
+    background-color: #eba39d;
+}
+.orderNoSuccessCell{
+    background-color: #ebcccc;
+}
+
+#tableOneOrder thead td:last-child ,#tableOneOrder thead td:first-child{
+    min-width: 150px;
+    /*background-color: #cfe2f3;*/
+}
+#formOneOrder tr td:nth-child(even)  {
+    text-align: left;
+
+}
+#formOneOrder tr td:nth-child(odd) {
+    text-align: right;
+
+}
+/* viewOneOrder.php*/
+tr :nth-child(3){
+   /*min-width: 100px;*/
+}
+tbody tr :nth-child(3):hover{
+    cursor: pointer;
+}
+#rezShow{
+    background-color: #ff9792;
+    height: 100%;
+    min-width: 100px;
+}
+table a{
+    min-width: 100px;
+    display: block;
+    border: black 1px solid;
+    border-radius: 4px;
+    padding: 6px;
+    /*padding :5px 15px;*/
+    text-decoration: none;
+}
+table tbody a:hover{
+    cursor: pointer;
+}
+#rezZaprosaKServer{
+    /*height: 50px;*/
+    background-color: #9acfea;
+}
+            .uspeh,.noUspeh{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
+                   .uspeh span,.noUspeh span{
+                       vertical-align: middle;
+                   }
+                   .uspeh{
+                       background-color: #a0d454;
+                       /*font-size: large;*/
+                       min-height: 100%!important;
+                       display: none;
+                   }
+                   .noUspeh{
+                       background-color: #dca7a7;
+                       /*font-size: larger;*/
+                       display: none;
+                       min-height: 100%!important;
+                       border: #d21f12 solid 2px;
+                   }
+                   /* в этот элемент будут передаваться ответы сервера (script)*/
+                   .divForAnswerServer{
+                       /*display:none;*/
+                   }
+.forClear{
+    border: #d45554 1px solid;
+}
+/*модальное окно просмотра всех материалов в viewOneOrder.php*/
+#modalFade, #modalAddMaterialToOrder{
+    /*position: fixed;*/
+    /*z-index: 100;*/
+    top:0px;
+    left:0px;
+    height: 100%;
+    width: 100%;
+    /*background: #f9e2ff;*/
+    box-shadow: 0 0 3px #000;
+    display: none;
+    overflow: auto;
+}
+.modal-dialog {
+    width: 100%;
+}
+
+.modal-content{
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+#modalFade table a{
+    min-width: 100px;
+    display: block;
+    border: black 1px solid;
+    border-radius: 4px;
+    padding: 6px;
+    /*padding :5px 15px;*/
+    text-decoration: none;
+
+}
+/*выравнивание по вертикали*/
+.fontSizeMedium {
+    font-size: medium;
+}
+/*при наведении на header таблцы данных заказа */
+#tableOneOrder thead td:last-child{
+    cursor: pointer;
+    background-color: #a5c6d2;
+}
+#tableOneOrder thead td:last-child:hover{
+    cursor: pointer;
+    background-color: #2aabd2;
+}
+.inputToControle{
+    background-color: #efefef;
+}
+
+#rezShowModal:before,.rezDeleteTr:before{
+    display: block;
+    content: 'результат запроса';
+    /*border:1px solid red;*/
+background-color: #337ab7;
+    color:#f1fdff;
+    padding: 4px;
+    /*min-height: 30px;*/
+}
+/*цвет подсказки */
+.backgroundAlertRed{
+    background-color: #c78187;
+    border: 1px solid darkred;
+}
+/* /viewOneOrder.php*/
+/*viewAllOrders*/
+#viewAllOrdersModal .modal-dialog{
+    width: 400px!important;
+}
+.viewTrashedOrders{
+    border: 1px solid black;
+    background-color: #5bc0de;
+    border-radius: 5px;
+    max-width: 100px;
+    min-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.viewTrashedOrders:hover{
+    cursor:pointer;
+}
+.rowSearch{
+    background-color: #cdccd2;
+}
+/*/viewAllOrders*/
