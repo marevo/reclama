@@ -36,7 +36,20 @@ require '../autoload.php';
             </div>
                 <?php
                 //найдем все материалы и отобразим их через таблицу через трэйт FastViewTable.php
-                echo \App\Models\Material::showAllFromTable('tableMaterials', \App\Models\Material::findAll());
+//                echo \App\Models\Material::showAllFromTable('tableMaterials', \App\Models\Material::findAll());
+//                найдем все материалы с названиями поставщиков
+                $allMaterialsInBase = \App\Models\Material::selectForView();
+                if(! empty ($allMaterialsInBase)){
+                    $tableAllMat = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td>id поставщика</td><td>поставщик</td><td>править</td><td>удалить</td></tr></thead><tbody>";
+                    foreach ($allMaterialsInBase as $item){
+                        $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[id_suppliers]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'>править</a></td><td>удалить</td></tr>";
+                    }
+                    $tableAllMat .= "</tbody></table>";
+                }
+                else{
+                    $tableAllMat = "пока ничего нет (";
+                }
+                echo "$tableAllMat";
                 ?>
             </div>
         </div>

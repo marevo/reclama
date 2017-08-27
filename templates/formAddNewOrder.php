@@ -136,6 +136,9 @@ showLi('создать заказ')
             этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
         </div>
         <div class="col-lg-10 backForDiv">
+            <!--строка показа времени и показа результата добавки материала в базу  -->
+            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
+
             <div class="row"><!--форма добавки заказа-->
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bg-primary  h2 text-center text-info">добавление заказа</div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center " id="rezShow">результат добавления </div>
