@@ -17,7 +17,27 @@
     /*border: #d0d299 solid 1px;*/
 }
 .divForTable {
-    overflow-y: auto;
+    overflow: auto;
+    max-height: 400px;
+    /*width: 100%;*/
+}
+thead{
+    /*width: 100%;*/
+    /*position: fixed;*/
+    /*margin-bottom: -50px!important;*/
+    /*margin-top: -50px!important;*/
+}
+tbody{
+    /*position: fixed;*/
+    /*margin-bottom: -50px!important;*/
+    /*margin-top: -50px!important;*/
+    /*margin-bottom: 50px;*/
+}
+tbody tr:first-child{
+    /*margin-top: -50px;*/
+    /*margin-bottom: 50px;*/
+    /*overflow: auto;*/
+    /*max-height: 300px;!important;*/
     /*width: 100%;*/
 }
 table{
@@ -195,6 +215,7 @@ table a{
     /*padding :5px 15px;*/
     text-decoration: none;
 }
+
 table tbody a:hover{
     cursor: pointer;
 }
@@ -319,3 +340,39 @@ background-color: #337ab7;
     background-color: #cdccd2;
 }
 /*/viewAllOrders*/
+
+#tableMaterials{
+    overflow-y: scroll;
+    max-height: 700px;
+}
+
+/*formAddNewMaterialsToBase.php*/
+.headingContent{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+/*background-color: #2aabd2;*/
+}
+             .headingContent div:first-child{
+                 /*display: flex;*/
+                 font-size: large;
+             }
+.a_displayBlock{
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 4px;
+    text-decoration: none;
+    /*max-width: 60%;*/
+    display: flex;
+    align-items: center;
+}
+.a_displayBlock:hover{
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #2aabd2;
+}
+.a_displayBlock span{
+    /*display: block;*/
+}
+/*/formAddNewMaterialsToBase.php*/

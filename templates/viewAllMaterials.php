@@ -27,12 +27,12 @@ require '../autoload.php';
                 этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
             </div>
             <!--            конец доп блока слева-->
-            <div class="col-lg-10 backForDiv divForTable">
+            <div class="col-lg-10 backForDiv">
             <!--строка показа времени и показа результата добавки материала в базу  -->
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
-            <div class="row">
-                <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">все материалы что есть в базе материалов</div>
-
+            <div class="row headingContent">
+                <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>
             </div>
                 <?php
                 //найдем все материалы и отобразим их через таблицу через трэйт FastViewTable.php
