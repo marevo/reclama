@@ -33,6 +33,26 @@ class Material extends ModelLikeTable
             return false;
         }
     }
-   
+
+    public static function selectForView( ){
+        //запрос заказов, клиентов, суммы оплаты с группировкой заказам
+        $queryNew = "SELECT  m.id  , m.name, m.addCharacteristic, m.measure, m.deliveryForm, m.priceForMeasure, m.id_suppliers as idSupplier, s.name AS nameSupplier 
+                     FROM materials AS m, suppliers AS s
+                     WHERE m.id_suppliers = s.id 
+                     GROUP BY m.name
+                     ORDER BY m.name ;
+                  ";
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($queryNew);
+        $res = $sth->execute();
+        if(false != $res) {
+//            var_dump('<br>должен быть результат вызова в  function query in Db.php<br>');
+            return $sth->fetchAll();
+        }
+        else{
+//            var_dump('<br>последняя строка в результата нет !!! function query in Db.php<br>');
+            return false;
+        }
+    }
 
 }
