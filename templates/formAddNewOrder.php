@@ -29,12 +29,8 @@ function insertNewOrder()
             if (\App\Models\Order::isAllowNameOrder($nameOrder) == false) {
                 $orNew->name = $nameOrder;
                 echo 'заказа с именем '.$orNew->name.' нет, а значит  сможем добавить заказ </br>';
-            } else echo "
- <script>
-     $('#rezShow').text('есть такое имя заказа поменяйте на другое иначе вы не сможете создать заказ</br> ' +
-      'нельзя создавать заказы с одинаковыми названиями');                           
-</script>
-                            ";
+            }
+            else echo "<script>$('#rezShow').text('есть такое имя заказа поменяйте на другое иначе вы не сможете создать заказ</br> нельзя создавать заказы с одинаковыми названиями');</script>";
         }
         if (isset($_POST['descriptionOrder'])) {
             $descriptionOrder =trim( htmlspecialchars($_POST['descriptionOrder']));

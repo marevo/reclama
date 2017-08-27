@@ -28,24 +28,19 @@ require '../autoload.php';
             </div>
             <!--            конец доп блока слева-->
             <div class="col-lg-10 backForDiv divForTable">
+            <!--строка показа времени и показа результата добавки материала в базу  -->
+            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
+            <div class="row">
+                <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">все материалы что есть в базе материалов</div>
+
+            </div>
                 <?php
                 //найдем все материалы и отобразим их через таблицу через трэйт FastViewTable.php
                 echo \App\Models\Material::showAllFromTable('tableMaterials', \App\Models\Material::findAll());
                 ?>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-10">
-                <div class="row">
-                    <col class="lg-12 text-center"> материалы поставщики по имени и ссылка поставщика</div>
-                <div class="row">
-                    <div class="col-lg-12">
 
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
     </body>
