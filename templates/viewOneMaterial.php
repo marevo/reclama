@@ -52,7 +52,7 @@ foreach ($allSuppliers as $item){
                 <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
                 <div class="row headingContent">
                     <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">правка материала <?php echo $mat->name;?></div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><button id="btnUpdateShow"  >править</button></div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><button id="btnUpdateShow" > обновить </button></div>
 
                 </div>
                 <div class="row">
@@ -68,8 +68,8 @@ foreach ($allSuppliers as $item){
                             </thead>
                             <tbody>
                             <tr style="display: none;"><td>id</td><td><?php echo $mat->id ?></td><td id="idMaterial" class="formMaterial"><input  name="id" type="text" value="<?php echo $mat->id ?>"/></td></tr>
-                            <tr><td>название</td><td><?php echo $mat->name ?></td><td class="formMaterial"><input name="name" type="text" maxlength="200" le value="<?php echo $mat->name ?>"/></td></tr>
-                            <tr><td>дополнительные сведения</td><td><?php echo $mat->addCharacteristic ?></td><td class="formMaterial"><input maxlength="200" name="addCharacteristic" type="text" value="<?php echo $mat->addCharacteristic ?>"/></td></tr>
+                            <tr><td>название</td><td><?php echo $mat->name ?></td><td class="formMaterial"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $mat->name ?>" value="<?php echo $mat->name ?>"/></td></tr>
+                            <tr><td>дополнительные сведения</td><td><?php echo $mat->addCharacteristic ?></td><td class="formMaterial"><input maxlength="200" size="55" name="addCharacteristic" title="<?php echo $mat->addCharacteristic ?>" type="text" value="<?php echo $mat->addCharacteristic ?>"/></td></tr>
                             <tr><td>единица измерения</td><td><?php echo $mat->measure ?></td><td class="formMaterial"><input name="measure" maxlength="50" type="text" value="<?php echo $mat->measure ?>"/></td></tr>
                             <tr><td>форма поставки</td><td><?php echo $mat->deliveryForm ?></td><td class="formMaterial"><input pattern="\d{1,4}(\.)?\d{1,2}" name="deliveryForm" type="text" value="<?php echo $mat->deliveryForm ?>"/></td></tr>
                             <tr><td>цена за единицу</td><td><?php echo $mat->priceForMeasure ?></td><td class="formMaterial"><input pattern="\d{1,4}(\.)?\d{1,2}" name="priceForMeasure" type="text" value="<?php echo $mat->priceForMeasure ?>"/></td></tr>

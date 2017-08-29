@@ -218,6 +218,7 @@ table a{
 
 table tbody a:hover{
     cursor: pointer;
+    text-decoration: none;
 }
 #rezZaprosaKServer{
     /*height: 50px;*/
@@ -351,6 +352,7 @@ background-color: #337ab7;
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color: #f9f1d7;
 /*background-color: #2aabd2;*/
 }
              .headingContent div:first-child{
@@ -376,3 +378,10 @@ background-color: #337ab7;
     /*display: block;*/
 }
 /*/formAddNewMaterialsToBase.php*/
+.formMaterial {
+    /*display: block;*/
+    /*visibility: hidden;*/
+    /*visibility: visible;*/
+    /*opacity: 1;*/
+
+}
