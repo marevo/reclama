@@ -6,7 +6,6 @@
  * Time: 23:17
  */
 require '../autoload.php';
-$IDORDER = 0;
 if(isset($_GET['id'])){
 //    если передали id значит работаем с ним иначе будем брать в else по умолчанию id=1
     $idMaterial = intval($_GET['id']);
@@ -24,7 +23,7 @@ foreach ($allSuppliers as $item){
 ?>
     <!DOCTYPE HTML>
     <html>
-
+<title> просмотр/правка данных материала </title>
     <?php
     require_once('../head.html');
     ?>
@@ -34,11 +33,10 @@ foreach ($allSuppliers as $item){
             <?php require_once('header.html'); ?>
         </div>
         <div class="row"><!-- навигация -->
-            <?php include('../navigation.html');?>
+            <?php require_once('../navigation.html');?>
             <script>
                 showLi('материал');
             </script>
-
             <!-- конец навигации -->
         </div>
         <div class="row">

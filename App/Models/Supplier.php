@@ -46,4 +46,35 @@ class Supplier extends ModelLikeTable
 //        var_dump($res);
         return $res;
     }
+
+    public function getDeliveryDays(){
+        switch ($this->deliveryDay){
+            case 1:
+                $delDays = 'понедельник';
+                break;
+            case 2:
+                $delDays = 'вторник';
+                break;
+            case 3:
+                $delDays = 'среда';
+                break;
+            case 4:
+                $delDays = 'четверг';
+                break;
+            case 5:
+                $delDays = 'пятница';
+                break;
+            case 6:
+                $delDays = 'все рабочие дни';
+                break;
+            case 7:
+                $delDays = 'всю дни недели';
+                break;
+            default :
+                $delDays = 'не установлено';
+                break;
+        }
+        return $delDays;
+    }
+
 }

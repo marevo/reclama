@@ -38,7 +38,7 @@ $allSuppliersInBase = \App\Models\Supplier::findAll();
 if(! empty ($allSuppliersInBase)){
     $tableAllSupp = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>контакт</td><td>телефон</td><td>email</td><td>адрес поставщика</td><td>день доставки</td><td>сайте</td><td><span class='glyphicon glyphicon-eye-open'></span></td><td><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
     foreach ($allSuppliersInBase as $item){
-        $tableAllSupp .= "<tr><td>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td>$item->contactPerson</td><td>$item->phone0</td><td>$item->email0</td><td>$item->address</td><td>$item->deliveryDay</td><td><a href='$item->site' target='_blank'>$item->site</a></td><td><a href='viewOneSupplier.php?id=$item->id'>править</a></td><td>удалить</td></tr>";
+        $tableAllSupp .= "<tr><td>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td>$item->contactPerson</td><td>$item->phone0</td><td>$item->email0</td><td>$item->address</td><td> ".$item->getDeliveryDays()." </td><td><a href='$item->site' target='_blank'>$item->site</a></td><td><a href='viewOneSupplier.php?id=$item->id'>править</a></td><td>удалить</td></tr>";
     }
     $tableAllSupp .= "</tbody></table>";
 }
