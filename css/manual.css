@@ -16,6 +16,7 @@
     /*background-color: #2aabd2;*/
     /*border: #d0d299 solid 1px;*/
 }
+/* класс позволяет ограничить размер высоты и ширины таблицы для удобства просмотра таблиц что имеют большую ширину и высоту*/
 .divForTable {
     overflow: auto;
     max-height: 400px;
@@ -186,6 +187,10 @@ article footer{
     min-width: 150px;
     /*background-color: #cfe2f3;*/
 }
+#table_Orders {
+    padding-left: 0;
+    padding-right: 0;
+}
 #formOneOrder tr td:nth-child(even)  {
     text-align: left;
 
@@ -207,9 +212,9 @@ tbody tr :nth-child(3):hover{
     min-width: 100px;
 }
 table a{
-    min-width: 100px;
+    /*min-width: 100px;*/
     display: block;
-    border: black 1px solid;
+    /*border: black 1px solid;*/
     border-radius: 4px;
     padding: 6px;
     /*padding :5px 15px;*/
@@ -383,5 +388,23 @@ background-color: #337ab7;
     /*visibility: hidden;*/
     /*visibility: visible;*/
     /*opacity: 1;*/
+}
+/*viewAllMaterials.php*/
+
+#tbViewAllMaterials tbody td span{
+/*#tbViewAllMaterials tbody td:last-child span, .iconInTd{*/
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    /*max-width: 20px!important;*/
+}
+#tbViewAllMaterials tbody a{
+    display: block;
+    /*border: black 1px solid;*/
+    border-radius: 4px;
+    text-decoration: none;
 
 }
+
+/*/viewAllMaterials.php*/

@@ -43,21 +43,21 @@ require '../autoload.php';
                         //                найдем все материалы с названиями поставщиков
                         $allMaterialsInBase = \App\Models\Material::selectForView();
                         if(! empty ($allMaterialsInBase)){
-                            $tableAllMat = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td>id поставщика</td><td>поставщик</td><td>править</td><td>удалить</td></tr></thead><tbody>";
+                            $tableAllMat = "<table id ='tbViewAllMaterials'><thead><tr><td style='display: none;'>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td style='display: none;'>id поставщика</td><td>поставщик</td><td><span class='glyphicon glyphicon-edit'></span></td><td><span class=\"glyphicon glyphicon-trash\"></span></td></tr></thead><tbody>";
                             foreach ($allMaterialsInBase as $item){
 //                                получим не false если есть этот материал хотябы в одном заказе
                                 $ifExistOrderWithIdMaterial = \App\Models\MaterialsToOrder::ifExistThisMaterialInAnyOneOrder($item[id]);
-                                if($ifExistOrderWithIdMaterial )
-                                   echo "<br/> c idMaterials = $item[id] есть заказы )";
-                                else
-                                    echo "<br/>   c idMaterials = $item[id] нет  заказов ";
+//                                if($ifExistOrderWithIdMaterial )
+//                                   echo "<br/> c idMaterials = $item[id] есть заказы )";
+//                                else
+//                                    echo "<br/>   c idMaterials = $item[id] нет  заказов ";
 
                                 if($ifExistOrderWithIdMaterial){
-                                    $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td>нельзя править</td><td>нельзя удалять</td></tr>";
+                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td></td><td></td></tr>";
                                 }
                                 else{
-                                    //получили false на запрос естьи данный материал хотябы в одном заказе
-                                    $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'>править</a></td><td>удалить</td></tr>";
+                                    //получили false на запрос значит в заказах не используется это материал вствавим иконку удаления
+                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'><span class='glyphicon glyphicon-edit'></span></a></td><td data-id='$item[id]'><span class=\"glyphicon glyphicon-trash\"></span></td></tr>";
                                 }
                             }
                             $tableAllMat .= "</tbody></table>";
