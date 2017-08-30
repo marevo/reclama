@@ -57,13 +57,13 @@ class MaterialsToOrder extends ModelLikeTable
     }
 //    нахождение всех id материалов что есть в заказе
     public static function ifExistThisMaterialInAnyOneOrder(int $idMaterial){
-        $query = "SELECT  DISTINCT  idOrder FROM ".static ::TABLE." WHERE idMaterials = '$idMaterial';";
-//        echo " <br/> $query    ";
+        $query = "SELECT  idOrder FROM ".static ::TABLE." WHERE idMaterials = '$idMaterial';";
+        echo " <br/> $query    ";
         $db = new Db();
         $sth = $db->get_dbh()->prepare($query);
         $res = $sth->execute();
         if(false != $res)
-            return true;
+            return $sth->fetchAll();
         else
             return false;
     }

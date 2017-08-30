@@ -47,14 +47,16 @@ require '../autoload.php';
                             foreach ($allMaterialsInBase as $item){
 //                                получим не false если есть этот материал хотябы в одном заказе
                                 $ifExistOrderWithIdMaterial = \App\Models\MaterialsToOrder::ifExistThisMaterialInAnyOneOrder($item[id]);
-//                                if(false != $ifExistOrderWithIdMaterial )
-//                                  echo "<br/> c idMaterials = $item[id] есть заказы )";
-//                                else echo "<br/>   c idMaterials = $item[id] нет  заказов ";
+                                if($ifExistOrderWithIdMaterial )
+                                   echo "<br/> c idMaterials = $item[id] есть заказы )";
+                                else
+                                    echo "<br/>   c idMaterials = $item[id] нет  заказов ";
 
-                                if(false != $ifExistOrderWithIdMaterial){
+                                if($ifExistOrderWithIdMaterial){
                                     $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td>нельзя править</td><td>нельзя удалять</td></tr>";
                                 }
                                 else{
+                                    //получили false на запрос естьи данный материал хотябы в одном заказе
                                     $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'>править</a></td><td>удалить</td></tr>";
                                 }
                             }
