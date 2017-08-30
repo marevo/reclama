@@ -1,20 +1,17 @@
 <?php
-//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.html
+//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.php
 require '../autoload.php';
 ?>
 <!DOCTYPE HTML>
 <html>
-<?php include('../head.html');?>
+<?php include ('../head.php');?>
 <body>
 <div class="container">
     <div class="row">
-        <?php require_once('header.html'); ?>
+        <?php require_once('header.php'); ?>
     </div>
     <div class="row"><!-- навигация -->
-       <?php include('../navigation.html');?>
-        <script>
-            showLi('материалы');
-        </script>
+       <?php include ('../navigation.php');?>
     </div>
     <div class="row">
         <div class="col-lg-2 backForDiv">

@@ -1,25 +1,7 @@
 <?php
-//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.html
+//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.php
 require '../autoload.php';
 ?>
-    <!DOCTYPE HTML>
-    <html>
-    <?php
-    //подключим head.html
-    require_once('../head.html');
-    ?>
-    <body>
-    <div class="container">
-        <div class="row">
-            <?php require_once('header.html'); ?>
-        </div>
-        <div class="row"><!-- навигация -->
-            <?php require('../navigation.html'); ?>
-            <script>
-                showLi('контакты');
-            </script>
-
-        </div>
         <div class="row">
             <div class="col-lg-2 backForDiv">
                 этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
@@ -56,9 +38,7 @@ require '../autoload.php';
             </div>
         </div>
 
-    </div>
-    </body>
-    </html>
+    
 <?php
 //$allSuppliers = \App\Models\Supplier::getAllSuppliers();
 //

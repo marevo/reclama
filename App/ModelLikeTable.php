@@ -25,7 +25,6 @@ abstract class ModelLikeTable
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;
     }
-    
     public static function getAllField(){
         echo 'вызов полей идет из класса '.get_called_class();
 //        echo Нужно отметить, что для большего удобства в PHP кроме слова «static» есть еще специальная функция get_called_class(), которая сообщит вам — в контексте какого класса в данный момент работает ваш код.
@@ -94,7 +93,7 @@ abstract class ModelLikeTable
             $columns[] = $k;
             $values[':'.$k] = $v;
         }
-//        var_dump($columns);
+        //var_dump($columns);
 //        var_dump($values);
 //         echo '<br>вызов из класса '.static::class.' передался в класс '.self::class .'<br>';
         $sqlQeryInsert = 'INSERT INTO '.static::TABLE. '('.implode(',',$columns ).') VALUES('.implode(',',array_keys($values)).');';
@@ -137,35 +136,11 @@ abstract class ModelLikeTable
         return false;
     }
 
-    
-    //поиск по  подобному назаванию в любой таблице (естественно должно быть поле name
-    public static function searchAllForLikeName(string $likeName){
-        $db = new Db();
-        $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeName."%';";
-        $res = $db->query($query ,static::class );
-//        var_dump('<br>$res = '.$res.'<br>');
-        return $res;
-
-    }
-
     /**
      * @param int $_id
      * @return bool if delete in table return true else return false
      */
     public function delete(int $_id){
-        if($_id< 1)
-            return false;
-        $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;
-        $db = new  Db();
-        $res = $db->execute($queryStrDelete,NULL);
-        return $res;
-    }
-
-    /**
-     * @param int $_id
-     * @return bool if delete in table return true else return false
-     */
-    public static function deleteObj(int $_id){
         if($_id< 1)
             return false;
         $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;

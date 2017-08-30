@@ -20,53 +20,28 @@
 <!--    <script type="text/javascript" src="js/ajax_post_get.js"></script>-->
 <!--</head>-->
 <?php
-      require_once('./head.html');
+      require_once ('./head.php');
 //так работает
-//   require_once ("$_SERVER[DOCUMENT_ROOT]/head.html");
+//   require_once ("$_SERVER[DOCUMENT_ROOT]/head.php");
 ?>
 <body>
 
-<div class="container">
+<div class="wrapper">
     <div class="row">
         <!--        подтянем header сайта если мы его помещаем в контейнер, то навигация становится на всю ширину-->
         <!-- относительно точки входа index.php !-->
-        <?php require_once('./templates/header.html'); ?>
+        <?php require_once ('./templates/header.php'); ?>
     </div>
-    <div class="row">
+    <div class="middle">
         <!--    подтянем menu сайта почему оно идет по всей ширире ? по идее это все в контейнере должно быть на ширину рисунка header.php-->
-        <?php require_once('./navigation.html'); ?>
-<script>
-    showLi('Home');
-</script>
-    </div>
-    <div class="row">
-        <div class="col-lg-2">
-            <div class="row">
-                <div class="col-lg-6 text-center">
-                    <div class="row">
-                        <div class="col-lg-12"> статус: admin/user</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">имя пользователя/ник</div>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center"> </div>
-            </div>
-        </div>
-        <div class="col-lg-10">
-<?php require_once ('App/html/forDisplayTimeShowAnswerServer.html');?>
+        <?php require_once ('./navigation.php'); ?>
+<div class="footer">
+            <div> статус: admin/user<br>имя пользователя/ник</div>      
         </div>
     </div>
-<!--    <div id="cartMenu" class="row highligh2">это просто для проверки  загрузки таблицы</div>-->
-<!--    <script type="text/javascript">-->
-<!--        $('cartMenu').load('./templates/userCRUDForm.php');-->
-<!--    </script>-->
-    <?php
-
-    ?>
+    
+          
 </div>
 </body>
-
 </html>
 

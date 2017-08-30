@@ -1,33 +1,10 @@
 <?php
-//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.html
+//можем здесь писать если просто вывод или пока что при подключении будет autoload.php в head.php
 require '../autoload.php';
 ////       echo get_called_class();
 ////        echo Нужно отметить, что для большего удобства в PHP кроме слова «static» есть еще специальная функция get_called_class(), которая сообщит вам — в контексте какого класса в данный момент работает ваш код.
 ?>
-<!DOCTYPE HTML>
- <html>
-    <?php
-       include('../head.html');
-    ?>
-    <body>
-    <div class="container">
-        <div class="row">
-            <?php require_once('header.html'); ?>
-        </div>
-<!--        добавление панели навигации-->
-        <div class="row"><!-- навигация -->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <?php
-//                     include ('/E:/OpenServer/domains/reclama/navigation.html');
-                     require_once('../navigation.html');
-                ?>
-                <script>
-                    showLi('клиенты');
-                </script>
-
-            </div>
-            <!-- конец навигации -->
-        </div>
+    
         <div class="row">
             <!--            начало доп блока слева-->
             <div class="col-lg-2 backForDiv">
@@ -42,10 +19,7 @@ require '../autoload.php';
                 ?>
             </div>
         </div>
-
-    </div>
-    </body>
-    </html>
+    
 <?php
 
 

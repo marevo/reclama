@@ -7,43 +7,95 @@
     height: 600px;
     overflow: auto;
 }*/
-.container{
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+/*#navbarCollapse{
+	max-width: 250px;
+	max-height: 1300px;
+	display: flex;
+	/*background-color: green;
+	flex-direction: column;
+	margin-top: 0px;
+	position: absolute;
+}
+#main_modul{
+	max-width: 750px;
+	max-height: 1300px;
+	/*background-color: red;
+	position: relative;
+	left: 200px;
+	margin-top: 0px;
+	margin-left: 50px;
+}
+/*#row{
+	margin: 0px;
+	margin-top: 160px;
+	text-align: center;
+}*/
+.wrapper{
     /*border: #d21f12 solid 1px;*/
-    /*background-color: #d9534f;*/
-    height: 100vh;
+   /* background-color: #04B486;*/
+	min-width: 200px;
+	max-width: 1024px;
+	margin: 0 auto;
 }
 .backForDiv{
     /*background-color: #2aabd2;*/
     /*border: #d0d299 solid 1px;*/
 }
-/* класс позволяет ограничить размер высоты и ширины таблицы для удобства просмотра таблиц что имеют большую ширину и высоту*/
 .divForTable {
-    overflow: auto;
-    max-height: 400px;
-    /*width: 100%;*/
-}
-thead{
-    /*width: 100%;*/
-    /*position: fixed;*/
-    /*margin-bottom: -50px!important;*/
-    /*margin-top: -50px!important;*/
-}
-tbody{
-    /*position: fixed;*/
-    /*margin-bottom: -50px!important;*/
-    /*margin-top: -50px!important;*/
-    /*margin-bottom: 50px;*/
-}
-tbody tr:first-child{
-    /*margin-top: -50px;*/
-    /*margin-bottom: 50px;*/
-    /*overflow: auto;*/
-    /*max-height: 300px;!important;*/
+    overflow-y: auto;
     /*width: 100%;*/
 }
 table{
     /*table-layout: fixed;*/
-    width: 100% ;
+    /*width: 100% ;
     /*text-align: center;*/
 }
 thead td {
@@ -55,21 +107,66 @@ thead td {
 tbody td{
    padding: 10px;
 }
-
-.header{
-    margin: auto;
-    /*line-height: 6rem;*/
-    border-radius: 1em;
-    background-color: #ffb335;
+ li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+   a{
+	   color: white;
+   }
+#header{
+   /* margin: auto;
+    line-height: 6rem;*/
+    /*border-radius: 1em;*/
+	position: relative;
+    background-color: #04B486;
+	/*width: 1024px;*/
+    height: 100px;
     /*display: flex;*/
     /*justify-content: center;*/
     /*align-items: center;*/
 }
+.middle {
+	width: 100%;
+	position: relative;
+}
+.middle:after {
+	display: table;
+	clear: both;
+	content: '';
+}
+.container {
+	/*position: relative;*/
+	width: 100%;
+	float: left;
+	overflow: hidden;
+}
+img{
+	float: left;
+}
+#exit {
+	position: absolute;
+	top: 20%;
+	left: 90%;
+	z-index: 10;
+}
+#main_modul {
+	padding: 0 0 0 250px;
+}
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+.left-sidebar {
+	float: left;
+	width: 250px;
+	margin-left: -15px;
+	position: relative;
+	background: #04B486;
+	text-align: center; 
+}
 
-.header img{
+/*.header img{
     height: 100px !important;
     display: block;
-    /*padding-left: 30%;*/
+    /*padding-left: 30%;
 }
 .header span{
     display: block;
@@ -94,7 +191,8 @@ tbody td{
     /*background-color:#8bc34a;*/
 }
 body{
-    background-color: ghostwhite;
+    /*background-color: ghostwhite;*/
+	font: 14px/20px Arial, sans-serif;
     /*background-color: #99ccd2;*/
     /*width: 1024px;*/
    
@@ -107,44 +205,28 @@ body{
     vertical-align:top;
     margin-right: 4px;
 }
-footer{
-    background-color: lavenderblush;
-    margin: 10px;
+.footer{
+	position: relative;
+    height: 100px;
+	margin-left: -15px;
+	background: #04B486;
+	/*text-align: center;*/
 }
-.forDisplayTimeShowAnswerServer {
-    background-color: #9db9d2;
-    height: 50px;
-    /*display: flex;*/
-    /*display: inline-flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+.footer div{
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.forDisplayTimeShowAnswerServer>div{
-    height: 100%;
-}
-.forDisplayTime {
-    background-color: #2aabd2;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.25em;
-    flex-wrap: wrap;
-}
-.forDisplayTime div div{
-    /*background-color: #2844d2;*/
-    /*display: flex;*/
-    /*!*display: inline-flex;*!*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-}
-article{
+/*article{
     padding: 10px;
     border: 1px solid burlywood;
     border-radius: 1em;
     background-color: #7fcfff;
 }
 article h1,h2,h4{
-    /*background-color: antiquewhite;*/
-    /*border-radius:1rem;*/
+    background-color: antiquewhite;
+    border-radius:1rem;
 }
 article li{
      list-style-type: none ;
@@ -154,9 +236,9 @@ article footer{
     border-radius:1rem;
        background-color: #d6d699;
 }
-/*подсветка кликнутой строки в таблице (в действительности <td> в строке tr*/
+/*подсветка кликнутой строки в таблице*/
 .highLightTd{
-    background-color: #d6d3c6;
+    background-color: #d6d699;
 }
 .textBold{
     font-weight: bold;
@@ -183,13 +265,8 @@ article footer{
     background-color: #ebcccc;
 }
 
-#tableOneOrder thead td:last-child ,#tableOneOrder thead td:first-child{
-    min-width: 150px;
+#tableOneOrder{
     /*background-color: #cfe2f3;*/
-}
-#table_Orders {
-    padding-left: 0;
-    padding-right: 0;
 }
 #formOneOrder tr td:nth-child(even)  {
     text-align: left;
@@ -201,85 +278,13 @@ article footer{
 }
 /* viewOneOrder.php*/
 tr :nth-child(3){
-   /*min-width: 100px;*/
+   min-width: 100px;
 }
 tbody tr :nth-child(3):hover{
     cursor: pointer;
 }
-#rezShow{
-    background-color: #ff9792;
-    height: 100%;
-    min-width: 100px;
-}
-table a{
-    /*min-width: 100px;*/
-    display: block;
-    /*border: black 1px solid;*/
-    border-radius: 4px;
-    padding: 6px;
-    /*padding :5px 15px;*/
-    text-decoration: none;
-}
 
-table tbody a:hover{
-    cursor: pointer;
-    text-decoration: none;
-}
-#rezZaprosaKServer{
-    /*height: 50px;*/
-    background-color: #9acfea;
-}
-            .uspeh,.noUspeh{
-                display:flex;
-                align-items: center;
-                justify-content: center;
-            }
-                   .uspeh span,.noUspeh span{
-                       vertical-align: middle;
-                   }
-                   .uspeh{
-                       background-color: #a0d454;
-                       /*font-size: large;*/
-                       min-height: 100%!important;
-                       display: none;
-                   }
-                   .noUspeh{
-                       background-color: #dca7a7;
-                       /*font-size: larger;*/
-                       display: none;
-                       min-height: 100%!important;
-                       border: #d21f12 solid 2px;
-                   }
-                   /* в этот элемент будут передаваться ответы сервера (script)*/
-                   .divForAnswerServer{
-                       /*display:none;*/
-                   }
-.forClear{
-    border: #d45554 1px solid;
-}
-/*модальное окно просмотра всех материалов в viewOneOrder.php*/
-#modalFade, #modalAddMaterialToOrder{
-    /*position: fixed;*/
-    /*z-index: 100;*/
-    top:0px;
-    left:0px;
-    height: 100%;
-    width: 100%;
-    /*background: #f9e2ff;*/
-    box-shadow: 0 0 3px #000;
-    display: none;
-    overflow: auto;
-}
-.modal-dialog {
-    width: 100%;
-}
-
-.modal-content{
-    overflow-y: auto;
-    overflow-x: auto;
-}
-
-#modalFade table a{
+/*table a{
     min-width: 100px;
     display: block;
     border: black 1px solid;
@@ -287,124 +292,36 @@ table tbody a:hover{
     padding: 6px;
     /*padding :5px 15px;*/
     text-decoration: none;
-
+}*/
+#rezZaprosaKServer{
+    height: 50px;
 }
-/* таблица отображения */
-#tableAllMaterialsForOrder tbody, #tableFildMaterialToAddToOrder tbody{
-    width: 500px;
-}
-/*выравнивание по вертикали*/
-.fontSizeMedium {
-    font-size: medium;
-}
-/*при наведении на header таблцы данных заказа */
-#tableOneOrder thead td:last-child{
-    cursor: pointer;
-    background-color: #a5c6d2;
-}
-#tableOneOrder thead td:last-child:hover{
-    cursor: pointer;
-    background-color: #2aabd2;
-}
-.inputToControle{
-    background-color: #efefef;
-}
-
-#rezShowModal:before,.rezDeleteTr:before{
-    display: block;
-    content: 'результат запроса';
-    /*border:1px solid red;*/
-background-color: #337ab7;
-    color:#f1fdff;
-    padding: 4px;
-    /*min-height: 30px;*/
-}
-/*цвет подсказки */
-.backgroundAlertRed{
-    background-color: #c78187;
-    border: 1px solid darkred;
+                   .uspeh span,.noUspeh span{
+                       vertical-align: middle;
+                   }
+                   .uspeh{
+                       background-color: #a0d454;
+                       font-size: large;
+                       min-height: 100%!important;
+                       display: none;
+                   }
+                   .noUspeh{
+                       background-color: #dca7a7;
+                       font-size: larger;
+                       display: none;
+                       min-height: 100%!important;
+                       border: #d21f12 solid 2px;
+                   }
+.forClear{
+    border: #d45554 1px solid;
 }
 /* /viewOneOrder.php*/
-/*viewAllOrders*/
-#viewAllOrdersModal .modal-dialog{
-    width: 400px!important;
-}
-.viewTrashedOrders{
-    border: 1px solid black;
-    background-color: #5bc0de;
-    border-radius: 5px;
-    max-width: 100px;
-    min-height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.viewTrashedOrders:hover{
-    cursor:pointer;
-}
-.rowSearch{
-    background-color: #cdccd2;
-}
-/*/viewAllOrders*/
-
-#tableMaterials{
-    overflow-y: scroll;
-    max-height: 700px;
-}
-
-/*formAddNewMaterialsToBase.php*/
-.headingContent{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f1d7;
-/*background-color: #2aabd2;*/
-}
-             .headingContent div:first-child{
-                 /*display: flex;*/
-                 font-size: large;
-             }
-.a_displayBlock{
-    display: block;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 4px;
-    text-decoration: none;
-    /*max-width: 60%;*/
-    display: flex;
-    align-items: center;
-}
-.a_displayBlock:hover{
-    text-decoration: none;
-    cursor: pointer;
-    background-color: #2aabd2;
-}
-.a_displayBlock span{
-    /*display: block;*/
-}
-/*/formAddNewMaterialsToBase.php*/
-.formMaterial {
-    /*display: block;*/
-    /*visibility: hidden;*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
-}
-/*viewAllMaterials.php*/
-
-#tbViewAllMaterials tbody td span{
-/*#tbViewAllMaterials tbody td:last-child span, .iconInTd{*/
-    display: block;
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 5px;
-    /*max-width: 20px!important;*/
-}
-#tbViewAllMaterials tbody a{
-    display: block;
-    /*border: black 1px solid;*/
-    border-radius: 4px;
-    text-decoration: none;
-
-}
-
-/*/viewAllMaterials.php*/
+/* authorization.php */
+.btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.input-group { margin-bottom:10px; }
+.separator { border-right: 1px solid #dfdfe0; }
+.facebook,.twitter { min-width:170px; }
+.facebook { background-color:#354E84;color:#fff; }
+.twitter { background-color:#00A5E3;color:#fff; }
+.facebook:hover,.twitter:hover { color:#fff; }
