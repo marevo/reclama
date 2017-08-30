@@ -406,5 +406,8 @@ background-color: #337ab7;
     text-decoration: none;
 
 }
+#modalWinForDeleteMat .modal-dialog{
+    width: 600px;
+}
 
 /*/viewAllMaterials.php*/
