@@ -73,10 +73,81 @@ require '../autoload.php';
             </div>
         </div>
 
+        <!-- модальное окно для удаления   -->
+        <div id="modalWinForDeleteMat" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center">удалить материал навсегда!
+                        <button class="close" data-dismiss="modal">закрыть</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row" style="background-color: #c0c7d2;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">хотите удалить этот материал навсегда ?</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center " id="modalNameMaterial"> название материала</div>
+                                        <div style="display: block;" class="col-lg-12 text-center " id="modalIdMaterial"> id материала</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button name="btnDeleteMaterial" class="btn btn-danger">да</button></div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button class="btn btn-default" data-dismiss="modal">нет</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--modal-body-->
+                </div><!--modal content-->
+            </div><!--modal-dialog-->
+        </div><!--id="modalWinForDeleteMat" modal-fade -->
 
     </div>
     </body>
     </html>
-<?php
+<script>
+    $(function () {
+       //функция обработки клика на таблице будем обрабатыать только ячейки с наличием data-id то есть где можно удалить материал
+        $('#tbViewAllMaterials').on('click',function () {
+         var target = event.target;
+           while (target.tagName != 'TABLE'){
+               if(target.tagName == 'TD'){
+                   //нашли ячейку где был клик
+                   if($(target).data('id')){
+                       console.log('id for delete '+$(target).data('id'));
+                       //вызовем модальное окно для удаления ненужного материала
+                       $('#modalIdMaterial').text( $(target).data('id') );
+                       $('#modalNameMaterial').text( $(target).siblings()[1].textContent );
+                       $('#modalWinForDeleteMat').modal('show');
+                   }
+               }
+               target = target.parentNode;
+           }
+           console.log('click по таблице');
+       });
+        //функция обработки клика в модальном окне будем обрабатывать только кнопку
+        $('#modalWinForDeleteMat').on('click',function () {
+            var target = event.target;
+            if(target.name == 'btnDeleteMaterial'){
+                console.log('кликнули кнопку на удаление заказа');
+                //будем удалять материал из базы
+                jquery_send('.divForAnswerServer','post','../App/controllers/controllerViewAllMaterials.php',
+                    ['deleteMaterialFromBase','idMaterial'],['',$('#modalIdMaterial').text()]);
+                $('#modalIdMaterial').text('');
+                $('#modalNameMaterial').text( '');
+                $('#modalWinForDeleteMat').modal('hide');
+
+            }
+        });
+        //функция обработки при вызове модального окна
+        $('#modalWinForDeleteMat').on('show.bs.modal',function () {
+
+        });
+
+
+    });
+</script>
+
 
 

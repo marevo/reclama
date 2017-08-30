@@ -31,8 +31,7 @@ $('#table_Orders').on('click', function () {
         }
         return false;
     }
-    else 
-       return false;
+    
 });
 //повесим поиск заказов на div .viewTrashedOrders
 $('.viewTrashedOrders').on('click',function () {
