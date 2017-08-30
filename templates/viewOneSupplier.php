@@ -71,7 +71,7 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
                                         <option value="4">четверг</option>
                                         <option value="5">пятница</option>
                                         <option value="6">все рабочие дни</option>
-                                        <option value="0">не установлено</option>
+                                        <option value="8">не установлено</option>
                                 </td></tr>
                             <tr><td>сайт поставщика</td><td><?php echo $supp->site  ?></td><td class="formMaterial"><input name="site" type="text" size='55' value = "<?php echo $supp->site  ?>"/></td></tr>
                             <tr><td></td><td></td><td class="formMaterial"><input name="btnSend" type="submit"/></td></tr>

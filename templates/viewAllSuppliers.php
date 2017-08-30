@@ -28,7 +28,7 @@ require '../autoload.php';
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <div class="row headingContent">
                 <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все поставщики</div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><button id="btnUpdateShow" > добавить поставщика </button></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewSupplierToBase.php"><span class="glyphicon glyphicon-plus"></span> добавить поставщика<span>  </a></div>
             </div>
             <div class="row">
                 <div class="col-lg-12 divForTable">

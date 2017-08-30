@@ -37,6 +37,7 @@ require '../autoload.php';
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
+
                         //найдем все материалы и отобразим их через таблицу через трэйт FastViewTable.php
                         //                echo \App\Models\Material::showAllFromTable('tableMaterials', \App\Models\Material::findAll());
                         //                найдем все материалы с названиями поставщиков
@@ -44,7 +45,18 @@ require '../autoload.php';
                         if(! empty ($allMaterialsInBase)){
                             $tableAllMat = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td>id поставщика</td><td>поставщик</td><td>править</td><td>удалить</td></tr></thead><tbody>";
                             foreach ($allMaterialsInBase as $item){
-                                $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[id_suppliers]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'>править</a></td><td>удалить</td></tr>";
+//                                получим не false если есть этот материал хотябы в одном заказе
+                                $ifExistOrderWithIdMaterial = \App\Models\MaterialsToOrder::ifExistThisMaterialInAnyOneOrder($item[id]);
+//                                if(false != $ifExistOrderWithIdMaterial )
+//                                  echo "<br/> c idMaterials = $item[id] есть заказы )";
+//                                else echo "<br/>   c idMaterials = $item[id] нет  заказов ";
+
+                                if(false != $ifExistOrderWithIdMaterial){
+                                    $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td>нельзя править</td><td>нельзя удалять</td></tr>";
+                                }
+                                else{
+                                    $tableAllMat .= "<tr><td>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'>править</a></td><td>удалить</td></tr>";
+                                }
                             }
                             $tableAllMat .= "</tbody></table>";
                         }

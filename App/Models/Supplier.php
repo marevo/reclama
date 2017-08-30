@@ -70,6 +70,9 @@ class Supplier extends ModelLikeTable
             case 7:
                 $delDays = 'всю дни недели';
                 break;
+            case 8:
+                $delDays = 'не установлено';
+                break;
             default :
                 $delDays = 'не установлено';
                 break;

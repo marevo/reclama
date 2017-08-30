@@ -39,7 +39,6 @@ class Material extends ModelLikeTable
         $queryNew = "SELECT  m.id  , m.name, m.addCharacteristic, m.measure, m.deliveryForm, m.priceForMeasure, m.id_suppliers as idSupplier, s.name AS nameSupplier 
                      FROM materials AS m, suppliers AS s
                      WHERE m.id_suppliers = s.id 
-                     
                      ORDER BY m.name ;
                   ";
 //        GROUP BY m.name
