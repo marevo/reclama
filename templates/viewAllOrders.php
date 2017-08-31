@@ -5,8 +5,8 @@ require '../autoload.php';
 $filds_nameToView = [ 'name' =>'название заказа',
     'nameClient'=>'название клиента',
     'orderPrice'=>'цена',
-    'isReady'=>'coстояние',
-    'isCompleted'=>'комплект',
+    'isReady'=>'coст',
+    'isCompleted'=>'комп',
     'payment'=>'оплата',
 'dateOrder'=>'дата'];
 //функция показа в нужном виде данных в этом view (названия столбоц в thead,
@@ -25,14 +25,14 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
             //теперь в строку сверстаем таблицу
             $tableAll .= "<table id = '$idTable' , class='table-hover'>
             <thead><tr>
-                      <td style = 'min-width: 130px'>$filds_nameToView[dateOrder]</td>
+                      <td>$filds_nameToView[dateOrder]</td>
                       <td>$filds_nameToView[name]</td>
                       <td>$filds_nameToView[nameClient]</td>
                       <td>$filds_nameToView[orderPrice]</td>
                       <td>$filds_nameToView[isReady]</td>
                       <td>$filds_nameToView[isCompleted]</td>
                       <td>$filds_nameToView[payment]</td>
-                      <td><a href='formAddNewOrder.php'>  <span class='glyphicon glyphicon-plus'></span> создать заказ</a></td>
+                      <td></td>
                       <td></td>
                   </tr>
             </thead>
@@ -123,7 +123,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
             </div>
             <div class="col-lg-10 backForDiv divForTable">
                 <div class="row rowSearch" ><!-- строка поиска-->
-                            <!--                                сторка для поиска заказов по клиенту и по названию заказа -->
+                            <!--  сторка для поиска заказов по клиенту и по названию заказа -->
 <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                         <label for="inputFindOrderForName">искать по названию заказа</label>
@@ -136,15 +136,18 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
                         <button name="searchForNameClient" class="btn-primary">искать</button>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="inputFindOrderForNameClient">заказы в корзине</label>
-                        <div title="показать удаленные заказы" class="viewTrashedOrders">
+                        <label for="viewTrashedOrders">заказы в корзине</label>
+                        <div title="показать удаленные заказы" class="viewTrashedOrders" id="viewTrashedOrders">
                                 <span class="glyphicon glyphicon-eye-open" style="padding-left: 10px;padding-right: 10px"></span>
                                 <span class="glyphicon glyphicon-trash"> </span>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
-
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <label for="makeNewOrder"  class="text-center">новый заказ</label>
+                        <div title="создать новый заказ" id="makeNewOrder"></div>
+                        <a href='formAddNewOrder.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
                     </div>
+                </div><!-- конец блока строки поиска  -->
                 <div class="row"><!-- строка показа в таблице заказов-->
                     <div class="col-lg-12" id="table_Orders">
                             <?php

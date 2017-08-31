@@ -30,10 +30,10 @@ require '../autoload.php';
             <div class="col-lg-10 backForDiv">
             <!--строка показа времени и показа результата добавки материала в базу  -->
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
-            <div class="row headingContent">
-                <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>
-            </div>
+                <div class="row headingContent">
+                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
@@ -66,10 +66,10 @@ require '../autoload.php';
                             $tableAllMat = "пока ничего нет (";
                         }
                         echo "$tableAllMat";
-                        ?>  
+                        ?>
                     </div>
                 </div>
-               
+
             </div>
         </div>
 
@@ -89,7 +89,7 @@ require '../autoload.php';
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 text-center " id="modalNameMaterial"> название материала</div>
-                                        <div style="display: block;" class="col-lg-12 text-center " id="modalIdMaterial"> id материала</div>
+                                        <div style="display: none;" class="col-lg-12 text-center " id="modalIdMaterial"> id материала</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button name="btnDeleteMaterial" class="btn btn-danger">да</button></div>
@@ -106,10 +106,10 @@ require '../autoload.php';
     </div>
     </body>
     </html>
-<script>
+<script type='text/javascript'>
     $(function () {
        //функция обработки клика на таблице будем обрабатыать только ячейки с наличием data-id то есть где можно удалить материал
-        $('#tbViewAllMaterials').on('click',function () {
+        $('#tbViewAllMaterials').on('click',function (event) {
          var target = event.target;
            while (target.tagName != 'TABLE'){
                if(target.tagName == 'TD'){
@@ -127,7 +127,7 @@ require '../autoload.php';
            console.log('click по таблице');
        });
         //функция обработки клика в модальном окне будем обрабатывать только кнопку
-        $('#modalWinForDeleteMat').on('click',function () {
+        $('#modalWinForDeleteMat').on('click',function (event) {
             var target = event.target;
             if(target.name == 'btnDeleteMaterial'){
                 console.log('кликнули кнопку на удаление заказа');

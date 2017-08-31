@@ -22,25 +22,6 @@
     max-height: 400px;
     /*width: 100%;*/
 }
-thead{
-    /*width: 100%;*/
-    /*position: fixed;*/
-    /*margin-bottom: -50px!important;*/
-    /*margin-top: -50px!important;*/
-}
-tbody{
-    /*position: fixed;*/
-    /*margin-bottom: -50px!important;*/
-    /*margin-top: -50px!important;*/
-    /*margin-bottom: 50px;*/
-}
-tbody tr:first-child{
-    /*margin-top: -50px;*/
-    /*margin-bottom: 50px;*/
-    /*overflow: auto;*/
-    /*max-height: 300px;!important;*/
-    /*width: 100%;*/
-}
 table{
     /*table-layout: fixed;*/
     width: 100% ;
@@ -187,10 +168,39 @@ article footer{
     min-width: 150px;
     /*background-color: #cfe2f3;*/
 }
+/*parent div for table #tableOrders in viewAllOrders.php*/
 #table_Orders {
     padding-left: 0;
     padding-right: 0;
 }
+            #table_Orders table a{
+                display: block;
+                border: 1px solid black;
+            }
+            /* столбец даты в таблице всех заказов #tableOrders in viewAllOrders.php*/
+                    #table_Orders thead tr td:first-child {
+                        min-width: 130px;
+                    }
+            /*столбец названия заказа в таблице всех заказов #tableOrders in viewAllOrders.php*/
+                    #table_Orders thead tr td:nth-child(2) {
+                        min-width: 230px;
+                    }
+                    /*столбец названия клиента в таблице всех заказов #tableOrders in viewAllOrders.php*/
+                    #table_Orders thead tr td:nth-child(3) {
+                        min-width: 180px;
+                    }
+                    /* ссылка на создание нового заказа в строке поиска in viewAllOrders.php*/
+                    .row .rowSearch a{
+                        ;
+                        border: 1px solid black;
+                        background-color: #5bc0de;
+                        border-radius: 5px;
+                        max-width: 100px;
+                        min-height: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
 #formOneOrder tr td:nth-child(even)  {
     text-align: left;
 
