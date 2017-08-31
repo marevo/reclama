@@ -21,23 +21,46 @@ require '../autoload.php';
 
             <!-- конец навигации -->
         </div>
-        <div class="row">
+        <!--строка показа времени и показа результата добавки материала в базу  -->
+        <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
+
+        <div class="row"><!-- основной блок контета состоит из 2 колонок слева и 10 колонок справа -->
+
             <!--            начало доп блока слева-->
             <div class="col-lg-2 backForDiv">
                 этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
             </div>
             <!--            конец доп блока слева-->
             <div class="col-lg-10 backForDiv">
-            <!--строка показа времени и показа результата добавки материала в базу  -->
-            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
-                <div class="row headingContent">
-                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>
-                </div>
-                <div class="row">
+<!--                <div class="row headingContent">-->
+<!--                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>-->
+<!--                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>-->
+<!--                </div>-->
+                <div class="row rowSearch" ><!-- строка поиска-->
+                    <!--  сторка для поиска заказов по клиенту и по названию заказа -->
+                    <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <label for="inputFindMaterialForNameMaterial">искать по названию материала</label>
+                        <input type="text" name="inputFindMaterialForNameMaterial" placeholder="по названию">
+                        <button name="searchMaterialForNameMaterial" class="btn-primary">искать </button>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <label for="inputFindMaterialForNameSupplier">искать по названию поставщика</label>
+                        <input type="text" name="inputFindMaterialForNameSupplier" placeholder="по поставщику">
+                        <button name="searchMaterialForNameSupplier" class="btn-primary">искать</button>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <label for="makeNewOrder"  class="text-center">новый материал</label>
+                        <div title="создать новый заказ" id="makeNewOrder"></div>
+                        <a href='formAddNewMaterialsToBase.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
+                    </div>
+                </div><!-- конец блока строки поиска  -->
+
+                <div class="row backForDiv divForTable">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
-
                         //найдем все материалы и отобразим их через таблицу через трэйт FastViewTable.php
                         //                echo \App\Models\Material::showAllFromTable('tableMaterials', \App\Models\Material::findAll());
                         //                найдем все материалы с названиями поставщиков

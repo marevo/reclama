@@ -19,7 +19,7 @@
 /* класс позволяет ограничить размер высоты и ширины таблицы для удобства просмотра таблиц что имеют большую ширину и высоту*/
 .divForTable {
     overflow: auto;
-    max-height: 400px;
+   max-height:400px;
     /*width: 100%;*/
 }
 table{
@@ -170,6 +170,10 @@ article footer{
 }
 /*parent div for table #tableOrders in viewAllOrders.php*/
 #table_Orders {
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+}
+table {
     padding-left: 0;
     padding-right: 0;
 }

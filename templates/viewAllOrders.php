@@ -99,6 +99,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
 ?>
 <!DOCTYPE HTML>
 <html>
+<title>просмотр всех заказов</title>
 <?php include('../head.html') ?>
 <body>
     <div class="container">
@@ -114,14 +115,12 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
         </div>
         <!--подключение строки с показом времени и результатов запросов на сервер -->
         <?php include_once ('../App/html/forDisplayTimeShowAnswerServer.html'); ?>
-        <!-- подключение модального окна -->
-        <?php include_once ('../App/html/viewAllOrdersModal.html');?>
 
         <div class="row">
             <div class="col-lg-2 backForDiv">
                 этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
             </div>
-            <div class="col-lg-10 backForDiv divForTable">
+            <div class="col-lg-10 ">
                 <div class="row rowSearch" ><!-- строка поиска-->
                             <!--  сторка для поиска заказов по клиенту и по названию заказа -->
 <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
@@ -148,7 +147,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
                         <a href='formAddNewOrder.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
                     </div>
                 </div><!-- конец блока строки поиска  -->
-                <div class="row"><!-- строка показа в таблице заказов-->
+                <div class="row backForDiv divForTable"><!-- строка показа в таблице заказов-->
                     <div class="col-lg-12" id="table_Orders">
                             <?php
                             //передадим id='tableOrder'; в отображение будущей таблицы
@@ -163,10 +162,11 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
                             ?>
                     </div>
                 </div>
-                <script src = '../js/viewAllOrders.js'></script>
             </div>
         </div>
-
+        <!-- подключение модального окна -->
+        <?php include_once ('../App/html/viewAllOrdersModal.html');?>
+        <script src = '../js/viewAllOrders.js'></script>
     </div><!-- container -->
 </body>
 </html>

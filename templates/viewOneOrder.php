@@ -18,7 +18,6 @@ $nameClient = $order->getNameClient();
 //$payment сумма всех оплат по заказу с id=$IDORDER
 $payment =  \App\Models\Payment::showSumAllPayments($IDORDER);
 //функция отображения источника заказа в зависимости от цифры в базе
-
 // степень готовности заказа 0-новый, 1-закрыт успешно, 2-закрыт неуспешно
 function fIsReady(int $isReady){
     if($isReady ==0)
@@ -39,7 +38,6 @@ function fIsInstall(int $isInstall){
     if($isInstall == 1)
         return "<tr><td>статус установки</td><td class='orderNoSuccessCell' data-name='isInstall'>в процессе установки </td></tr>";
 }
-
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -55,24 +53,17 @@ function fIsInstall(int $isInstall){
         <script>
 showLi('');
         </script>
-
     </div>
-    <?php
-    //подключение модального окна для просмотра материалов к заказу
-    include_once('viewAllMaterialsToOrder.html');
-    //подключение модального окна для добавления материалов к заказу
-    include_once('formAddMaterialToOrderModal.html');
-    ?>
+    <!-- здесь будет строка forDisplayTimeShowAnswetServer.html класса .row .forDisplayTimeShowAnswerServer -->
+    <!--            подтянем отображение текущей даты и ответов сервера-->
+    <?php   require_once ('../App/html/forDisplayTimeShowAnswerServer.html');?>
+
     <div class="row">
         <!--рабочее место слева для будущего меню-->
         <div class="col-lg-2 backForDiv">
             этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
         </div>
         <!--/рабочее место слева для будущего меню-->
-
-        <!--рабочее место справа-->
-        <!-- для таблицы отабражение заказа-->
-        <div class="col-lg-10 backForDiv divForTable">
             <?php echo //передаем объект ORDER для распределения
             "<script>
  var ORDER = {
@@ -96,19 +87,9 @@ showLi('');
  </script>
              ";
             ?>
-            <!-- здесь будет строка forDisplayTimeShowAnswetServer.html класса .row .forDisplayTimeShowAnswerServer -->
-<!--            подтянем отображение текущей даты и ответов сервера-->
-            <?php   require_once ('../App/html/forDisplayTimeShowAnswerServer.html');?>
-<!--            <div class="row forDisplayTimeShowAnswerServer">-->
-<!--                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 forDisplayTime text-center ">-->
-<!--                     сегодня: <div id = 'dateToday'></div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="rezZaprosaKServer" >-->
-<!--                    <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>-->
-<!--                    <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> ошибка обратитесь к разработчику</span></div>-->
-<!--                </div>-->
-<!--                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="rezShow"> что пришло с сервера</div>-->
-<!--            </div>-->
+        <!--рабочее место справа-->
+        <div class="col-lg-10 backForDiv divForTable">
+
 
             <div class="row"><!--просмотр одного заказа-->
                 <div class="col-lg-12 bg-primary panel-info h3 " >
@@ -795,8 +776,12 @@ var ORDER_NEW ;
         </div>
     <!-- конец рабочей зоны -->
     </div>
-    
-
+    <?php
+    //подключение модального окна для просмотра материалов к заказу
+    include_once('viewAllMaterialsToOrder.html');
+    //подключение модального окна для добавления материалов к заказу
+    include_once('formAddMaterialToOrderModal.html');
+    ?>
 
 </div><!-- container-->
 <script src="../js/viewOneOrder.js"></script>
