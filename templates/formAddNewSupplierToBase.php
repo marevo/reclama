@@ -8,18 +8,12 @@
 
 require '../autoload.php';
 //функция подгрузки из базы поставщиков по имени
-function suppliersOptions(){
-    $option='';
-    $suppliersAll = \App\Models\Supplier::findAll();
-    foreach ($suppliersAll as $rowItem){
-        $option .= "<option data-id = '$rowItem->id' value='$rowItem->id'>$rowItem->name ... $rowItem->addCharacteristic</option>";
-    }
-    return $option;
-}
+
 ?>
 <!DOCTYPE HTML>
 <html>
 <?php include('../head.html') ?>
+
 <body>
 <div class="container">
     <div class="row">
@@ -54,28 +48,47 @@ function suppliersOptions(){
                             <!--для проверки input pattern -->
                             <tr><td class="text-right">кнопка отправки</td><td><input type="submit"  name="submitFromFormOneSupplier"/></td>
                             </tr>
-                            <tr><td class="text-right"><label for="name">название</label></td>
-                                <td><select name="idSupplier" ><option value="0"> поставщик ... что поставляет</option>
-                                        <?php echo suppliersOptions();  ?>
-                                    </select>
-                                </td>
-                            </tr>
+                            <!-- скрытое поле для отправки маркера-->
                             <tr style="display: none;">
-                                <td class="text-right"><label for="send">скрытое поле</label></td>
-                                <td class="text-left"><input  name="send"  value="sendMarker"  /></td>
+                                <td class="text-right"><label for="addNewSupplier">скрытое поле  для отправки маркера</label></td>
+                                <td class="text-left"><input name="addNewSupplier" /></td>
                             </tr>
-                            <tr><td class="text-right"><label for="nameMaterial">название материла</label></td>
-                                <td class="text-left"><textarea  name="nameMaterial" placeholder="введите название материала" required ></textarea></td>
+                            <tr><td class="text-right"><label for="nameSupplier">название поставщика</label></td>
+                                <td><textarea name="nameSupplier"  cols="50" rows="4" placeholder="название поставщика 200 символов" required ></textarea></td>
                             </tr>
                             <tr><td class="text-right"><label for="addCharacteristic">дополнительные характеристики</label></td>
-                                <td class="text-left"><textarea  name="addCharacteristic" placeholder="поставка рулоном по 4 м или режут газом по 2.86 м" required ></textarea></td>
+                                <td class="text-left"><textarea cols="50" rows="6"  name="addCharacteristic" placeholder="что-то типа поставка пленки... " required ></textarea></td>
                             </tr>
-                            <tr><td class="text-right"><label for="measure">единицы измерения</label></td>
-                                <td><input type="text" name="measure" placeholder="м или м погонный" required/> </td></tr>
-                            <tr><td class="text-right"> <label for="deliveryForm">форма поставки</label></td>
-                                <td><input type="text" name="deliveryForm" placeholder="2.86 или 4.00 " required/> </td></tr>
-                            <tr><td class="text-right"><label for="priceForMeasure">цена за единицу поставки <br/>за метр погонный</label></td>
-                                <td><input type="text" name="priceForMeasure" value="00.00" pattern="\d{1,7}(\.|,)\d{2}" placeholder="введите цену заказа"/></td>
+
+                            <tr><td class="text-right"><label for="contactPerson">контактное лицо</label></td>
+                                <td class="text-left"><input size="50" name="contactPerson" placeholder="ФИО контакта максимально 100 символов" required maxlength="100" /></td>
+                            </tr>
+                            <tr><td class="text-right"><label for="phone0">телефон</label></td>
+                                <!--                                <input type='tel' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' title='Phone Number (Format: +99(99)9999-9999)'>-->
+                                <!--                                <input type='tel' pattern='([\+]\d{2})?\d{3}[\-]\d{4}[\-]\d{3}' title='Phone Number (Format: +38 093-799-7990)'>-->
+<!--                                <td><input type='tel' name="phone0" pattern='(([\+])?\d{2}?)?\d{3}[\-]\d{4}[\-]\d{3}' title='Phone Number (Format: +380937997990 or 0937997990)'></td></tr>-->
+                                <td><input type='tel' name="phone0" pattern='\d{9,13}' title='Phone Number (Format: +380937997990 or 0937997990)'></td></tr>
+                            <!---->
+                            <tr><td class="text-right"> <label for="email0">email</label></td>
+                                <td><input name="email0" maxlength="50" size="50" type="email"/> </td></tr>
+
+                            <tr><td class="text-right"><label for="address">адрес поставщика</label></td>
+                                <td><input name="address"  size="50" placeholder="адрес поставщика 200 символов" maxlength="200" required /></td></tr>
+                            <tr><td class="text-right"><label for="deliveryDay">день доставки</label> </td>
+                                <td><select name="deliveryDay">
+                                        <option value="0">выберите день</option>
+                                        <option value="1">понедельник</option>
+                                        <option value="2">вторник</option>
+                                        <option value="3">среда</option>
+                                        <option value="4">четверг</option>
+                                        <option value="5">пятница</option>
+                                        <option value="6">все рабочие дни</option>
+                                        <option value="8">не установлено</option>
+                                    </select>
+                                </td></tr>
+
+                            <tr><td class="text-right"><label for="site">сайт</label></td>
+                                <td><input  name="site" maxlength="300" size="55" type="url"/></td>
                             </tr>
                             </tbody>
                         </table>
@@ -84,7 +97,7 @@ function suppliersOptions(){
                         $('form select').on('change',function () {
                             if($(this).val() == 0) {
                                 $('.alert .alert-info').remove();
-                                $(this).before('<div class="alert alert-info">выберитите поставщика из выпадающего списка</div>');
+                                $(this).before('<div class="alert alert-info">выберитите день из выпадающего списка</div>');
                                 return false;
                             }
                             else
@@ -92,15 +105,31 @@ function suppliersOptions(){
                             return false;
                         });
                         $('form textarea').on('blur',function () {
-                            $(this).val($.trim($(this).val()));
-                            console.log('убрали пробелы');
-                            if($(this).val != ''){
-                                $('.alert').remove();
+                            if($(this).name == 'nameSupplier'){
+                                $(this).val($.trim($(this).val()));
+                                if($(this).val().length > 200){
+                                   var el = $(this);
+                                    elem.value = elem.value.substr(0, 200);
+                                    console.log('обрезали длину названия до 300 символов');
+                                }
+                                if($(this).val != ''){
+                                    $('.alert').remove();
+                                }
                             }
-                            return false;
+                            if($(this).name == 'nameSupplier'){
+                                $(this).val($.trim($(this).val()));
+                                if($(this).val().length > 300){
+                                    var el = $(this);
+                                    elem.value = elem.value.substr(0, 300);
+                                    console.log('обрезали длину названия до 300 символов');
+                                }
+                                if($(this).val != ''){
+                                    $('.alert').remove();
+                                }
+                            }
+//                            return false;
                         });
                         $('form').submit(function () {
-
                             if ($(this).find('select').val() == 0) {
                                 $(this).find('.alert').remove();
                                 $(this).find('select').before('<div class="alert alert-info">выберитите поставщика из выпадающего списка</div>');

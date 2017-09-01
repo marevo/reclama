@@ -180,3 +180,14 @@ function fNoUspehAll() {
 }
 //*/функции отображения на клиенте результатов запроса на сервер
 
+/*функция вешает  на elem обработчик ограничения количества limitCount символов в поле textarea*/
+function limitTextInTextArea(elem,limitCount ) {
+    elem.keyup(function() {
+        if (elem.value.length > limitCount)
+            elem.value = elem.value.substr(0, limitCount);
+        else 
+            elem.value = elem.value.trim();
+    });
+
+}
+//*/функция ограничения количества символов в поле textarea*/
