@@ -31,7 +31,7 @@ require_once('../head.html');
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewSupplierToBase.php"><span class="glyphicon glyphicon-plus"></span> добавить поставщика<span>  </a></div>
             </div>
             -->
-        <div class="row rowSearch" ><!-- строка поиска-->
+            <div class="row rowSearch" ><!-- строка поиска-->
                 <!--  сторка для поиска заказов по клиенту и по названию заказа -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <label for="inputFindMaterialForNameMaterial">искать по названию материала</label>
@@ -52,29 +52,28 @@ require_once('../head.html');
                 </div>
             </div><!-- конец блока строки поиска  -->
 
-        <div class="row backForDiv divForTable">
+            <div class="row backForDiv divForTable">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <?php
-            //найдем всех поставщиков и отобразим их через таблицу
-            $allSuppliersInBase = \App\Models\Supplier::findAll();
-            if(! empty ($allSuppliersInBase)){
-                $tableAllSupp = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>контакт</td><td>телефон</td><td>email</td><td>адрес поставщика</td><td>день доставки</td><td>сайте</td><td><span class='glyphicon glyphicon-eye-open'></span></td><td><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
-                foreach ($allSuppliersInBase as $item){
-                    $tableAllSupp .= "<tr><td>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td>$item->contactPerson</td><td>$item->phone0</td><td>$item->email0</td><td>$item->address</td><td> ".$item->getDeliveryDays()." </td><td><a href='$item->site' target='_blank'>$item->site</a></td><td><a href='viewOneSupplier.php?id=$item->id'>править</a></td><td>удалить</td></tr>";
-                }
-                $tableAllSupp .= "</tbody></table>";
-            }
-            else{
-                $tableAllSupp = "пока ничего нет (";
-            }
-            echo "$tableAllSupp";
-            ?>
-</div>
+                    //найдем всех поставщиков и отобразим их через таблицу
+                    $allSuppliersInBase = \App\Models\Supplier::findAll();
+                    if(! empty ($allSuppliersInBase)){
+                        $tableAllSupp = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>контакт</td><td>телефон</td><td>email</td><td>адрес поставщика</td><td>день доставки</td><td>сайте</td><td><span class='glyphicon glyphicon-eye-open'></span></td><td><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
+                        foreach ($allSuppliersInBase as $item){
+                            $tableAllSupp .= "<tr><td>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td>$item->contactPerson</td><td>$item->phone0</td><td>$item->email0</td><td>$item->address</td><td> ".$item->getDeliveryDays()." </td><td><a href='$item->site' target='_blank'>$item->site</a></td><td><a href='viewOneSupplier.php?id=$item->id'>править</a></td><td>удалить</td></tr>";
+                        }
+                        $tableAllSupp .= "</tbody></table>";
+                    }
+                    else{
+                        $tableAllSupp = "пока ничего нет (";
+                    }
+                    echo "$tableAllSupp";
+                    ?>
+                </div>
             </div>
-        </div>
     </div>
 
-</div>
+</div><!-- container -->
 </body>
 </html>
 
