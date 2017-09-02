@@ -97,7 +97,7 @@ require '../autoload.php';
                         $('form select').on('change',function () {
                             if($(this).val() == 0) {
                                 $('.alert .alert-info').remove();
-                                $(this).before('<div class="alert alert-info">выберитите день из выпадающего списка</div>');
+                                $(this).before('<div class="alert alert-info">выберитите день поставки в ваш город</div>');
                                 return false;
                             }
                             else
@@ -105,29 +105,62 @@ require '../autoload.php';
                             return false;
                         });
                         $('form textarea').on('blur',function () {
-                            if($(this).name == 'nameSupplier'){
+                            if( $(this).attr('name') == 'nameSupplier'){
                                 $(this).val($.trim($(this).val()));
                                 if($(this).val().length > 200){
                                    var el = $(this);
                                     elem.value = elem.value.substr(0, 200);
                                     console.log('обрезали длину названия до 300 символов');
+
                                 }
-                                if($(this).val != ''){
+                                if($(this).val() != ''){
                                     $('.alert').remove();
+                                    $(this).addClass('ifExistThisName');
+                                    console.log('отправляем на сервер запрос есть ли такое имя в базе поставщиков');
+                                    jquery_send('.divForAnswerServer','post',
+                                        '../App/controllers/controllerOneSupplier.php',
+                                        ['isExistNameSupplier','nameSupplier'],
+                                        ['',$(this).val()]);
                                 }
                             }
-                            if($(this).name == 'nameSupplier'){
+                            if($(this).attr('name') == 'addCharacteristic'){
                                 $(this).val($.trim($(this).val()));
                                 if($(this).val().length > 300){
                                     var el = $(this);
                                     elem.value = elem.value.substr(0, 300);
-                                    console.log('обрезали длину названия до 300 символов');
+                                    console.log('обрезали длину дополнительных характеристик до 300 символов');
                                 }
-                                if($(this).val != ''){
+                                if($(this).val() != ''){
                                     $('.alert').remove();
                                 }
                             }
-//                            return false;
+                            return false;
+                        });
+                        $('form input').on('blur',function () {
+                            if($(this).attr('name') == 'phone0'){
+                                //проведем тест на ввод телефона
+                                var phone0 = $(this).val();
+                                    //уберем ранее выведенный перед этим предупреждающий див
+                                $(this).parent().find('.alert').remove();
+
+                                var regExpPhone = /d{9,13}/;
+
+                                if(regExpPhone.test(phone0) == true){
+                                    //тест на правильность ввода пройден верно
+                                    Console.log('номер телефона введен по формату');
+                                }
+                                else{
+                                    $(this).before('<div class="alert alert-info"> введите телефон по формату '+ $(this).attr('title')+'</div>');
+                                    return false;
+                                }
+
+                                $(this).addClass('ifExistThisPhone0');
+                                console.log('отправляем на сервер запрос есть ли тако phone0  в базе поставщиков');
+                                jquery_send('.divForAnswerServer','post',
+                                    '../App/controllers/controllerOneSupplier.php',
+                                    ['isExistPhone0Supplier','phone0'],
+                                    ['',$(this).val()]);
+                            }
                         });
                         $('form').submit(function () {
                             if ($(this).find('select').val() == 0) {
