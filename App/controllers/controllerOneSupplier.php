@@ -92,3 +92,30 @@ if(isset($_POST['addNewSupplier'])){
     }
 
 }
+
+if(isset($_POST['isExistNameSupplier'])){
+    echo "пришел запрос на проверку уникальности имени ". $_POST['nameSupplier'];
+//    die();
+    if(isset($_POST['nameSupplier'])){
+        $nameS = htmlspecialchars( $_POST['nameSupplier'] ) ;
+        if(\App\Models\Supplier::ifExistObjWithName($nameS)){
+            echo "<script> $('.ifExistThisName').before('<div class=\'alert alert-info\'>такое имя есть ! выберите другое имя</div>');</script>";
+        }
+        else{
+            echo "<script>$('.ifExistThisName').removeAttr('ifExistThisName');</script>";
+        }
+    }
+}
+if(isset($_POST['isExistPhone0Supplier'])){
+    echo "пришел запрос на проверку уникальности isExistPhone0Supplier ". $_POST['isExistPhone0Supplier'];
+//    die();
+    if(isset($_POST['phone0'])){
+        $phone0Sup = htmlspecialchars( $_POST['phone0'] );
+        if(\App\Models\Supplier::ifExistObjWithPhone0($phone0Sup)){
+            echo "<script> $('.ifExistThisPhone0').before('<div class=\'alert alert-info\'>такой телефон есть ! выберите другой</div>');</script>";
+        }
+        else{
+            echo "<script>$('.ifExistThisPhone0').removeAttr('ifExistThisPhone0');</script>";
+        }
+    }
+}
