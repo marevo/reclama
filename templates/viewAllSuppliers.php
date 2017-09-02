@@ -58,9 +58,18 @@ require_once('../head.html');
                     //найдем всех поставщиков и отобразим их через таблицу
                     $allSuppliersInBase = \App\Models\Supplier::findAll();
                     if(! empty ($allSuppliersInBase)){
-                        $tableAllSupp = "<table><thead><tr><td>id</td><td>название</td><td>доп характ</td><td>контакт</td><td>телефон</td><td>email</td><td>адрес поставщика</td><td>день доставки</td><td>сайте</td><td><span class='glyphicon glyphicon-eye-open'></span></td><td><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
+                        $tableAllSupp = "<table id='tbViewAllSuppliers'><thead><tr><td class='tdDisplayNone'>id</td><td>название</td><td>доп характ</td><td class='tdDisplayNone'>контакт</td><td>телефон</td><td class='tdDisplayNone'>email</td><td class='tdDisplayNone'>адрес поставщика</td><td class='tdDisplayNone'>день доставки</td><td class='tdDisplayNone'>сайт</td><td class='text-center'><span class='glyphicon glyphicon-eye-open'></span></td><td class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
                         foreach ($allSuppliersInBase as $item){
-                            $tableAllSupp .= "<tr><td>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td>$item->contactPerson</td><td>$item->phone0</td><td>$item->email0</td><td>$item->address</td><td> ".$item->getDeliveryDays()." </td><td><a href='$item->site' target='_blank'>$item->site</a></td><td><a href='viewOneSupplier.php?id=$item->id'>править</a></td><td>удалить</td></tr>";
+                            //найдем idMaterial для каждого поставщика, чтобы узнать есть или нет эти материалы в заказах и
+                            // разрешать удалять только тех поставщиков, чьих материалов нет в заказах
+                            if(\App\Models\MaterialsToOrder::ifExistThisSupplierInAnyMaterilsToOrder($item->id)){
+//                                есть материал этото поставщика хотябы в одном заказе поэтому не будем разрешать удалять поставщика
+                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td class='tdDisplayNone'>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
+                            }
+                            else{
+                                // нет материалов этого поставщика, поэтому разрешим его удаление
+                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td class='tdDisplayNone'>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td data-id_supplier='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
+                            }
                         }
                         $tableAllSupp .= "</tbody></table>";
                     }
@@ -72,9 +81,79 @@ require_once('../head.html');
                 </div>
             </div>
     </div>
+        <!-- модальное окно для удаления   -->
+        <div id="modalWinForDeleteSupp" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center">удалить поставщика навсегда!
+                        <button class="close" data-dismiss="modal">закрыть</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row" style="background-color: #c0c7d2;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">хотите удалить этотого поставщика навсегда ?</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center " id="modalNameSupplier"> название поставщика</div>
+                                        <div style="display: block;" class="col-lg-12 text-center " id="modalIdSupplier"> id поставщика</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button name="btnDeleteSupplier" class="btn btn-danger">да</button></div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button class="btn btn-default" data-dismiss="modal">нет</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--modal-body-->
+                </div><!--modal content-->
+            </div><!--modal-dialog-->
+        </div><!--id="modalWinForDeleteMat" modal-fade -->
 
 </div><!-- container -->
 </body>
 </html>
+<script type='text/javascript'>
+    $(function () {
+        //функция обработки клика на таблице будем обрабатыать только ячейки с наличием data-id то есть где можно удалить материал
+        $('#tbViewAllSuppliers').on('click',function (event) {
+            var target = event.target;
+            while (target.tagName != 'TABLE'){
+                if(target.tagName == 'TD'){
+                    //нашли ячейку где был клик
+                    if($(target).data('id_supplier')){
+                        console.log('id for delete '+$(target).data('id_supplier'));
+                        //вызовем модальное окно для удаления ненужного материала
+                        $('#modalIdSupplier').text( $(target).data('id_supplier') );
+                        $('#modalNameSupplier').text( $(target).siblings()[1].textContent );
+                        $('#modalWinForDeleteSupp').modal('show');
+                    }
+                }
+                target = target.parentNode;
+            }
+            console.log('click по таблице');
+        });
+        //функция обработки клика в модальном окне будем обрабатывать только кнопку
+        $('#modalWinForDeleteSupp').on('click',function (event) {
+            var target = event.target;
+            if(target.name == 'btnDeleteSupplier'){
+                console.log('кликнули кнопку на удаление заказа');
+                //будем удалять материал из базы
+                jquery_send('.divForAnswerServer','post','../App/controllers/controllerViewAllSuppliers.php',
+                    ['deleteSupplierFromBase','idSupplier'],['',$('#modalIdSupplier').text()]);
+                $('#modalIdSupplier').text('');
+                $('#modalNameSupplier').text( '');
+                $('#modalWinForDeleteSupp').modal('hide');
 
-7
+            }
+        });
+        //функция обработки при вызове модального окна
+        $('#modalWinForDeleteMat').on('show.bs.modal',function () {
+
+        });
+
+
+    });
+</script>
+

@@ -60,14 +60,14 @@ function suppliersOptions(){
                                     </td>
                                 </tr>
                                 <tr style="display: none;">
-                                    <td class="text-right"><label for="send">скрытое поле</label></td>
+                                    <td class="text-right"><label for="send">скрытое поле  для отправки маркера</label></td>
                                     <td class="text-left"><input  name="send"  value="sendMarker"  /></td>
                                 </tr>
                                 <tr><td class="text-right"><label for="nameMaterial">название материла</label></td>
-                                    <td class="text-left"><textarea  name="nameMaterial" placeholder="введите название материала" required ></textarea></td>
+                                    <td class="text-left"><textarea cols="50" rows="4" name="nameMaterial" placeholder="введите название материала" required ></textarea></td>
                                 </tr>
                                 <tr><td class="text-right"><label for="addCharacteristic">дополнительные характеристики</label></td>
-                                    <td class="text-left"><textarea  name="addCharacteristic" placeholder="поставка рулоном по 4 м или режут газом по 2.86 м" required ></textarea></td>
+                                    <td class="text-left"><textarea cols="50" rows="4" name="addCharacteristic" placeholder="поставка рулоном по 4 м или режут газом по 2.86 м" required ></textarea></td>
                                 </tr>
                                 <tr><td class="text-right"><label for="measure">единицы измерения</label></td>
                                     <td><input type="text" name="measure" placeholder="м или м погонный" required/> </td></tr>

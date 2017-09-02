@@ -43,7 +43,14 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <div class="row headingContent">
                 <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">правка поставщика <?php echo $supp->name;?></div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><button id="btnUpdateShow" > обновить </button></div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>
+                <!--   если не использовоались материалы этого поставщика, то можно разрешить его редактирование -->
+                <?php
+                if(! \App\Models\MaterialsToOrder::ifExistThisSupplierInAnyMaterilsToOrder($idSupplier)){
+                   echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
+                }
+                ?>
+
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -143,16 +143,18 @@ require '../autoload.php';
                                     //уберем ранее выведенный перед этим предупреждающий див
                                 $(this).parent().find('.alert').remove();
 
-                                var regExpPhone = /d{9,13}/;
+//                                var regExpPhone = /d{9,13}/;
+                                var regExpPhone =  /\d{5,13}/;
 
                                 if(regExpPhone.test(phone0) == true){
                                     //тест на правильность ввода пройден верно
-                                    Console.log('номер телефона введен по формату');
+                                    console.log('номер телефона введен по формату');
                                 }
                                 else{
                                     $(this).before('<div class="alert alert-info"> введите телефон по формату '+ $(this).attr('title')+'</div>');
                                     return false;
                                 }
+
 
                                 $(this).addClass('ifExistThisPhone0');
                                 console.log('отправляем на сервер запрос есть ли тако phone0  в базе поставщиков');

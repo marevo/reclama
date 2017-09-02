@@ -397,6 +397,7 @@ background-color: #337ab7;
     /*display: block;*/
 }
 /*/formAddNewMaterialsToBase.php*/
+/* .formMaterial класс для возможного  сокрытия при update*/
 .formMaterial {
     /*display: block;*/
     /*visibility: hidden;*/
@@ -405,7 +406,7 @@ background-color: #337ab7;
 }
 /*viewAllMaterials.php*/
 
-#tbViewAllMaterials tbody td span{
+#tbViewAllMaterials tbody td span, #tbViewAllSuppliers tbody td span{
 /*#tbViewAllMaterials tbody td:last-child span, .iconInTd{*/
     display: block;
     border: 1px solid black;
@@ -420,8 +421,15 @@ background-color: #337ab7;
     text-decoration: none;
 
 }
-#modalWinForDeleteMat .modal-dialog{
+/*ширина модального окна при вопросе удаления */
+#modalWinForDeleteMat .modal-dialog, #modalWinForDeleteSupp .modal-dialog{
     width: 600px;
 }
 
 /*/viewAllMaterials.php*/
+
+/*viewAllSuppliers.php */
+.tdDisplayNone{
+    display: none;
+}
+/*/viewAllSuppliers.php */

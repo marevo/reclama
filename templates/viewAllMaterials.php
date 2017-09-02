@@ -95,7 +95,6 @@ require '../autoload.php';
 
             </div>
         </div>
-
         <!-- модальное окно для удаления   -->
         <div id="modalWinForDeleteMat" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -126,7 +125,7 @@ require '../autoload.php';
             </div><!--modal-dialog-->
         </div><!--id="modalWinForDeleteMat" modal-fade -->
 
-    </div>
+    </div><!-- container -->
     </body>
     </html>
 <script type='text/javascript'>
