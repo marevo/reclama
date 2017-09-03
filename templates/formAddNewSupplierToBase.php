@@ -11,7 +11,7 @@ require '../autoload.php';
 
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ru-RU">
 <?php include('../head.html') ?>
 
 <body>

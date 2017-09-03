@@ -3,7 +3,7 @@
 require '../autoload.php';
 ?>
     <!DOCTYPE HTML>
-    <html>
+    <html lang="ru-RU">
 
 <?php
         require_once('../head.html');
@@ -32,10 +32,10 @@ require '../autoload.php';
             </div>
             <!--            конец доп блока слева-->
             <div class="col-lg-10 backForDiv">
-<!--                <div class="row headingContent">-->
-<!--                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все материалы что есть в базе материалов</div>-->
-<!--                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewMaterialsToBase.php"><span class="glyphicon glyphicon-plus"></span> <span>добавить новый материал в базу</span></a></div>-->
-<!--                </div>-->
+                <div class="row headingContent">
+                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center "> все материалы </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"></div>
+                </div>
                 <div class="row rowSearch" ><!-- строка поиска-->
                     <!--  сторка для поиска заказов по клиенту и по названию заказа -->
                     <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
@@ -76,11 +76,11 @@ require '../autoload.php';
 //                                    echo "<br/>   c idMaterials = $item[id] нет  заказов ";
 
                                 if($ifExistOrderWithIdMaterial){
-                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td></td><td></td></tr>";
+                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
                                 }
                                 else{
                                     //получили false на запрос значит в заказах не используется это материал вствавим иконку удаления
-                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'><span class='glyphicon glyphicon-edit'></span></a></td><td data-id='$item[id]'><span class=\"glyphicon glyphicon-trash\"></span></td></tr>";
+                                    $tableAllMat .= "<tr><td style='display: none;'>$item[id]</td><td>$item[name]</td><td>$item[addCharacteristic]</td><td>$item[measure]</td><td>$item[deliveryForm]</td><td>$item[priceForMeasure]</td><td style='display: none;'>$item[idSupplier]</td><td>$item[nameSupplier]</td><td><a href='viewOneMaterial.php?id=$item[id]'><span class='glyphicon glyphicon-eye-open'></span></a></td><td data-id='$item[id]'><span class=\"glyphicon glyphicon-trash\"></span></td></tr>";
                                 }
                             }
                             $tableAllMat .= "</tbody></table>";

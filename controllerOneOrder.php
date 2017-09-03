@@ -350,24 +350,24 @@ if(isset($_POST['getAllMaterialsForOrder'])){
         }
         if($allMaterialsForThisOrder != false){ //если не пусто в списке материалов для этого заказа
             $table ="<thead><tr>
-            <td>id</td>
-            <td>idOrder</td>
-            <td>idMaterials</td>
-            <td>nameMaterials</td>
-            <td>countNeed</td>
-            <td>priceCountNeed</td>
-            <td>recomAddCount</td>
-            <td>priceRecomNeed</td>
-            <td><button data-name ='addMaterial' name = 'addMaterial'><span class='glyphicon glyphicon-plus'> добавить материал</span></button></td>
+            <td class='tdDisplayNone'>id</td>
+            <td class='tdDisplayNone'>idOrder</td>
+            <td class='tdDisplayNone'>idMaterials</td>
+            <td>название мат</td>
+            <td>нужное кол</td>
+            <td>цена за нуж кол</td>
+            <td>реком кол</td>
+            <td>цена за рек кол</td>
+            <td></td>
             <td>новое количество<br/>материала</td>
             <td>править</td>
             <td>удалить</td>
             </tr></thead><tbody>";
             foreach ($allMaterialsForThisOrder as $value){
                $table.= "
-               <tr><td> $value->id </td>
-               <td> $value->idOrder </td>
-               <td> $value->idMaterials </td>
+               <tr><td class='tdDisplayNone'> $value->id </td>
+               <td class='tdDisplayNone'> $value->idOrder </td>
+               <td class='tdDisplayNone'> $value->idMaterials </td>
                <td>". Material::findObjByIdStatic($value->idMaterials)->name ." </td>
                <td> $value->countNeed </td>
                <td> $value->priceCountNeed </td>
@@ -406,24 +406,24 @@ if(isset($_POST['getAllMaterialsFromBase'])){
         }
         else{
             $table ="<thead><tr>
-            <td>id</td>
-            <td>name</td>
-            <td>addCharacteristic</td>
-            <td>measure</td>
-            <td>deliveryForm</td>
-            <td>priceForMeasure</td>
-            <td>id_suppliers</td>
-            <td>nameSuppliers</td>
+            <td class='tdDisplayNone'>id</td>
+            <td>название</td>
+            <td>доп характеристики</td>
+            <td>един поставки</td>
+            <td>форма поставки</td>
+            <td>цена за единицу</td>
+            <td class='tdDisplayNone'>id_suppliers</td>
+            <td>поставщик</td>
             </tr></thead><tbody>";
             foreach ($allMaterialsFromBase as $value){
                 $table.= "
-               <tr><td> $value->id </td>
+               <tr><td class='tdDisplayNone'> $value->id </td>
                <td> $value->name </td>
                <td> $value->addCharacteristic </td>
                <td> $value->measure </td>
                <td> $value->deliveryForm </td>
                <td> $value->priceForMeasure </td>
-               <td> $value->id_suppliers </td>
+               <td class='tdDisplayNone'> $value->id_suppliers </td>
                <td> ".Supplier::findObjByIdStatic($value->id_suppliers)->name ." </td>
                </tr>";
             }
@@ -463,29 +463,29 @@ if(isset($_POST['searchMaterialsForName'])){
         else
         {
             $table ="<thead><tr>
-            <td>id материала</td>
+            <td class='tdDisplayNone'>id материала</td>
             <td>название материала</td>
             <td>доп характеристики</td>
-            <td>единица измериния</td><!-- м - поставка в метарах погонных-->
+            <td class='tdDisplayNone'>единица измериния</td><!-- м - поставка в метарах погонных-->
             <td>форма поставки</td><!--допусим труба идет поставкой длиной 2.86 м -->
             <td>цена за единицу</td> <!--цена за единицу поставки в метрах погонных -->
-            <td>id поставщика</td>
+            <td class='tdDisplayNone'>id поставщика</td>
             <td>поставщик</td>
             <td>количество</td>
             <td><span class = 'glyphicon glyphicon-plus'>нажмите добавить напротив нужного материала</span></td>
             </tr></thead><tbody>";
             foreach ($searchedMaterials as $value){
                 $table.= "
-               <tr><td> $value->id </td>
+               <tr><td class='tdDisplayNone'> $value->id </td>
                <td> $value->name </td>
                <td> $value->addCharacteristic </td>
-               <td> $value->measure </td>
-               <td> $value->deliveryForm </td>
-               <td> $value->priceForMeasure </td>
-               <td> $value->id_suppliers <a href='viewOneSupplier.php?id=$value->id_suppliers'>посмотреть поставщика</a></td>
+               <td class='tdDisplayNone'> $value->measure </td>
+               <td>$value->deliveryForm $value->measure  </td>
+               <td> $value->priceForMeasure</td>
+               <td class='tdDisplayNone'> $value->id_suppliers <a href='viewOneSupplier.php?id=$value->id_suppliers'>посмотреть поставщика</a></td>
                <td> ".Supplier::findObjByIdStatic($value->id_suppliers)->name ." </td>
                <td><input size='7' placeholder='количество' class='inputToControle'/></td>
-               <td><button class='btn btn-primary addMaterialToOrder'><span class = 'glyphicon glyphicon-plus'>добавить к заказу</span></button> </td>
+               <td><button class='btn btn-primary addMaterialToOrder'><span class = 'glyphicon glyphicon-plus'> добавить<br/> к заказу</span></button> </td>
                </tr>";
             }
             $table.="</tbody>";

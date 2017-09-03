@@ -68,4 +68,17 @@ class MaterialsToOrder extends ModelLikeTable
             return false;
     }
 
+    public static function ifExistThisSupplierInAnyMaterilsToOrder(int $idSupplier){
+// для проверки есть ли материалы поставщика хотябы в одном заказе     SELECT  idOrder FROM materialsToOrder WHERE idMaterials IN (SELECT id FROM materials WHERE id_suppliers = '1');
+
+        $query = "SELECT  idOrder FROM ".static ::TABLE." WHERE idMaterials IN (SELECT id FROM materials WHERE id_suppliers = '$idSupplier') ;";
+//        echo " <br/> $query    ";
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if(false != $res)
+            return $sth->fetchAll();
+        else
+            return false;
+    }
 }

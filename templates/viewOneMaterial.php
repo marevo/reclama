@@ -22,7 +22,7 @@ foreach ($allSuppliers as $item){
 }
 ?>
     <!DOCTYPE HTML>
-    <html>
+    <html lang="ru-RU">
 <title> просмотр/правка данных материала </title>
     <?php
     require_once('../head.html');
@@ -50,8 +50,18 @@ foreach ($allSuppliers as $item){
                 <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
                 <div class="row headingContent">
                     <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">правка материала <?php echo $mat->name;?></div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><button id="btnUpdateShow" > обновить </button></div>
-
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button id="btnUpdateShow" > обновить </button></div>
+                    <?php
+                    $ifExistOrderWithThisMaterial = \App\Models\MaterialsToOrder::ifExistThisMaterialInAnyOneOrder($mat->id);
+                    if(! $ifExistOrderWithThisMaterial){
+                        //нет материалов этого поставщика ни в одном заказе кнопка править
+                        echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
+                    }
+                    else{
+                        //есть материалы этого поставщика, значит его править нельзя
+                        echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button disabled='true' class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
+                    }
+                    ?>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -65,7 +75,7 @@ foreach ($allSuppliers as $item){
                             </tr>
                             </thead>
                             <tbody>
-                            <tr style="display: none;"><td>id</td><td><?php echo $mat->id ?></td><td id="idMaterial" class="formMaterial"><input  name="id" type="text" value="<?php echo $mat->id ?>"/></td></tr>
+                            <tr style="display: none;"><td>id</td><td><?php echo $mat->id ?></td><td class="formMaterial"><input  name="id" type="text" value="<?php echo $mat->id ?>"/></td></tr>
                             <tr><td>название</td><td><?php echo $mat->name ?></td><td class="formMaterial"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $mat->name ?>" value="<?php echo $mat->name ?>"/></td></tr>
                             <tr><td>дополнительные сведения</td><td><?php echo $mat->addCharacteristic ?></td><td class="formMaterial"><input maxlength="200" size="55" name="addCharacteristic" title="<?php echo $mat->addCharacteristic ?>" type="text" value="<?php echo $mat->addCharacteristic ?>"/></td></tr>
                             <tr><td>единица измерения</td><td><?php echo $mat->measure ?></td><td class="formMaterial"><input name="measure" maxlength="50" type="text" value="<?php echo $mat->measure ?>"/></td></tr>
@@ -84,31 +94,25 @@ foreach ($allSuppliers as $item){
             </div>
         </div>
     </div>
-    <script>
-        //функция показа полей для редактирования
-        function displayFormMaterial() {
-            location.reload();
-            return false;
-            var i =0, j= 0;
-            $('.formMaterial').each(function () {
-                    if($(this).css('visibility')=='visible'){
-                        $(this).css('visibility','hidden');
-                    }
-                    else {
-                        $(this).css('visibility','visible');
-                        //заполним input
-                        $(this).find('input').val( $(this).prev().textContent ) ;
-                    }
-            });
-            return false;
-        }
+    <script type="text/javascript">
+
         $(function () {
-           $('#btnUpdateShow').on('click',displayFormMaterial) ;
-            $('select').val('<?php echo $mat->id_suppliers ;?>')
+            $('#btnUpdateShow').on('click',function () {
+                location.reload();
+            });
+            $('#btnEnableUpdate').on('click',function () {
+                $('.formMaterial').each(function () {
+                    $(this).css('display',function (i,value) {
+                        if(value == 'block')
+                            return 'none';
+                        else return 'block';
+                    });
+                });
+            });
+            $('select').val('<?php echo $mat->id_suppliers ;?>');
+
         });
         $('form').submit(function () {
-
-
             $.ajax({
                 type: $(this).attr('method'),
                 url: $(this).attr('action'),//ссылка куда идут данные,

@@ -3,7 +3,7 @@
 require '../autoload.php';
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ru-RU">
 <?php
 require_once('../head.html');
 ?>
@@ -26,11 +26,10 @@ require_once('../head.html');
             этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
         </div><!-- конец доп блока слева-->
         <div class="col-lg-10 backForDiv">
-            <!--         <div class="row headingContent">
-                <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">все поставщики</div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"><a class="a_displayBlock" href="formAddNewSupplierToBase.php"><span class="glyphicon glyphicon-plus"></span> добавить поставщика<span>  </a></div>
+            <div class="row headingContent">
+                <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center "> поставщики</div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"></div>
             </div>
-            -->
             <div class="row rowSearch" ><!-- строка поиска-->
                 <!--  сторка для поиска заказов по клиенту и по названию заказа -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
@@ -58,17 +57,17 @@ require_once('../head.html');
                     //найдем всех поставщиков и отобразим их через таблицу
                     $allSuppliersInBase = \App\Models\Supplier::findAll();
                     if(! empty ($allSuppliersInBase)){
-                        $tableAllSupp = "<table id='tbViewAllSuppliers'><thead><tr><td class='tdDisplayNone'>id</td><td>название</td><td>доп характ</td><td class='tdDisplayNone'>контакт</td><td>телефон</td><td class='tdDisplayNone'>email</td><td class='tdDisplayNone'>адрес поставщика</td><td class='tdDisplayNone'>день доставки</td><td class='tdDisplayNone'>сайт</td><td class='text-center'><span class='glyphicon glyphicon-eye-open'></span></td><td class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
+                        $tableAllSupp = "<table id='tbViewAllSuppliers'><thead><tr><td class='tdDisplayNone'>id</td><td>название</td><td>доп характ</td><td class='tdDisplayNone'>контакт</td><td>телефон</td><td class='tdDisplayNone'>email</td><td>адрес поставщика</td><td class='tdDisplayNone'>день доставки</td><td class='tdDisplayNone'>сайт</td><td class='text-center'><span class='glyphicon glyphicon-eye-open'></span></td><td class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
                         foreach ($allSuppliersInBase as $item){
                             //найдем idMaterial для каждого поставщика, чтобы узнать есть или нет эти материалы в заказах и
                             // разрешать удалять только тех поставщиков, чьих материалов нет в заказах
                             if(\App\Models\MaterialsToOrder::ifExistThisSupplierInAnyMaterilsToOrder($item->id)){
 //                                есть материал этото поставщика хотябы в одном заказе поэтому не будем разрешать удалять поставщика
-                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td class='tdDisplayNone'>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
+                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
                             }
                             else{
                                 // нет материалов этого поставщика, поэтому разрешим его удаление
-                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td class='tdDisplayNone'>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td data-id_supplier='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
+                                $tableAllSupp .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->addCharacteristic</td><td class='tdDisplayNone'>$item->contactPerson</td><td>$item->phone0</td><td class='tdDisplayNone'>$item->email0</td><td>$item->address</td><td class='tdDisplayNone'> ".$item->getDeliveryDays()." </td><td class='tdDisplayNone'><a href='$item->site' target='_blank'>$item->site</a></td><td class='text-center'><a href='viewOneSupplier.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td data-id_supplier='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
                             }
                         }
                         $tableAllSupp .= "</tbody></table>";
@@ -97,7 +96,7 @@ require_once('../head.html');
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 text-center " id="modalNameSupplier"> название поставщика</div>
-                                        <div style="display: block;" class="col-lg-12 text-center " id="modalIdSupplier"> id поставщика</div>
+                                        <div style="display: none;" class="col-lg-12 text-center " id="modalIdSupplier"> id поставщика</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><button name="btnDeleteSupplier" class="btn btn-danger">да</button></div>

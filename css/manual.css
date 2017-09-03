@@ -22,9 +22,12 @@
    max-height:400px;
     /*width: 100%;*/
 }
-table{
+.divForTable div{
     /*table-layout: fixed;*/
-    width: 100% ;
+    padding-left: 0;
+    padding-right: 0;
+
+    /*width: 100% ;*/
     /*text-align: center;*/
 }
 thead td {
@@ -65,6 +68,10 @@ tbody td{
     max-width: 250px;
     border-radius: 4em;
     background-color:#d7d7c8;
+}
+.navigationWidth{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .nav li a{
@@ -284,8 +291,12 @@ table tbody a:hover{
     display: none;
     overflow: auto;
 }
+/*ширина диалогового окна просмотра всех материалов в заказе*/
+#tableAllMaterialsForOrder .modal-content{
+    width: 1000px;
+}
 .modal-dialog {
-    width: 100%;
+    width: 80%;
 }
 
 .modal-content{
@@ -311,15 +322,7 @@ table tbody a:hover{
 .fontSizeMedium {
     font-size: medium;
 }
-/*при наведении на header таблцы данных заказа */
-#tableOneOrder thead td:last-child{
-    cursor: pointer;
-    background-color: #a5c6d2;
-}
-#tableOneOrder thead td:last-child:hover{
-    cursor: pointer;
-    background-color: #2aabd2;
-}
+
 .inputToControle{
     background-color: #efefef;
 }
@@ -367,6 +370,7 @@ background-color: #337ab7;
 }
 
 /*formAddNewMaterialsToBase.php*/
+/* отображение заголовка что правим и кнопок рядом viewOneSupplier.php*/
 .headingContent{
     display:flex;
     justify-content: center;
@@ -398,11 +402,9 @@ background-color: #337ab7;
 }
 /*/formAddNewMaterialsToBase.php*/
 /* .formMaterial класс для возможного  сокрытия при update*/
+/* по началу ячейки таблицы закрыты для правки то есть можно только смотреть*/
 .formMaterial {
-    /*display: block;*/
-    /*visibility: hidden;*/
-    /*visibility: visible;*/
-    /*opacity: 1;*/
+    display: none;
 }
 /*viewAllMaterials.php*/
 

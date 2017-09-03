@@ -29,13 +29,15 @@ class Supplier extends ModelLikeTable
     {
         // TODO: Implement isNew() method.
         if(empty($this->id) || is_null($this->id)){
+//            echo "ДА ЭТО НОВЫЙ ПОСТАВЩИК";
             return true;
         }
         else{
             return false;
         }
     }
-   
+
+    
     public static function getAllSuppliers(){
         $db = new Db();
         $query = "SELECT * FROM ".self::TABLE." ORDER BY name ; ";
@@ -81,3 +83,4 @@ class Supplier extends ModelLikeTable
     }
 
 }
+

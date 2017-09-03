@@ -48,6 +48,10 @@ class Db
 //        die();
         $sth = $this-> dbh->prepare($sqlString);
         $res = $sth->execute($params);//вернет true or false
+//        if(false == $res)
+//            echo "from db  = false";
+//        else    echo "from db  = $res";
+
         return $res;
     }
 

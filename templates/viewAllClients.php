@@ -5,7 +5,7 @@ require '../autoload.php';
 ////        echo Нужно отметить, что для большего удобства в PHP кроме слова «static» есть еще специальная функция get_called_class(), которая сообщит вам — в контексте какого класса в данный момент работает ваш код.
 ?>
 <!DOCTYPE HTML>
- <html>
+ <html lang="ru-RU">
     <?php
        include('../head.html');
     ?>

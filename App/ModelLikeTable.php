@@ -147,6 +147,32 @@ abstract class ModelLikeTable
         return $res;
 
     }
+    //проверка существует ли объект с таким именем
+    public static function ifExistObjWithName(string $name){
+        $db = new Db();
+        $query  = "SELECT * FROM ".static::TABLE ." WHERE `name`  = '$name';";
+        $res = $db->query($query ,static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+
+    }
+//проверка существует ли объект с таким phone0 номером телефона   
+    public static function ifExistObjWithPhone0(string $phone0){
+        $db = new Db();
+        $query  = "SELECT * FROM ".static::TABLE ." WHERE `phone0`  = '$phone0';";
+        $res = $db->query($query ,static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+    }
+//проверка существует ли объект с таким email0
+    public static function ifExistObjWithEmail0(string $email0){
+        $db = new Db();
+        $query  = "SELECT * FROM ".static::TABLE ." WHERE `email0`  = '$email0';";
+        $res = $db->query($query ,static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+
+    }
 
     /**
      * @param int $_id

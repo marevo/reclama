@@ -40,7 +40,7 @@ function fIsInstall(int $isInstall){
 }
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ru-RU">
 <title> просмотр данных заказа </title>
 <?php include('../head.html') ?>
 <body>
@@ -54,10 +54,6 @@ function fIsInstall(int $isInstall){
 showLi('');
         </script>
     </div>
-    <!-- здесь будет строка forDisplayTimeShowAnswetServer.html класса .row .forDisplayTimeShowAnswerServer -->
-    <!--            подтянем отображение текущей даты и ответов сервера-->
-    <?php   require_once ('../App/html/forDisplayTimeShowAnswerServer.html');?>
-
     <div class="row">
         <!--рабочее место слева для будущего меню-->
         <div class="col-lg-2 backForDiv">
@@ -88,20 +84,21 @@ showLi('');
              ";
             ?>
         <!--рабочее место справа-->
-        <div class="col-lg-10 backForDiv divForTable">
-
-
-            <div class="row"><!--просмотр одного заказа-->
-                <div class="col-lg-12 bg-primary panel-info h3 " >
-<!--                    <h3 data-name="nameOrder"></h3>для<h3 data-name="nameClient"></h3>-->
-                    <?php echo $order->name; ?> для <?php echo $nameClient; ?>
+        <div class="col-lg-10 backForDiv ">
+            <!--строка показа времени и показа результата добавки материала в базу  -->
+            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
+            <!--  блок отображения что меняем и кнокпки обновить страницу и кнопка править(покажет поля для внесения новых значений)  -->
+            <div class="row headingContent">
+                <div class="col-lg-9   col-md-9 col-sm-9 col-xs-9   text-center ">просмотр/правка заказа <?php echo $order->name; ?> для <?php echo $nameClient; ?></div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center""> <button class="btn btn-sm btn-primary btnAddMatetialToOrder"><span class="glyphicon glyphicon-plus-sign"> добавить материал</span></button>
                 </div>
             </div>
+            
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 divForTable" >
 <table id="tableOneOrder" data-idorder="">
-    <thead><tr><td>данные заказа</td><td>значение</td><td><span class="glyphicon glyphicon-plus-sign"></span> добавить материал
-            </td></tr></thead>
+    <thead><tr><td>данные заказа</td><td>значение</td><td></td></tr></thead>
     <tbody>
     <tr><td>название заказа</td><td data-name="nameOrder"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td>описание заказа</td><td data-name="descriptionOrder"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
@@ -109,7 +106,7 @@ showLi('');
     <tr title="название клиента для которого делаем заказ"><td>название клиента</td><td data-name="nameClient"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td>цена</td><td data-name="orderPrice"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td>цена комплектующих</td><td data-name="manufacturingPrice"></td><td><span class="glyphicon glyphicon-eye-open"> просмотр компл</span></td></tr>
-    <tr><td>комплектация</td><td data-name="isCompleted" ></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
+    <tr><td>комплектация: укомплектован-да   не укомплектован-нет</td><td data-name="isCompleted" ></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td> статус </td><td data-name='isReady'></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td>установлен</td><td data-name='isInstall'></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td title="сколько уже проплатил клиент">оплата</td><td data-name="sumAllPayments" id="sumAllPayments" ></td>
@@ -117,7 +114,7 @@ showLi('');
     </tr>
      <tr><td title='нач: дата начала заказа'>дата нач </td><td data-name="dateOfOrdering"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td title='дата завершения заказа'>дата кон </td><td data-name="dateOfComplation"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
-    <tr><td title='разрешение на изменение цены комплектующих (если они изменялись )'>разрешить добавку материала к заказу и <br/> и автоматический пересчет цены комплекующих</td>
+    <tr><td title='разрешение на изменение всех цен в этом заказе при добавлении или изменении материалов'> разрешение на  автоматический пересчет цены комплекующих</td>
         <td data-name="isAllowCalculateCost"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     <tr><td title='удаление заказа поставим метку что заказ в корзине'>отправить в корзину заказ</td><td data-name="isTrash"></td><td><span class="glyphicon glyphicon-edit"> править</span></td></tr>
     </tbody>
@@ -750,7 +747,7 @@ showLi('');
 <script>
     //функция вызывается раз в секунду проверяет textarea если там объект {rez:true,{name:nameOrder,value:лайтбокс для фирам Рога и Копыта Чернигов} }
     // со значением true
-    // значит сервер прислал результат и его надо отобразить и поменять значение в объекте ORDER
+    // значит сервер прислал и его надо отобразить и поменять значение в объекте ORDER
 var ORDER_NEW ;
     function parseOrder(){
         var textAr = $('#newTargetForControlInput');

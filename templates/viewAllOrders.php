@@ -98,7 +98,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
 }
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ru-RU">
 <title>просмотр всех заказов</title>
 <?php include('../head.html') ?>
 <body>
@@ -121,6 +121,10 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
                 этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
             </div>
             <div class="col-lg-10 ">
+                <div class="row headingContent">
+                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">заказы</div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"></div>
+                </div>
                 <div class="row rowSearch" ><!-- строка поиска-->
                             <!--  сторка для поиска заказов по клиенту и по названию заказа -->
 <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->

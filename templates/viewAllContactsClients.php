@@ -3,7 +3,7 @@
 require '../autoload.php';
 ?>
     <!DOCTYPE HTML>
-    <html>
+    <html lang="ru-RU">
     <?php
     //подключим head.html
     require_once('../head.html');

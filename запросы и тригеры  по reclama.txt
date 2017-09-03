@@ -1,0 +1,98 @@
+SELECT  o.id AS idOrder ,
+        o.dateOfOrdering AS dateBegin,
+        o.dateOfComplation AS dateEnd,
+        o.nameOrder,
+        c.name AS nameClient ,
+        o.orderPrice,
+        o.isReady, 
+        o.isCompleted,
+        SUM( p.sumPayment) AS payment
+FROM orders o, clients c ,payments p
+WHERE o.idClient = c.id 
+GROUP BY o.id
+ORDER BY o.dateOfOrdering
+
+вариант 2
+SELECT  o.id AS idOrder ,
+        o.dateOfOrdering AS dateBegin,
+        o.dateOfComplation AS dateEnd,
+        o.nameOrder,
+        c.name AS nameClient ,
+        o.orderPrice,
+        o.isReady, 
+        o.isCompleted,
+        SUM( p.sumPayment) AS payment
+FROM orders o, clients c ,payments p
+WHERE o.idClient = c.id  AND idOrder = p.idOrder AND o.id = p.idOrder
+GROUP BY o.id
+ORDER BY o.dateOfOrdering
+
+вариант 3
+SELECT  o.id AS idOrder ,
+        o.dateOfOrdering AS dateBegin,
+        o.dateOfComplation AS dateEnd,
+        o.nameOrder,
+        c.name AS nameClient ,
+        o.orderPrice,
+        o.isReady, 
+        o.isCompleted,
+        SUM( p.sumPayment) AS payment
+FROM orders o, clients c ,payments p
+WHERE o.idClient = c.id  AND o.id = p.idOrder
+GROUP BY o.id
+ORDER BY o.dateOfOrdering
+
+вариант 4
+SELECT  o.id AS idOrder ,
+        o.dateOfOrdering AS dateBegin,
+        o.dateOfComplation AS dateEnd,
+        o.nameOrder,
+        c.name AS nameClient ,
+        o.orderPrice,
+        o.isReady, 
+        o.isCompleted,
+        SUM(p.sumPayment) AS summ
+        
+FROM orders o, clients c ,payments p
+WHERE o.idClient = c.id AND o.id = p.idOrder  
+GROUP BY idOrder
+ORDER BY dateBegin DESC
+
+
+trigger перед вставкой в таблицу materialsToOrder
+DROP TRIGGER IF EXISTS `insertPriceCountNeed`;CREATE DEFINER=`root`@`%` TRIGGER `insertPriceCountNeed` BEFORE INSERT ON `materialsToOrder` FOR EACH ROW BEGIN
+     IF ( (SELECT isAllowCalculateCost FROM orders WHERE orders.id = NEW.idOrder) = 1 OR (SELECT isComplited FROM orders WHERE orders.id = NEW.idOrder) = 0 )
+		THEN BEGIN
+        IF EXISTS ( SELECT NULL  FROM materials AS m
+                    WHERE m.id = NEW.idMaterials) 
+            THEN BEGIN
+		        /*цена заготовки за единицу длины или площади или шт)*/
+                SET @price = (SELECT priceForMeasure FROM materials AS m
+                              WHERE m.id = NEW.idMaterials );
+		        /*минимальная форма поставки (допустим труба поставляется 3м минимум)*/
+                 SET @deliveryForm = (SELECT deliveryForm FROM materials AS m  WHERE m.id = NEW.idMaterials );
+                 SET NEW.priceCountNeed = NEW.countNeed * @price; 
+                 SET @countNeed = NEW.countNeed;
+                 /* если отношение нужного количества материала к минимально поставляемому меньше  или равно 1 надо брать 1 единицу*/
+                 IF (@countNeed/@deliveryForm <= 1 ) 
+                     THEN BEGIN 
+                     SET NEW.recomAddCount = 1;
+                     SET NEW.priceRecomNeed = @price * @deliveryForm;
+                     END; 
+                  ELSE
+                      BEGIN 
+	       		      SET @part = ( SELECT CEIL( @countNeed/@deliveryForm ) );/*округление в большую сторону*/
+					  SET NEW.recomAddCount = @part;
+			          SET NEW.priceRecomNeed = @part * @price * @deliveryForm;
+                      END;
+				  END IF;
+                       /** SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT =  NEW.priceCountNeed ;**/
+            END;
+        END IF;
+        END ;
+    ELSE
+        BEGIN
+            SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT =  'запрещено добавлять материалы в этот заказ проверьте поля isCompleted isAllowCalculateCost' ;
+        END;    
+    END IF;
+END

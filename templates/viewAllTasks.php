@@ -3,7 +3,7 @@
 require_once '../autoload.php';
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ru-RU">
 <?php
 //так работает
 //     include_once ('E:\OpenServer\domains\reclama\head.html');
