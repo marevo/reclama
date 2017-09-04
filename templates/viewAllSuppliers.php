@@ -26,7 +26,7 @@ require_once('../head.html');
             этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
         </div><!-- конец доп блока слева-->
         <div class="col-lg-10 backForDiv">
-            <div class="row headingContent">
+            <div class="row headingContent"><!--строка для отображения названия страницы где находится пользователь -->
                 <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center "> поставщики</div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"></div>
             </div>
@@ -163,7 +163,7 @@ require_once('../head.html');
                 $('#inputFindMaterial').val('').attr('placeholder','минимум 3 символа');
             }else {
                 console.log('отправим запрос на поиск');
-                jquery_send('#tbViewAllSuppliers tbody','post','../App/controllers/controllerOneSupplier.php',['searchLike','likeValue'],['',inputSearchValue]);
+                jquery_send('#tbViewAllSuppliers tbody','post','../App/controllers/controllerViewAllSuppliers.php',['searchLike','likeValue'],['',inputSearchValue]);
             }
         });
 

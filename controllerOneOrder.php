@@ -564,10 +564,10 @@ if(isset($_POST['updateThisCountMaterialsForOrder'])){
 //        echo "<script>fUpdatTrWhereUpdateCountMaterial($countNeed,$priceCountNeed,$recomAddCount,$priceRecomNeed);
         echo "<script>
                    var trUpdated = $('.updateCountMaterialToOrder');
-                   $(trUpdated).children()[4].textContent = $countNeed;
-                   $(trUpdated).children()[5].textContent = $priceCountNeed;
-                   $(trUpdated).children()[6].textContent = $recomAddCount;
-                   $(trUpdated).children()[7].textContent = $priceRecomNeed;
+                   $(trUpdated).children()[4].textContent = '$countNeed'  ;
+                   $(trUpdated).children()[5].textContent = '$priceCountNeed';
+                   $(trUpdated).children()[6].textContent = '$recomAddCount';
+                   $(trUpdated).children()[7].textContent = '$priceRecomNeed';
                    $(trUpdated).removeClass('updateCountMaterialToOrder');
                    $('.manufacturingPriceCount').text('$manufacturingPriceCount');
                    $('.manufacturingPriceRecom').text('$manufacturingPriceRecom');

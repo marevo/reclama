@@ -1,19 +1,24 @@
 /**
  * Created by marevo on 10.08.2017.
  */
-//повесим на последнюю ячейку заголовка таблицы клик с вызовом модального окна добавления материалов к заказу
-$('#tableOneOrder thead tr:last-child').ready(function () {
-    $('#tableOneOrder thead td:last-child').on('click',function (){
+//повесим на последнюю кнопку с классом клик с вызовом модального окна добавления материалов к заказу
+$(function () {
+    $('.btnAddMatetialToOrder').on('click', function () {
         // вызов модального окна для добавки материалов к заказу
-        if(ORDER.isAllowCalculateCost == 1){
+        if (ORDER.isCompleted == 0) {
             $('#modalAddMaterialToOrder').modal('show');
         }
         else {
             // нельзя добавлять материалы к заказу запустим фунцию подсказку она подсветит на 1 секунду строку подсказки
+            $('#rezShow').html('нельзя добавлять материалы -  заказ укомплектован смотрите пункт "комплект" ');
             // в которой стоит запрет на добавление материала и кнопу добавки( в данном случае - ячейку последнюю в tableOneOrder thead tr:last-child)
-            promptShow(0,1000,$('[data-name = "isAllowCalculateCost"]').parent());
-            promptShow(0,1000,$('#tableOneOrder thead td:last-child'));
+            promptShow(0, 1000, $('[data-name = "isCompleted"]').parent());
+            promptShow(0, 1000, $('#rezShow'));
         }
+    });
+    $('.btnViewModalWinForMaterialsToThisOrder').on('click', function () {
+       $('#modalAddMaterialToOrder').modal('hide');
+        $('#modalViewAllMaterialsToThisOrder').modal('show');
     });
 });
 

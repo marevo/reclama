@@ -96,15 +96,15 @@ function datePlusDays(days) {
     return (dateFuture.getFullYear() + "-" + mFuture + "-" + dFuture);
 }
 //*функция проверки ввода  денежных сумм
-function testSum(sum){
-    var regExp1 =/(^\d{1,5})((\.{0,1}\d{2}){0,1})$/;
+function testSumOnFloat(sum){
+    var regExp1 =/(^\d{1,5})((\.{0,1}\d{1,2}){0,1})$/;
     return regExp1.test(sum);
 }
 //*/функция проверки ввода  денежных сумм
 //*функция отображения проверки поля на валидность ( можно ввоодить только вида  ггггггг.кк тоесть гривны точка копейки)
 function rezChangeSumShow(elemm) {
-    if( testSum($(elemm).val()) == true){
-        // Console.log('testSum '+ testSum($(elemm).val()));
+    if( testSumOnFloat($(elemm).val()) == true){
+        // Console.log('testSumOnFloat '+ testSumOnFloat($(elemm).val()));
         $(elemm).removeClass('orderNoSuccessCell').addClass('orderSuccessCell')
     }
     else {
@@ -119,9 +119,9 @@ function povesitProverkuValidnostyNaInput(elem) {
     });
 }
 //*/функция повесит на элемент отображения валидации денежного поля
-//*функция тестирует на формат d || d.dd 
+//*функция тестирует на формат d || d.dd // d.d
 function testInputDigit(sum) {
-    var regExp2 =/(^\d{1,3})((\.{0,1}\d{2}){0,1})$/;
+    var regExp2 =/(^\d{1,3})((\.{0,1}\d{1,2}){0,1})$/;
     return regExp2.test(sum);
 }
 

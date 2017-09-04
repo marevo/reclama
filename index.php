@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru-Ru">
 <!--<head>-->
 <!-- подключим к странице head.php заголовки и линковку-->
 <!--    <meta http-equiv="content-type" content="text/html;charset=utf-8">-->

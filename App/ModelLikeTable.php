@@ -199,4 +199,14 @@ abstract class ModelLikeTable
         $res = $db->execute($queryStrDelete,NULL);
         return $res;
     }
+    //поиск объектов по подобию name or addCharacteristic можно применять к классам Supplier Material
+    public static function searchObjectsLikeNameOrLikeAddCharacteristic(string  $likeNameAddChar){
+        $db = new Db();
+        $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' OR `addCharacteristic` LIKE '%".$likeNameAddChar."%' ;";
+        $res = $db->query($query ,static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+
+
+    }
 }

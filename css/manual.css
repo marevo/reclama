@@ -279,7 +279,7 @@ table tbody a:hover{
     border: #d45554 1px solid;
 }
 /*модальное окно просмотра всех материалов в viewOneOrder.php*/
-#modalFade, #modalAddMaterialToOrder{
+#modalViewAllMaterialsToThisOrder, #modalAddMaterialToOrder{
     /*position: fixed;*/
     /*z-index: 100;*/
     top:0px;
@@ -294,6 +294,8 @@ table tbody a:hover{
 /*ширина диалогового окна просмотра всех материалов в заказе*/
 #tableAllMaterialsForOrder .modal-content{
     width: 1000px;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 .modal-dialog {
     width: 80%;
@@ -303,8 +305,12 @@ table tbody a:hover{
     overflow-y: auto;
     overflow-x: auto;
 }
-
-#modalFade table a{
+.tableFildMaterialToAddToOrder{
+    height: 500px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+#modalViewAllMaterialsToThisOrder table a{
     min-width: 100px;
     display: block;
     border: black 1px solid;

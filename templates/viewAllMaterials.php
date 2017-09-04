@@ -32,29 +32,27 @@ require '../autoload.php';
             </div>
             <!--            конец доп блока слева-->
             <div class="col-lg-10 backForDiv">
-                <div class="row headingContent">
+                <div class="row headingContent"><!--строка для отображения названия страницы где находится пользователь -->
                     <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center "> все материалы </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"></div>
                 </div>
                 <div class="row rowSearch" ><!-- строка поиска-->
                     <!--  сторка для поиска заказов по клиенту и по названию заказа -->
-                    <!--                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>-->
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <label for="inputFindMaterialForNameMaterial">искать по названию материала</label>
-                        <input type="text" name="inputFindMaterialForNameMaterial" placeholder="по названию">
-                        <button name="searchMaterialForNameMaterial" class="btn-primary">искать </button>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <label for="inputFindMaterialForNameSupplier">искать по названию поставщика</label>
-                        <input type="text" name="inputFindMaterialForNameSupplier" placeholder="по поставщику">
-                        <button name="searchMaterialForNameSupplier" class="btn-primary">искать</button>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><label for="inputFindMaterial">искать по названию или доп характ </label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><input type="text" id="inputFindMaterial" placeholder="по названию"/></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><button id="btnSearchMaterialLikeNameORLikeAddCharacteristic" class="btn-primary">искать </button></div>
+                        </div>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="makeNewOrder"  class="text-center">новый материал</label>
-                        <div title="создать новый заказ" id="makeNewOrder"></div>
-                        <a href='formAddNewMaterialsToBase.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
+                        <label for="makeNewSupplier"  class="text-center">новый поставщик</label>
+                        <div title="создать нового поставщика" id="makeNewSupplier"></div>
+                        <a href='formAddNewSupplierToBase.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
                     </div>
                 </div><!-- конец блока строки поиска  -->
 
@@ -166,7 +164,17 @@ require '../autoload.php';
         $('#modalWinForDeleteMat').on('show.bs.modal',function () {
 
         });
-
+        //функция поиска материала по подобию названия или доп. характеристик
+        $('#btnSearchMaterialLikeNameORLikeAddCharacteristic').on('click',function () {
+            console.log('нажали кнопку поиска материалы по подобию названию или добхарактеристик');
+            var inputSearchValue = $('#inputFindMaterial').val();
+            if(inputSearchValue.length < 3 || inputSearchValue.length == 0){
+                $('#inputFindMaterial').val('').attr('placeholder','минимум 3 символа');
+            }else {
+                console.log('отправим запрос на поиск');
+                jquery_send('#tbViewAllMaterials tbody','post','../App/controllers/controllerViewAllMaterials.php',['searchLike','likeValue'],['',inputSearchValue]);
+            }
+        });
 
     });
 </script>

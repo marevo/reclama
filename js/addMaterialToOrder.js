@@ -36,14 +36,12 @@ $('#modalAddMaterialToOrder').on('click',function (event) {
             return false;
         }
     }
-
-
-
-
 });
 
 //при показе модального окна для добавки мы запросим данные о всех материалах что есть в базе и выведем их
 $('#modalAddMaterialToOrder').on('show.bs.modal',function () {
+    // перед показом #modalAddMaterialToOrder закрываем окно #modalViewAllMaterialsToThisOrder показа всех материалов к заказу
+    $('#modalViewAllMaterialsToThisOrder').modal('hide');
   //*** вызвать функцию ниже
     getAllMaterialsFromBase();
     //повесим фунцию позаза усеха не успеха обращений на сервер (запросы на изменение)
@@ -68,7 +66,7 @@ function getAllMaterialsFromBase() {
     ['', ORDER.id]    
     );
 }
-//найти материалы по названию (по подобию в названии)
+//найти материалы по названию (по подобию в названии) и вывести их в #tbSearchMaterialOnName
 function serchAllMaterialsForName() {
     var nameMater = $.trim($('#idInputNameMaterial').val());
     if(nameMater != ""){

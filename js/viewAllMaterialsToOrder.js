@@ -2,16 +2,16 @@
  * Created by marevo on 03.08.2017.
  */
 //обработка для модального окна просмотра и добавления материалов к заказу viewAllMaterialsToOrder.html
-$('#modalFade').on('click',function (event) {
+$('#modalViewAllMaterialsToThisOrder').on('click',function (event) {
     var target = event.target;
     if(target.name == 'ModalClose' || target.name == 'ModalClose2' ){
-        $('#modalFade').modal('hide');
+        $('#modalViewAllMaterialsToThisOrder').modal('hide');
     }
     if(target.name == 'sumMatZakaz'){
         console.log('обработка суммы материалов заказа');
         // ORDER.oldValue = ORDER.manufacturingPrice;
         var sumManufacturingPrice = $('[name="valManufacturingPrice"]').val();
-        if(testSum(sumManufacturingPrice) && +sumManufacturingPrice > 0 ){
+        if(testSumOnFloat(sumManufacturingPrice) && +sumManufacturingPrice >= 0 ){
             ORDER.oldValue = ORDER.manufacturingPrice;
             ORDER.newValue = sumManufacturingPrice;
             ORDER.nameFieldForUpdate = 'manufacturingPrice';
@@ -38,7 +38,7 @@ $('#modalFade').on('click',function (event) {
         }
         if(target.nodeName =='BUTTON' && target.name == 'addMaterial'){
             console.log('нажали кнопку добавки материала будем закрывать это модальное окно и вызовем другое модальное окно по добавке материала ');
-            $('#modalFade').modal('hide');
+            $('#modalViewAllMaterialsToThisOrder').modal('hide');
             $('#modalAddMaterialToOrder').modal('show');
         }
 
@@ -51,7 +51,7 @@ $('#submitNoModalForm').on('click',function () {
     console.log('нажали кнопку передумал в форме добавки материала');
 });
 //при показе модального окна мы запросим данные о всех материалах для этого заказа
-$('#modalFade').on('show.bs.modal',function () {
+$('#modalViewAllMaterialsToThisOrder').on('show.bs.modal',function () {
     //при вызове модального окна запустим фунцию нахождения всех материалов к заказу
     getAllMaterialsForOrder();
     //повесим фунцию позаза усеха не успеха обращений на сервер (запросы на изменение)
@@ -64,7 +64,7 @@ $('#modalFade').on('show.bs.modal',function () {
     herePokazRezZapros( $('#rezDeleteTr'));
 });
 // когда модальное окно отобажено повесим на input все проверку валидности
-$('#modalFade').on('shown.bs.modal',function () {
+$('#modalViewAllMaterialsToThisOrder').on('shown.bs.modal',function () {
     // повесим на input все проверку валидности
     $('#tableAllMaterialsForOrder input').each(function () {
         povesitProverkuValidnostyNaInput($(this));
@@ -122,7 +122,7 @@ function clickTableAllMaterialsForOrder() {
 
 }
 //при сокрытии модального окна
-$('#modalFade').on('hide.bs.modal',function () {
+$('#modalViewAllMaterialsToThisOrder').on('hide.bs.modal',function () {
     //уберем красную окантовку вокруг кликнутых ячеек
     $('#forClear').removeClass('forClear').removeAttr('id');
     //очистим таблицу всех материалов

@@ -1,6 +1,7 @@
 /**
  * Created by marevo on 12.08.2017.
  */
+//внимание не забыть удалить этот js viewOndeSupplier.js
 //на загрузку страницы добавим запуск функции по распределению полей объекта ORDER по местам страницы
 $('#tableOneSupplier').ready(function(){
     //console.log('таблица загружена запустим расстановку значений ORDER согласно атрибута data-name');
@@ -246,7 +247,7 @@ function zaprosInput() {
     if( $(target).siblings()[0].type == 'text' && $(target).siblings()[0].id == 'inputOrderPrice'){
         ORDER.oldValue = ORDER.orderPrice;
         var sumForTest = $('#inputOrderPrice').val();
-        if(testSum(sumForTest) && +sumForTest > 0 ){
+        if(testSumOnFloat(sumForTest) && +sumForTest > 0 ){
             ORDER.newValue = sumForTest;
             $('#inputOrderPrice').removeClass('orderNoSuccessCell').addClass('orderSuccessCell');
         }
@@ -255,7 +256,7 @@ function zaprosInput() {
             ORDER.newValue = '';
         }
         ORDER.nameFieldForUpdate = 'orderPrice';
-        if(ORDER.newValue != ORDER.oldValue && testSum(sumForTest) && +sumForTest > 0){
+        if(ORDER.newValue != ORDER.oldValue && testSumOnFloat(sumForTest) && +sumForTest > 0){
             console.log('отправляем на update ORDER.nameFieldForUpdate = '+ ORDER.nameFieldForUpdate +
                 '  ORDER.oldValue = '+ ORDER.oldValue +
                 '  ORDER.newValue = '+ ORDER.newValue);
