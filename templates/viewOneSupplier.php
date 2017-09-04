@@ -71,14 +71,14 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
                             </tr>
                             </thead>
                             <tbody>
-                            <tr style="display: none;"><td>id</td><td><?php echo $supp->id ;?></td><td class="formMaterial"><input  name="id" type="text" value="<?php echo $supp->id ?>"/></td></tr>
-                            <tr><td>название</td><td><?php echo $supp->name ;?></td><td class="formMaterial"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $supp->name ?>" value="<?php echo $supp->name ?>"/></td></tr>
-                            <tr><td>дополнительные сведения</td><td><?php echo $supp->addCharacteristic ; ?></td><td class="formMaterial"><input maxlength="300" size="55" name="addCharacteristic" title="<?php echo $supp->addCharacteristic ?>" type="text" value="<?php echo $supp->addCharacteristic ?>"/></td></tr>
-                            <tr><td>контакт</td><td><?php echo $supp->contactPerson ; ?></td><td class="formMaterial"><input maxlength="100" size="55" name="contactPerson" title="<?php echo $supp->contactPerson ?>" type="text" value="<?php echo $supp->contactPerson ?>"/></td></tr>
-                            <tr><td>телефон</td><td><?php echo $supp->phone0 ; ?></td><td class="formMaterial"><input maxlength="20" size="20" name="phone0" title="<?php echo $supp->phone0 ?>" type="text" value="<?php echo $supp->phone0 ?>"/></td></tr>
-                            <tr><td>email</td><td><a target="_blank" title="написать письмо поставщику" href="<?php echo $supp->email0 ; ?>" ><?php echo $supp->email0  ?></a></td><td class="formMaterial"><input name="email0" maxlength="50" size="50" type="text" value="<?php echo $supp->email0 ?>"/></td></tr>
-                            <tr><td>адрес</td><td><?php echo $supp->address ; ?></td><td class="formMaterial"><input  name="address" maxlength="200" size="55" type="text" value="<?php echo $supp->address ?>"/></td></tr>
-                            <tr><td>день доставки</td><td><?php echo $supp->getDeliveryDays(); ?></td><td class="formMaterial"><select name="deliveryDay" >
+                            <tr style="display: none;"><td>id</td><td><?php echo $supp->id ;?></td><td class="tdDisplayNone"><input  name="id" type="text" value="<?php echo $supp->id ?>"/></td></tr>
+                            <tr><td>название</td><td><?php echo $supp->name ;?></td><td class="tdDisplayNone"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $supp->name ?>" value="<?php echo $supp->name ?>"/></td></tr>
+                            <tr><td>дополнительные сведения</td><td><?php echo $supp->addCharacteristic ; ?></td><td class="tdDisplayNone"><input maxlength="300" size="55" name="addCharacteristic" title="<?php echo $supp->addCharacteristic ?>" type="text" value="<?php echo $supp->addCharacteristic ?>"/></td></tr>
+                            <tr><td>контакт</td><td><?php echo $supp->contactPerson ; ?></td><td class="tdDisplayNone"><input maxlength="100" size="55" name="contactPerson" title="<?php echo $supp->contactPerson ?>" type="text" value="<?php echo $supp->contactPerson ?>"/></td></tr>
+                            <tr><td>телефон</td><td><?php echo $supp->phone0 ; ?></td><td class="tdDisplayNone"><input maxlength="20" size="20" name="phone0" title="<?php echo $supp->phone0 ?>" type="text" value="<?php echo $supp->phone0 ?>"/></td></tr>
+                            <tr><td>email</td><td><a target="_blank" title="написать письмо поставщику" href="<?php echo $supp->email0 ; ?>" ><?php echo $supp->email0  ?></a></td><td class="tdDisplayNone"><input name="email0" maxlength="50" size="50" type="text" value="<?php echo $supp->email0 ?>"/></td></tr>
+                            <tr><td>адрес</td><td><?php echo $supp->address ; ?></td><td class="tdDisplayNone"><input  name="address" maxlength="200" size="55" type="text" value="<?php echo $supp->address ?>"/></td></tr>
+                            <tr><td>день доставки</td><td><?php echo $supp->getDeliveryDays(); ?></td><td class="tdDisplayNone"><select name="deliveryDay" >
                                         <option value="1">понедельник</option>
                                         <option value="2">вторник</option>
                                         <option value="3">среда</option>
@@ -87,8 +87,8 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
                                         <option value="6">все рабочие дни</option>
                                         <option value="8">не установлено</option>
                                 </td></tr>
-                            <tr><td>сайт поставщика</td><td><a target="_blank" title="перейти на сайт поставщика" href="<?php echo $supp->site  ?>"><?php echo $supp->site  ?></a></td><td class="formMaterial"><input name="site" type="text" size='55' value = "<?php echo $supp->site  ?>"/></td></tr>
-                            <tr><td></td><td></td><td class="formMaterial"><input name="btnSend" type="submit"/></td></tr>
+                            <tr><td>сайт поставщика</td><td><a target="_blank" title="перейти на сайт поставщика" href="<?php echo $supp->site  ?>"><?php echo $supp->site  ?></a></td><td class="tdDisplayNone"><input name="site" type="text" size='55' value = "<?php echo $supp->site  ?>"/></td></tr>
+                            <tr><td></td><td></td><td class="tdDisplayNone"><input name="btnSend" type="submit"/></td></tr>
                             <tr style="display: none;"><td>скрытое поле</td><td>маяк</td><td><input name="submitOneSupplier" /></td></tr>
                             </tbody>
                         </table>
@@ -110,7 +110,7 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
         $('select').val('<?php echo $supp->deliveryDay ;?>');
         //повесим обработчик кнопки btnEnableUpdate он будет открывать для update изменение поля поставщика
         $('#btnEnableUpdate').on('click',function () {
-            $('.formMaterial').each(function () {
+            $('.tdDisplayNone').each(function () {
                 $(this).css('display',function (i,value) {
                    if(value == 'block')
                        return 'none';

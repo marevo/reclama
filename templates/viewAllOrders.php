@@ -168,7 +168,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
                 </div>
             </div>
         </div>
-        <!-- подключение модального окна -->
+        <!-- подключение модального окна которое будет всплывать при нажатии кнопки удалить-->
         <?php include_once ('../App/html/viewAllOrdersModal.html');?>
         <script src = '../js/viewAllOrders.js'></script>
     </div><!-- container -->

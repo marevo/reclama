@@ -71,19 +71,19 @@ foreach ($allSuppliers as $item){
                             <tr>
                                 <td>название поля</td>
                                 <td>значение</td>
-                                <td>новое значение</td>
+                                <td class="tdDisplayNone">новое значение</td>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr style="display: none;"><td>id</td><td><?php echo $mat->id ?></td><td class="formMaterial"><input  name="id" type="text" value="<?php echo $mat->id ?>"/></td></tr>
-                            <tr><td>название</td><td><?php echo $mat->name ?></td><td class="formMaterial"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $mat->name ?>" value="<?php echo $mat->name ?>"/></td></tr>
-                            <tr><td>дополнительные сведения</td><td><?php echo $mat->addCharacteristic ?></td><td class="formMaterial"><input maxlength="200" size="55" name="addCharacteristic" title="<?php echo $mat->addCharacteristic ?>" type="text" value="<?php echo $mat->addCharacteristic ?>"/></td></tr>
-                            <tr><td>единица измерения</td><td><?php echo $mat->measure ?></td><td class="formMaterial"><input name="measure" maxlength="50" type="text" value="<?php echo $mat->measure ?>"/></td></tr>
-                            <tr><td>форма поставки</td><td><?php echo $mat->deliveryForm ?></td><td class="formMaterial"><input pattern="\d{1,4}(\.)?\d{1,2}" name="deliveryForm" type="text" value="<?php echo $mat->deliveryForm ?>"/></td></tr>
-                            <tr><td>цена за единицу</td><td><?php echo $mat->priceForMeasure ?></td><td class="formMaterial"><input pattern="\d{1,4}(\.)?\d{1,2}" name="priceForMeasure" type="text" value="<?php echo $mat->priceForMeasure ?>"/></td></tr>
-                            <tr><td>id поставщика</td><td><?php echo  \App\Models\Supplier::findObjByIdStatic($mat->id_suppliers)->name;  ?></td><td class="formMaterial"><select name="id_suppliers" type="text"><?php echo $options ?></select></td></tr>
-<!--                            <tr><td>название поставщика</td><td>--><?php //echo \App\Models\Supplier::findObjByIdStatic($mat->id_suppliers)->name; ?><!--</td><td class="formMaterial"><input name="name_suppliers" type="text"/></td></tr>-->
-                            <tr><td></td><td></td><td class="formMaterial"><input name="name_suppliers" type="submit"/></td></tr>
+                            <tr style="display: none;"><td>id</td><td><?php echo $mat->id ?></td><td class="tdDisplayNone"><input  name="id" type="text" value="<?php echo $mat->id ?>"/></td></tr>
+                            <tr><td>название</td><td><?php echo $mat->name ?></td><td class="tdDisplayNone"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $mat->name ?>" value="<?php echo $mat->name ?>"/></td></tr>
+                            <tr><td>дополнительные сведения</td><td><?php echo $mat->addCharacteristic ?></td><td class="tdDisplayNone"><input maxlength="200" size="55" name="addCharacteristic" title="<?php echo $mat->addCharacteristic ?>" type="text" value="<?php echo $mat->addCharacteristic ?>"/></td></tr>
+                            <tr><td>единица измерения</td><td><?php echo $mat->measure ?></td><td class="tdDisplayNone"><input name="measure" maxlength="50" type="text" value="<?php echo $mat->measure ?>"/></td></tr>
+                            <tr><td>форма поставки</td><td><?php echo $mat->deliveryForm ?></td><td class="tdDisplayNone"><input pattern="\d{1,4}(\.)?\d{1,2}" name="deliveryForm" type="text" value="<?php echo $mat->deliveryForm ?>"/></td></tr>
+                            <tr><td>цена за единицу</td><td><?php echo $mat->priceForMeasure ?></td><td class="tdDisplayNone"><input pattern="\d{1,4}(\.)?\d{1,2}" name="priceForMeasure" type="text" value="<?php echo $mat->priceForMeasure ?>"/></td></tr>
+                            <tr><td>id поставщика</td><td><?php echo  \App\Models\Supplier::findObjByIdStatic($mat->id_suppliers)->name;  ?></td><td class="tdDisplayNone"><select name="id_suppliers" type="text"><?php echo $options ?></select></td></tr>
+<!--                            <tr><td>название поставщика</td><td>--><?php //echo \App\Models\Supplier::findObjByIdStatic($mat->id_suppliers)->name; ?><!--</td><td class="tdDisplayNone"><input name="name_suppliers" type="text"/></td></tr>-->
+                            <tr><td></td><td></td><td class="tdDisplayNone"><input name="name_suppliers" type="submit"/></td></tr>
                             <tr style="display: none;"><td>скрытое поле</td><td>маяк</td><td><input name="submitOneMaterial" /></td></tr>
                             </tbody>
                         </table>
@@ -101,7 +101,7 @@ foreach ($allSuppliers as $item){
                 location.reload();
             });
             $('#btnEnableUpdate').on('click',function () {
-                $('.formMaterial').each(function () {
+                $('.tdDisplayNone').each(function () {
                     $(this).css('display',function (i,value) {
                         if(value == 'block')
                             return 'none';

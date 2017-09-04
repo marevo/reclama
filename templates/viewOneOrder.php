@@ -90,8 +90,11 @@ showLi('');
             <!--  блок отображения что меняем и кнокпки обновить страницу и кнопка править(покажет поля для внесения новых значений)  -->
             <div class="row headingContent">
                 <div class="col-lg-9   col-md-9 col-sm-9 col-xs-9   text-center ">просмотр/правка заказа <?php echo $order->name; ?> для <?php echo $nameClient; ?></div>
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center""> <button class="btn btn-sm btn-primary btnAddMatetialToOrder"><span class="glyphicon glyphicon-plus-sign"> добавить материал</span></button>
+<!--                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>-->
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"">
+                <button class="btn btn-sm btn-primary btnAddMatetialToOrder" title="добавить материал к заказу">
+                    <span class="glyphicon glyphicon-plus-sign"></span> материал
+                </button>
                 </div>
             </div>
             
@@ -179,7 +182,7 @@ showLi('');
             $(tdSiblingLeft).dblclick();
             if($(tdSiblingLeft).data('name') == 'manufacturingPrice'){
                 //  ***              вызов функции модального окна
-                $('#modalFade').modal('show');
+                $('#modalViewAllMaterialsToThisOrder').modal('show');
             }
         })
     });
@@ -613,7 +616,7 @@ showLi('');
         if( $(target).siblings()[0].type == 'text' && $(target).siblings()[0].id == 'inputOrderPrice'){
             ORDER.oldValue = ORDER.orderPrice;
             var sumForTest = $('#inputOrderPrice').val();
-            if(testSum(sumForTest) && +sumForTest > 0 ){
+            if(testSumOnFloat(sumForTest) && +sumForTest > 0 ){
                 ORDER.newValue = sumForTest;
                 $('#inputOrderPrice').removeClass('orderNoSuccessCell').addClass('orderSuccessCell');
             }
@@ -622,7 +625,7 @@ showLi('');
                 ORDER.newValue = '';
             }
             ORDER.nameFieldForUpdate = 'orderPrice';
-            if(ORDER.newValue != ORDER.oldValue && testSum(sumForTest) && +sumForTest > 0){
+            if(ORDER.newValue != ORDER.oldValue && testSumOnFloat(sumForTest) && +sumForTest > 0){
                 console.log('отправляем на update ORDER.nameFieldForUpdate = '+ ORDER.nameFieldForUpdate +
                     '  ORDER.oldValue = '+ ORDER.oldValue +
                     '  ORDER.newValue = '+ ORDER.newValue);
@@ -670,7 +673,7 @@ showLi('');
 //            $('#inSum').on('input',function (event) {//почему input не работает, а keyup работает
             $('#inSum').on('keyup',function (event) {
                 var target = event.target;
-                if(testSum( $('#inSum').val())){
+                if(testSumOnFloat( $('#inSum').val())){
                     $('#inSum').removeClass('orderNoSuccessRow').addClass('orderSuccessRow');
                 }
                 else{
@@ -680,7 +683,7 @@ showLi('');
                     var sum = $('#inSum').val();
                     if( event.keyCode == 13 && sum !=0 && sum !='' ){
                         //провести валидацию введенной суммы оплаты
-                        if(testSum(sum)){
+                        if(testSumOnFloat(sum)){
                             //отправим сумму оплаты
                             jquery_send('#rezShow','get','../controllerOneOrder.php',
                                 ['addSum','idOrder','idClient','sum','dateToday'],

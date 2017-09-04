@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tableFildMaterialToAddToOrder">
                                     <table id="tableFildMaterialToAddToOrder"><!--таблица для показа всех материалов что есть в базе--></table>
                                 </div>
                             </div>
@@ -27,9 +27,16 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <label for="idInputNameMaterial">введите название материала</label>
-                            <input type="text"  name="inputNameMaterial" id="idInputNameMaterial" placeholder="название материала"/>
-                            <button name="buttonSearchNameMaterial" > искать </button>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><label for="idInputNameMaterial">введите название материала</label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="text"  name="inputNameMaterial" id="idInputNameMaterial" placeholder="название материала"/>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><button name="buttonSearchNameMaterial" class="btn btn-success" title="искать материал в базе материалов"><span class="glyphicon glyphicon-search"> искать</span>  </button>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><button class="btnViewModalWinForMaterialsToThisOrder btn btn-success" title="смотреть материалы в заказе"><span class="glyphicon glyphicon-eye-open"> материалы</span></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-6" id="rezZaprosAddCountMaterial">
                             результат запроса на сервер
