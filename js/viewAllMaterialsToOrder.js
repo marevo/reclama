@@ -94,8 +94,8 @@ function clickTableAllMaterialsForOrder() {
             var idMaterialToOrder = $(target).siblings()[0].textContent;
             console.log('id for delete = '+idMaterialToOrder);
             jquery_send('.rezDeleteTr','post','../controllerOneOrder.php',
-            ['deleteThisMaterialFromOrder','idMaterialToOrder'],
-                ['',idMaterialToOrder]);
+            ['deleteThisMaterialFromOrder','idMaterialToOrder','idOrder'],
+                ['',idMaterialToOrder,ORDER.id]);
             return false;
         }
         if($(target).hasClass('updateThisCountMaterial')){

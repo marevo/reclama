@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/ModelLikeTable.php" afterPath="$PROJECT_DIR$/App/ModelLikeTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/Material.php" afterPath="$PROJECT_DIR$/App/Models/Material.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerOneMaterial.php" afterPath="$PROJECT_DIR$/App/controllers/controllerOneMaterial.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" afterPath="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerViewAllMaterials.php" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllMaterials.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllerOneOrder.php" afterPath="$PROJECT_DIR$/controllerOneOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/manual.css" afterPath="$PROJECT_DIR$/css/manual.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addMaterialToOrder.js" afterPath="$PROJECT_DIR$/js/addMaterialToOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ajax_post_get.js" afterPath="$PROJECT_DIR$/js/ajax_post_get.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewAllMaterialsToOrder.js" afterPath="$PROJECT_DIR$/js/viewAllMaterialsToOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewOneOrder.js" afterPath="$PROJECT_DIR$/js/viewOneOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewOneSupplier.js" afterPath="$PROJECT_DIR$/js/viewOneSupplier.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/navigation.html" afterPath="$PROJECT_DIR$/navigation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme" afterPath="$PROJECT_DIR$/readme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" afterPath="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" afterPath="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllMaterials.php" afterPath="$PROJECT_DIR$/templates/viewAllMaterials.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllSuppliers.php" afterPath="$PROJECT_DIR$/templates/viewAllSuppliers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewOneMaterial.php" afterPath="$PROJECT_DIR$/templates/viewOneMaterial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewOneSupplier.php" afterPath="$PROJECT_DIR$/templates/viewOneSupplier.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,52 +30,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="viewAllSuppliers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
+      <file leaf-file-name="viewOneOrder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/viewOneOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
+            <state relative-caret-position="261">
+              <caret line="571" column="27" selection-start-line="571" selection-start-column="16" selection-end-line="571" selection-end-column="27" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#47#214#0#PHP" expanded="false" />
+                <element signature="e#189#214#0#PHP" expanded="false" />
+                <element signature="e#355#441#0#PHP" expanded="false" />
+                <element signature="n#fIsReady#0;n#!!top" expanded="false" />
+                <element signature="n#fIsInstall#0;n#!!top" expanded="false" />
+                <element signature="e#9309#9733#0#HTML" expanded="false" />
+                <element signature="e#10192#10251#0#HTML" expanded="false" />
+                <element signature="e#10919#15382#0#HTML" expanded="false" />
+                <element signature="e#16050#21257#0#HTML" expanded="false" />
+                <element signature="e#23021#23657#0#HTML" expanded="false" />
+                <element signature="e#23886#29573#0#HTML" expanded="false" />
+                <marker date="1504530678645" expanded="false" signature="2909:3585" placeholder="..." />
+                <marker date="1504530678645" expanded="true" signature="2924:3574" placeholder="{&quot;id&quot;: 'EXTERNAL_FRAGMENT'...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewAllMaterials.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewAllMaterials.php">
+      <file leaf-file-name="controllerOneOrder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllerOneOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1246">
-              <caret line="173" column="56" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="56" />
+            <state relative-caret-position="1266">
+              <caret line="589" column="1" selection-start-line="589" selection-start-column="1" selection-end-line="589" selection-end-column="1" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#8601#9354#0#HTML" expanded="false" />
-                <element signature="e#9504#10100#0#HTML" expanded="false" />
-                <element signature="e#10224#10236#0#HTML" expanded="false" />
-                <marker date="1504558073577" expanded="true" signature="3760:3774" placeholder="..." />
-                <marker date="1504558073577" expanded="true" signature="3887:3901" placeholder="..." />
-                <marker date="1504558073577" expanded="true" signature="4802:4816" placeholder="..." />
-                <marker date="1504558073577" expanded="true" signature="4978:4992" placeholder="..." />
-                <marker date="1504558073577" expanded="true" signature="5441:5455" placeholder="..." />
-                <marker date="1504558073577" expanded="true" signature="5617:5631" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="1294:1388" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="1487:1579" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="2902:2971" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="3685:3766" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="4414:4484" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="5192:5267" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="5916:5987" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="6641:6714" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="7389:7473" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="8123:8194" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="8857:8935" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="9604:9684" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="10202:10368" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="10450:10622" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="11627:11737" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="11933:12042" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="12728:13213" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="12732:13205" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="13327:14142" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="14034:14121" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="15506:15847" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="15510:15839" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="15958:16408" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="17680:18353" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="17684:18345" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="18461:19275" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="21038:21212" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="23047:23687" placeholder="..." />
+                <marker date="1504609212853" expanded="true" signature="23179:23189" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerViewAllMaterials.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllMaterials.php">
+      <file leaf-file-name="viewOneOrder.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/viewOneOrder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <marker date="1504565095890" expanded="true" signature="1748:1762" placeholder="..." />
-                <marker date="1504565095890" expanded="true" signature="1924:1938" placeholder="..." />
-                <marker date="1504565095890" expanded="true" signature="2331:2345" placeholder="..." />
-                <marker date="1504565095890" expanded="true" signature="2507:2521" placeholder="..." />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewAllMaterialsToOrder.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/viewAllMaterialsToOrder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,9 +170,7 @@
         <option value="$PROJECT_DIR$/js/viewOneSupplier.js" />
         <option value="$PROJECT_DIR$/App/Db.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
         <option value="$PROJECT_DIR$/templates/formAddNewOrder.php" />
-        <option value="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" />
         <option value="$PROJECT_DIR$/templates/viewAllClients.php" />
         <option value="$PROJECT_DIR$/templates/viewAllContactsClients.php" />
         <option value="$PROJECT_DIR$/templates/viewAllMaterialsToOrder.php" />
@@ -159,25 +180,27 @@
         <option value="$PROJECT_DIR$/navigation.html" />
         <option value="$PROJECT_DIR$/js/addMaterialToOrder.js" />
         <option value="$PROJECT_DIR$/css/manual.css" />
-        <option value="$PROJECT_DIR$/js/viewAllMaterialsToOrder.js" />
         <option value="$PROJECT_DIR$/templates/formAddMaterialToOrderModal.html" />
         <option value="$PROJECT_DIR$/js/viewOneOrder.js" />
-        <option value="$PROJECT_DIR$/controllerOneOrder.php" />
         <option value="$PROJECT_DIR$/js/ajax_post_get.js" />
         <option value="$PROJECT_DIR$/templates/viewAllMaterialsToOrder.html" />
         <option value="$PROJECT_DIR$/templates/viewOneOrder.php" />
         <option value="$PROJECT_DIR$/templates/viewAllOrders.php" />
         <option value="$PROJECT_DIR$/App/Models/Supplier.php" />
         <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
-        <option value="$PROJECT_DIR$/templates/viewOneMaterial.php" />
-        <option value="$PROJECT_DIR$/templates/viewOneSupplier.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerOneMaterial.php" />
-        <option value="$PROJECT_DIR$/templates/viewAllMaterials.php" />
         <option value="$PROJECT_DIR$/App/Models/Material.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" />
         <option value="$PROJECT_DIR$/templates/viewAllSuppliers.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerViewAllMaterials.php" />
+        <option value="$PROJECT_DIR$/templates/viewAllMaterials.php" />
+        <option value="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" />
+        <option value="$PROJECT_DIR$/templates/viewOneSupplier.php" />
+        <option value="$PROJECT_DIR$/templates/viewOneMaterial.php" />
+        <option value="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
+        <option value="$PROJECT_DIR$/js/viewAllMaterialsToOrder.js" />
+        <option value="$PROJECT_DIR$/controllerOneOrder.php" />
       </list>
     </option>
   </component>
@@ -253,6 +276,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,12 +410,12 @@
       <workItem from="1501507984713" duration="30075000" />
       <workItem from="1501749064651" duration="30143000" />
       <workItem from="1502114150552" duration="465894000" />
-      <workItem from="1504385135520" duration="49571000" />
+      <workItem from="1504385135520" duration="55483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1210714000" />
+    <option name="totallyTimeSpent" value="1216626000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -553,14 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -578,14 +607,6 @@
             <element signature="n#insertNewOrder#0;n#!!top" expanded="false" />
             <marker date="1504425740731" expanded="true" signature="1104:1265" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/formAddNewSupplierToBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -653,22 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/viewOneOrder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/viewAllMaterialsToOrder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ajax_post_get.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -688,52 +693,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/manual.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="211" column="26" selection-start-line="211" selection-start-column="24" selection-end-line="211" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewAllMaterialsToOrder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewOneOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="97" column="22" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
-          <folding>
-            <element signature="e#47#214#0#PHP" expanded="false" />
-            <element signature="e#189#214#0#PHP" expanded="false" />
-            <element signature="e#355#441#0#PHP" expanded="false" />
-            <element signature="n#fIsReady#0;n#!!top" expanded="false" />
-            <element signature="n#fIsInstall#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#10919#15382#0#HTML" expanded="false" />
-            <element signature="e#15534#15854#0#HTML" expanded="false" />
-            <element signature="e#16050#21257#0#HTML" expanded="false" />
-            <element signature="e#21470#21668#0#HTML" expanded="false" />
-            <element signature="e#21836#22120#0#HTML" expanded="false" />
-            <element signature="e#22651#22794#0#HTML" expanded="false" />
-            <element signature="e#23021#23657#0#HTML" expanded="false" />
-            <element signature="e#23886#29573#0#HTML" expanded="false" />
-            <element signature="e#29784#35562#0#HTML" expanded="false" />
-            <element signature="e#35778#38080#0#HTML" expanded="false" />
-            <element signature="e#38203#38406#0#HTML" expanded="false" />
-            <element signature="e#38578#39339#0#HTML" expanded="false" />
-            <element signature="e#39363#39956#0#HTML" expanded="false" />
-            <element signature="e#40333#40867#0#HTML" expanded="false" />
-            <marker date="1504530678645" expanded="false" signature="2909:3585" placeholder="..." />
-            <marker date="1504530678645" expanded="true" signature="2924:3574" placeholder="{&quot;id&quot;: 'EXTERNAL_FRAGMENT'...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,43 +720,6 @@
             <marker date="1504547514542" expanded="true" signature="1544:2112" placeholder="..." />
             <marker date="1504547514542" expanded="true" signature="1564:2092" placeholder="..." />
             <marker date="1504547514542" expanded="true" signature="1568:2071" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllerOneOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="565" column="68" selection-start-line="565" selection-start-column="68" selection-end-line="565" selection-end-column="68" />
-          <folding>
-            <marker date="1504525494049" expanded="true" signature="1294:1388" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="1487:1579" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="2902:2971" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="3685:3766" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="4414:4484" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="5192:5267" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="5916:5987" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="6641:6714" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="7389:7473" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="8123:8194" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="8857:8935" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="9604:9684" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="10202:10368" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="10450:10622" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="11627:11737" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="11933:12042" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="12728:13213" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="12732:13205" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="13327:14142" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="14034:14121" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="15506:15847" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="15510:15839" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="15958:16408" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="17680:18353" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="17684:18345" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="18461:19275" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="22373:23005" placeholder="..." />
-            <marker date="1504525494049" expanded="true" signature="22505:22515" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -873,27 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewOneMaterial.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="84" column="186" selection-start-line="84" selection-start-column="186" selection-end-line="84" selection-end-column="186" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewOneSupplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-91">
-          <caret line="89" column="207" selection-start-line="89" selection-start-column="207" selection-end-line="89" selection-end-column="207" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="false" />
-            <element signature="e#552#626#0#HTML" expanded="false" />
-            <element signature="e#631#797#0#HTML" expanded="false" />
-            <element signature="e#3408#3430#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -947,42 +853,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllMaterials.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1246">
-          <caret line="173" column="56" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="56" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#8601#9354#0#HTML" expanded="false" />
-            <element signature="e#9504#10100#0#HTML" expanded="false" />
-            <element signature="e#10224#10236#0#HTML" expanded="false" />
-            <marker date="1504558073577" expanded="true" signature="3760:3774" placeholder="..." />
-            <marker date="1504558073577" expanded="true" signature="3887:3901" placeholder="..." />
-            <marker date="1504558073577" expanded="true" signature="4802:4816" placeholder="..." />
-            <marker date="1504558073577" expanded="true" signature="4978:4992" placeholder="..." />
-            <marker date="1504558073577" expanded="true" signature="5441:5455" placeholder="..." />
-            <marker date="1504558073577" expanded="true" signature="5617:5631" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/controllers/controllerOneSupplier.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="163" column="19" selection-start-line="163" selection-start-column="19" selection-end-line="163" selection-end-column="19" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -994,15 +869,164 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewAllMaterials.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="54" column="38" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#8605#9358#0#HTML" expanded="false" />
+            <element signature="e#9508#10104#0#HTML" expanded="false" />
+            <element signature="e#10228#10240#0#HTML" expanded="false" />
+            <marker date="1504602280943" expanded="true" signature="3760:3774" placeholder="..." />
+            <marker date="1504602280943" expanded="true" signature="3887:3901" placeholder="..." />
+            <marker date="1504602280943" expanded="true" signature="4806:4820" placeholder="..." />
+            <marker date="1504602280943" expanded="true" signature="4982:4996" placeholder="..." />
+            <marker date="1504602280943" expanded="true" signature="5445:5459" placeholder="..." />
+            <marker date="1504602280943" expanded="true" signature="5621:5635" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewOneSupplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="126" column="46" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="63" column="412" selection-start-line="63" selection-start-column="412" selection-end-line="63" selection-end-column="412" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewOneMaterial.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="83" column="173" selection-start-line="83" selection-start-column="173" selection-end-line="83" selection-end-column="173" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/formAddNewSupplierToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewOneOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="571" column="27" selection-start-line="571" selection-start-column="16" selection-end-line="571" selection-end-column="27" />
+          <folding>
+            <element signature="e#47#214#0#PHP" expanded="false" />
+            <element signature="e#189#214#0#PHP" expanded="false" />
+            <element signature="e#355#441#0#PHP" expanded="false" />
+            <element signature="n#fIsReady#0;n#!!top" expanded="false" />
+            <element signature="n#fIsInstall#0;n#!!top" expanded="false" />
+            <element signature="e#9309#9733#0#HTML" expanded="false" />
+            <element signature="e#10192#10251#0#HTML" expanded="false" />
+            <element signature="e#10919#15382#0#HTML" expanded="false" />
+            <element signature="e#16050#21257#0#HTML" expanded="false" />
+            <element signature="e#23021#23657#0#HTML" expanded="false" />
+            <element signature="e#23886#29573#0#HTML" expanded="false" />
+            <marker date="1504530678645" expanded="false" signature="2909:3585" placeholder="..." />
+            <marker date="1504530678645" expanded="true" signature="2924:3574" placeholder="{&quot;id&quot;: 'EXTERNAL_FRAGMENT'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/manual.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="294" column="1" selection-start-line="294" selection-start-column="1" selection-end-line="294" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllMaterials.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
+        <state relative-caret-position="1196">
           <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <marker date="1504565095890" expanded="true" signature="1748:1762" placeholder="..." />
             <marker date="1504565095890" expanded="true" signature="1924:1938" placeholder="..." />
             <marker date="1504565095890" expanded="true" signature="2331:2345" placeholder="..." />
             <marker date="1504565095890" expanded="true" signature="2507:2521" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/viewOneOrder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/viewAllMaterialsToOrder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllerOneOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1266">
+          <caret line="589" column="1" selection-start-line="589" selection-start-column="1" selection-end-line="589" selection-end-column="1" />
+          <folding>
+            <marker date="1504609212853" expanded="true" signature="1294:1388" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="1487:1579" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="2902:2971" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="3685:3766" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="4414:4484" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="5192:5267" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="5916:5987" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="6641:6714" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="7389:7473" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="8123:8194" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="8857:8935" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="9604:9684" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="10202:10368" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="10450:10622" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="11627:11737" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="11933:12042" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="12728:13213" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="12732:13205" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="13327:14142" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="14034:14121" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="15506:15847" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="15510:15839" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="15958:16408" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="17680:18353" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="17684:18345" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="18461:19275" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="21038:21212" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="23047:23687" placeholder="..." />
+            <marker date="1504609212853" expanded="true" signature="23179:23189" placeholder="{...}" />
           </folding>
         </state>
       </provider>

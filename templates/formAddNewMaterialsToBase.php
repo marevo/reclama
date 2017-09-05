@@ -50,9 +50,6 @@ function suppliersOptions(){
                                 <td>название поля</td>
                                 <td>значение поля</td></tr></thead>
                             <tbody>
-                            <!--для проверки input pattern -->
-                                <tr><td class="text-right">кнопка отправки</td><td><input type="submit"  name="submitFromFormOneMaterial"/></td>
-                                </tr>
                                 <tr><td class="text-right"><label for="idSupplier">поставщик</label></td>
                                     <td><select name="idSupplier" ><option value="0"> поставщик ... что поставляет</option>
                                             <?php echo suppliersOptions();  ?>
@@ -76,6 +73,9 @@ function suppliersOptions(){
                                 <tr><td class="text-right"><label for="priceForMeasure">цена за единицу поставки <br/>за метр погонный</label></td>
                                     <td><input type="text" name="priceForMeasure" value="00.00" pattern="\d{1,7}(\.|,)\d{2}" placeholder="введите цену заказа"/></td>
                                 </tr>
+                                <tr><td class="text-right"></td><td><input type="submit"  name="submitFromFormOneMaterial"/></td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </form>
@@ -123,7 +123,7 @@ $.ajax({
         $('.divForAnswerServer').html(data);
 //                                     return false;
 //                                    $(this).find('.alert').remove();
-        alert('улетели данные ' + $(this).serializeArray());
+//        alert('улетели данные ' + $(this).serializeArray());
         console.log($(this).serializeArray());
     }
 

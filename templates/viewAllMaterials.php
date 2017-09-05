@@ -50,9 +50,9 @@ require '../autoload.php';
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <label for="makeNewSupplier"  class="text-center">новый поставщик</label>
-                        <div title="создать нового поставщика" id="makeNewSupplier"></div>
-                        <a href='formAddNewSupplierToBase.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
+                        <label for="makeNewMaterial"  class="text-center">новый материал</label>
+                        <div title="создать нового поставщика" id="makeNewMaterial"></div>
+                        <a href='formAddNewMaterialsToBase.php'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
                     </div>
                 </div><!-- конец блока строки поиска  -->
 
@@ -64,7 +64,7 @@ require '../autoload.php';
                         //                найдем все материалы с названиями поставщиков
                         $allMaterialsInBase = \App\Models\Material::selectForView();
                         if(! empty ($allMaterialsInBase)){
-                            $tableAllMat = "<table id ='tbViewAllMaterials'><thead><tr><td style='display: none;'>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td style='display: none;'>id поставщика</td><td>поставщик</td><td><span class='glyphicon glyphicon-edit'></span></td><td><span class=\"glyphicon glyphicon-trash\"></span></td></tr></thead><tbody>";
+                            $tableAllMat = "<table id ='tbViewAllMaterials'><thead><tr><td style='display: none;'>id</td><td>название</td><td>доп характ</td><td>ед изм</td><td>форма поставки</td><td>цена за ед</td><td style='display: none;'>id поставщика</td><td>поставщик</td><td><span class='glyphicon glyphicon-eye-open'></span></td><td><span class=\"glyphicon glyphicon-trash\"></span></td></tr></thead><tbody>";
                             foreach ($allMaterialsInBase as $item){
 //                                получим не false если есть этот материал хотябы в одном заказе
                                 $ifExistOrderWithIdMaterial = \App\Models\MaterialsToOrder::ifExistThisMaterialInAnyOneOrder($item[id]);

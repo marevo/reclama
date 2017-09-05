@@ -45,9 +45,6 @@ require '../autoload.php';
                                 <td>название поля</td>
                                 <td>значение поля</td></tr></thead>
                             <tbody>
-                            <!--для проверки input pattern -->
-                            <tr><td class="text-right">кнопка отправки</td><td><input type="submit"  name="submitFromFormOneSupplier"/></td>
-                            </tr>
                             <!-- скрытое поле для отправки маркера-->
                             <tr style="display: none;">
                                 <td class="text-right"><label for="addNewSupplier">скрытое поле  для отправки маркера</label></td>
@@ -73,7 +70,7 @@ require '../autoload.php';
                                 <td><input name="email0" maxlength="50" size="50" type="email"/> </td></tr>
 
                             <tr><td class="text-right"><label for="address">адрес поставщика</label></td>
-                                <td><input name="address"  size="50" placeholder="адрес поставщика 200 символов" maxlength="200" required /></td></tr>
+                                <td><input name="address"  size="75" placeholder="адрес поставщика 200 символов" maxlength="200" required /></td></tr>
                             <tr><td class="text-right"><label for="deliveryDay">день доставки</label> </td>
                                 <td><select name="deliveryDay">
                                         <option value="0">выберите день</option>
@@ -90,6 +87,9 @@ require '../autoload.php';
                             <tr><td class="text-right"><label for="site">сайт</label></td>
                                 <td><input  name="site" maxlength="300" size="55" type="url"/></td>
                             </tr>
+                            <tr><td class="text-right"></td><td><input type="submit"  name="submitFromFormOneSupplier"/></td>
+                            </tr>
+
                             </tbody>
                         </table>
                     </form>

@@ -519,18 +519,29 @@ if(isset($_POST['addCountMaterialToOrder'])){
 
 }
 //**удаление маериала к заказу из materialsToOrder
-if(isset($_POST['deleteThisMaterialFromOrder'])){
-    if(isset($_POST['idMaterialToOrder'])){
+if(isset($_POST['deleteThisMaterialFromOrder'])) {
+    if (isset($_POST['idMaterialToOrder']) && isset($_POST['idOrder'])) {
         $idMaterialsToOrder = intval($_POST['idMaterialToOrder']);
-    }
-    $res = MaterialsToOrder::deleteObj($idMaterialsToOrder);
-    if($res != false){
+        $idOrder = intval($_POST['idOrder']);
+        $res = MaterialsToOrder::deleteObj($idMaterialsToOrder);
+        if ($res != false) {
 //        echo 'удалили материал из заказа';
 //        удалим из таблицы эту удаленную строку
-        echo echoUspeh();
-        echo "<script>$('.deleteThisTr').removeClass('deleteThisTr').remove();</script>";
-    }
-    else{
+            echo echoUspeh();
+            echo "<script>$('.deleteThisTr').removeClass('deleteThisTr').remove();</script>";
+            $objOrder = Order::findObjByIdStatic($idOrder);
+            $manufacturingPriceRecom = $objOrder->getManufacturingPriceRecom();
+            $manufacturingPriceCount = $objOrder->getManufacturingPriceCount();
+            echo "<script>
+            $('.manufacturingPriceCount').text('$manufacturingPriceCount');
+            $('.manufacturingPriceRecom').text('$manufacturingPriceRecom');
+            </script>";
+        } else {
+            echo echoNoUspeh();
+            echo "<script>$('.deleteThisTr').removeClass('deleteThisTr');</script>";
+            die();
+        }
+    } else {
         echo echoNoUspeh();
         echo "<script>$('.deleteThisTr').removeClass('deleteThisTr');</script>";
     }
@@ -561,7 +572,7 @@ if(isset($_POST['updateThisCountMaterialsForOrder'])){
         echo echoUspeh();
 
         //можно сделать функцию для изменения после удачного update строки в таблице всех материало к заказу в модальном окне
-//        echo "<script>fUpdatTrWhereUpdateCountMaterial($countNeed,$priceCountNeed,$recomAddCount,$priceRecomNeed);
+        //  echo "<script>fUpdatTrWhereUpdateCountMaterial($countNeed,$priceCountNeed,$recomAddCount,$priceRecomNeed);
         echo "<script>
                    var trUpdated = $('.updateCountMaterialToOrder');
                    $(trUpdated).children()[4].textContent = '$countNeed'  ;
@@ -571,7 +582,7 @@ if(isset($_POST['updateThisCountMaterialsForOrder'])){
                    $(trUpdated).removeClass('updateCountMaterialToOrder');
                    $('.manufacturingPriceCount').text('$manufacturingPriceCount');
                    $('.manufacturingPriceRecom').text('$manufacturingPriceRecom');
-</script>";
+        </script>";
     }
     else{
         echo echoNoUspeh();
