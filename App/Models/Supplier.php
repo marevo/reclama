@@ -10,7 +10,7 @@ namespace App\Models;
 use App\Db;
 use App\ModelLikeTable;
 
-class Supplier extends ModelLikeTable
+class Supplier extends ModelLikeTable 
 {
     public $id;
     public $name;

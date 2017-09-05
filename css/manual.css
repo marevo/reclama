@@ -233,12 +233,10 @@ tbody tr :nth-child(3):hover{
     min-width: 100px;
 }
 table a{
-    /*min-width: 100px;*/
     display: block;
     /*border: black 1px solid;*/
     border-radius: 4px;
     padding: 6px;
-    /*padding :5px 15px;*/
     text-decoration: none;
 }
 

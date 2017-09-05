@@ -61,5 +61,13 @@ trait FastViewTable
         }
 
     }
+    
+    //для вывода успех не успех в 
+    public static function showUspeh(string $str){
+        echo "<script>fUspehAll('$str');</script>";
+    }
+    public static function showNoUspeh(string $str){
+        echo "<script>fNoUspehAll('$str');</script>";
+    }
 }
 

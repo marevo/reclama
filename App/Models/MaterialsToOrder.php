@@ -11,7 +11,7 @@ use App\Db;
 use App\ModelLikeTable;
 use App\FastViewTable;
 
-class MaterialsToOrder extends ModelLikeTable
+class MaterialsToOrder extends ModelLikeTable 
 {
     public $id;
     public $idOrder;

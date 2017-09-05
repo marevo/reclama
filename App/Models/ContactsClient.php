@@ -9,7 +9,7 @@
 namespace App\Models;
 use App\ModelLikeTable;
 
-class ContactsClient extends ModelLikeTable
+class ContactsClient extends ModelLikeTable 
 {
     public $id;
     public $name;

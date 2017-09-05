@@ -12,7 +12,7 @@ namespace App\Models;
 use App\FastViewTable;
 use App\ModelLikeTable;
 
-class Task extends ModelLikeTable
+class Task extends ModelLikeTable 
 {
     public $id;
     public $name;

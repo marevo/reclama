@@ -11,7 +11,7 @@ use App\Db;
 use App\ModelLikeTable;
 //require ('../../autoload.php');//нужно ли здесь этот autoload ?
 
-class Payment extends ModelLikeTable
+class Payment extends ModelLikeTable 
 {
     public $id;
     public $idOrder;

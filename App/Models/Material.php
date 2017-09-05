@@ -10,7 +10,7 @@ namespace App\Models;
 use App\Db;
 use App\ModelLikeTable;
 
-class Material extends ModelLikeTable
+class Material extends ModelLikeTable 
 {
     public $id;
     public $name;
@@ -22,7 +22,6 @@ class Material extends ModelLikeTable
 
     const TABLE = 'materials';
     const NAME_ID ='id';
-//    public $nameSupplier;
     public function isNew()
     {
         // TODO: Implement isNew() method.

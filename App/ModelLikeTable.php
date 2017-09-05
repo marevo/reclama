@@ -12,7 +12,7 @@ abstract class ModelLikeTable
     //переменные будут переопределены в классах наследниках
     const TABLE = '';//назание таблицы
     const NAME_ID ='';//название поля
-    use FastViewTable;
+    use FastViewTable;//используем код в трейте FastViewTable он будет доступен всем наследникам
     public static function findAll(){
 //        echo '<br>вызов из класса '.get_called_class().'<br>';
 //        echo '<br>вызов данных из таблицы '.static::TABLE .'<br>';
