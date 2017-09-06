@@ -14,7 +14,7 @@ function insertNewMaterialToBase(){
             $clNew->name =  htmlspecialchars($_POST['nameClient']);
         }
         if (isset($_POST['contactPerson'])) {
-            $clNew->addCharacteristic = trim( htmlspecialchars($_POST['contactPerson']));
+            $clNew->contactPerson = trim( htmlspecialchars($_POST['contactPerson']));
         }
         if (isset($_POST['phone0'])) {
             $clNew -> phone0 = htmlspecialchars($_POST['phone0']);
@@ -37,10 +37,6 @@ function insertNewMaterialToBase(){
         else{
            \App\ModelLikeTable::showNoUspeh('не удалось добавить клиента');
         }
-//        if (isset($_POST['submitFromFormOneOrder']))
-//            foreach ($orNew as $k => $value) {
-//                echo "<br/>$k--- $value";
-//            }
     }
 }
 //проверка на уникольность имени клиента не может быть двух одинаковых имен

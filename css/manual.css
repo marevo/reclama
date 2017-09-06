@@ -295,6 +295,7 @@ table tbody a:hover{
     overflow-x: auto;
     overflow-y: auto;
 }
+/*ширина всех модальных окон если не задано другое*/
 .modal-dialog {
     width: 80%;
 }
@@ -428,7 +429,7 @@ background-color: #337ab7;
 
 }
 /*ширина модального окна при вопросе удаления */
-#modalWinForDeleteMat .modal-dialog, #modalWinForDeleteSupp .modal-dialog{
+#modalWinForDeleteMat .modal-dialog, #modalWinForDeleteSupp .modal-dialog, #modalwinfordeleteclient .modal-dialog{
     width: 600px;
 }
 
@@ -436,6 +437,9 @@ background-color: #337ab7;
 
 /*viewAllSuppliers.php */
 .tdDisplayNone{
+    display: none;
+}
+.trDisplayNone{
     display: none;
 }
 /*/viewAllSuppliers.php */

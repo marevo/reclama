@@ -9,19 +9,25 @@ require "../../autoload.php";
 
 
 if(isset($_POST['deleteClientFromBase'])){
-    echo "пришел запрос на удаление поставщика из базы";
+//    echo "пришел запрос на удаление поставщика из базы";
     if (isset($_POST['idClient'])){
         $idClient = intval($_POST['idClient']);
 //        $res = true;
 //        $res = false;
-        $res = \App\Models\Client::deleteObj($idMat);
-        if($res){
-            \App\ModelLikeTable::showUspeh('успешно удалили');
-            echo "<script>$('[data-id = $idClient]').parent().remove() ;</script>";
+        try{
+            $res = \App\Models\Client::deleteObj($idClient);
+            if($res){
+                \App\ModelLikeTable::showUspeh('успешно удалили');
+                echo "<script>$('[data-id = $idClient]').parent().remove() ;</script>";
+            }
+            else{
+                \App\ModelLikeTable::showNoUspeh('не удалось удалить клиента');
+            }
         }
-        else{
-            \App\ModelLikeTable::showNoUspeh('не удалось удалить клиента');
+        catch (PDOException $ex){
+            \App\ModelLikeTable::showNoUspeh("$ex не нашли такого клиента в базе");
         }
+
     }
 }
 //поиск клиентов  по подобию в name или 
@@ -34,7 +40,7 @@ if(isset($_POST['searchLike'])){
             $tableAllClientTbody = "";
             foreach ($findClients as $item){
                 //найдем заказы для каждого клиента, чтобы узнать есть или нет у него заказы и
-                // разрешать удалять только тех клиентов, у которых нет  заказов
+                // разрешать удалять только тех клиентов, у которых нет  заказов то есть ставим значек glyphicon-trash
                 if($item->ifExistAnyOrderForThisClient()){
 //                                есть  заказы поэтому не будем разрешать удалять клента
                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
@@ -46,10 +52,12 @@ if(isset($_POST['searchLike'])){
                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
                         "<td>$item->phone0</td><td>$item->phone1</td><td>$item->email0</td><td>$item->address</td>" .
                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td>" .
+                        // разрешать удалять только тех клиентов, у которых нет  заказов то есть ставим значек glyphicon-trash
+
                         "<td data-id='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
                 }
             }
-            \App\ModelLikeTable::showUspeh('есть такие клиенты');
+//            \App\ModelLikeTable::showUspeh('есть такие клиенты');
         }
         else{
             $tableAllClients = "пока ничего нет (";
