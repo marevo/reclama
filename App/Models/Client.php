@@ -8,7 +8,6 @@
 
 namespace App\Models;
 use App\Db;
-use App\FastViewTable;
 use App\ModelLikeTable;
 
 

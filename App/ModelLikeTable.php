@@ -94,12 +94,13 @@ abstract class ModelLikeTable
             $columns[] = $k;
             $values[':'.$k] = $v;
         }
-//        var_dump($columns);
-//        var_dump($values);
+        var_dump(get_class($this));
+        var_dump($columns);
+        var_dump($values);
 //         echo '<br>вызов из класса '.static::class.' передался в класс '.self::class .'<br>';
         $sqlQeryInsert = 'INSERT INTO '.static::TABLE. '('.implode(',',$columns ).') VALUES('.implode(',',array_keys($values)).');';
-//        echo  '<br>запрос на добавление  '.$sqlQeryInsert.'<br>';
-//        die('выход из инсерта');
+        echo  '<br>запрос на добавление  '.$sqlQeryInsert.'<br>';
+        die('выход из инсерта');
         $db = new Db();
         $res = $db->execute($sqlQeryInsert,$values);
         return $res;

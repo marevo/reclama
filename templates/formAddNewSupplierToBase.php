@@ -110,7 +110,7 @@ require '../autoload.php';
                                 if($(this).val().length > 200){
                                    var el = $(this);
                                     elem.value = elem.value.substr(0, 200);
-                                    console.log('обрезали длину названия до 300 символов');
+                                    console.log('обрезали длину названия до 200 символов');
 
                                 }
                                 if($(this).val() != ''){
