@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/controllers/controllerOneClient.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/viewOneClient.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/ModelLikeTable.php" afterPath="$PROJECT_DIR$/App/ModelLikeTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php" afterPath="$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerViewAllClients.php" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllClients.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/manual.css" afterPath="$PROJECT_DIR$/css/manual.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/head.html" afterPath="$PROJECT_DIR$/head.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/navigation.html" afterPath="$PROJECT_DIR$/navigation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerOneClient.php" afterPath="$PROJECT_DIR$/App/controllers/controllerOneClient.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewOneClient.php" afterPath="$PROJECT_DIR$/templates/viewOneClient.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerOneClient.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controllerOneClient.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/controllers/controllerOneClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
               </folding>
@@ -79,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewOneClient.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewOneClient.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/viewOneClient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="83" column="283" selection-start-line="83" selection-start-column="283" selection-end-line="83" selection-end-column="283" />
+            <state relative-caret-position="546">
+              <caret line="87" column="141" selection-start-line="87" selection-start-column="141" selection-end-line="87" selection-end-column="141" />
               <folding>
                 <element signature="e#641#723#0#HTML" expanded="false" />
                 <element signature="e#732#915#0#HTML" expanded="false" />
@@ -167,8 +160,8 @@
         <option value="$PROJECT_DIR$/head.html" />
         <option value="$PROJECT_DIR$/App/controllers/controllerViewAllClients.php" />
         <option value="$PROJECT_DIR$/css/manual.css" />
-        <option value="$PROJECT_DIR$/App/controllers/controllerOneClient.php" />
         <option value="$PROJECT_DIR$/templates/viewOneClient.php" />
+        <option value="$PROJECT_DIR$/App/controllers/controllerOneClient.php" />
       </list>
     </option>
   </component>
@@ -351,12 +344,12 @@
       <workItem from="1501749064651" duration="30143000" />
       <workItem from="1502114150552" duration="465894000" />
       <workItem from="1504385135520" duration="78991000" />
-      <workItem from="1504684969291" duration="14106000" />
+      <workItem from="1504684969291" duration="15741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1254240000" />
+    <option name="totallyTimeSpent" value="1255875000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -909,23 +902,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/controllers/controllerOneClient.php">
+    <entry file="file://$PROJECT_DIR$/templates/viewOneClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="546">
+          <caret line="87" column="141" selection-start-line="87" selection-start-column="141" selection-end-line="87" selection-end-column="141" />
           <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#641#723#0#HTML" expanded="false" />
+            <element signature="e#732#915#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewOneClient.php">
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerOneClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="83" column="283" selection-start-line="83" selection-start-column="283" selection-end-line="83" selection-end-column="283" />
+        <state relative-caret-position="396">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
-            <element signature="e#641#723#0#HTML" expanded="false" />
-            <element signature="e#732#915#0#HTML" expanded="false" />
+            <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

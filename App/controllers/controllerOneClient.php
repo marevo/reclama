@@ -21,7 +21,10 @@ if(isset($_POST['submitUpdateClient'])){
                 $clientUpdate->contactPerson = htmlspecialchars($_POST['contactPerson']);
             }
             if(isset($_POST['phone0'])){
-                $clientUpdate->phone0 = htmlspecialchars($_POST['phone0']);
+                $phone0 = $_POST['phone0'];
+                if($phone0=='')
+                    $phone0 = 'null';
+                $clientUpdate->phone0 = htmlspecialchars($phone0);
             }
             if(isset($_POST['phone1'])){
                 $clientUpdate->phone1 = htmlspecialchars($_POST['phone1']);
