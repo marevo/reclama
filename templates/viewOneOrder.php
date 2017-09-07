@@ -89,12 +89,17 @@ showLi('');
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <!--  блок отображения что меняем и кнокпки обновить страницу и кнопка править(покажет поля для внесения новых значений)  -->
             <div class="row headingContent">
-                <div class="col-lg-9   col-md-9 col-sm-9 col-xs-9   text-center ">просмотр/правка заказа <?php echo $order->name; ?> для <?php echo $nameClient; ?></div>
+                <div class="col-lg-8      text-center ">просмотр/правка заказа <?php echo $order->name; ?> для <?php echo $nameClient; ?></div>
 <!--                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>-->
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center"">
+                <div class="col-lg-2  text-center"">
                 <button class="btn btn-sm btn-primary btnAddMatetialToOrder" title="добавить материал к заказу">
                     <span class="glyphicon glyphicon-plus-sign"></span> материал
                 </button>
+                </div>
+                <div class="col-lg2  text-center">
+                    <button class="btn btn-sm btn-primary btnViewModalPayment" title="просмотр всех оплат по заказу">
+                        <span class="glyphicon glyphicon-eye-open "></span> оплаты
+                    </button>
                 </div>
             </div>
             
@@ -278,6 +283,28 @@ showLi('');
            console.log('загружен объкте ORDER');
             //запустим функцию расстановки по местам полей объкта ORDER
             allocateOrderField();
+        });
+        //функция просмотра оплат для этого заказа (просмотр оплат в модальном окне)
+        $('.btnViewModalPayment').on('click',function () {
+           console.log('click on button for viewAllPaymentForThisOrder');
+           // вызов модального окна просмотра оплат
+            $('#modalViewAllPaymentsToThisOrder').modal('show');
+            
+            return false;
+        });
+        //добавим клик в модальном окне на кнопке добавить оплату
+        $('#idBtnAddPayment').on('click',function(){
+            //отправка оплаты из модального окна просмотра оплат
+            console.log('добавляем оплату по этому заказу');
+            if($('#idValPayment').val('') > 0 &&  ORDER.isReady != 2 && ORDER.isReady !=1  ){
+                //отправляем запрос на добавку в базу оплаты
+                jquery_send('#tableAllPaymentsForThisOrder','post','../app/controllers/controllerModalShowAllPayments.php',
+                    ['sendPaymentForOrder','sumPayment','idOrder','idClient','datePayment'],['',$('#idValPayment').val(),ORDER.id,ORDER.idClient]);
+                $('#idValPayment').val('');
+                console.log('улетели данные на добавку оплаты в базу idOrder')
+            }
+            
+            return false;
         });
     });
 //*функция "распределения по местам" на странице данных объекта ORDER
@@ -781,6 +808,8 @@ var ORDER_NEW ;
     include_once('viewAllMaterialsToOrder.html');
     //подключение модального окна для добавления материалов к заказу
     include_once('formAddMaterialToOrderModal.html');
+    //подключение модального окна просмотра всех оплат по этому заказу
+    include_once ('../App/html/viewModalAllPaymentsForThisOrder.html');
     ?>
 
 </div><!-- container-->

@@ -1,0 +1,60 @@
+<div id="modalViewAllPaymentsToThisOrder" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center" >показываем все оплаты к заказу
+                <button class="close" data-dismiss="modal" name="">закрыть</button>
+                <div class="rezDeleteTr" id="rezDeleteTr"></div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <!--<header>-->
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >название заказа:</div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 "  data-name="nameOrder" ></div>
+                        <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 rezDeleteTr" id="rezDeleteTr"></div>-->
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <!--<button  class="btn btn-sm btn-primary btn-sm btnAddPaymentToOrder" title="добавить оплату к заказу">-->
+                                <!--<span class="glyphicon glyphicon-plus-sign"> оплата</span> </button></div>-->
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 divForAnswerServer"></div>
+                    </div>
+                    <!--</header>-->
+                    <div class="row">
+                        <div class="col-lg-12" >
+                            <table id="tableAllPaymentsForThisOrder"><!--таблица для показа всех оплат к этому заказу --></table>
+                        </div>
+                    </div>
+                    <!-- строка для показа общей суммы оплат по этому заказу -->
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2   fontSizeMedium" >сумма всех оплат</div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1   fontSizeMedium" data-name = "sumAllPayments" ></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  fontSizeMedium">добавить оплату</div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 fontSizeMedium">
+                            <input  type="text" size="7" name="valPayment" id="idValPayment" pattern="\d{1,5}|(\d{1,4}(\.)\d{1,2)}" placeholder="внесите сумму оплаты" value="0.00"/>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="btn btn-sm btn-primary" id="idBtnAddPayment" name = 'sumMatZakaz'> принять сумму</button></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  text-center " id="rezShowModal">
+                            результат запроса
+                        </div>
+                        <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2 divShowAnswerServer"></div>
+                    </div>
+                </div>
+            </div><!--modal-body-->
+            <div class="modal-futer text-right">
+                <button type="button" class="btn btn-default " data-dismiss="modal" name="">закрыть</button>
+            </div>
+        </div><!--modal content-->
+    </div><!--modal-dialog-->
+</div><!--modal-fade -->
+<script type="text/javascript">
+//загрузим по вызову модального окна все оплаты из базу в таблицу #tableAllPaymentsForThisOrder
+$('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function () {
+        //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
+    console.log('отпавим запрос на получение данных всех оплат');
+    jquery_send('#tableAllPaymentsForThisOrder','post','../app/controllers/controllerModalWinShowAllPayments.php',
+                ['loadPaymentForOrder','idOrder'],['',ORDER.id]);
+
+});
+$('#modalViewAllPaymentsToThisOrder').on('hide.bs.modal',function () {
+
+});
+</script>
