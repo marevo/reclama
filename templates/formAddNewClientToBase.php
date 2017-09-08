@@ -43,7 +43,7 @@ require '../autoload.php';
                                 <td>значение поля</td></tr></thead>
                             <tbody>
 
-                            <tr style="display: none;">
+                            <tr class="trDisplayNone">
                                 <td class="text-right"><label for="sendClientToAddToBase">скрытое поле  для отправки маркера</label></td>
                                 <td class="text-left"><input  name="sendClientToAddToBase"  value="sendMarker"  /></td>
                             </tr>

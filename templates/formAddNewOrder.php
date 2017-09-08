@@ -17,104 +17,6 @@ function clientsOptions(){
     return $option;
 }
 //функция вставки в базу нового заказа
-function insertNewOrder()
-{
-    if (isset($_POST['submitFromFormOneOrder'])) {
-        echo 'пришел запрос на добавление заказа <br/>';
-        $orNew = new \App\Models\Order();
-        $orNew -> isAllowCalculateCost = 0;
-        $orNew -> isTrash = 0;
-        if (isset($_POST['nameOrder'])) {
-            $nameOrder = trim( htmlspecialchars($_POST['nameOrder']) );
-            if (\App\Models\Order::isAllowNameOrder($nameOrder) == false) {
-                $orNew->name = $nameOrder;
-                echo 'заказа с именем '.$orNew->name.' нет, а значит  сможем добавить заказ </br>';
-            }
-            else echo "<script>$('#rezShow').text('есть такое имя заказа поменяйте на другое иначе вы не сможете создать заказ</br> нельзя создавать заказы с одинаковыми названиями');</script>";
-        }
-        if (isset($_POST['descriptionOrder'])) {
-            $descriptionOrder =trim( htmlspecialchars($_POST['descriptionOrder']));
-            $orNew->descriptionOrder = $descriptionOrder;
-        }
-        if (isset($_POST['idClient'])) {
-            $idClient = intval($_POST['idClient']);
-            $orNew->idClient = $idClient;
-        }
-        if (isset($_POST['source'])) {
-            $source = intval($_POST['source']);
-            $orNew->source = $source;
-        }
-        if (isset($_POST['orderPrice'])) {
-            $orderPrice = htmlspecialchars($_POST['orderPrice']);
-            $orNew-> orderPrice = $orderPrice;
-        }
-        if (isset($_POST['manufacturingPrice'])) {
-            $manufacturingPrice = htmlspecialchars($_POST['manufacturingPrice']);
-            $orNew-> manufacturingPrice = $manufacturingPrice;
-        }
-        if (isset($_POST['isCompleted'])) {
-            $isCompleted = intval($_POST['isCompleted']);
-            $orNew -> isCompleted = $isCompleted;
-        }
-        if (isset($_POST['isReady'])) {
-            $isReady = intval($_POST['isReady']);
-            $orNew -> isReady = $isReady;
-        }
-        if (isset($_POST['isInstall'])) {
-            $isInstall = intval($_POST['isInstall']);
-            $orNew -> isInstall = $isInstall;
-        }
-        if (isset($_POST['isDeposite'])) {
-            //пока не создан заказ мы не можем вносить оплаты по нему
-            // поэтому просто сохраним пока в переменной, чтобы потом добавить оплату после создания заказа
-            $isDeposite =  htmlspecialchars($_POST['isDeposite']);
-        }
-        else{
-            $isDeposite = 0;
-        }
-        if(isset($_POST['dateOfOrdering'])){
-            $dateOfOrdering = htmlspecialchars($_POST['dateOfOrdering']);
-            $orNew -> dateOfOrdering = $dateOfOrdering;
-        }
-        if(isset($_POST['dateOfComplation'])){
-            $dateOfComplation  = htmlspecialchars($_POST['dateOfComplation']);
-            $orNew -> dateOfComplation = $dateOfComplation;
-        }
-        //вставим новый заказ в базу
-        $resInsert = $orNew -> insert();
-        if($resInsert != false){
-            echo '<br/>USPESHNO добавлен заказ <br/>';
-            $paymentFirst = new \App\Models\Payment();
-            $paymentFirst -> date = $dateOfOrdering;
-            $paymentFirst -> idClient = $orNew -> idClient;
-            $paymentFirst -> sumPayment = $isDeposite;
-            //получим объект класса Order
-            $myOrder = \App\Models\Order::isAllowNameOrder($nameOrder);
-            if($myOrder != false){
-                //удалось создать заказ и вставить его в базу
-                $myOrderId = $myOrder->id;
-                $paymentFirst -> idOrder = $myOrderId;
-                $resInsertPay = $paymentFirst ->insert();
-                if($resInsertPay != false ){
-                    $allPayments = \App\Models\Payment::showSumAllPayments($myOrderId);
-                    echo "<br/>добавили оплату по заказу $nameOrder сумма всех оплат = $allPayments";
-                }
-                else echo "обратитесь к разработчику!!! ошибка добавления проверочной суммы при создании заказа( вы не сможете найти его в заказах)";
-            }
-            else echo "!!! ошибка. обратитесь к разработчику!!! заказ был добавлен успешно, но не нашли такого заказа";
-        }
-        else{
-            echo"!!!ошибка в добавлении заказа не удалось добавить заказ обратитесь к разаработчику";
-        }
-
-        
-//        if (isset($_POST['submitFromFormOneOrder']))
-//            foreach ($orNew as $k => $value) {
-//                echo "<br/>$k--- $value";
-//            }
-    }
-}
-
 ?>
 <!DOCTYPE HTML>
 <html lang="ru-RU">
@@ -138,78 +40,66 @@ showLi('создать заказ')
         <div class="col-lg-10 backForDiv">
             <!--строка показа времени и показа результата добавки материала в базу  -->
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
-
-            <div class="row"><!--форма добавки заказа-->
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bg-primary  h2 text-center text-info">добавление заказа</div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center " id="rezShow">результат добавления </div>
-                    <?php
-//обработка добавления заказа
-                    insertNewOrder();
-                    ?>
-            </div>
             <div class="row">
+                <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">создание и добавление в базу нового заказа</div>
+
+            </div>
+
+            <div class="row"><!--форма добавления нового заказа в базу -->
                 <div class="col-lg-6">
-                        <form  id="formOneOrder"   method="post" >
+                        <form  id="formOneOrder"   method="post" action="../App/controllers/controllerAddNewOrderToBase.php">
                             <table>
                                 <thead><tr>
                                     <td>название поля</td>
                                     <td>значение поля</td></tr></thead>
                                 <tbody>
-<!--для проверки input pattern -->
-<tr><td>кнопка для проверки отправки</td><td><input type="submit" name="submitFromFormOneOrder"/>
+                                <tr><td><label for="idClient">клиент</label></td>
+                                    <td><select name="idClient"  required class="fontSizeMedium"><option value="0">выберите клиента</option>
+                                            <?php echo clientsOptions();  ?>
+                                            <!--                                            <option data-id="1">чп Пупкин В C</option>-->
+                                            <!--                                            <option data-id="2">фирма Рога и Копыта</option>-->
+                                        </select></td></tr>
 
-<!--               value="просто проверка"-->
-        </td></tr>
-<tr><td><label for="idClient">клиент</label></td>
-    <td><select name="idClient"  required ><option value="0">выберите клиента</option>
-            <?php echo clientsOptions();  ?>
-            <!--                                            <option data-id="1">чп Пупкин В C</option>-->
-            <!--                                            <option data-id="2">фирма Рога и Копыта</option>-->
-        </select></td></tr>
-
-<tr><td class="text-right"><label for="nameOrder">название заказа</label></td>
-                                    <td class="text-left"><textarea type="text" name="nameOrder" 
-                                                                    placeholder="введите название заказа"
-                                                                    style="min-height: 50px;" autofocus required>
-                                        </textarea></td></tr>
+                                <tr><td class="text-right"><label for="nameOrder">название заказа</label></td>
+                                    <td class="text-left"><textarea type="text" name="nameOrder" cols="60" rows="2" maxlength="120" placeholder="введите название заказа" autofocus required>
+                                        </textarea></td>
+                                </tr>
                                 <tr><td class="text-right"><label for="descriptionOrder">описание заказа заказа</label></td>
-                                    <td class="text-left"><textarea type="text" name="descriptionOrder" 
-                                                                    placeholder="введите название заказа"
-                                                                    style="min-height: 100px;"  required>
-                                        </textarea></td></tr>
+                                    <td class="text-left"><textarea type="text" name="descriptionOrder" maxlength="3000"
+                                                                    placeholder= "подробное описание заказа максимум 3000 символов"
+                                                                    cols="100" rows="5"  required>
+                                        </textarea></td>
+                                </tr>
                                 <tr><td> <label for="source">источник заказа</label></td>
-                                    <td><input type="radio" name="source" value="0" checked/>не известен</br>
-                                    <input type="radio" name="source" value="1"/>входящий звонок</br>
-                                    <input type="radio" name="source" value="2"/>prom.ua</br>
-                                    <input type="radio" name="source" value="3"/>olx</br>
-                                    <input type="radio" name="source" value="4"/>сайте</br>
-                                    <input type="radio" name="source" value="5"/>объявление в газете</br>
-                                    <input type="radio" name="source" value="6"/>другой</td></tr>
+                                    <td><input type="radio" name="source" value="0" checked/> не известен</br>
+                                    <input type="radio" name="source" value="1"/> входящий звонок</br>
+                                    <input type="radio" name="source" value="2"/> prom.ua</br>
+                                    <input type="radio" name="source" value="3"/> olx</br>
+                                    <input type="radio" name="source" value="4"/> сайте</br>
+                                    <input type="radio" name="source" value="5"/> объявление в газете</br>
+                                    <input type="radio" name="source" value="6"/> другой</td></tr>
 
                                 <tr><td><label for="orderPrice">цена заказа</label></td>
-                                    <td><input type="text" name="orderPrice" value="00.00" pattern="\d{1,7}(\.|,)\d{2}" placeholder="введите цену заказа"/></td></tr>
+                                    <td><input type="text" name="orderPrice" value="0.00" pattern="\d{1,5}(\.)?\d{1,2}" placeholder="введите цену заказа"/></td></tr>
                                 <tr><td><label for="manufacturingPrice"> цена составляющих материалов</label></td>
-                                    <td><input type="text" name="manufacturingPrice" pattern="\d{1,7}(\.|,)\d{2}" value="00.00"/></td></tr>
+                                    <td><input type="text" name="manufacturingPrice" pattern="\d{1,5}(\.)?\d{2}" value="0.00"/></td></tr>
                                 <tr><td><label for="isCompleted">состояние заказа</label></td>
-                                    <td><input type="radio" name="isCompleted" value="0" checked/>не укомплектован<br>
-                                    <input type="radio" name="isCompleted" value="1"/>укомплектован</td></tr>
+                                    <td><input type="radio" name="isCompleted" value="0" checked/> не укомплектован<br>
+                                    <input type="radio" name="isCompleted" value="1"/> укомплектован</td></tr>
                                <tr>
                                    <td><label for="isReady">степень готовности</label></td>
-                                   <td><input type="radio" name="isReady" value="0" checked/>новый<br>
+                                   <td><input type="radio" name="isReady" value="0" checked/> новый<br>
 <!--                                       <input type="radio" name="isReady" value="1"/>закрыт успешно<br>-->
 <!--                                       <input type="radio" name="isReady" value="2"/>закрыт неуспешно<br>-->
 <!--                                       <input type="radio" name="isReady" value="3"/>запущен в производство</td>-->
                                </tr>
-                               <tr style="display: none">
+                               <tr class="trDisplayNone">
                                    <td><label for="isInstall">установлен у клиента</label></td>
-                                   <td><input type="radio" name="isInstall" value="0" checked/>не установлен<br>
+                                   <td><input type="radio" name="isInstall" value="0" checked/> не установлен<br>
 <!--                                       <input type="radio" name="isInstall" value="1"/>в процессе установки<br>-->
 <!--                                       <input type="radio" name="isInstall" value="2"/>установлен</td>-->
                                </tr>
                                <tr>
-                                   <td><label for="isDeposite" >предоплата</label></td>
-                                   <td><input type="text" name="isDeposite" placeholder="грн.коп" pattern="\d{1,7}(\.|,)\d{2}"/></td></tr>
-                                <tr>
                                     <td><label for="dateOfOrdering">дата взятия заказа</label></td>
                                     <td><input type="date"  name="dateOfOrdering" required/></td></tr>
 <script>
@@ -225,6 +115,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <tr style="display: none;">
                                     <td><label for="isAllowCalculateCost">разрешить менять цену комплектующих при изменении стоимости</label></td>
                                     <td><input type="radio" name="isAllowCalculateCost" value="0" /> не разрешать<br><input type="radio" name="isAllowCalculateCost" value="1" checked/>разрешать</td></tr>
+                                <tr>
+                                    <td></td>
+                                    <td><div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="rezZaprosaKServer" >
+                                            <div class="uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
+                                            <div class="noUspeh text-center "><span class="glyphicon glyphicon-alert "> ошибка обратитесь к разработчику</span></div>
+                                            <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
+                                            <div class="divForAnswerServer"></div>
+                                        </div></td></tr>
+                                <tr><td>кнопка для отправки</td><td><input type="submit" name="submitFromFormOneOrder"/></td></tr>
+                                <tr class="trDisplayNone"><td><label for="controlka"></label> контролька</td><td><input name="controlka" value="sendNewOrderToBase"/></td></tr>
                                 </tbody>
                             </table>
                         </form>
@@ -240,20 +140,24 @@ document.addEventListener('DOMContentLoaded', function() {
 //                            return false;
 //                            $url = $(this).attr('action');
 //                            $data=$(this).serializeArray();
-                            $.post(
-                                $(this).attr('action'),//ссылка куда идут данные
-//                                $(this).serialize() ,   //Данные формы
-                                $(this).serializeArray()//сериализирует в виде массива
-                            );
-//                            return false;
-//                            $.ajax({
-//                                type:'POST',
-//                                url:$url,
-//                                data:$data,
-//                                success:function () {
-//                                    alert('улетели данные '+$(this).serializeArray())
-//                                }
-//                            });
+//                            $.post(
+//                                $(this).attr('action'),//ссылка куда идут данные
+////                                $(this).serialize() ,   //Данные формы
+//                                $(this).serializeArray()//сериализирует в виде массива
+//                            );
+////                            return false;
+                            $.ajax({
+                                type:'POST',
+                                url:$(this).attr('action'),//куда идут данные
+                                data:$(this).serializeArray(),//данные в виде массива метод serializeArray()
+                                success:function (data) {
+                                $('.divForAnswerServer').html(data);
+                                }
+                                
+                            });
+
+                            $(this).find('.alert').remove();
+                            return false;
                         });
                     </script>
                 </div>

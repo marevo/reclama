@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/controllers/controllerAddNewOrderToBase.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllSuppliers.php" afterPath="$PROJECT_DIR$/templates/viewAllSuppliers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewClientToBase.php" afterPath="$PROJECT_DIR$/templates/formAddNewClientToBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewOrder.php" afterPath="$PROJECT_DIR$/templates/formAddNewOrder.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,56 +39,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerModalWinShowAllPayments.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
+      <file leaf-file-name="formAddNewOrder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/formAddNewOrder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+            <state relative-caret-position="396">
+              <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
-                <marker date="1504886162887" expanded="true" signature="489:868" placeholder="..." />
-                <marker date="1504886162887" expanded="true" signature="493:860" placeholder="..." />
-                <marker date="1504886162887" expanded="true" signature="512:860" placeholder="..." />
-                <marker date="1504886162887" expanded="true" signature="2395:2624" placeholder="..." />
-                <marker date="1504886162887" expanded="true" signature="2513:2596" placeholder="{...}" />
-                <marker date="1504886162887" expanded="true" signature="3318:3547" placeholder="..." />
-                <marker date="1504886162887" expanded="true" signature="3436:3519" placeholder="{...}" />
+                <element signature="n#clientsOptions#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#tr#12;n#tbody#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewAllSuppliers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
+      <file leaf-file-name="formAddNewClientToBase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/formAddNewClientToBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="155" column="44" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllerViewAllSuppliers.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Payment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="154">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="75" />
               <folding>
-                <marker date="1504724212383" expanded="true" signature="712:782" placeholder="SELECT SUM(s... payments" />
-                <marker date="1504724212383" expanded="true" signature="1196:1209" placeholder="SELECT * FRO... " />
-                <marker date="1504724212383" expanded="true" signature="1196:1210" placeholder="SELECT * FRO... ." />
-                <marker date="1504724212383" expanded="true" signature="1196:1245" placeholder="SELECT * FRO... orders" />
-                <marker date="1504724212383" expanded="true" signature="1279:1352" placeholder="SELECT * FRO... ${self::TABLE}" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forDisplayTimeShowAnswerServer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/html/forDisplayTimeShowAnswerServer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="10" selection-start-line="5" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controllerAddNewOrderToBase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/controllers/controllerAddNewOrderToBase.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+              <folding>
+                <element signature="e#119#4217#0#PHP" expanded="false" />
+                <marker date="1504900869066" expanded="true" signature="2751:2832" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FastViewTable.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/FastViewTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1100">
+              <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+              <folding>
+                <marker date="1504879456544" expanded="true" signature="1854:1967" placeholder="..." />
+                <marker date="1504879456544" expanded="true" signature="1971:2060" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controllerAddNewClientToBase.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-581">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,11 +131,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/viewAllMaterials.js" />
         <option value="$PROJECT_DIR$/templates/formAddNewContact.php" />
         <option value="$PROJECT_DIR$/App/Db.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/templates/formAddNewOrder.php" />
         <option value="$PROJECT_DIR$/templates/viewAllContactsClients.php" />
         <option value="$PROJECT_DIR$/templates/viewAllMaterialsToOrder.php" />
         <option value="$PROJECT_DIR$/templates/viewAllTasks.php" />
@@ -141,9 +162,7 @@
         <option value="$PROJECT_DIR$/App/Models/MaterialsToOrder.php" />
         <option value="$PROJECT_DIR$/App/Models/Material.php" />
         <option value="$PROJECT_DIR$/App/Models/ContactsClient.php" />
-        <option value="$PROJECT_DIR$/templates/formAddNewClientToBase.php" />
         <option value="$PROJECT_DIR$/App/Models/Client.php" />
-        <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php" />
         <option value="$PROJECT_DIR$/navigation.html" />
         <option value="$PROJECT_DIR$/head.html" />
@@ -159,6 +178,10 @@
         <option value="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
         <option value="$PROJECT_DIR$/templates/viewAllSuppliers.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" />
+        <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
+        <option value="$PROJECT_DIR$/App/controllers/controllerAddNewOrderToBase.php" />
+        <option value="$PROJECT_DIR$/templates/formAddNewClientToBase.php" />
+        <option value="$PROJECT_DIR$/templates/formAddNewOrder.php" />
       </list>
     </option>
   </component>
@@ -245,20 +268,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reclama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reclama" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="App" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -278,24 +287,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Models" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reclama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reclama" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,12 +397,12 @@
       <workItem from="1502114150552" duration="465894000" />
       <workItem from="1504385135520" duration="78991000" />
       <workItem from="1504684969291" duration="41700000" />
-      <workItem from="1504808260476" duration="26989000" />
+      <workItem from="1504808260476" duration="35202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1308823000" />
+    <option name="totallyTimeSpent" value="1317036000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -464,29 +455,14 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/App/ModelLikeTable.php</url>
           <line>102</line>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="32" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="41" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/запросы и тригеры  по reclama.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/formAddMaterialToOrderModal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -548,14 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="83" column="173" selection-start-line="83" selection-start-column="173" selection-end-line="83" selection-end-column="173" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/formAddNewSupplierToBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -662,6 +630,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -673,34 +642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllClients.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/formAddNewClientToBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2087">
-          <caret line="101" column="48" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -743,29 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/Models/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-          <folding>
-            <marker date="1504634090986" expanded="true" signature="1649:2043" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="1649:2048" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="2121:2317" placeholder="SELECT order... orders" />
-            <marker date="1504634090986" expanded="true" signature="2895:3289" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="2895:3294" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="3894:4236" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="3894:4245" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="3894:4319" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="3894:4324" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="4897:5322" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="4897:5327" placeholder="SELECT o.id orders" />
-            <marker date="1504634090986" expanded="true" signature="6695:6743" placeholder="SELECT * FRO... orders" />
-            <marker date="1504634090986" expanded="true" signature="7110:7175" placeholder="SELECT SUM(p... materialsToOrder" />
-            <marker date="1504634090986" expanded="true" signature="7579:7644" placeholder="SELECT SUM(p... materialsToOrder" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Models/Material.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
@@ -793,26 +715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/html/forDisplayTimeShowAnswerServer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Models/ContactsClient.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/manual.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="350" column="1" selection-start-line="350" selection-start-column="1" selection-end-line="350" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -830,18 +736,6 @@
         <state relative-caret-position="-44">
           <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/formAddNewOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#clientsOptions#0;n#!!top" expanded="false" />
-            <element signature="n#insertNewOrder#0;n#!!top" expanded="false" />
-            <marker date="1504425740731" expanded="true" signature="1104:1265" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,7 +760,7 @@
         <state relative-caret-position="396">
           <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
+            <element signature="e#6#88#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -876,25 +770,6 @@
         <state relative-caret-position="583">
           <caret line="325" column="29" selection-start-line="325" selection-start-column="29" selection-end-line="325" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="34" column="68" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/FastViewTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-          <folding>
-            <marker date="1504879456544" expanded="true" signature="1854:1967" placeholder="..." />
-            <marker date="1504879456544" expanded="true" signature="1971:2060" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,16 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="122" column="85" selection-start-line="122" selection-start-column="85" selection-end-line="122" selection-end-column="85" />
-          <folding>
-            <element signature="e#5198#5464#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -988,6 +853,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/manual.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="350" column="1" selection-start-line="350" selection-start-column="1" selection-end-line="350" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Models/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1364">
+          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+          <folding>
+            <marker date="1504634090986" expanded="true" signature="1649:2043" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="1649:2048" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="2121:2317" placeholder="SELECT order... orders" />
+            <marker date="1504634090986" expanded="true" signature="2895:3289" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="2895:3294" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="3894:4236" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="3894:4245" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="3894:4319" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="3894:4324" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="4897:5322" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="4897:5327" placeholder="SELECT o.id orders" />
+            <marker date="1504634090986" expanded="true" signature="6695:6743" placeholder="SELECT * FRO... orders" />
+            <marker date="1504634090986" expanded="true" signature="7110:7175" placeholder="SELECT SUM(p... materialsToOrder" />
+            <marker date="1504634090986" expanded="true" signature="7579:7644" placeholder="SELECT SUM(p... materialsToOrder" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/formAddNewSupplierToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="56" column="120" selection-start-line="56" selection-start-column="109" selection-end-line="56" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-123">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
@@ -1004,19 +932,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
+    <entry file="file://$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="155" column="44" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="44" />
+        <state relative-caret-position="433">
+          <caret line="122" column="85" selection-start-line="122" selection-start-column="85" selection-end-line="122" selection-end-column="85" />
+          <folding>
+            <element signature="e#5198#5464#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1608">
+          <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php">
+    <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        <state relative-caret-position="2178">
+          <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+          <folding>
+            <marker date="1504685296977" expanded="true" signature="812:826" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="1998:2059" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="3405:3508" placeholder="INSERT INTO ${static::TABLE}... " />
+            <marker date="1504685296977" expanded="true" signature="4963:5031" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="5316:5372" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="5677:5737" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="6021:6081" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1504685296977" expanded="true" signature="6431:6490" placeholder="DELETE FROM " />
+            <marker date="1504685296977" expanded="true" signature="6831:6890" placeholder="DELETE FROM " />
+            <marker date="1504685296977" expanded="true" signature="7245:7373" placeholder="SELECT * FRO... ${static::TABLE}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/FastViewTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+          <folding>
+            <marker date="1504879456544" expanded="true" signature="1854:1967" placeholder="..." />
+            <marker date="1504879456544" expanded="true" signature="1971:2060" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-581">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerAddNewOrderToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding>
+            <element signature="e#119#4217#0#PHP" expanded="false" />
+            <marker date="1504900869066" expanded="true" signature="2751:2832" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/html/forDisplayTimeShowAnswerServer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="10" selection-start-line="5" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/formAddNewClientToBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="75" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/formAddNewOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <element signature="n#clientsOptions#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#tr#12;n#tbody#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
