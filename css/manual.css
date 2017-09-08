@@ -439,6 +439,9 @@ background-color: #337ab7;
 .tdDisplayNone{
     display: none;
 }
+.tdDisplayBlock{
+    display: block;
+}
 .trDisplayNone{
     display: none;
 }

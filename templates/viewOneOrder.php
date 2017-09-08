@@ -292,7 +292,7 @@ showLi('');
             
             return false;
         });
-        //добавим клик в модальном окне на кнопке добавить оплату
+        //добавим клик в модальном #modalViewAllPaymentsToThisOrder окне на кнопке #idBtnAddPayment добавить оплату 
         $('#idBtnAddPayment').on('click',function(){
             //отправка оплаты из модального окна просмотра оплат
             console.log('добавляем оплату по этому заказу');

@@ -3,19 +3,26 @@
         <div class="modal-content">
             <div class="modal-header text-center" >показываем все оплаты к заказу
                 <button class="close" data-dismiss="modal" name="">закрыть</button>
-                <div class="rezDeleteTr" id="rezDeleteTr"></div>
+                <div>
+                    <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
+                    <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> ошибка обратитесь к разработчику</span></div>
+                    <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
+                    <div class="divShowAnswerServer">ответ сервера</div>
+                </div>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <!--<header>-->
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >название заказа:</div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 "  data-name="nameOrder" ></div>
-                        <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 rezDeleteTr" id="rezDeleteTr"></div>-->
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >заказ</div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 "  data-name="nameOrder" ></div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >клиент</div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 "  data-name="nameClient" ></div>
+
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                            <!--<button  class="btn btn-sm btn-primary btn-sm btnAddPaymentToOrder" title="добавить оплату к заказу">-->
-                                <!--<span class="glyphicon glyphicon-plus-sign"> оплата</span> </button></div>-->
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 divForAnswerServer"></div>
+                            <button  class="btn btn-sm btn-primary btn-sm" id="btnModalShowButtonsTrashInTable" title="разрешить удаление оплат">
+                                <span class="glyphicon glyphicon-edit"> править</span> </button>
+                        </div>
                     </div>
                     <!--</header>-->
                     <div class="row">
@@ -28,14 +35,13 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2   fontSizeMedium" >сумма всех оплат</div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1   fontSizeMedium" data-name = "sumAllPayments" ></div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  fontSizeMedium">добавить оплату</div>
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 fontSizeMedium">
-                            <input  type="text" size="7" name="valPayment" id="idValPayment" pattern="\d{1,5}|(\d{1,4}(\.)\d{1,2)}" placeholder="внесите сумму оплаты" value="0.00"/>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                            <input type="text" size="4"  id="idModalWinValPayment" placeholder="сумма" value="0.00"/>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="btn btn-sm btn-primary" id="idBtnAddPayment" name = 'sumMatZakaz'> принять сумму</button></div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  text-center " id="rezShowModal">
-                            результат запроса
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="btn btn-sm btn-primary" id="idModWinBtnAddPayment" name = 'sumMatZakaz'> принять сумму</button></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  text-center ">
+                            <input id="idModalWinDatePayment" type="date"/>
                         </div>
-                        <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-2 divShowAnswerServer"></div>
                     </div>
                 </div>
             </div><!--modal-body-->
@@ -48,13 +54,79 @@
 <script type="text/javascript">
 //загрузим по вызову модального окна все оплаты из базу в таблицу #tableAllPaymentsForThisOrder
 $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function () {
-        //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
+    //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
     console.log('отпавим запрос на получение данных всех оплат');
-    jquery_send('#tableAllPaymentsForThisOrder','post','../app/controllers/controllerModalWinShowAllPayments.php',
-                ['loadPaymentForOrder','idOrder'],['',ORDER.id]);
+    jquery_send('#tableAllPaymentsForThisOrder', 'post', '../app/controllers/controllerModalWinShowAllPayments.php',
+            ['loadPaymentForOrder', 'idOrder'], ['', ORDER.id]);
+    //выставим дату сегодняшнюю
+    //var dateThisDay = getDate();
+    $('#idModalWinDatePayment').val(getDate());
+    //повесим проверку на валидность суммы оплаты
+    povesitProverkuValidnostyNaInput('#idModalWinValPayment');
 
+    //Добавка оплаты через модальное окно просмотра всех оплат по данному заказу
+    $('#idModWinBtnAddPayment').on('click', addPaymentInModalWinAllPayments);
+
+//    вешаем клик на отобрыжение кнопок удаления
+    $('#btnModalShowButtonsTrashInTable').on('click', showButtonsTrashInTableAllPayments);
+
+//повесим клик на удаление конкретного платежа
+    $('#tableAllPaymentsForThisOrder ').on('click', deleteThisPaymentFromBase);
 });
+
+
 $('#modalViewAllPaymentsToThisOrder').on('hide.bs.modal',function () {
-
+    $('#btnModalShowButtonsTrashInTable').unbind('click',showButtonsTrashInTableAllPayments);
+    $('#idModWinBtnAddPayment').unbind('click', addPaymentInModalWinAllPayments);
+    $('#tableAllPaymentsForThisOrder ').unbind('click', deleteThisPaymentFromBase);
 });
+//функция клика по кнопке показа в этом модальном окне, которая показывает значки удалить напротив каждой оплаты
+function showButtonsTrashInTableAllPayments() {
+    $('#tableAllPaymentsForThisOrder .tdDisplayNone').css('display',
+            function(i,value){
+                if(value == 'none')
+                    return  'block';
+                else
+                    return 'none';
+            });
+    return false;
+}
+function addPaymentInModalWinAllPayments() {
+    console.log(' пробуем добавить оплату добавляем оплату по этому заказу');
+//если сумма добавки 0 или отрицательна или заказ закрыт успешно или закрыт не успешно то не сможем добавить заказ
+    if($('#idModalWinValPayment').val() > 0 &&  ORDER.isReady != 2 && ORDER.isReady !=1  ){
+        //  отправляем запрос на добавку в базу оплаты
+        console.log('добавляем оплату по этому заказу');
+        jquery_send('#modalViewAllPaymentsToThisOrder .divShowAnswerServer','post','../app/controllers/controllerModalWinShowAllPayments.php',
+                ['sendPaymentForOrderFromModalWin','sumPayment','idOrder','idClient','datePayment'],
+                ['',$('#idModalWinValPayment').val(),ORDER.id,ORDER.idClient, $('#idModalWinDatePayment').val()]);
+        $('#idModalWinValPayment').val('0');
+        console.log('улетели данные на добавку оплаты в базу idOrder')
+    }
+    else {
+        $('#idModalWinValPayment').val('0');
+        fNoUspehAll('нельзя добавить оплату, т.к. заказ закрыт или сумма добавки 0');
+    }
+
+    return false;
+}
+//функция удаления оплаты из базы оплат
+function     deleteThisPaymentFromBase (event) {
+    var target = event.target;
+    while (target.tagName !='TABLE'){
+        if(target.tagName == 'BUTTON'){
+            if( $(target).hasClass('btnDeleteThisPayment') ){
+                console.log('click in table target=button trash');
+                var idPaymentForDelete = $(target).data('id');
+                console.log('хотим удалить платеж с id = '+ idPaymentForDelete);
+                jquery_send('#modalViewAllPaymentsToThisOrder .divShowAnswerServer','post','../app/controllers/controllerModalWinShowAllPayments.php',
+                        ['sendDeletePaymentForOrderFromModalWin','idPaymentForDelete'],
+                        ['',idPaymentForDelete]);
+                return false;
+            }
+        }
+        target = target.parentNode;
+    }
+    return false;
+}
 </script>
