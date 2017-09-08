@@ -161,7 +161,7 @@ require_once('../head.html');
             }
         });
         //функция обработки при вызове модального окна
-        $('#modalWinForDeleteMat').on('show.bs.modal',function () {
+        $('#modalWinForDeleteSupp').on('show.bs.modal',function () {
 
         });
         //функция поиска поставщика по подобию названия или доп. характеристик

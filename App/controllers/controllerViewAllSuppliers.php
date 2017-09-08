@@ -9,11 +9,11 @@ require '../../autoload.php';
 
 if(isset($_POST['deleteSupplierFromBase'])){
     echo "пришел запрос на удаление поставщика из базы";
-    if (isset($_POST['idMaterial'])){
+    if (isset($_POST['idSupplier'])){
         $idSupp = intval($_POST['idSupplier']);
 //        $res = true;
 //        $res = false;
-        $res = \App\Models\Supplier::deleteObj($idMat);
+        $res = \App\Models\Supplier::deleteObj($idSupp);
         if($res){
             echo "<script>fUspehAll('удалили успешно')</script>";
             echo "<script>$('[data-id_supplier = $idSupp]').parent().remove() ;</script>";
