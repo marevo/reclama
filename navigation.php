@@ -27,6 +27,29 @@
 
         </ul>
 -->
+
+<div>
+<img class="img-circle img-sm" hspace="20" vspace="20"/>
+<!--<i class="material-icons">content_paste</i>
+<i class="icomoon icon-truck"></i>
+<i class="icon-copy-2"></i>-->
+<!--<i class="box-add"></i>-->
+<div class="menu_list">
+
+<span style="margin-left: 10px">
+<span class="fa-user"></span>
+<?
+    require 'autoload.php';
+    $sid=session_id();
+    $res=\App\Models\User::getCurrentUserBySession($sid);
+	echo $res[0]->login;
+?>
+</span>
+<a><span class="glyphicon glyphicon-cog btn-lg" id="profile"></span>
+<!--<img src="./img/Настройки.png" align="right" widht="30"  height="30" hspace="10" vspace="10" id="profile"/>-->
+</a>
+</div>
+</div>
         <ul id="menu_list">
             <? include "templates/menu.php"; ?>
 		</ul>
@@ -41,6 +64,30 @@
 //        $('testJqueryCon').fadeIn(5000);
 
 //    });
+    document.getElementById("profile").onclick=function() {
+		// создать объект для формы
+        //var formData = new FormData(document.forms.profile);
+        // отослать
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./profile.php", false);
+	    xhr.overrideMimeType("text/plain; charset=utf8");
+        xhr.send(null);
+		document.getElementById("main_modul").innerHTML = xhr.responseText;
+		document.getElementById("name_profile").value='<?echo $res[0]->login;?>';
+		//document.onkeyup = function(e)
+		//{
+		//	e = e || window.event;
+			//if(xhr.responseText=="authorized" || e.keyCode==13)
+			//{
+				//window.location="/";
+			//}
+			//else if(xhr.responseText!="unauthorized")
+			//{
+			//	console.log(xhr.responseText);
+			//}
+		//	return false;
+		//}
+}
    var zoomed=true;
    function zoomInY(targetBlock)
    {

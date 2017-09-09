@@ -23,7 +23,6 @@ document.getElementById("clients_by_birtday").onclick = function() {
 					<label for="inputDate">Введите конечную дату:</label>
                     <input type="date" class="form-control" name="end_date">
 					<input type="button" value="Вывести" id="clients_by_birtday">
-					<input type="submit" value="Submit">
                     </div>
                 </form>
 				<div id="birthday_module">

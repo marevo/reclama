@@ -54,7 +54,8 @@
 </div>
 </div>
 <script>
-    document.getElementById("authorization").onclick=function() {
+    
+	function authorize() {
 		// создать объект для формы
         var formData = new FormData(document.forms.authorization);
         // отослать
@@ -62,13 +63,27 @@
         xhr.open("POST", "/templates/createSession.php", false);
 	    xhr.overrideMimeType("text/plain; charset=utf8");
         xhr.send(formData);
-		if(xhr.responseText=="authorized")
-		{
-			window.location="/";
-		}
-		else if(xhr.responseText!="unauthorized")
-		{
-			console.log(xhr.responseText);
-		}
+		
+			if(xhr.responseText=="authorized")
+			{
+				window.location="/";
+			}
+			else if(xhr.responseText!="unauthorized")
+			{
+				console.log(xhr.responseText);
+			}
+			
+		//}
 }
+document.getElementById("authorization").onclick=authorize;
+
+document.onkeyup = function(e)
+		{
+			e = e || window.event;
+		if(e.keyCode==13)
+		{
+			authorize();
+		}
+		return false;
+		}
 </script>

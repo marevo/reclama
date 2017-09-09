@@ -30,7 +30,31 @@
 <div id="header">
 <div class="container">
 <div id="logo"></div>
-<div id="exit"><a><img src="./img/vihod.png" align= "absmiddle" vspace="10" hspace="5" />Выход</a></div>
+<div id="exit"><a>
+<!--<img src="./img/vihod.png" align= "absmiddle" vspace="10" hspace="5" />-->
+<i class="icon-exit3"></i>Выход</a></div>
 </div>
 </div>
-
+<script type="text/javascript">
+$(document).ready(function () {
+      var offset = $('#header').offset();
+    var topPadding = 0;
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > offset.top) {
+			$('#header').css('margin-top',$(window).scrollTop() - offset.top + topPadding);
+           // $('#header').stop().animate({marginTop: $(window).scrollTop() - offset.top + topPadding});
+        }
+        else {
+			$('#header').css('margin-top',0);
+           // $('#header').stop().animate({marginTop: 0});
+        }
+    });
+});
+document.getElementById("exit").onclick=function(){
+	var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/templates/deleteSession.php", false);
+	    xhr.overrideMimeType("text/plain; charset=utf8");
+        xhr.send(null);
+    	window.location="authorization.php";
+}
+</script>

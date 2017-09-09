@@ -54,4 +54,13 @@ class User extends ModelLikeTable
 		$res = $db->execute($query, $values);
         return $res;
 	}
+	public static function deleteSession(string $session)
+	{
+		$db = new Db();
+		$values = [];
+		$values [':session']='NULL';
+        $query = "UPDATE ".self::TABLE." SET session = :session WHERE session = '".$session."' ; ";
+		$res = $db->execute($query, $values);
+        return $res;
+	}
 }

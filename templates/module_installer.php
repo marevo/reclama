@@ -16,6 +16,7 @@
 	chdir("../tmp");
 	$handle = @fopen("installer.ins", "r");
 	if ($handle) {
+		
         while (($buffer = fgets($handle)) !== false) {
             $params=explode("=",$buffer);
 			if($params[0]=='SQL')
@@ -63,7 +64,13 @@
 			else if($params[0]=='DIR')
 			{
 				$dirname=trim($params[1]);
-				mkdir("../modules/" . $dirname);
+				$module_root="../modules/" . $dirname;
+				mkdir($module_root);
+				//copy("installer.ins",$module_root."/installer.ins");
+			}
+			else if($params[0]=='NAME')
+			{
+				copy("installer.ins","../modules/" . $params[1]);
 			}
 			else 
 			{

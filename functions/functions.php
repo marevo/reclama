@@ -1,3 +1,4 @@
+<?require_once ('./head.php')?>
 <script>
 var selectedId;
 function activate (id,handler) {
@@ -40,7 +41,12 @@ function activate (id,handler) {
         xmlHttp.open( "GET", handler, false ); // false for synchronous request
 	    xmlHttp.overrideMimeType("text/plain; charset=utf8");
         xmlHttp.send( null );
-        document.getElementById("main_modul").innerHTML=xmlHttp.responseText;
+        var main_module=document.getElementById("main_modul");
+		main_module.innerHTML=xmlHttp.responseText;
+		var myScripts = main_module.getElementsByTagName("script");
+        if (myScripts.length > 0) {
+            eval(myScripts[0].innerHTML);
+        }
 	}
 	else if(xmlHttp.responseText=="unauthorized")
     {
@@ -90,10 +96,17 @@ function activate (id,handler) {
 		for($i = 0; $i < count($arr[$parent_id]);$i++) {
 			$id=$parent_id . "sub" . $i;
 			
-			echo '<li id="'.$id.'"><a  name="'.$arr[$parent_id][$i]['handler'].'" onclick="activate(\''.$id.'\',\''.$arr[$parent_id][$i]['handler'].'\')">'
-						.$arr[$parent_id][$i]['title'].'</a>';
-	        view_menu($arr,$arr[$parent_id][$i]['id']);
+	//		echo '</img>';
+	//		echo '<li id="'.$id.'"><div><a  name="'.$arr[$parent_id][$i]['handler'].'" onclick="activate(\''.$id.'\',\''.$arr[$parent_id][$i]['handler'].'\')">';
+	//		echo '<img src="'.$arr[$parent_id][$i]['image'].'" height="15" width="15" align="absmiddle">'.$arr[$parent_id][$i]['title'].'</img></a></div>';
+	//        echo '<li id="'.$id.'" style="background: url('.$arr[$parent_id][$i]['image'].') no-repeat top; height: 15px; padding-left: 50px; padding-top: 50px; width: 15px;"><a  name="'.$arr[$parent_id][$i]['handler'].'" onclick="activate(\''.$id.'\',\''.$arr[$parent_id][$i]['handler'].'\')">';
+	//		echo $arr[$parent_id][$i]['title'].'</a>';
+	//
+	echo '<li id="'.$id.'"><a  href="'.$arr[$parent_id][$i]['handler'].'" onclick="activate(\''.$id.'\',\''.$arr[$parent_id][$i]['handler'].'\')">';
+	echo '<span class="'.$arr[$parent_id][$i]['image'].'" background-position="-90px -40px" hspace="100" vspace="100"></span>'.$arr[$parent_id][$i]['title'].'</a>';
+			view_menu($arr,$arr[$parent_id][$i]['id']);
 			echo '</li>';
+			
 		}
 		echo '</ul>';
 	}
