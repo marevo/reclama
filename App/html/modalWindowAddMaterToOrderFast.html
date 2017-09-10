@@ -1,0 +1,56 @@
+<div id="modalAddMaterialToOrderFast" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">быстрая добавка материала к заказу этому заказу
+                <button class="close" data-dismiss="modal">закрыть</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" style="background-color: #c0c7d2;">
+
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="modalAddMaterialToOrderFastIdMat"> </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="modalAddMaterialToOrderFastNameMat"></div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                    <input id="modalAddMaterialToOrderFastCountMat" value="0.00" size="4" />
+                                    <script type="text/javascript">
+                                        povesitProverkuValidnostyNaInput($('#modalAddMaterialToOrderFastCountMat'));
+                                    </script>
+                                </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <button id="modalAddMaterialToOrderFastBtnAddFast" class="btn btn-sm btn-success">добавить</button>
+                            <script type="text/javascript">
+                                $('#modalAddMaterialToOrderFastBtnAddFast').on('click',function (event) {
+                                    $('.fastShowErorCountMat').remove();
+                                   if(testSumOnFloat( $('#modalAddMaterialToOrderFastCountMat').val()) ){
+                                       console.log('fast  send for fastAddMaterToOrder to server ');
+//                                    jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
+//                                            ['fastAddCountMaterialToOrder', 'idMaterial', 'idOrder','countMaterial'],
+//                                            ['',$('#modalAddMaterialToOrderFastIdMat').text(),ORDER.id, $('#modalAddMaterialToOrderFastCountMat').val()]
+//                                               );
+
+                                    }
+                                    else {
+                                        $('#modalAddMaterialToOrderFastIdMat').before('<div style="background-color: red;" class="fastShowErorCountMat">правильный формат 1 или 1.11 или 1.1</div>');
+                                       setTimeout(function () {
+                                           $('.fastShowErorCountMat').remove();
+                                       },'2000');
+                                        console.log('ошибка валидации введения количество материала при быстрой добавке по dblclick');
+                                    }
+                                return false;
+                                });
+                            </script>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
+                                    <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
+                                    <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> не успешно обратитесь к разработчику</span></div>
+                                    <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
+                                    <div class="divForAnswerServer"></div>
+                                </div>
+                    </div>
+                </div>
+            </div><!--modal-body-->
+            <div class="modal-futer">
+            </div>
+        </div><!--modal content-->
+    </div><!--modal-dialog-->
+</div><!--modal-fade -->

@@ -25,7 +25,20 @@ abstract class ModelLikeTable
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;
     }
-    
+
+    public static function findAllOrderByName(){
+//        echo '<br>вызов из класса '.get_called_class().'<br>';
+//        echo '<br>вызов данных из таблицы '.static::TABLE .'<br>';
+//        echo '<br>вызов из класса '.static::class.'<br>';
+        $db = new Db();
+        //позднее связывание для вызова с параметрами класса наследника
+        //это позволит вернуть результат сразу в виде массива типа класса наследника
+
+        $res = $db->query('SELECT * FROM '.static::TABLE .' ORDER BY name ;',static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+    }
+
     public static function getAllField(){
         echo 'вызов полей идет из класса '.get_called_class();
 //        echo Нужно отметить, что для большего удобства в PHP кроме слова «static» есть еще специальная функция get_called_class(), которая сообщит вам — в контексте какого класса в данный момент работает ваш код.

@@ -810,6 +810,8 @@ var ORDER_NEW ;
     include_once('formAddMaterialToOrderModal.html');
     //подключение модального окна просмотра всех оплат по этому заказу
     include_once ('../App/html/viewModalAllPaymentsForThisOrder.html');
+    //подключим модальное окно быстрой добавки материала к заказу по двойному клику в таблице всех материалов (в модальном окне)
+    include_once ('../App/html/modalWindowAddMaterToOrderFast.html');
     ?>
 
 </div><!-- container-->

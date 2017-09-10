@@ -44,7 +44,7 @@ $('#modalAddMaterialToOrder').on('show.bs.modal',function () {
     $('#modalViewAllMaterialsToThisOrder').modal('hide');
   //*** вызвать функцию ниже
     getAllMaterialsFromBase();
-    //повесим фунцию позаза усеха не успеха обращений на сервер (запросы на изменение)
+    //повесим фунцию показа усеха не успеха обращений на сервер (запросы на изменение)
     herePokazRezZapros($('#rezShowFormAddMaterialToOrder'));
     $('[name = "buttonSearchNameMaterial"]').on('click',serchAllMaterialsForName);
     $('#tbSearchMaterialOnName').on('input',function () {
@@ -86,6 +86,11 @@ $('#tableFildMaterialToAddToOrder').on('dblclick',function (event) {
     while (target.nodeName != 'TBODY'){
         if(target.nodeName == 'TR'){
             console.log('поймали двойной клик в строке с id материала '+$(target).children()[0].textContent);
+            var idMaterToAddForOrder = $(target).children()[0].textContent;
+            var nameMaterToAddForOrder = $(target).children()[1].textContent;
+            $('#modalAddMaterialToOrderFastIdMat').text(idMaterToAddForOrder);
+            $('#modalAddMaterialToOrderFastNameMat').text(nameMaterToAddForOrder);
+            $('#modalAddMaterialToOrderFast').modal('show');
         }
         target = target.parentNode;
     }

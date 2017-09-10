@@ -397,7 +397,7 @@ if(isset($_POST['getAllMaterialsForOrder'])){
 if(isset($_POST['getAllMaterialsFromBase'])){
     if(isset($_POST['idOrder'])){
         $idOrder = intval($_POST['idOrder']);
-        $allMaterialsFromBase = Material::findAll();
+        $allMaterialsFromBase = Material::findAllOrderByName();
         if($allMaterialsFromBase == false){
             echo"<thead></thead><tbody>пока нет добавленных к заказу материалов</tbody>";
             die();
