@@ -23,7 +23,7 @@ $('#modalAddMaterialToOrder').on('click',function (event) {
             /** работаем здесь*/
             if(countTrue) {
                 console.log('send to server id= '+idOr +' idMat= '+idMat + ' count= '+count);
-                jquery_send('#rezZaprosAddCountMaterial','post','../controllerOneOrder.php',
+                jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
                     ['addCountMaterialToOrder', 'idMaterial', 'idOrder','countMaterial'],
                     ['',idMat,idOr,count]
                 );
@@ -78,3 +78,17 @@ function serchAllMaterialsForName() {
     return false;
 }
 
+//двойной клик на таблице всех материалов в базе что будут показаны в #tableFildMaterialToAddToOrder
+$('#tableFildMaterialToAddToOrder').on('dblclick',function (event) {
+    var target = event.target;
+   console.log('двойной клик в таблице в строке');
+    //найдем строку в которой был двойной клик
+    while (target.nodeName != 'TBODY'){
+        if(target.nodeName == 'TR'){
+            console.log('поймали двойной клик в строке с id материала '+$(target).children()[0].textContent);
+        }
+        target = target.parentNode;
+    }
+
+    return false;
+});

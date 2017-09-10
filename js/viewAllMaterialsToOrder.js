@@ -109,12 +109,15 @@ function clickTableAllMaterialsForOrder() {
             // если не пусто в input для update и не равны суммы до и после update
             if(countMatNew && +countMatNew!= +$(target).siblings()[4].textContent){
                 console.log('id for update = '+idMaterialToOrder + 'countMatNew = '+countMatNew);
-                jquery_send('#rezShowModal','post','../controllerOneOrder.php',
+                jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
                     ['updateThisCountMaterialsForOrder','idMaterialToOrder','countMatNew'],
                     ['',idMaterialToOrder,countMatNew]
                 );
+                //сервер если успешно или не успешно должен должен прислать скрипт на удаление класса у этой строки, но только изменения в ней данных
             }else {
                 fNoUspeh();
+                //так как не удалось отправить на update запись в таблице материалов для этого заказа нужно убрать класс-маркер 
+                $(trClickInTableAllMaterialsForOrder).removeClass('updateCountMaterialToOrder');
             }
             return false;
         }

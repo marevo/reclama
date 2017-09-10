@@ -228,7 +228,7 @@ if(isset($_GET['update'])){
             ";
             //запустим функцию отображения ответа сервера (если успешно поменяли/ или если не успешно поменяли)
             if($res == true){
-                echoUspeh();
+                echoUspehAll();
             }
             if($res == false){
                 echoNoUspeh();
@@ -358,7 +358,6 @@ if(isset($_POST['getAllMaterialsForOrder'])){
             <td>цена за нуж кол</td>
             <td>реком кол</td>
             <td>цена за рек кол</td>
-            <td></td>
             <td>новое количество<br/>материала</td>
             <td>править</td>
             <td>удалить</td>
@@ -373,8 +372,7 @@ if(isset($_POST['getAllMaterialsForOrder'])){
                <td> $value->priceCountNeed </td>
                <td> $value->recomAddCount </td>
                <td> $value->priceRecomNeed </td>
-               <td></td>
-               <td><input type='text' size='7'></td>
+               <td><input type='text' size='7'/></td>
                <td class='updateThisCountMaterial'><a><span class='glyphicon glyphicon-edit'> править</span></a></td>
                <td class='deleteThisMaterialFromThisOrder'>
                    <a><span class='glyphicon glyphicon-trash'> удалить</span></a></td>
@@ -437,13 +435,13 @@ if(isset($_POST['getAllMaterialsFromBase'])){
 }
 //*вывод на клиент показа yt успешного запроса в базу
 function echoUspeh()
-{
+{//ответ сервера с распеределением новых данных по отображению объекта ORDER
     echo "<script>fUspeh();</script>";
 }
 //*/вывод на клиент показа не успешноо запроса в базу
 //**вывод на клиент показа успешного запроса в базу
 function echoNoUspeh()
-{
+{//ответ сервера с распеределением новых данных по отображению объекта ORDER
     echo "<script>fNoUspeh();</script>";
 }
 //*/вывод на клиент показа не успешного запроса в базу
@@ -496,8 +494,7 @@ if(isset($_POST['searchMaterialsForName'])){
 }
 //*добавление материала к заказу
 if(isset($_POST['addCountMaterialToOrder'])){
-    echo "запрос в базу на добавление материала";//не забыть удалить
-
+//    echo "запрос в базу на добавление материала к заказу";//не забыть удалить
     if(isset($_POST['idOrder']))
         $idOrder = intval($_POST['idOrder']);
     if(isset($_POST['idMaterial']))
@@ -509,12 +506,22 @@ if(isset($_POST['addCountMaterialToOrder'])){
     $materToOrder->idOrder = $idOrder;
     $materToOrder->idMaterials = $idMaterial;
     $materToOrder->countNeed = $countMaterial;
+    //рассчитаем в зависимости от количества поставки минимально рекомендуемое количество материала для заказа и его цену
+    //только потом будем делать insert()
+    //найдем материал для которого будем считать по $idMaterial
+    $materForInsert = Material::findObjByIdStatic($idMaterial);
+    //реком для заказа количество
+    $materToOrder -> recomAddCount =   ceil($countMaterial / $materForInsert->deliveryForm) * $materForInsert->deliveryForm  ;
+//    цена за реком количество
+    $materToOrder -> priceRecomNeed = $materForInsert ->priceForMeasure * $materToOrder -> recomAddCount ;
+//    цена за нужное количество материала
+    $materToOrder->priceCountNeed = $countMaterial * $materForInsert -> priceForMeasure;
     $res = $materToOrder->insert();
     if($res != false){
-        echo echoUspeh();
+         echoUspeh();
     }
     else{
-        echo echoNoUspeh();
+        echoNoUspeh();
     }
 
 }
@@ -527,7 +534,7 @@ if(isset($_POST['deleteThisMaterialFromOrder'])) {
         if ($res != false) {
 //        echo 'удалили материал из заказа';
 //        удалим из таблицы эту удаленную строку
-            echo echoUspeh();
+             echoUspeh();
             echo "<script>$('.deleteThisTr').removeClass('deleteThisTr').remove();</script>";
             $objOrder = Order::findObjByIdStatic($idOrder);
             $manufacturingPriceRecom = $objOrder->getManufacturingPriceRecom();
@@ -537,43 +544,51 @@ if(isset($_POST['deleteThisMaterialFromOrder'])) {
             $('.manufacturingPriceRecom').text('$manufacturingPriceRecom');
             </script>";
         } else {
-            echo echoNoUspeh();
+            echoNoUspeh();
             echo "<script>$('.deleteThisTr').removeClass('deleteThisTr');</script>";
             die();
         }
     } else {
-        echo echoNoUspeh();
+        echoNoUspeh();
         echo "<script>$('.deleteThisTr').removeClass('deleteThisTr');</script>";
     }
 }
 //**update количества материала для заказа
 if(isset($_POST['updateThisCountMaterialsForOrder'])){
+
     if(isset($_POST['idMaterialToOrder'])){
+//        id из таблицы materialsToOrder
         $idMaterialsToOrder = intval($_POST['idMaterialToOrder']);
-    }
-    if(isset($_POST['countMatNew'])){
-        $countMatNew = htmlspecialchars($_POST['countMatNew']);
-    }
-    $objMaterialsToOrder = MaterialsToOrder::findObjByIdStatic($idMaterialsToOrder);
-    $objMaterialsToOrder->countNeed = $countMatNew;
-    $res = $objMaterialsToOrder->update();
-    if($res != false){
-        $objMaterialsToOrder = MaterialsToOrder::findObjByIdStatic($idMaterialsToOrder);
-        $priceCountNeed = $objMaterialsToOrder->priceCountNeed;
-        $countNeed = $objMaterialsToOrder->countNeed;
-        $recomAddCount = $objMaterialsToOrder->recomAddCount;
-        $priceRecomNeed = $objMaterialsToOrder->priceRecomNeed;
-        $idOrder = $objMaterialsToOrder->idOrder;
-        //по idOrder найдем сам заказ, чтобы изменить показ расчетной суммы комплектующих и рекомендуемой суммы комплектующих
-        $objOrder = Order::findObjByIdStatic( $idOrder);
-        $manufacturingPriceRecom = $objOrder->getManufacturingPriceRecom();
-        $manufacturingPriceCount = $objOrder->getManufacturingPriceCount();
-
-        echo echoUspeh();
-
-        //можно сделать функцию для изменения после удачного update строки в таблице всех материало к заказу в модальном окне
-        //  echo "<script>fUpdatTrWhereUpdateCountMaterial($countNeed,$priceCountNeed,$recomAddCount,$priceRecomNeed);
-        echo "<script>
+        if(isset($_POST['countMatNew'])){
+            $countMatNew = htmlspecialchars($_POST['countMatNew']);
+            //найдем объект в таблице материалы для заказа
+            $objMaterialsToOrder = MaterialsToOrder::findObjByIdStatic($idMaterialsToOrder);
+            $objMaterialsToOrder->countNeed = $countMatNew;
+            //найдем сам материал в таблице материалов
+            $materForUpdate = Material::findObjByIdStatic($objMaterialsToOrder->idMaterials);
+            // в объект материал к заказу что будем изменять  расчитаем поля
+            //реком для заказа количество
+            $objMaterialsToOrder ->recomAddCount =   ceil($countMatNew / $materForUpdate->deliveryForm) * $materForUpdate->deliveryForm  ;
+         //    цена за реком количество
+            $objMaterialsToOrder ->priceRecomNeed = $materForUpdate->priceForMeasure * $objMaterialsToOrder->recomAddCount ;
+            //    цена за нужное количество материала
+            $objMaterialsToOrder->priceCountNeed = $countMatNew * $materForUpdate->priceForMeasure;
+            $res = $objMaterialsToOrder->update();
+            if($res != false){
+                $objMaterialsToOrder = MaterialsToOrder::findObjByIdStatic($idMaterialsToOrder);
+                $priceCountNeed = $objMaterialsToOrder->priceCountNeed;
+                $countNeed = $objMaterialsToOrder->countNeed;
+                $recomAddCount = $objMaterialsToOrder->recomAddCount;
+                $priceRecomNeed = $objMaterialsToOrder->priceRecomNeed;
+                $idOrder = $objMaterialsToOrder->idOrder;
+                //по idOrder найдем сам заказ, чтобы изменить показ расчетной суммы комплектующих и рекомендуемой суммы комплектующих
+                $objOrder = Order::findObjByIdStatic( $idOrder);
+                $manufacturingPriceRecom = $objOrder->getManufacturingPriceRecom();
+                $manufacturingPriceCount = $objOrder->getManufacturingPriceCount();
+                echoUspeh();
+                //можно сделать функцию для изменения после удачного update строки в таблице всех материало к заказу в модальном окне
+                //  echo "<script>fUpdatTrWhereUpdateCountMaterial($countNeed,$priceCountNeed,$recomAddCount,$priceRecomNeed);
+                echo "<script>
                    var trUpdated = $('.updateCountMaterialToOrder');
                    $(trUpdated).children()[4].textContent = '$countNeed'  ;
                    $(trUpdated).children()[5].textContent = '$priceCountNeed';
@@ -583,8 +598,13 @@ if(isset($_POST['updateThisCountMaterialsForOrder'])){
                    $('.manufacturingPriceCount').text('$manufacturingPriceCount');
                    $('.manufacturingPriceRecom').text('$manufacturingPriceRecom');
         </script>";
+            }
+            else{
+                echo "<script>echoNoUspehAll('не удалось обновить количество материала в этом заказе обратитесь к разработчику');</script>";
+            }
+        }
+        echo "<script>fNoUspehAll('не удалось передать новое количество материала')</script>";
     }
-    else{
-        echo echoNoUspeh();
-    }
+
+
 }

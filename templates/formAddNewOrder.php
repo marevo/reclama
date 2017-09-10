@@ -61,14 +61,12 @@ showLi('создать заказ')
                                         </select></td></tr>
 
                                 <tr><td class="text-right"><label for="nameOrder">название заказа</label></td>
-                                    <td class="text-left"><textarea type="text" name="nameOrder" cols="60" rows="2" maxlength="120" placeholder="введите название заказа" autofocus required>
-                                        </textarea></td>
+                                    <td class="text-left"><textarea type="text" name="nameOrder" cols="60" rows="2" maxlength="120" placeholder="введите название заказа" autofocus required></textarea></td>
                                 </tr>
                                 <tr><td class="text-right"><label for="descriptionOrder">описание заказа заказа</label></td>
                                     <td class="text-left"><textarea type="text" name="descriptionOrder" maxlength="3000"
                                                                     placeholder= "подробное описание заказа максимум 3000 символов"
-                                                                    cols="100" rows="5"  required>
-                                        </textarea></td>
+                                                                    cols="100" rows="5"  required></textarea></td>
                                 </tr>
                                 <tr><td> <label for="source">источник заказа</label></td>
                                     <td><input type="radio" name="source" value="0" checked/> не известен</br>

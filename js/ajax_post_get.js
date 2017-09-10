@@ -24,15 +24,17 @@ function jquery_send(elemm, method, program, param_arr, value_arr) {
 //console.log('подключен ajax_post_get.js');
 //**   функция отображения где мы находимсч в заголовке (просто выделяет в меню ли только то что равно переданному аргументу
 function showLi() {
-    var ar = arguments[0];
-    $('#navbarCollapse li').each(function () {
-        if($(this).find('a').text() == ar)
-            $(this).addClass('active');
-        else $(this).removeClass('active');
-    });
+    if(arguments.length>0){
+        var ar = arguments[0];
+        $('#navbarCollapse li').each(function () {
+            if($(this).find('a').text() == ar)
+                $(this).addClass('active');
+            else $(this).removeClass('active');
+        });
+    }
 }
 $('table').each(function () {
-    $(this).on('click',findTd );
+    // $(this).on('click',findTd );
 });
 // функция выделения строки таблицы по клику на ней
 //divId хранит id записи в выделенной строке( в кликнутой строке)
@@ -40,9 +42,9 @@ function findTd() {
     var target = event.target;//где был клик
     if(target.tagName != 'TD' || target.closest('THEAD')) return;//клик в неинтересном месте для нас
     //уберем подсветку во всей таблице кроме той строки в которой есть клик на ячейке
-    $("table td[class ~= 'highLightTd']").removeClass('highLightTd');
+    // $("table td[class ~= 'highLightTd']").removeClass('highLightTd');
     //подсветим ячейку где был клик и братьев ее, то есть выделим строку где был клик
-    $(target).addClass('highLightTd').siblings().addClass('highLightTd');
+    // $(target).addClass('highLightTd').siblings().addClass('highLightTd');
 
     // $("table tr[class ~= 'highLightTd']").removeClass('highLightTd');
     //выделение строкт и дать бекграунд
