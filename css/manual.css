@@ -305,8 +305,15 @@ table tbody a:hover{
     overflow-y: auto;
     overflow-x: auto;
 }
+/* родительский div где лежит таблица показа всех материалов в базе в модальном окне всех материалов вызываемом по +материалы смМатериалы*/
 .tableFildMaterialToAddToOrder{
-    height: 500px;
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+/* родительский div где лежит таблица найденых по имени или доп характеристикам материаолов */
+.tbSearchMaterialOnName{
+    height: 250px;
     overflow-x: auto;
     overflow-y: auto;
 }

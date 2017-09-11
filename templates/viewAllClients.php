@@ -105,7 +105,7 @@ require '../autoload.php';
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header text-center">удалить клиента навсегда!
-                        <button class="close" data-dismiss="modal">закрыть</button>
+                        <button class="close" data-dismiss="modal">x</button>
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
