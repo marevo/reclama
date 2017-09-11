@@ -93,7 +93,7 @@ if(isset($_POST['showTrashedOrders'])){
     }
 
 }
-
+//поиск заказа по подобию в названию клиента
 if(isset($_POST['searchOrderForNameClient'])){
     if(isset($_POST['nameClient'])){
         $nameClientLike = htmlspecialchars($_POST['nameClient']);

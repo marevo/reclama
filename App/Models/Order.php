@@ -100,9 +100,18 @@ ORDER BY dateBegin DESC ,nameClient, o.name ;
         }
     }
 
-//**найти заказы по подобию названия
+//**найти заказы по подобию названия (покажет даже те что в корзине)
 public static function getOrdersLikeNameClient(string $likeName){
-    $queryFindOrderLikeName= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name, c.name AS nameClient , o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
+
+    $queryFindOrderLikeName = "SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd,
+                                  o.name ,  c.name AS nameClient ,o.orderPrice,o.isReady, o.isCompleted,  SUM(p.sumPayment) AS payment
+                                  FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
+                                  WHERE c.name  LIKE '%$likeName%'
+                                  GROUP BY idOrder, nameClient, o.name
+                                  ORDER BY dateBegin DESC ,nameClient, o.name ;";
+
+    $queryFindOrderLikeNameOld= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd,
+                              o.name, c.name AS nameClient , o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
                   FROM orders o, clients c, payments p
                   WHERE o.idClient = c.id AND o.id = p.idOrder AND o.isTrash = 0 AND c.name  LIKE '%$likeName%'
                   GROUP BY idOrder
@@ -123,7 +132,14 @@ public static function getOrdersLikeNameClient(string $likeName){
     }
 }
     public static function getOrdersLikeName(string $likeName){
-        $queryFindOrderLikeName= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name, c.name AS nameClient , o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
+        $queryFindOrderLikeName = "SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd,
+                                  o.name ,  c.name AS nameClient ,o.orderPrice,o.isReady, o.isCompleted,  SUM(p.sumPayment) AS payment
+                                  FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
+                                  WHERE o.name  LIKE '%$likeName%'
+                                  GROUP BY idOrder, nameClient, o.name
+                                  ORDER BY dateBegin DESC ,nameClient, o.name ;";
+
+        $queryFindOrderLikeNameOld= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name, c.name AS nameClient , o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
                   FROM orders o, clients c, payments p
                   WHERE o.idClient = c.id AND o.id = p.idOrder AND o.isTrash = 0 AND o.name  LIKE '%$likeName%'
                   GROUP BY idOrder

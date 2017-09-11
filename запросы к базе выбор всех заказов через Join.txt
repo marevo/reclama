@@ -22,7 +22,7 @@ ORDER BY dateBegin DESC ,nameClient, nameOrder ;
 
 выводит все заказы кроме тех, что в корзине
 SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name ,  c.name AS nameClient ,
-       o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment)
+       o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment) AS payment
 FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
 WHERE o.isTrash = 0
 GROUP BY idOrder, nameClient, o.name
