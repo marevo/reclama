@@ -38,36 +38,42 @@ showLi('создать заказ')
             этот див слева от таблицы в нем можно расположить дополнительные кнопки добавить редактировать удалить
         </div>
         <div class="col-lg-10 backForDiv">
-            <!--строка показа времени и показа результата добавки материала в базу  -->
+            <!--строка показа времени и показа результатов ответа сервера  -->
             <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <div class="row">
                 <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">создание и добавление в базу нового заказа</div>
-
             </div>
-
             <div class="row"><!--форма добавления нового заказа в базу -->
-                <div class="col-lg-6">
+                <div class="col-lg-8 сol-md-8 col-sm 10 col-xs-12">
                         <form  id="formOneOrder"   method="post" action="../App/controllers/controllerAddNewOrderToBase.php">
                             <table>
-                                <thead><tr>
+                                <thead>
+                                <tr class="trDisplayNone">
                                     <td>название поля</td>
                                     <td>значение поля</td></tr></thead>
                                 <tbody>
-                                <tr><td><label for="idClient">клиент</label></td>
-                                    <td><select name="idClient"  required class="fontSizeMedium"><option value="0">выберите клиента</option>
-                                            <?php echo clientsOptions();  ?>
-                                            <!--                                            <option data-id="1">чп Пупкин В C</option>-->
-                                            <!--                                            <option data-id="2">фирма Рога и Копыта</option>-->
-                                        </select></td></tr>
 
                                 <tr><td class="text-right"><label for="nameOrder">название заказа</label></td>
-                                    <td class="text-left"><textarea type="text" name="nameOrder" cols="60" rows="2" maxlength="120" placeholder="введите название заказа" autofocus required></textarea></td>
+                                    <td class="text-left"><textarea type="text" name="nameOrder" cols="60" rows="2" maxlength="120" placeholder="введите название заказа"
+                                                                    autofocus required></textarea></td>
                                 </tr>
                                 <tr><td class="text-right"><label for="descriptionOrder">описание заказа заказа</label></td>
                                     <td class="text-left"><textarea type="text" name="descriptionOrder" maxlength="3000"
                                                                     placeholder= "подробное описание заказа максимум 3000 символов"
                                                                     cols="100" rows="5"  required></textarea></td>
                                 </tr>
+                                <tr>
+                                    <td><label for="InputValuerSearchClient" поиск клиента по имени</td>
+                                    <td><input type="text" name="InputValuerSearchClient" class="fontSizeMedium" size="35" maxlength="35" value=""
+                                               placeholder="поиск клиента не менен 3 символов" title="введите не менене 3 символов и нажмите кнопку искать"/>
+                                        <button class="btn btn-primary" name="btnSearchClient"><span class="glyphicon glyphicon-search"> искать</span></button></td></tr>
+                                <tr><td><label for="idClient">клиент</label></td>
+                                    <td><select name="idClient"   class="fontSizeMedium"><option value="0">выберите клиента</option>
+                                            <?php echo clientsOptions();  ?>
+                                            <!--                                            <option data-id="1">чп Пупкин В C</option>-->
+                                            <!--                                            <option data-id="2">фирма Рога и Копыта</option>-->
+                                        </select></td></tr>
+
                                 <tr><td> <label for="source">источник заказа</label></td>
                                     <td><input type="radio" name="source" value="0" checked/> не известен</br>
                                     <input type="radio" name="source" value="1"/> входящий звонок</br>
@@ -78,9 +84,9 @@ showLi('создать заказ')
                                     <input type="radio" name="source" value="6"/> другой</td></tr>
 
                                 <tr><td><label for="orderPrice">цена заказа</label></td>
-                                    <td><input type="text" name="orderPrice" value="0.00" pattern="\d{1,5}(\.)?\d{1,2}" placeholder="введите цену заказа"/></td></tr>
+                                    <td><input type="text" name="orderPrice" value="0.00" pattern="\d{1,5}(\.)?\d{1,2}" placeholder="0.00 или 1 или 1.0" title="формат целые или десятичные числа"/></td></tr>
                                 <tr><td><label for="manufacturingPrice"> цена составляющих материалов</label></td>
-                                    <td><input type="text" name="manufacturingPrice" pattern="\d{1,5}(\.)?\d{2}" value="0.00"/></td></tr>
+                                    <td><input type="text" name="manufacturingPrice" pattern="\d{1,5}(\.)?\d{1,2}" value="0.00" title="формат целые или десятичные числа"/></td></tr>
                                 <tr><td><label for="isCompleted">состояние заказа</label></td>
                                     <td><input type="radio" name="isCompleted" value="0" checked/> не укомплектован<br>
                                     <input type="radio" name="isCompleted" value="1"/> укомплектован</td></tr>
@@ -110,8 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <tr>
                                     <td><label for="dateOfComplation">дата закрытия заказа</label></td>
                                     <td><input type="date" name="dateOfComplation"></td></tr>
-                                <tr style="display: none;">
-                                    <td><label for="isAllowCalculateCost">разрешить менять цену комплектующих при изменении стоимости</label></td>
+                                <tr class="trDisplayNone">
+                                    <td><label for="isAllowCalculateCost">разрешить менять цену комплектующих в заказе при изменении стоимости копмлектующих</label></td>
                                     <td><input type="radio" name="isAllowCalculateCost" value="0" /> не разрешать<br><input type="radio" name="isAllowCalculateCost" value="1" checked/>разрешать</td></tr>
                                 <tr>
                                     <td></td>
@@ -121,17 +127,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
                                             <div class="divForAnswerServer"></div>
                                         </div></td></tr>
-                                <tr><td>кнопка для отправки</td><td><input type="submit" name="submitFromFormOneOrder"/></td></tr>
+                                <tr><td><label for="submitFromFormOneOrder">после заполнения полей формы нажмите кнопку отправить</label> </td><td><input type="submit" name="submitFromFormOneOrder"/></td></tr>
                                 <tr class="trDisplayNone"><td><label for="controlka"></label> контролька</td><td><input name="controlka" value="sendNewOrderToBase"/></td></tr>
                                 </tbody>
                             </table>
                         </form>
-                    <script>
+                    <script type="text/javascript">
                         $('form').submit(function(){
                             $(this).find('.alert .alert-info').remove();
+                            $('[class~=alertDelete]').remove();
 //проверка данных отправляемых с формы
                             if($(this).find('select').val() == 0){
-                                $(this).find('select').before('<div class="alert alert-info">выберитите клиента из выпадающего списка</div>');
+                                $(this).find('select').before('<div class="alert alert-info">выберитите клиента из выпадающего списка<br/>или найдите по имени затем выберите</div>');
                                 return false;
                             }
 //                               return;
@@ -149,12 +156,33 @@ document.addEventListener('DOMContentLoaded', function() {
                                 url:$(this).attr('action'),//куда идут данные
                                 data:$(this).serializeArray(),//данные в виде массива метод serializeArray()
                                 success:function (data) {
-                                $('.divForAnswerServer').html(data);
+                                    $('.divForAnswerServer').html(data);
                                 }
                                 
                             });
 
                             $(this).find('.alert').remove();
+                            return false;
+                        });
+                        //повесим клик на кнопку поиска
+                        $('form [name="btnSearchClient"]').on('click',function () {
+                            console.log('сработала кнопка поиска клиента');
+                            var inValueNode = $('form [name = "InputValuerSearchClient"');
+                            var inputValueSC = $.trim(inValueNode.val());
+                            if(inputValueSC.length < 3 ){
+                                $(inValueNode).val('');
+                            }else {
+                                //посылаем запрос на сервер для поиска всех клиентов по подобию
+                                jquery_send('[name=idClient]','post','../App/controllers/controllerAddNewOrderToBase.php',
+                                    ['searchClientLikeName','likeName'],
+                                    ['',inputValueSC]
+                                );
+//                                jquery_send('.divForAnswerServer','post','../App/controllers/controllerAddNewOrderToBase.php',
+//                                    ['searchClientLikeName','likeName'],
+//                                    ['',inputValueSC]);
+                            }
+
+
                             return false;
                         });
                     </script>

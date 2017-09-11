@@ -6,10 +6,12 @@
  * Time: 22:02
  */
 require '../../autoload.php';
+if (isset($_POST['controlka'])) {
+    \App\ModelLikeTable::showUspeh('запрос на добавление нового заказа');
+   insertNewOrder();
+}
 function insertNewOrder()
 {
-    if (isset($_POST['submitFromFormOneOrder'])) {
-        echo 'пришел запрос на добавление заказа <br/>';
         $orNew = new \App\Models\Order();
         $orNew -> isAllowCalculateCost = 0;
         $orNew -> isTrash = 0;
@@ -17,12 +19,15 @@ function insertNewOrder()
             $nameOrder = trim( htmlspecialchars($_POST['nameOrder']) );
             if (\App\Models\Order::isAllowNameOrder($nameOrder) == false) {
                 $orNew->name = $nameOrder;
-                echo 'заказа с именем '.$orNew->name.' нет, а значит  сможем добавить заказ </br>';
+//                echo 'заказа с именем '.$orNew->name.' нет, а значит  сможем добавить заказ </br>';
             }
-            else echo "<script>$('#rezShow').text('есть такое имя заказа поменяйте на другое иначе вы не сможете создать заказ</br> нельзя создавать заказы с одинаковыми названиями');</script>";
+            else{
+                echo "<script>$('[name=nameOrder]').before('<div class= \'alertDelete backgroundAlertRed \'> есть такое имя заказа поменяйте на другое иначе вы не сможете создать заказ</br> нельзя создавать заказы с одинаковыми названиями</div>');</script>";
+                return ;
+            }
         }
         if (isset($_POST['descriptionOrder'])) {
-            $descriptionOrder =trim( htmlspecialchars($_POST['descriptionOrder']));
+            $descriptionOrder = trim( htmlspecialchars($_POST['descriptionOrder']));
             $orNew->descriptionOrder = $descriptionOrder;
         }
         if (isset($_POST['idClient'])) {
@@ -95,10 +100,33 @@ function insertNewOrder()
 //            foreach ($orNew as $k => $value) {
 //                echo "<br/>$k--- $value";
 //            }
-    }
+
 }
-\App\ModelLikeTable::showUspeh('пришел запрос на добвку в базу новго заказа');
 
 //if(isset($_POST['controlka'])){
 //    \App\ModelLikeTable::showUspeh('пришел запрос на добвку в базу новго заказа');
 //}
+//поиск клинетов по подобию имени  и выгрузка их в селект выбора клиентов formAddNewOrder.php ['name = idClient']
+if(isset($_POST['searchClientLikeName'])){
+//    echo "$selectSearchingClientsLikeName";
+    if(isset($_POST['likeName'])){
+        $likeName = htmlspecialchars($_POST['likeName']);
+//        \App\ModelLikeTable::showUspeh("пришел запрос на поиск по имени $likeName");
+        $clientsSearcLikeName = \App\Models\Client::searchAllForLikeName($likeName);
+        if($clientsSearcLikeName){
+            $optionSearchingClients= "<option value=\"0\">выберите клиента</option>";
+            foreach ($clientsSearcLikeName as $rowItem){
+                $optionSearchingClients .= "<option data-id = '$rowItem->id' value='$rowItem->id'>$rowItem->name</option>";
+            }
+            echo "$optionSearchingClients";
+        }
+        else{
+            $optionSearchingClients= "<option value=\"0\">такого нет (: </option>";
+                    \App\ModelLikeTable::showNoUspeh("не нашли с именем $likeName (:");
+
+            echo "$optionSearchingClients";
+        }
+
+    }
+
+}
