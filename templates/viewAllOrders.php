@@ -23,7 +23,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
 //            из переданного асс массива для заголовков полей получим удобочитаемые пример 'name' =>'название заказа'
             $tableAll = '';
             //теперь в строку сверстаем таблицу
-            $tableAll .= "<table id = '$idTable' , class='table-hover'>
+            $tableAll .= "<table id = '$idTable'  class='table-hov'>
             <thead><tr>
                       <td>$filds_nameToView[dateOrder]</td>
                       <td>$filds_nameToView[name]</td>

@@ -1,3 +1,4 @@
-.idea/* 
-
-.idea 
+SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name AS nameOrder ,  c.name AS nameClient ,  o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment)
+FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
+GROUP BY idOrder
+ORDER BY dateBegin DESC , nameClient

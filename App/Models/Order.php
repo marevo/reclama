@@ -48,17 +48,22 @@ class Order extends ModelLikeTable
 //6) sum(select sumPayment from payments) 7) можно ли менять стоимость комплектующих, если удален (isTrash=1) - то не показываем, а если не удален isTrash=0 тогда показываем
         public static function selectForView( ){
             //запрос заказов, клиентов, суммы оплаты с группировкой заказам
-            $queryNew= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name, c.name AS nameClient , o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
+            $queryOld= "SELECT  o.id AS idOrder ,o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name, c.name AS nameClient , 
+                        o.orderPrice,o.isReady, o.isCompleted, SUM( p.sumPayment) AS payment
                   FROM orders o, clients c, payments p
                   WHERE o.idClient = c.id AND o.id = p.idOrder AND o.isTrash = 0
-                  GROUP BY idOrder
-                  ORDER BY dateBegin DESC ;
+                  GROUP BY idOrder , nameClient , o.name
+                  ORDER BY dateBegin DESC ,nameClient, o.name ;
                   ";
 
             $db = new Db();
-        $queryOld= "SELECT orders.id AS idOrder , `name`, clients.name AS nameClient , orderPrice,isReady, isCompleted,  
-                  FROM orders, clients, payments
-                  WHERE idClient = clients.id ";
+        $queryNew= "SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name ,  c.name AS nameClient ,
+       o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment) AS payment
+FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
+WHERE o.isTrash = 0
+GROUP BY idOrder, nameClient, o.name
+ORDER BY dateBegin DESC ,nameClient, o.name ;
+ ";
         $sth = $db->get_dbh()->prepare($queryNew);
         $res = $sth->execute();
         if(false != $res) {
