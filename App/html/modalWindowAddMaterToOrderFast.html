@@ -21,12 +21,15 @@
                             <script type="text/javascript">
                                 $('#modalAddMaterialToOrderFastBtnAddFast').on('click',function (event) {
                                     $('.fastShowErorCountMat').remove();
-                                   if(testSumOnFloat( $('#modalAddMaterialToOrderFastCountMat').val()) ){
-                                       console.log('fast  send for fastAddMaterToOrder to server ');
-//                                    jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
-//                                            ['fastAddCountMaterialToOrder', 'idMaterial', 'idOrder','countMaterial'],
-//                                            ['',$('#modalAddMaterialToOrderFastIdMat').text(),ORDER.id, $('#modalAddMaterialToOrderFastCountMat').val()]
-//                                               );
+                                    if(testSumOnFloat( $('#modalAddMaterialToOrderFastCountMat').val()) ){
+                                        console.log('fast  send for fastAddMaterToOrder to server ');
+                                        jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
+                                                ['fastAddCountMaterialToOrder', 'idMaterial', 'idOrder','countMaterial'],
+                                                ['',$('#modalAddMaterialToOrderFastIdMat').text(),ORDER.id, $('#modalAddMaterialToOrderFastCountMat').val()]
+                                        );
+                                        //очистим поля в этом модальном окне где хранились idMaterial  and countMat
+                                        $('#modalAddMaterialToOrderFastCountMat').val('');
+                                        $('#modalAddMaterialToOrderFastIdMat').text('');
 
                                     }
                                     else {
@@ -34,6 +37,9 @@
                                        setTimeout(function () {
                                            $('.fastShowErorCountMat').remove();
                                        },'2000');
+                                        //очистим поля в этом модальном окне где хранились idMaterial  and countMat
+                                        $('#modalAddMaterialToOrderFastCountMat').val('');
+                                        $('#modalAddMaterialToOrderFastIdMat').text('');
                                         console.log('ошибка валидации введения количество материала при быстрой добавке по dblclick');
                                     }
                                 return false;

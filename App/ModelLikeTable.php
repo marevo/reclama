@@ -112,8 +112,8 @@ abstract class ModelLikeTable
 //        var_dump($values);
 //         echo '<br>вызов из класса '.static::class.' передался в класс '.self::class .'<br>';
         $sqlQeryInsert = 'INSERT INTO '.static::TABLE. '('.implode(',',$columns ).') VALUES('.implode(',',array_keys($values)).');';
-        echo  '<br>запрос на добавление  '.$sqlQeryInsert.'<br>';
-        die('выход из инсерта');
+//        echo  '<br>запрос на добавление  '.$sqlQeryInsert.'<br>';
+//        die('выход из инсерта');
         $db = new Db();
         $res = $db->execute($sqlQeryInsert,$values);
         return $res;

@@ -525,6 +525,42 @@ if(isset($_POST['addCountMaterialToOrder'])){
     }
 
 }
+//*быстрое  добавление материала к заказу по клику кнопки в модальном окне что появляетя по dblclick в таблице всех материалов ( в модальном окне, вызываемом в viewOrder кликом кн "+материал")
+if(isset($_POST['fastAddCountMaterialToOrder'])){
+//    echo "запрос в базу на добавление материала к заказу";//не забыть удалить
+    if(isset($_POST['idOrder']))
+        $idOrder = intval($_POST['idOrder']);
+    if(isset($_POST['idMaterial']))
+        $idMaterial= intval( $_POST['idMaterial']);
+    if(isset($_POST['countMaterial']))
+        $countMaterial = htmlspecialchars( $_POST['countMaterial']);
+//    die("idOrder = $idOrder  idMaterial = $idMaterial countMaterial = $countMaterial");
+    $materToOrder = new MaterialsToOrder();
+    $materToOrder->idOrder = $idOrder;
+    $materToOrder->idMaterials = $idMaterial;
+    $materToOrder->countNeed = $countMaterial;
+    //рассчитаем в зависимости от количества поставки минимально рекомендуемое количество материала для заказа и его цену
+    //только потом будем делать insert()
+    //найдем материал для которого будем считать по $idMaterial
+    $materForInsert = Material::findObjByIdStatic($idMaterial);
+    //цена за нужное количество материала
+    $materToOrder->priceCountNeed = $countMaterial * $materForInsert->priceForMeasure;
+    //реком для заказа количество
+    $materToOrder->recomAddCount =   ceil($countMaterial / $materForInsert->deliveryForm) * $materForInsert->deliveryForm  ;
+//    цена за реком количество
+    $materToOrder->priceRecomNeed = $materForInsert->priceForMeasure * $materToOrder->recomAddCount ;
+//   var_dump($materToOrder);
+
+    $res = $materToOrder->insert();
+    if($res != false){
+        ModelLikeTable::showUspeh('успешно');
+    }
+    else{
+        ModelLikeTable::showNoUspeh('не удалось');
+    }
+
+}
+
 //**удаление маериала к заказу из materialsToOrder
 if(isset($_POST['deleteThisMaterialFromOrder'])) {
     if (isset($_POST['idMaterialToOrder']) && isset($_POST['idOrder'])) {
@@ -555,7 +591,6 @@ if(isset($_POST['deleteThisMaterialFromOrder'])) {
 }
 //**update количества материала для заказа
 if(isset($_POST['updateThisCountMaterialsForOrder'])){
-
     if(isset($_POST['idMaterialToOrder'])){
 //        id из таблицы materialsToOrder
         $idMaterialsToOrder = intval($_POST['idMaterialToOrder']);
@@ -602,8 +637,10 @@ if(isset($_POST['updateThisCountMaterialsForOrder'])){
             else{
                 echo "<script>echoNoUspehAll('не удалось обновить количество материала в этом заказе обратитесь к разработчику');</script>";
             }
+        }else{
+            echo "<script>fNoUspehAll('не удалось передать новое количество материала')</script>";
         }
-        echo "<script>fNoUspehAll('не удалось передать новое количество материала')</script>";
+
     }
 
 
