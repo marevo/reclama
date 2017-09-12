@@ -45,18 +45,20 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
             <div class="row headingContent">
                 <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">правка поставщика <?php echo $supp->name;?></div>
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>
+                <div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>
                 <!--   если не использовоались материалы этого поставщика, то можно разрешить его редактирование -->
+                <!-- это пока не задействовано, разрешаем update данных поставщика -->
                 <?php
-                $isExistMaterialsThisSupplierInAnyOrder = \App\Models\MaterialsToOrder::ifExistThisSupplierInAnyMaterilsToOrder($idSupplier);
-                if(! $isExistMaterialsThisSupplierInAnyOrder){
-                  //нет материалов этого поставщика ни в одном заказе кнопка править
-                   echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
-                }
-                else{
-                    //есть материалы этого поставщика, значит его править нельзя
-                    echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button disabled='true' class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
-                }
-                ?>
+//                $isExistMaterialsThisSupplierInAnyOrder = \App\Models\MaterialsToOrder::ifExistThisSupplierInAnyMaterilsToOrder($idSupplier);
+//                if(! $isExistMaterialsThisSupplierInAnyOrder){
+//                  //нет материалов этого поставщика ни в одном заказе кнопка править
+//                   echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
+//                }
+//                else{
+//                    //есть материалы этого поставщика, значит его править нельзя
+//                    echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button disabled='true' class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
+//                }
+//                ?>
 
             </div>
             <div class="row">
@@ -72,7 +74,7 @@ $supp = \App\Models\Supplier::findObjByIdStatic($idSupplier);
                             </thead>
                             <tbody>
                             <tr style="display: none;"><td>id</td><td><?php echo $supp->id ;?></td><td class="tdDisplayNone"><input  name="id" type="text" value="<?php echo $supp->id ?>"/></td></tr>
-                            <tr><td>название</td><td><?php echo $supp->name ;?></td><td class="tdDisplayNone"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $supp->name ?>" value="<?php echo $supp->name ?>"/></td></tr>
+                            <tr><td>название</td><td><?php echo $supp->name ;?></td><td class="tdDisplayNone"><input name="name" type="text" size="55" maxlength="200" title ="<?php echo $supp->name ?>" value="<?php echo htmlspecialchars( $supp->name);?>"/></td></tr>
                             <tr><td>дополнительные сведения</td><td><?php echo $supp->addCharacteristic ; ?></td><td class="tdDisplayNone"><textarea maxlength="300" cols="60" rows="5" name="addCharacteristic" title="<?php echo $supp->addCharacteristic ?>" type="text" ><?php echo $supp->addCharacteristic ?></textarea></td></tr>
                             <tr><td>контакт</td><td><?php echo $supp->contactPerson ; ?></td><td class="tdDisplayNone"><input maxlength="100" size="55" name="contactPerson" title="<?php echo $supp->contactPerson ?>" type="text" value="<?php echo $supp->contactPerson ?>"/></td></tr>
                             <tr><td>телефон</td><td><?php echo $supp->phone0 ; ?></td><td class="tdDisplayNone"><input maxlength="20" size="20" name="phone0" title="<?php echo $supp->phone0 ?>" type="text" value="<?php echo $supp->phone0 ?>"/></td></tr>

@@ -156,6 +156,8 @@ abstract class ModelLikeTable
     public static function searchAllForLikeName(string $likeName){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeName."%';";
+//       echo "$query";
+//        die();
         $res = $db->query($query ,static::class );
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;
@@ -217,6 +219,8 @@ abstract class ModelLikeTable
     public static function searchObjectsLikeNameOrLikeAddCharacteristic(string  $likeNameAddChar){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' OR `addCharacteristic` LIKE '%".$likeNameAddChar."%' ;";
+//        echo "query";
+//        die();
         $res = $db->query($query ,static::class );
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;

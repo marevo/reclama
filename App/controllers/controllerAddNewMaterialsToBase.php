@@ -46,4 +46,29 @@ function insertNewMaterialToBase(){
     }
 }
 
+//поиск поставщика по подобию имени  и выгрузка их в селект выбора поставщиков formAddNewMaterilsToBase.php ['name = idSupplier']
+if(isset($_POST['searchSuppliersLikeName'])){
+//    $likeName = htmlspecialchars($_POST['likeName']);
+//    echo "<option value=\"0\">пришел запрос на поиск поставщика по $likeName </option>";
+//    die();
+    if(isset($_POST['likeName'])){
+        $likeName = htmlspecialchars($_POST['likeName']);
+        \App\ModelLikeTable::showUspeh("пришел запрос на поиск по имени $likeName");
+//        $suppliersSearcLikeName = \App\Models\Supplier::searchAllForLikeName($likeName);
+        $suppliersSearcLikeName = \App\Models\Supplier::searchObjectsLikeNameOrLikeAddCharacteristic($likeName);
+        if($suppliersSearcLikeName){
+            $optionSearchingSuppliers= "<option value=\"0\">выберите поставщика</option>";
+            foreach ($suppliersSearcLikeName as $rowItem){
+                $optionSearchingSuppliers .= "<option data-id = '$rowItem->id' value='$rowItem->id'>$rowItem->name</option>";
+            }
+            echo "$optionSearchingSuppliers";
+        }
+        else{
+            $optionSearchingSuppliers= "<option value=\"0\">такого нет (: </option>";
+            \App\ModelLikeTable::showNoUspeh("не нашли с именем $likeName (:");
+
+            echo "$optionSearchingSuppliers";
+        }
+    }
+}
 
