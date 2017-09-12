@@ -30,7 +30,7 @@ if(isset($_POST['deleteClientFromBase'])){
 
     }
 }
-//поиск клиентов  по подобию в name или 
+//поиск клиентов  по подобию в name или контактной персоны
 if(isset($_POST['searchLike'])){
     if(isset($_POST['likeValue'])){
         $likeValue = htmlspecialchars($_POST['likeValue']);
@@ -44,13 +44,13 @@ if(isset($_POST['searchLike'])){
                 if($item->ifExistAnyOrderForThisClient()){
 //                                есть  заказы поэтому не будем разрешать удалять клента
                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
-                        "<td>$item->phone0</td><td>$item->phone1</td><td>$item->email0</td><td>$item->address</td>" .
+                        "<td>$item->phone0</td><td class='tdDisplayNone'>$item->phone1</td><td class='tdDisplayNone>$item->email0</td><td>$item->address</td>" .
                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
                 }
                 else{
                     // нет заказов у этого клиента, поэтому разрешим его удаление
                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
-                        "<td>$item->phone0</td><td>$item->phone1</td><td>$item->email0</td><td>$item->address</td>" .
+                        "<td>$item->phone0</td><td class='tdDisplayNone>$item->phone1</td><td class='tdDisplayNone>$item->email0</td><td>$item->address</td>" .
                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td>" .
                         // разрешать удалять только тех клиентов, у которых нет  заказов то есть ставим значек glyphicon-trash
 

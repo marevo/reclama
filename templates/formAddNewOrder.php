@@ -133,6 +133,21 @@ document.addEventListener('DOMContentLoaded', function() {
                             </table>
                         </form>
                     <script type="text/javascript">
+//                        при покидании поля ввода названия заказа проверим на наличие такого же названия и выведем предупреждение если есть такой
+                        $('form [name="nameOrder"]').on('blur',function (event) {
+                            //удалим предупреждение если оно было раньше
+                            $('[class~=alertDelete]').remove();
+                            var nameNewOrder = $.trim($(this).val());
+                            if(nameNewOrder.length>2){
+                                //тестируем имя на уникальность и сервер выведет предупреждение если такое имя заказа уже есть в базе
+                                jquery_send('.divForAnswerServer','post',$('form').attr('action'),
+                                    ['testNameUnuque','nameNewOrder'],['',nameNewOrder]);
+                            }
+                            else {
+                                $(this).before('<div class="backgroundAlertRed alertDelete">минимальное количество символов 3</div>');
+                            }
+                        });
+
                         $('form').submit(function(){
                             $(this).find('.alert .alert-info').remove();
                             $('[class~=alertDelete]').remove();

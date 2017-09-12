@@ -68,7 +68,7 @@ require '../autoload.php';
                         $allClientsInBase = \App\Models\Client::findAll();
                         if(! empty ($allClientsInBase)){
                             $tableAllClients = "<table id='tbViewAllClients'><thead><tr><td class='tdDisplayNone'>id</td>" .
-                                "<td>название</td><td>контакт</td><td>телефон 1</td><td>телефон 2</td><td>email</td>" .
+                                "<td>название</td><td>контакт</td><td>телефон 1</td><td class='tdDisplayNone'>телефон 2</td><td class='tdDisplayNone'>email</td>" .
                                 "<td>адрес</td>" .
                                 "<td class='text-center'><span class='glyphicon glyphicon-eye-open'></span></td>" .
                                 "<td class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr></thead><tbody>";
@@ -78,13 +78,13 @@ require '../autoload.php';
                                 if($item->ifExistAnyOrderForThisClient()){
 //                                есть  заказы поэтому не будем разрешать удалять клента
                                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
-                                        "<td>$item->phone0</td><td>$item->phone1</td><td>$item->email0</td><td>$item->address</td>" .
+                                        "<td>$item->phone0</td><td class='tdDisplayNone'>$item->phone1</td><td class='tdDisplayNone'>$item->email0</td><td>$item->address</td>" .
                                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td><td></td></tr>";
                                 }
                                 else{
                                     // нет заказов у этого клиента, поэтому разрешим его удаление
                                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
-                                        "<td>$item->phone0</td><td>$item->phone1</td><td>$item->email0</td><td>$item->address</td>" .
+                                        "<td>$item->phone0</td><td class='tdDisplayNone'>$item->phone1</td><tdclass='tdDisplayNone'>$item->email0</td><td>$item->address</td>" .
                                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td>" .
                                         "<td data-id='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
                                 }
