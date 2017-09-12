@@ -193,3 +193,19 @@ function limitTextInTextArea(elem,limitCount ) {
 
 }
 //*/функция ограничения количества символов в поле textarea*/
+
+//функция проверки на валидность номера телефона
+function testOnPhone(phone) {
+    // var regExpPhone =/\(+38\)?\d{5,13}/;
+    // var regExpPhone =/^\d(\d{3,8})\d$/g;
+    var regExpPhone =/^\d(\d{3,8})\d$/;
+    // var regExpPhone =/[0-9]{5,13}/;
+    // var regExpPhone =/^(s*)?(\+)?([-_():=+]?\d[-_():=+]?){10,14}(\s*)?$/;
+    return regExpPhone.test(phone);
+}
+
+function testOnEmail(email){
+    // var regExpEmail =/^([\w\._]+)@\1\.([a-z]{2,6}\.?)$/;
+    var regExpEmail =/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+    return regExpEmail.test(email);
+}

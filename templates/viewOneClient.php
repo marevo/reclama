@@ -47,23 +47,9 @@ function viewNull($str){
                 <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
                 <!--  блок отображения что меняем и кнокпки обновить страницу и кнопка править(покажет поля для внесения новых значений)  -->
                 <div class="row headingContent">
-                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">правка клиента <?php echo $client->name;?></div>
+                    <div class="col-lg-10   col-md-10 col-sm-10 col-xs-10   text-center ">просмотр / правка клиента <?php echo $client->name;?></div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center"><button class="btn btn-sm btn-default" id="btnUpdateShow" >обновить</button></div>
-                    <!--   если есть заказы у этого клиента, то можно разрешить его редактирование -->
-                    <?php
-                    //получим все заказы этого клинета
-                    $allOrdersThisClient = \App\Models\Client::ifExistAnyOrderForClient($idClient);
-                    
-                    if(! $allOrdersThisClient){
-                        //нет заказов у этого клиента  кнопка править
-                        echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
-                    }
-                    else{
-                        //есть есть заказы у этого клиента значит его править нельзя
-                        echo "<div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button disabled='true' class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>";
-                    }
-                    ?>
-
+                    <div class='col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center'><button class='btn btn-sm btn-primary' id='btnEnableUpdate' >править</button></div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -82,7 +68,7 @@ function viewNull($str){
                                 <tr><td>контакт</td><td><?php echo $client->contactPerson ; ?></td><td class="tdDisplayNone"><input maxlength="100" size="55" name="contactPerson" title="<?php echo $client->contactPerson ?>" type="text" value="<?php echo $client->contactPerson ?>"/></td></tr>
                                 <tr><td>телефон 1</td><td><?php echo $client->phone0 ; ?></td><td class="tdDisplayNone"><input maxlength="20" size="20" name="phone0" title="<?php echo $client->phone0 ?>" type="text" pattern="(\d{5,13})|(null)|()" value="<?php echo $client->phone0 ?>"/></td></tr>
                                 <tr><td>телефон 2</td><td><?php echo $client->phone1 ; ?></td><td class="tdDisplayNone"><input maxlength="20" size="20" name="phone1" title="<?php echo $client->phone1 ?>" type="text" pattern="(\d{5,13})?|(null)? |()?" value="<?php echo viewNull( $client->phone1); ?>"/></td></tr>
-                                <tr><td>email</td><td><a target="_blank" title="написать письмо поставщику" href="<?php echo $client->email0 ; ?>" ><?php echo $client->email0  ?></a></td><td class="tdDisplayNone"><input name="email0" maxlength="30" size="50" type="text" value="<?php echo $client->email0 ?>"/></td></tr>
+                                <tr><td>email</td><td><a title="написать письмо клиенту" href="mailto:<?php echo $client->email0 ; ?>" ><?php echo $client->email0  ?></a></td><td class="tdDisplayNone"><input name="email0" maxlength="30" size="50" type="text" value="<?php echo $client->email0 ?>"/></td></tr>
                                 <tr><td>адрес</td><td><?php echo $client->address ; ?></td><td class="tdDisplayNone"><textarea  name="address" maxlength="200" cols="50" rows="4" type="text" ><?php echo $client->address ?></textarea></td></tr>
                                 <tr><td></td><td></td><td class="tdDisplayNone"><input name="btnSend" type="submit"/></td></tr>
                                 <tr class="trDisplayNone"><td>скрытое поле</td><td>маяк</td><td><input name="submitUpdateClient" /></td></tr>
