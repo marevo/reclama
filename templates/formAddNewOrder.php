@@ -196,8 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //                                    ['searchClientLikeName','likeName'],
 //                                    ['',inputValueSC]);
                             }
-
-
                             return false;
                         });
                     </script>
