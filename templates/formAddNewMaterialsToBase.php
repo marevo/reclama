@@ -43,10 +43,10 @@ function suppliersOptions(){
 
             </div>
             <div class="row"><!--форма добавки материала -->
-                <div class="col-lg-6">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pading0">
                     <form  id="formOneMaterial"   method="post" action="../App/controllers/controllerAddNewMaterialsToBase.php" >
                         <table>
-                            <thead><tr>
+                            <thead><tr class="trDisplayNone">
                                 <td>название поля</td>
                                 <td>значение поля</td></tr></thead>
                             <tbody>

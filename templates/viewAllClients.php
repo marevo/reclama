@@ -66,7 +66,7 @@ require '../autoload.php';
                         <?php
                         //найдем всех поставщиков и отобразим их через таблицу
                         $allClientsInBase = \App\Models\Client::findAll();
-                        if(! empty ($allClientsInBase)){
+                        if($allClientsInBase){
                             $tableAllClients = "<table id='tbViewAllClients'><thead><tr><td class='tdDisplayNone'>id</td>" .
                                 "<td>название</td><td>контакт</td><td>телефон 1</td><td class='tdDisplayNone'>телефон 2</td><td class='tdDisplayNone'>email</td>" .
                                 "<td>адрес</td>" .
@@ -84,7 +84,7 @@ require '../autoload.php';
                                 else{
                                     // нет заказов у этого клиента, поэтому разрешим его удаление
                                     $tableAllClients .= "<tr><td class='tdDisplayNone'>$item->id</td><td>$item->name</td><td>$item->contactPerson</td>" .
-                                        "<td>$item->phone0</td><td class='tdDisplayNone'>$item->phone1</td><tdclass='tdDisplayNone'>$item->email0</td><td>$item->address</td>" .
+                                        "<td>$item->phone0</td><td class='tdDisplayNone'>$item->phone1</td><td class='tdDisplayNone'>$item->email0</td><td>$item->address</td>" .
                                         "<td class='text-center'><a href='viewOneClient.php?id=$item->id'><span class='glyphicon glyphicon-eye-open'></span></a></td>" .
                                         "<td data-id='$item->id' class='text-center'><span class='glyphicon glyphicon-trash'></span></td></tr>";
                                 }
@@ -94,7 +94,7 @@ require '../autoload.php';
                         else{
                             $tableAllClients = "пока ничего нет (";
                         }
-                        echo "$tableAllClients";
+                        echo $tableAllClients;
                         ?>
                     </div>
                 </div>

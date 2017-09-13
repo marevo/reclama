@@ -20,7 +20,6 @@ abstract class ModelLikeTable
         $db = new Db();
         //позднее связывание для вызова с параметрами класса наследника
         //это позволит вернуть результат сразу в виде массива типа класса наследника
-
         $res = $db->query('SELECT * FROM '.static::TABLE .' ;',static::class );
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;
