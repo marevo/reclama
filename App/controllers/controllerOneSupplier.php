@@ -94,28 +94,22 @@ if(isset($_POST['addNewSupplier'])){
 }
 
 if(isset($_POST['isExistNameSupplier'])){
-    echo "пришел запрос на проверку уникальности имени ". $_POST['nameSupplier'];
+//    echo "пришел запрос на проверку уникальности имени ". $_POST['nameSupplier'];
+    \App\ModelLikeTable::showUspeh('запрос на проверку уникальности имени поставщика '.$_POST['nameSupplier']);
 //    die();
     if(isset($_POST['nameSupplier'])){
         $nameS = htmlspecialchars( $_POST['nameSupplier'] ) ;
         if(\App\Models\Supplier::ifExistObjWithName($nameS)){
-            echo "<script> $('.ifExistThisName').before('<div class=\'alert alert-info\'>такое имя есть ! выберите другое имя</div>');</script>";
-        }
-        else{
-            echo "<script>$('.ifExistThisName').removeAttr('ifExistThisName');</script>";
+            echo "<script> $('[name=nameSupplier').before('<div class=\'alert alert-info\'>$nameS -  такое имя есть ! выберите другое имя :(  </div>');$('[name=nameSupplier').focus(); </script>";
         }
     }
 }
 if(isset($_POST['isExistPhone0Supplier'])){
-    echo "пришел запрос на проверку уникальности isExistPhone0Supplier ". $_POST['isExistPhone0Supplier'];
-//    die();
-    if(isset($_POST['phone0'])){
-        $phone0Sup = htmlspecialchars( $_POST['phone0'] );
+    if(isset($_POST['phone0Supplier'])){
+        $phone0Sup = htmlspecialchars( $_POST['phone0Supplier'] );
+        \App\ModelLikeTable::showUspeh("пришел запрос на проверку уникальности isExistPhone0Supplier $phone0Sup");
         if(\App\Models\Supplier::ifExistObjWithPhone0($phone0Sup)){
-            echo "<script> $('.ifExistThisPhone0').before('<div class=\'alert alert-info\'>такой телефон есть ! выберите другой</div>');</script>";
-        }
-        else{
-            echo "<script>$('.ifExistThisPhone0').removeAttr('ifExistThisPhone0');</script>";
+            echo "<script> $('[name=phone0]').before('<div class=\'alert alert-info\'> $phone0Sup такой телефон есть ! выберите другой :(</div>');$('[name=phone0]').focus();</script>";
         }
     }
 }
