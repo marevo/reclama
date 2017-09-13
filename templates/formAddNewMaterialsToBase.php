@@ -158,6 +158,8 @@ $('form [name="btnSearchSupplier"]').on('click',function () {
     }
     return false;
 });
+povesitProverkuValidnostyNaInput($('[name=deliveryForm]'));
+povesitProverkuValidnostyNaInput($('[name=priceForMeasure]'));
 </script>
                 </div>
             </div><!-- .row -->

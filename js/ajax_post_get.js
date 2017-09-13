@@ -163,6 +163,7 @@ function promptShow(beginShow,endShow,target) {
 function fUspehAll() {
     if(arguments.length > 0)
         var textToShow = arguments[0];
+    else var textToShow = "успешно :)";
     $('.uspeh').show('1500').text(textToShow);
     var uspehShow = setTimeout(fUspehHideAll,2000);
     function fUspehHideAll() {
@@ -173,6 +174,7 @@ function fUspehAll() {
 function fNoUspehAll() {
     if(arguments.length > 0)
         var textToShow = arguments[0];
+    else var textToShow = "не успешно :(";
     $('.noUspeh').show('1500').text(textToShow);
     var alrRmv = setTimeout(fNoUspehHideAll,2000);
     function fNoUspehHideAll() {

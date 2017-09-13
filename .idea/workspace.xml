@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" afterPath="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" afterPath="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ajax_post_get.js" afterPath="$PROJECT_DIR$/js/ajax_post_get.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" afterPath="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,9 +39,21 @@
       <file leaf-file-name="formAddNewMaterialsToBase.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+            <state relative-caret-position="436">
+              <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax_post_get.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/ajax_post_get.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="117" column="41" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="41" />
+              <folding>
+                <element signature="n#!!block;n#showLi#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,14 +140,14 @@
         <option value="$PROJECT_DIR$/App/controllers/controllerAddNewClientToBase.php" />
         <option value="$PROJECT_DIR$/templates/viewAllClients.php" />
         <option value="$PROJECT_DIR$/templates/viewOneClient.php" />
-        <option value="$PROJECT_DIR$/js/ajax_post_get.js" />
         <option value="$PROJECT_DIR$/templates/formAddNewClientToBase.php" />
         <option value="$PROJECT_DIR$/templates/viewOneSupplier.php" />
         <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerAddNewMaterialsToBase.php" />
-        <option value="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerOneSupplier.php" />
         <option value="$PROJECT_DIR$/templates/formAddNewSupplierToBase.php" />
+        <option value="$PROJECT_DIR$/js/ajax_post_get.js" />
+        <option value="$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php" />
       </list>
     </option>
   </component>
@@ -211,6 +224,52 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -226,19 +285,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\OpenServer\domains\reclama\App\controllers" />
-      <recent name="E:\OpenServer\domains\reclama\templates" />
-      <recent name="E:\OpenServer\domains\reclama\App" />
-      <recent name="E:\OpenServer\domains\reclama\App\Models" />
-      <recent name="E:\OpenServer\domains\reclama\img\favicon" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\OpenServer\domains\reclama" />
       <recent name="E:\OpenServer\domains\reclama\img" />
       <recent name="E:\OpenServer\domains\reclama\img\favicon" />
       <recent name="E:\OpenServer\domains\reclama\js" />
       <recent name="E:\OpenServer\domains\reclama\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OpenServer\domains\reclama\App\controllers" />
+      <recent name="E:\OpenServer\domains\reclama\templates" />
+      <recent name="E:\OpenServer\domains\reclama\App" />
+      <recent name="E:\OpenServer\domains\reclama\App\Models" />
+      <recent name="E:\OpenServer\domains\reclama\img\favicon" />
     </key>
   </component>
   <component name="RunManager">
@@ -300,12 +359,12 @@
       <workItem from="1502114150552" duration="465894000" />
       <workItem from="1504385135520" duration="78991000" />
       <workItem from="1504684969291" duration="41700000" />
-      <workItem from="1504808260476" duration="133397000" />
+      <workItem from="1504808260476" duration="134474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1415231000" />
+    <option name="totallyTimeSpent" value="1416308000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -799,16 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/ajax_post_get.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="202" column="39" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#showLi#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewAllSuppliers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1009">
@@ -920,10 +969,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/ajax_post_get.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="117" column="41" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!block;n#showLi#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/formAddNewMaterialsToBase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="436">
+          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
           <folding />
         </state>
       </provider>
