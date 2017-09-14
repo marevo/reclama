@@ -281,8 +281,8 @@ table tbody a:hover{
 #modalViewAllMaterialsToThisOrder, #modalAddMaterialToOrder{
     /*position: fixed;*/
     /*z-index: 100;*/
-    top:0px;
-    left:0px;
+    top:0;
+    left:0;
     height: 100%;
     width: 100%;
     /*background: #f9e2ff;*/
@@ -396,7 +396,7 @@ background-color: #337ab7;
                  font-size: large;
              }
 .a_displayBlock{
-    display: block;
+    /*display: block;*/
     border: 1px solid black;
     border-radius: 5px;
     padding: 4px;
@@ -456,4 +456,7 @@ background-color: #337ab7;
 /*/viewAllSuppliers.php */
 .pading0{
     padding: 0;
+}
+#formOneMaterial select{
+    max-width:65%;
 }

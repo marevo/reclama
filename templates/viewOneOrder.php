@@ -3,7 +3,7 @@ require '../autoload.php';
 $IDORDER = 0;
 if(isset($_GET['id'])){
 //    если передали id значит работаем с ним иначе будем брать в else по умолчанию id=1
-    $IDORDER = $_GET['id'];
+    $IDORDER = intval( $_GET['id']);
 }
 else{
     $IDORDER = 1;
@@ -670,7 +670,7 @@ showLi('');
             console.log('будем обрабатывать как дату');
 
             ORDER.oldValue = ORDER.dateOfOrdering;
-            ORDER.newValue =  $('#forClear input[type="date"]').val();
+            ORDER.newValue =  $('#forClear input[type=date]').val();
             console.log('выбрано val() : '+ ORDER.newValue);
             if(target.name =='submitInputForm' && ORDER.newValue !='' && ORDER.newValue != ORDER.oldValue){
                 console.log('сейчас старый' + ORDER.nameFieldForUpdate +'='+ORDER.oldValue+'  на сервер отправим:'  + ORDER.newValue);
@@ -787,7 +787,7 @@ var ORDER_NEW ;
             ORDER_NEW = JSON.parse( ORDER_NEW);
 //            console.log(ORDER_NEW);
             if(ORDER_NEW.rez =='true'){
-                console.log(ORDER_NEW.rez)
+                console.log(ORDER_NEW.rez);
                 textAr.val('');
             }
             else {
@@ -814,7 +814,8 @@ var ORDER_NEW ;
     include_once ('../App/html/modalWindowAddMaterToOrderFast.html');
     ?>
 
-</div><!-- container-->
+</div>
+<!-- container-->
 <script src="../js/viewOneOrder.js"></script>
 </body>
 </html>

@@ -28,8 +28,15 @@ class Db
        // var_dump('<br>вывод из функции __constructor str 26 переменная $config<br>'.$config);
         //если передали параметры в метод, то вызов будет от имени переданных user & password
         //иначе по умолчанию 'user'=> 'root', 'password'=> ''
-        $this->user = $user;
-        $this->pass = $pass;
+        if(is_null($user))
+            $this->user = $config['user'];
+        else
+            $this->user = $user;
+        if(is_null($pass))
+            $this->pass=$config['password'];
+        else
+            $this->pass = $pass;
+
 
         $this->dns = 'mysql:host='.$config['host'].';dbname='.$config['dbname'];
         $this->dbh = new \PDO($this->dns,$this->user,$this->pass);

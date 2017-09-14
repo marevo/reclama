@@ -1,4 +1,4 @@
-выводит только 10 записей
+пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 10 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name AS nameOrder ,  c.name AS nameClient ,  o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment)
 FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
 GROUP BY idOrder
@@ -6,13 +6,13 @@ ORDER BY dateBegin DESC , nameClient;
 
 
 
-выводит все 12 записей
+пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ 12 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name AS nameOrder ,  c.name AS nameClient ,  o.orderPrice,o.isReady, o.isCompleted, o.isTrash 
 FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
 GROUP BY idOrder, nameClient,nameOrder
 ORDER BY dateBegin DESC ,nameClient, nameOrder;
 
-выводит все 12 записей и сумму оплат по ним
+пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ 12 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ
 SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name AS nameOrder ,  c.name AS nameClient ,
        o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment)
 FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
@@ -20,10 +20,20 @@ GROUP BY idOrder, nameClient,nameOrder
 ORDER BY dateBegin DESC ,nameClient, nameOrder ;
 
 
-выводит все заказы кроме тех, что в корзине
+пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd, o.name ,  c.name AS nameClient ,
        o.orderPrice,o.isReady, o.isCompleted, o.isTrash , SUM(p.sumPayment) AS payment
 FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
 WHERE o.isTrash = 0
 GROUP BY idOrder, nameClient, o.name
 ORDER BY dateBegin DESC ,nameClient, o.name ;
+
+РќР°Р№С‚Рё РєР»РёРµРЅС‚Р°, Р·Р°РєР°Р·, СЃСѓРјРјСѓ РѕРїР»Р°С‚ РїРѕ Р·Р°РєР°Р·Сѓ, РєРѕР»РёС‡РµСЃС‚РІРѕ РѕРїР»Р°С‚ РїРѕ Р·Р°РєР°Р·Сѓ РІС‹РІРѕРґРѕРј РїРѕ Р°Р»С„Р°РІРёС‚Сѓ РІ РЅР°Р·РІР°РЅРёРё (РёРјРµРЅРё) РєР»РёРµРЅС‚Р°
+SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                  SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments
+                  FROM payments p
+                  LEFT OUTER JOIN clients c ON p.idClient = c.id
+                  LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                  GROUP BY idOrder
+                  ORDER BY nameClient
+

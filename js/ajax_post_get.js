@@ -208,6 +208,31 @@ function testOnPhone(phone) {
 
 function testOnEmail(email){
     // var regExpEmail =/^([\w\._]+)@\1\.([a-z]{2,6}\.?)$/;
+    // var regExpEmail =/^(((\w+).)?(\w+))@(\w+)(\.\w+)+$/
     var regExpEmail =/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
     return regExpEmail.test(email);
 }
+//на загрузку document повесим вызов времени с сервера
+$(function () {
+    (function () {
+        $.ajax({
+            type: 'post',
+            url: '/timeZone.php',
+            data: 'getTimeServer',
+            success: function(data){
+                $('.nav.navbar-nav li:last-child a').html(data);
+            }
+        });
+    })();
+    setInterval(function () {
+        $.ajax({
+            type: 'post',
+            url: '/timeZone.php',
+            data: 'getTimeServer',
+            success: function(data){
+                $('.nav.navbar-nav li:last-child a').html(data);
+            }
+        })
+    }, 1000*60);
+
+});
