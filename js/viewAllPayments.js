@@ -5,10 +5,10 @@
 $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function (idOrder) {
     //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
     console.log('отпавим запрос на получение данных всех оплат по idOrder='+
-        $('#modalViewAllPaymentsToThisOrder').find('[data-idOrder]').text());
-    jquery_send('#tableAllPaymentsForThisOrder', 'post', '../app/controllers/controllerModalWinShowAllPayments.php',
-        ['loadPaymentForOrder', 'idOrder'], ['', $('#modalViewAllPaymentsToThisOrder').find('[data-idOrder]').text()]);
-    //выставим дату сегодняшнюю
+        $(this).find('[data-idOrder]').text());
+    jquery_send('.divForAnswerServer', 'post', '../app/controllers/controllerModalWinShowAllPayments.php',
+        ['loadPaymentForOrderFromViewAllPayments', 'idOrder'], ['', $(this).find('[data-idOrder]').text()]);
+    //выставим дату сегодняшнюю ее берет js c клиента
     //var dateThisDay = getDate();
     $('#idModalWinDatePayment').val(getDate());
     //повесим проверку на валидность суммы оплаты
@@ -44,18 +44,21 @@ function showButtonsTrashInTableAllPayments() {
 function addPaymentInModalWinAllPayments() {
     console.log(' пробуем добавить оплату добавляем оплату по этому заказу');
 //если сумма добавки 0 или отрицательна или заказ закрыт успешно или закрыт не успешно то не сможем добавить заказ
-    if($('#idModalWinValPayment').val() > 0 &&  ORDER.isReady != 2 && ORDER.isReady !=1  ){
+    if($('#idModalWinValPayment').val() > 0 ){
         //  отправляем запрос на добавку в базу оплаты
         console.log('добавляем оплату по этому заказу');
         jquery_send('#modalViewAllPaymentsToThisOrder .divShowAnswerServer','post','../app/controllers/controllerModalWinShowAllPayments.php',
-            ['sendPaymentForOrderFromModalWin','sumPayment','idOrder','idClient','datePayment'],
-            ['',$('#idModalWinValPayment').val(),ORDER.id,ORDER.idClient, $('#idModalWinDatePayment').val()]);
+            ['sendPaymentForOrderFromModalWinFromViewAllPayments','sumPayment','idOrder','idClient','datePayment'],
+            ['',$('#idModalWinValPayment').val(),
+                $('#modalViewAllPaymentsToThisOrder').find('[data-idorder]').text() ,
+                $('#modalViewAllPaymentsToThisOrder').find('[data-idclient]').text() ,
+                $('#idModalWinDatePayment').val()]);
         $('#idModalWinValPayment').val('0');
         console.log('улетели данные на добавку оплаты в базу idOrder')
     }
     else {
         $('#idModalWinValPayment').val('0');
-        fNoUspehAll('нельзя добавить оплату, т.к. заказ закрыт или сумма добавки 0');
+        fNoUspehAll('нельзя добавить оплату, т.к. сумма добавки 0');
     }
 
     return false;
@@ -70,7 +73,7 @@ function     deleteThisPaymentFromBase (event) {
                 var idPaymentForDelete = $(target).data('id');
                 console.log('хотим удалить платеж с id = '+ idPaymentForDelete);
                 jquery_send('#modalViewAllPaymentsToThisOrder .divShowAnswerServer','post','../app/controllers/controllerModalWinShowAllPayments.php',
-                    ['sendDeletePaymentForOrderFromModalWin','idPaymentForDelete'],
+                    ['sendDeletePaymentForOrderFromModalWinFromViewAllPayments','idPaymentForDelete'],
                     ['',idPaymentForDelete]);
                 return false;
             }
@@ -87,16 +90,16 @@ $(function () {
         if(target.nodeName == 'SPAN' && target.parentNode.nodeName=="BUTTON"  )
             target = target.parentNode;
         if(target.nodeName== 'BUTTON' && target.name =='btnViewModalAllPaymentThisOrder'){
-            var idOrder = $(target).data('idorder');
+            // var idOrder = $(target).data('idorder');
             var dataPayment = $(target).data('payment');
-            console.log('click on button for viewAllPaymentsForThisOrder with idOrder='+ idOrder);
+            console.log('click on button for viewAllPaymentsForThisOrder with idOrder='+ dataPayment.idOrder);
             // занесем даный idOrder  в модальное окно что бы при его показе подгрузить все оплаты по этому id
             $('#modalViewAllPaymentsToThisOrder').
-            find('[data-idOrder]').text(dataPayment.idOrder).end().
-            find('[data-nameOrder]').text(dataPayment.nameOrder).end().
-            find('[data-idClient]').text(dataPayment.idClient).end().
-            find('[data-nameClient]').text(dataPayment.nameClient).end().
-            find('[data-sumPayments]').text(dataPayment.sumPayments).end().
+            find('[data-idorder]').text(dataPayment.idOrder).end().
+            find('[data-nameorder]').text(dataPayment.nameOrder).end().
+            find('[data-idclient]').text(dataPayment.idClient).end().
+            find('[data-nameclient]').text(dataPayment.nameClient).end().
+            find('[data-sumpayments]').text(dataPayment.sumPayments).end().
             modal('show');
             // вызов модального окна просмотра оплат
             // $('#modalViewAllPaymentsToThisOrder').modal('show');
@@ -106,20 +109,7 @@ $(function () {
 
         console.log('click по таблице');
     });
-    //функция обработки клика в модальном окне будем обрабатывать только кнопку
-    $('#modalWinForDeletePayment').on('click',function (event) {
-        var target = event.target;
-        if(target.name == 'btnDeletePayment'){
-            console.log('кликнули кнопку на удаление клиента');
-            //будем удалять клиента из базы
-            jquery_send('.divForAnswerServer','post','../App/controllers/controllerViewAllClients.php',
-                ['deleteClientFromBase','idClient'],['',$('#modalIdPayment').text()]);
-            $('#modalIdPayment').text('');
-            $('#modalNameClient').text( '');
-            $('#modalWinForDeletePayment').modal('hide');
 
-        }
-    });
     //функция обработки при вызове модального окна
     $('#modalWinForDeletePayment').on('show.bs.modal',function () {
 
@@ -140,3 +130,11 @@ $(function () {
 
 
 });
+
+function modalAllPaymentsForThisOrder_HIDE_SHOW() {
+    $('#modalViewAllPaymentsToThisOrder').modal('hide');
+    var sTH_S = setTimeout(function () {
+        $('#modalViewAllPaymentsToThisOrder').modal('show');
+        clearTimeout(sTH_S);
+    },1000);
+}

@@ -23,7 +23,12 @@ class Order extends ModelLikeTable
     public $orderPrice;//цена заказа
     public $manufacturingPrice;//цена комплектующих
     public $isCompleted;
-    public $isReady;
+    public $isReady;//состояние готовности заказа
+                   //степень готовности заказа
+                   // 0-новый( надо еще посчитать стоимость и связаться с заказчиком),
+                    // 1-закрыт успешно,
+                    // 2-закрыт неуспешно,
+                      // 3-запущен
     public $isInstall;
     public $dateOfOrdering;
     public $dateOfComplation;
@@ -173,7 +178,7 @@ public static function getOrdersLikeNameClient(string $likeName){
         return $cl->name;
     }
     public  function getSumAllPayments(){
-        return Payment::showSumAllPayments($this->id);
+        return Payment::getSumAllPaymentsForOrder($this->id);
     }
     
     //метод найдет заказ по названию если он есть такой

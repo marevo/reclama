@@ -39,7 +39,7 @@ class Payment extends ModelLikeTable
             return false;
         }
     }
-    public static function showSumAllPayments(int $idOrder){
+    public static function getSumAllPaymentsForOrder(int $idOrder){
         $query = "SELECT SUM(sumPayment) AS sumAllPayments FROM payments WHERE idOrder= $idOrder;";
         $db = new Db();
         $sth = $db->get_dbh()->prepare($query);
@@ -50,6 +50,18 @@ class Payment extends ModelLikeTable
         else{
             return 0;
         }
+    }
+    // количество проплат по заказу idOrder
+    public static function getCountPaymentsForOrder(int $idOrder){
+        $query = "SELECT COUNT(sumPayment) AS countSumPayments FROM payments WHERE idOrder = $idOrder ;";
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll()[0][countSumPayments];
+        }else return 0;
+        
+        
     }
     //метод  выбрать все оплаты по $idOrder 
     public static function getAllPaymentsForOrder(int $idOrder){

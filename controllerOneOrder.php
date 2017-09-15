@@ -35,7 +35,7 @@ if(isset($_GET['addSum'])){
     $payment->sumPayment = $sum;
     $resInsert = $payment->insert();
     //после пробы добавить оплату мы должны зановосчитать оплату по idOrder
-    $payment =  \App\Models\Payment::showSumAllPayments($idOrder);
+    $payment =  \App\Models\Payment::getSumAllPaymentsForOrder($idOrder);
 
     if($resInsert == false ){
         //не удалось добавить оплату

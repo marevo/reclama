@@ -16,7 +16,7 @@ $order = \App\Models\Order::findObjByIdStatic($IDORDER);//метод нахож�
 //$client = \App\Models\Client::findObjByIdStatic($idClient)[0];
 $nameClient = $order->getNameClient();
 //$payment сумма всех оплат по заказу с id=$IDORDER
-$payment =  \App\Models\Payment::showSumAllPayments($IDORDER);
+$payment =  \App\Models\Payment::getSumAllPaymentsForOrder($IDORDER);
 //функция отображения источника заказа в зависимости от цифры в базе
 // степень готовности заказа 0-новый, 1-закрыт успешно, 2-закрыт неуспешно
 function fIsReady(int $isReady){
