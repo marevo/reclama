@@ -114,8 +114,15 @@ abstract class ModelLikeTable
 //        echo  '<br>запрос на добавление  '.$sqlQeryInsert.'<br>';
 //        die('выход из инсерта');
         $db = new Db();
-        $res = $db->execute($sqlQeryInsert,$values);
-        return $res;
+        $res=false;
+        $mes = "";
+        try{
+            $res = $db->execute($sqlQeryInsert,$values);
+            return $res;
+        }catch (\PDOException $mes){
+            return false;
+        }
+//        return $res;
     }
 
     /**
@@ -197,9 +204,16 @@ abstract class ModelLikeTable
         if($_id< 1)
             return false;
         $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;
+        $mes = "";
+        $res = false;
         $db = new  Db();
-        $res = $db->execute($queryStrDelete,NULL);
-        return $res;
+        try{
+            $res = $db->execute($queryStrDelete,NULL);
+            return $res;
+        }catch (\PDOException $mes){
+            return false;
+        }
+//        return $res;
     }
 
     /**

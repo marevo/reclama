@@ -6,7 +6,7 @@
  * Time: 20:36
  */
 require '../../autoload.php';
-
+//запрос из окна просмотра заказа viewOneOrder.php и из окна viewAllPayments.php
 if(isset($_POST['loadPaymentForOrder'])){
 //    echo "<thead></thead><tbody<tr><td colspan='5'>запрос на получение всех оплат</td></tr></theadtbody>";;
 //    die();
@@ -34,7 +34,7 @@ if(isset($_POST['loadPaymentForOrder'])){
         echo "$tableHeadBody";
     }
 }
-//запрос из модального окна на добавление оплаты к заказу
+//запрос из окна просмотра заказа viewOneOrder.php из модального окна на добавление оплаты к заказу
 if(isset($_POST['sendPaymentForOrderFromModalWin'])){
     $paymant = new \App\Models\Payment();
     if(isset($_POST['sumPayment']))
@@ -63,7 +63,7 @@ if(isset($_POST['sendPaymentForOrderFromModalWin'])){
         \App\ModelLikeTable::showNoUspeh('ошибка, оплата не добавлена');
 }
 
-//запрос из модального окна на удаление оплаты
+//запрос из окна просмотра заказа viewOneOrder.php запрос из модального окна на удаление оплаты
 if(isset($_POST['sendDeletePaymentForOrderFromModalWin'])){
     \App\ModelLikeTable::showUspeh('запрос на удаление');
     if(isset($_POST['idPaymentForDelete'])){
@@ -87,5 +87,4 @@ if(isset($_POST['sendDeletePaymentForOrderFromModalWin'])){
             \App\ModelLikeTable::showNoUspeh('ошибка удаления платежа id='+$idPaymentForDelete +'обратисеь к разработчику');
         }
     }
-
 }

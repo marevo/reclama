@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="добавил ajax_post_get по загрузке этого файла вызов времени сервера и отображение его в меню">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/Payment.php" afterPath="$PROJECT_DIR$/App/Models/Payment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/ModelLikeTable.php" afterPath="$PROJECT_DIR$/App/ModelLikeTable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" afterPath="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewAllPayments.js" afterPath="$PROJECT_DIR$/js/viewAllPayments.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllPayments.php" afterPath="$PROJECT_DIR$/templates/viewAllPayments.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,16 +87,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerModalWinShowAllPayments.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModelLikeTable.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2561">
+              <caret line="209" column="12" selection-start-line="209" selection-start-column="12" selection-end-line="209" selection-end-column="12" />
+              <folding>
+                <element signature="e#2429#3118#0#PHP" expanded="false" />
+                <marker date="1505462242241" expanded="true" signature="811:825" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="811:843" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="1391:1437" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="2587:2648" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="3994:4097" placeholder="INSERT INTO ${static::TABLE}... " />
+                <marker date="1505462242241" expanded="true" signature="5708:5776" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="6102:6158" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="6463:6523" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="6807:6867" placeholder="SELECT * FRO... ${static::TABLE}" />
+                <marker date="1505462242241" expanded="true" signature="7217:7276" placeholder="DELETE FROM " />
+                <marker date="1505462242241" expanded="true" signature="7775:7834" placeholder="DELETE FROM " />
+                <marker date="1505462242241" expanded="true" signature="8189:8317" placeholder="SELECT * FRO... ${static::TABLE}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controllerModalWinShowAllPayments.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="697">
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
-                <marker date="1505461606092" expanded="true" signature="2395:2624" placeholder="..." />
-                <marker date="1505461606092" expanded="true" signature="2513:2596" placeholder="{...}" />
-                <marker date="1505461606092" expanded="true" signature="3365:3594" placeholder="..." />
-                <marker date="1505461606092" expanded="true" signature="3483:3566" placeholder="{...}" />
+                <element signature="e#1871#2916#0#PHP" expanded="false" />
+                <marker date="1505462242354" expanded="true" signature="2517:2746" placeholder="..." />
+                <marker date="1505462242354" expanded="true" signature="2635:2718" placeholder="{...}" />
+                <marker date="1505462242354" expanded="true" signature="3536:3765" placeholder="..." />
+                <marker date="1505462242354" expanded="true" signature="3654:3737" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -165,12 +188,12 @@
         <option value="$PROJECT_DIR$/navigation.html" />
         <option value="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" />
         <option value="$PROJECT_DIR$/templates/formAddNewPaymentToBase.html" />
-        <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
         <option value="$PROJECT_DIR$/js/ajax_post_get.js" />
         <option value="$PROJECT_DIR$/templates/viewAllPayments.php" />
         <option value="$PROJECT_DIR$/js/viewAllPayments.js" />
         <option value="$PROJECT_DIR$/App/Models/Payment.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
+        <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
       </list>
     </option>
   </component>
@@ -419,12 +442,12 @@
       <workItem from="1504385135520" duration="78991000" />
       <workItem from="1504684969291" duration="41700000" />
       <workItem from="1504808260476" duration="144671000" />
-      <workItem from="1505365457566" duration="34743000" />
+      <workItem from="1505365457566" duration="35538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1461248000" />
+    <option name="totallyTimeSpent" value="1462043000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -961,28 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-          <folding>
-            <element signature="e#2429#3118#0#PHP" expanded="false" />
-            <marker date="1505408387282" expanded="true" signature="811:825" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="811:843" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="1391:1437" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="2587:2648" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="3994:4097" placeholder="INSERT INTO ${static::TABLE}... " />
-            <marker date="1505408387282" expanded="true" signature="5552:5620" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="5946:6002" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="6307:6367" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="6651:6711" placeholder="SELECT * FRO... ${static::TABLE}" />
-            <marker date="1505408387282" expanded="true" signature="7061:7120" placeholder="DELETE FROM " />
-            <marker date="1505408387282" expanded="true" signature="7461:7520" placeholder="DELETE FROM " />
-            <marker date="1505408387282" expanded="true" signature="7875:8003" placeholder="SELECT * FRO... ${static::TABLE}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
@@ -1097,13 +1098,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
-            <marker date="1505461606092" expanded="true" signature="2395:2624" placeholder="..." />
-            <marker date="1505461606092" expanded="true" signature="2513:2596" placeholder="{...}" />
-            <marker date="1505461606092" expanded="true" signature="3365:3594" placeholder="..." />
-            <marker date="1505461606092" expanded="true" signature="3483:3566" placeholder="{...}" />
+            <element signature="e#1871#2916#0#PHP" expanded="false" />
+            <marker date="1505462242354" expanded="true" signature="2517:2746" placeholder="..." />
+            <marker date="1505462242354" expanded="true" signature="2635:2718" placeholder="{...}" />
+            <marker date="1505462242354" expanded="true" signature="3536:3765" placeholder="..." />
+            <marker date="1505462242354" expanded="true" signature="3654:3737" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/ModelLikeTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2561">
+          <caret line="209" column="12" selection-start-line="209" selection-start-column="12" selection-end-line="209" selection-end-column="12" />
+          <folding>
+            <element signature="e#2429#3118#0#PHP" expanded="false" />
+            <marker date="1505462242241" expanded="true" signature="811:825" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="811:843" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="1391:1437" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="2587:2648" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="3994:4097" placeholder="INSERT INTO ${static::TABLE}... " />
+            <marker date="1505462242241" expanded="true" signature="5708:5776" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="6102:6158" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="6463:6523" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="6807:6867" placeholder="SELECT * FRO... ${static::TABLE}" />
+            <marker date="1505462242241" expanded="true" signature="7217:7276" placeholder="DELETE FROM " />
+            <marker date="1505462242241" expanded="true" signature="7775:7834" placeholder="DELETE FROM " />
+            <marker date="1505462242241" expanded="true" signature="8189:8317" placeholder="SELECT * FRO... ${static::TABLE}" />
           </folding>
         </state>
       </provider>
