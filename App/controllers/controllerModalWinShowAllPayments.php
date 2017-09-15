@@ -61,8 +61,9 @@ if(isset($_POST['sendPaymentForOrderFromModalWin'])){
     }
     else
         \App\ModelLikeTable::showNoUspeh('ошибка, оплата не добавлена');
-
 }
+
+//запрос из модального окна на удаление оплаты
 if(isset($_POST['sendDeletePaymentForOrderFromModalWin'])){
     \App\ModelLikeTable::showUspeh('запрос на удаление');
     if(isset($_POST['idPaymentForDelete'])){

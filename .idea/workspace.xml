@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="добавил ajax_post_get по загрузке этого файла вызов времени сервера и отображение его в меню">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/viewAllPayments.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/formAddNewPaymentToBase.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/timeZone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Db.php" afterPath="$PROJECT_DIR$/App/Db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/Payment.php" afterPath="$PROJECT_DIR$/App/Models/Payment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/html/forDisplayTimeShowAnswerServer.html" afterPath="$PROJECT_DIR$/App/html/forDisplayTimeShowAnswerServer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/manual.css" afterPath="$PROJECT_DIR$/css/manual.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ajax_post_get.js" afterPath="$PROJECT_DIR$/js/ajax_post_get.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/navigation.html" afterPath="$PROJECT_DIR$/navigation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllMaterials.php" afterPath="$PROJECT_DIR$/templates/viewAllMaterials.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewOneOrder.php" afterPath="$PROJECT_DIR$/templates/viewOneOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" afterPath="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" afterPath="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewAllPayments.js" afterPath="$PROJECT_DIR$/js/viewAllPayments.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllPayments.php" afterPath="$PROJECT_DIR$/templates/viewAllPayments.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,64 +27,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Payment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="78" column="70" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="70" />
-              <folding>
-                <marker date="1505411709463" expanded="true" signature="1034:1104" placeholder="SELECT SUM(s... payments" />
-                <marker date="1505411709463" expanded="true" signature="1518:1531" placeholder="SELECT * FRO... " />
-                <marker date="1505411709463" expanded="true" signature="1518:1532" placeholder="SELECT * FRO... ." />
-                <marker date="1505411709463" expanded="true" signature="1518:1567" placeholder="SELECT * FRO... orders" />
-                <marker date="1505411709463" expanded="true" signature="1601:1674" placeholder="SELECT * FRO... ${self::TABLE}" />
-                <marker date="1505411709463" expanded="true" signature="1836:2228" placeholder="SELECT p.id payments" />
-                <marker date="1505411709463" expanded="true" signature="2678:3100" placeholder="SELECT c.id payments" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewOneOrder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/viewOneOrder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="290" column="47" selection-start-line="290" selection-start-column="16" selection-end-line="290" selection-end-column="47" />
-              <folding>
-                <marker date="1505388428679" expanded="true" signature="2918:3594" placeholder="..." />
-                <marker date="1505388428679" expanded="true" signature="2933:3583" placeholder="{&quot;id&quot;: 'EXTERNAL_FRAGMENT'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewModalAllPaymentsForThisOrder.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-              <folding>
-                <element signature="e#5072#5338#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewAllPayments.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewAllPayments.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/viewAllPayments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-221">
-              <caret line="131" column="3" selection-start-line="131" selection-start-column="3" selection-end-line="131" selection-end-column="3" />
+            <state relative-caret-position="459">
+              <caret line="182" column="79" selection-start-line="182" selection-start-column="79" selection-end-line="182" selection-end-column="79" />
               <folding>
                 <element signature="e#116#139#0#PHP" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1505414313393" expanded="true" signature="4727:5230" placeholder="..." />
-                <marker date="1505414313393" expanded="true" signature="5012:5225" placeholder="..." />
-                <marker date="1505414313393" expanded="true" signature="5116:5220" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="4727:5626" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="5053:5621" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="5088:5616" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="5169:5616" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6164:7893" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6204:7858" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6259:6380" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6421:7822" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6471:7799" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6548:7772" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6630:7741" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6680:6833" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="6883:7173" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="7050:7065" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="7223:7706" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="7321:7498" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="7353:7492" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8133:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8168:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8208:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8263:8898" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8394:8875" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8939:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="8989:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="9071:10126" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="9809:10095" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="9959:10060" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="10209:10462" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="10261:10431" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="10589:11361" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="11020:11177" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="11495:11610" placeholder="..." />
+                <marker date="1505460691114" expanded="true" signature="11750:11773" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -105,8 +79,8 @@
       <file leaf-file-name="viewAllPayments.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/viewAllPayments.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+            <state relative-caret-position="154">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="29" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
                 <element signature="n#!!block;n#showButtonsTrashInTableAllPayments#0" expanded="false" />
@@ -115,12 +89,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerViewAllPayments.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
+      <file leaf-file-name="controllerModalWinShowAllPayments.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="641">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding>
+                <marker date="1505461606092" expanded="true" signature="2395:2624" placeholder="..." />
+                <marker date="1505461606092" expanded="true" signature="2513:2596" placeholder="{...}" />
+                <marker date="1505461606092" expanded="true" signature="3365:3594" placeholder="..." />
+                <marker date="1505461606092" expanded="true" signature="3483:3566" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,7 +128,6 @@
         <option value="$PROJECT_DIR$/js/viewOneSupplier.js" />
         <option value="$PROJECT_DIR$/App/FastViewTable.php" />
         <option value="$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html" />
-        <option value="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
         <option value="$PROJECT_DIR$/templates/viewAllSuppliers.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerViewAllSuppliers.php" />
         <option value="$PROJECT_DIR$/js/viewAllMaterialsToOrder.js" />
@@ -189,9 +167,10 @@
         <option value="$PROJECT_DIR$/templates/formAddNewPaymentToBase.html" />
         <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
         <option value="$PROJECT_DIR$/js/ajax_post_get.js" />
-        <option value="$PROJECT_DIR$/App/Models/Payment.php" />
-        <option value="$PROJECT_DIR$/js/viewAllPayments.js" />
         <option value="$PROJECT_DIR$/templates/viewAllPayments.php" />
+        <option value="$PROJECT_DIR$/js/viewAllPayments.js" />
+        <option value="$PROJECT_DIR$/App/Models/Payment.php" />
+        <option value="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
       </list>
     </option>
   </component>
@@ -333,6 +312,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reclama" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -422,12 +419,12 @@
       <workItem from="1504385135520" duration="78991000" />
       <workItem from="1504684969291" duration="41700000" />
       <workItem from="1504808260476" duration="144671000" />
-      <workItem from="1505365457566" duration="29080000" />
+      <workItem from="1505365457566" duration="34743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1455585000" />
+    <option name="totallyTimeSpent" value="1461248000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -498,14 +495,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/viewOneSupplier.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="300" column="9" selection-start-line="300" selection-start-column="9" selection-end-line="300" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewAllMaterialsToOrder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-230">
@@ -1002,33 +991,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
+    <entry file="file://$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="78" column="70" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="70" />
+        <state relative-caret-position="-1958">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
-            <marker date="1505411709463" expanded="true" signature="1034:1104" placeholder="SELECT SUM(s... payments" />
-            <marker date="1505411709463" expanded="true" signature="1518:1531" placeholder="SELECT * FRO... " />
-            <marker date="1505411709463" expanded="true" signature="1518:1532" placeholder="SELECT * FRO... ." />
-            <marker date="1505411709463" expanded="true" signature="1518:1567" placeholder="SELECT * FRO... orders" />
-            <marker date="1505411709463" expanded="true" signature="1601:1674" placeholder="SELECT * FRO... ${self::TABLE}" />
-            <marker date="1505411709463" expanded="true" signature="1836:2228" placeholder="SELECT p.id payments" />
-            <marker date="1505411709463" expanded="true" signature="2678:3100" placeholder="SELECT c.id payments" />
+            <element signature="e#5072#5338#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewOneOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="1361">
           <caret line="290" column="47" selection-start-line="290" selection-start-column="16" selection-end-line="290" selection-end-column="47" />
           <folding>
             <marker date="1505388428679" expanded="true" signature="2918:3594" placeholder="..." />
@@ -1037,20 +1012,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/html/viewModalAllPaymentsForThisOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding>
-            <element signature="e#5072#5338#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/viewAllPayments.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        <state relative-caret-position="154">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="29" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
             <element signature="n#!!block;n#showButtonsTrashInTableAllPayments#0" expanded="false" />
@@ -1058,20 +1023,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="56" column="95" selection-start-line="56" selection-start-column="95" selection-end-line="56" selection-end-column="95" />
+          <folding>
+            <marker date="1505461351915" expanded="true" signature="1034:1104" placeholder="SELECT SUM(s... payments" />
+            <marker date="1505461351915" expanded="true" signature="1518:1531" placeholder="SELECT * FRO... " />
+            <marker date="1505461351915" expanded="true" signature="1518:1532" placeholder="SELECT * FRO... ." />
+            <marker date="1505461351915" expanded="true" signature="1518:1567" placeholder="SELECT * FRO... orders" />
+            <marker date="1505461351915" expanded="true" signature="1518:1595" placeholder="SELECT * FRO... ${self::TABLE}" />
+            <marker date="1505461351915" expanded="true" signature="1620:1693" placeholder="SELECT * FRO... ${self::TABLE}" />
+            <marker date="1505461351915" expanded="true" signature="1855:2247" placeholder="SELECT p.id payments" />
+            <marker date="1505461351915" expanded="true" signature="2697:3119" placeholder="SELECT c.id payments" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewAllPayments.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="131" column="3" selection-start-line="131" selection-start-column="3" selection-end-line="131" selection-end-column="3" />
+        <state relative-caret-position="459">
+          <caret line="182" column="79" selection-start-line="182" selection-start-column="79" selection-end-line="182" selection-end-column="79" />
           <folding>
             <element signature="e#116#139#0#PHP" expanded="true" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505414313393" expanded="true" signature="4727:5230" placeholder="..." />
-            <marker date="1505414313393" expanded="true" signature="5012:5225" placeholder="..." />
-            <marker date="1505414313393" expanded="true" signature="5116:5220" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="4727:5626" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="5053:5621" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="5088:5616" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="5169:5616" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6164:7893" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6204:7858" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6259:6380" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6421:7822" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6471:7799" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6548:7772" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6630:7741" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6680:6833" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="6883:7173" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="7050:7065" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="7223:7706" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="7321:7498" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="7353:7492" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8133:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8168:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8208:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8263:8898" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8394:8875" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8939:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="8989:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="9071:10126" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="9809:10095" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="9959:10060" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="10209:10462" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="10261:10431" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="10589:11361" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="11020:11177" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="11495:11610" placeholder="..." />
+            <marker date="1505460691114" expanded="true" signature="11750:11773" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <marker date="1505461606092" expanded="true" signature="2395:2624" placeholder="..." />
+            <marker date="1505461606092" expanded="true" signature="2513:2596" placeholder="{...}" />
+            <marker date="1505461606092" expanded="true" signature="3365:3594" placeholder="..." />
+            <marker date="1505461606092" expanded="true" signature="3483:3566" placeholder="{...}" />
           </folding>
         </state>
       </provider>

@@ -83,8 +83,13 @@ include('../head.html');
 //                                 $paymentItem = new Payment($payment->id,$payment->idOrder,$payment->idClient,$payment->sumPayment,$payment->date);
                                 $tableAllPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
                                     "<td>$payment[nameOrder]</td><td>$payment[sumAllPaymentOrder]</td>" .
-                                    "<td>$payment[countPayments]</td><td class='text-center'><button class='btn btn-default' name='btnViewModalAllPaymentThisOrder' data-idOrder='$payment[idOrder]' >
-                                    <span class='glyphicon glyphicon-eye-open'> оплаты</span></button></td></tr>";
+                                    "<td>$payment[countPayments]</td>" .
+                                    "<td class='text-center'><button class='btn btn-default'" .
+                                    " name='btnViewModalAllPaymentThisOrder'" .
+                                    " data-payment='{\"idOrder\":\"$payment[idOrder]\",\"nameOrder\":\"$payment[nameOrder]\", " .
+                                    " \"idClient\":\"$payment[idClient]\",\"nameClient\":\"$payment[nameClient]\", " .
+                                    " \"sumPayments\":\"$payment[sumAllPaymentOrder]\" }' " .
+                                    " ><span class='glyphicon glyphicon-eye-open'> оплаты</span></button></td></tr>";
                         }
                         $tableAllPayments .= "</tbody></table>";
                     }
@@ -134,7 +139,7 @@ include('../head.html');
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center" >показываем все оплаты к заказу
-                    <button class="close" data-dismiss="modal" name="">x</button>
+                    <button class="close" data-dismiss="modal">x</button>
                     <div>
                         <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
                         <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> ошибка обратитесь к разработчику</span></div>
@@ -146,10 +151,12 @@ include('../head.html');
                     <div class="container-fluid">
                         <!--<header>-->
                         <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" data-idOrder="idOrder">idOrder</div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >заказ</div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 "  data-name="nameOrder" ></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 "  data-nameOrder="nameOrder">nameOrder</div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >клиент</div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 "  data-name="nameClient" ></div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" data-idClient="idClient">idClient</div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 "  data-nameClient="nameClient">nameClient</div>
 
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                                 <button  class="btn btn-sm btn-primary btn-sm" id="btnModalShowButtonsTrashInTable" title="разрешить удаление оплат">
@@ -165,12 +172,13 @@ include('../head.html');
                         <!-- строка для показа общей суммы оплат по этому заказу -->
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2   fontSizeMedium" >сумма всех оплат</div>
-                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1   fontSizeMedium" data-name = "sumAllPayments" ></div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1   fontSizeMedium" data-sumPayments ></div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  fontSizeMedium">добавить оплату</div>
                             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
                                 <input type="text" size="4"  id="idModalWinValPayment" placeholder="сумма" value="0.00"/>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><button class="btn btn-sm btn-primary" id="idModWinBtnAddPayment" name = 'sumMatZakaz'> принять сумму</button></div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-sm btn-primary" id="idModWinBtnAddPayment" name = 'sumMatZakaz'> внести сумму</button></div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2  text-center ">
                                 <input id="idModalWinDatePayment" type="date"/>
                             </div>

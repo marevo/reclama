@@ -4,9 +4,10 @@
 
 $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function (idOrder) {
     //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
-    console.log('отпавим запрос на получение данных всех оплат');
+    console.log('отпавим запрос на получение данных всех оплат по idOrder='+
+        $('#modalViewAllPaymentsToThisOrder').find('[data-idOrder]').text());
     jquery_send('#tableAllPaymentsForThisOrder', 'post', '../app/controllers/controllerModalWinShowAllPayments.php',
-        ['loadPaymentForOrder', 'idOrder'], ['', idOrder]);
+        ['loadPaymentForOrder', 'idOrder'], ['', $('#modalViewAllPaymentsToThisOrder').find('[data-idOrder]').text()]);
     //выставим дату сегодняшнюю
     //var dateThisDay = getDate();
     $('#idModalWinDatePayment').val(getDate());
@@ -83,15 +84,22 @@ $(function () {
     //функция обработки клика на таблице всех оплат
     $('#tbViewAllPayments').on('click',function (event) {
         var target = event.target;
-        if(target.nodeName == 'SPAN')
+        if(target.nodeName == 'SPAN' && target.parentNode.nodeName=="BUTTON"  )
             target = target.parentNode;
         if(target.nodeName== 'BUTTON' && target.name =='btnViewModalAllPaymentThisOrder'){
             var idOrder = $(target).data('idorder');
+            var dataPayment = $(target).data('payment');
             console.log('click on button for viewAllPaymentsForThisOrder with idOrder='+ idOrder);
             // занесем даный idOrder  в модальное окно что бы при его показе подгрузить все оплаты по этому id
-            
+            $('#modalViewAllPaymentsToThisOrder').
+            find('[data-idOrder]').text(dataPayment.idOrder).end().
+            find('[data-nameOrder]').text(dataPayment.nameOrder).end().
+            find('[data-idClient]').text(dataPayment.idClient).end().
+            find('[data-nameClient]').text(dataPayment.nameClient).end().
+            find('[data-sumPayments]').text(dataPayment.sumPayments).end().
+            modal('show');
             // вызов модального окна просмотра оплат
-            $('#modalViewAllPaymentsToThisOrder').modal('show');
+            // $('#modalViewAllPaymentsToThisOrder').modal('show');
 
             return false;
         }

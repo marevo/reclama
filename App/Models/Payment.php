@@ -54,7 +54,7 @@ class Payment extends ModelLikeTable
     //метод  выбрать все оплаты по $idOrder 
     public static function getAllPaymentsForOrder(int $idOrder){
         $db = new Db();
-        $query = "SELECT * FROM ". self::TABLE ." WHERE idOrder =  $idOrder ; ";
+        $query = "SELECT * FROM ". self::TABLE ." WHERE idOrder =  $idOrder  ORDER BY date DESC; ";
 //        $query = "SELECT * FROM ". self::TABLE ." WHERE idOrder =  $idOrder ORDER BY `date` ; ";
         $res = $db->query($query, self::class );
         return $res;
