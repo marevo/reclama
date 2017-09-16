@@ -33,7 +33,7 @@ if(isset($_POST['loadPaymentForOrder'])){
     }
 }
 
-//запрос из окна просмотра заказа viewAllPayments.php
+//запрос из окна просмотра заказа viewAllPayments.php по конкретному заказу
 if(isset($_POST['loadPaymentForOrderFromViewAllPayments'])){
     if(isset($_POST['idOrder'])){
         $idOrder = intval($_POST['idOrder']);

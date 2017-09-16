@@ -49,15 +49,18 @@ include('../head.html');
             </div>
             <div class="row rowSearch" ><!-- строка поиска-->
                 <!--  сторка для поиска платежей по name клиента или по дате  -->
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><label for="inputFindPaymentForNameClient">искать по названию клиента </label></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label for="inputFindPaymentForNameClient"> по клиенту </label></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><label for="inputFindPaymentForNameClient"> </label></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><label for="inputFindPaymentForDatePaymentFromDate"> за период </label></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="text" id="inputFindPaymentForNameClient" placeholder="по клиенту"/></div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><button id="btnSearchPaymentForClient" class="btn-primary">искать </button></div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="text" id="inputFindPaymentForNameOrder" placeholder="по клиенту"/></div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><button id="btnSearchPaymentForOrder" class="btn-primary">искать </button></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="date" id="inputFindPaymentForDatePaymentFromDate" placeholder="начало"/></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="date" id="inputFindPaymentForDatePaymentToDate" placeholder="конец"/></div>
+<!--                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><button id="btnSearchPaymentForDate" class="btn-primary">искать </button></div>-->
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -82,7 +85,7 @@ include('../head.html');
                         foreach ($allPaymentsInBase as $payment){
 //                                 $paymentItem = new Payment($payment->id,$payment->idOrder,$payment->idClient,$payment->sumPayment,$payment->date);
                                 $tableAllPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
-                                    "<td>$payment[nameOrder]</td><td data-idOrderForShangedSumAllPayments='$payment[idOrder]' >$payment[sumAllPaymentOrder]</td>" .
+                                    "<td>$payment[nameOrder]</td><td data-idOrderForShangedSumAllPayments='$payment[idOrder]' title='цена заказа $payment[orderPrice] грн' >$payment[sumAllPaymentOrder]</td>" .
                                     "<td>$payment[countPayments]</td>" .
                                     "<td class='text-center'><button class='btn btn-default'" .
                                     " name='btnViewModalAllPaymentThisOrder'" .

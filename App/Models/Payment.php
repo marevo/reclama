@@ -63,7 +63,7 @@ class Payment extends ModelLikeTable
         
         
     }
-    //метод  выбрать все оплаты по $idOrder 
+    //метод  выбрать все оплаты по $idOrder из таблицы
     public static function getAllPaymentsForOrder(int $idOrder){
         $db = new Db();
         $query = "SELECT * FROM ". self::TABLE ." WHERE idOrder =  $idOrder  ORDER BY date DESC; ";
@@ -71,10 +71,10 @@ class Payment extends ModelLikeTable
         $res = $db->query($query, self::class );
         return $res;
     }
-
+//метод из таблицы
     public  static function getAllPaymentsOrderByDateDesc(){
         $query = "SELECT p.id AS id, c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder , p.sumPayment AS sumPayment,
-                  p.date AS datePayment  FROM payments p LEFT OUTER JOIN clients c ON p.idClient = c.id 
+                  p.date AS datePayment   FROM payments p LEFT OUTER JOIN clients c ON p.idClient = c.id 
                   LEFT OUTER JOIN orders o ON p.idOrder = o.id 
                   GROUP BY idOrder, id, sumPayment 
                   ORDER BY datePayment DESC ;";
@@ -90,7 +90,7 @@ class Payment extends ModelLikeTable
     //запрос клиента (idClient, nameClient)  заказа (idOrder,nameOrder), сумма всех оплат по этому заказу количество всех оплат по этому заказу 
     public static function getClientsOrdersSumPaymentsCountPaymants(){
         $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
-                  SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments
+                  SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
                   FROM payments p 
                   LEFT OUTER JOIN clients c ON p.idClient = c.id 
                   LEFT OUTER JOIN orders o ON p.idOrder = o.id 
@@ -105,5 +105,21 @@ class Payment extends ModelLikeTable
             return false;
         }
     }
-
+    public static function getClientsOrdersSumPaymentsCountPaymantsLikeName($likeName){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id 
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%$likeName%')
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
 }

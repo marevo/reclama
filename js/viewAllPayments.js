@@ -17,10 +17,10 @@ $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function (idOrder) {
     //Добавка оплаты через модальное окно просмотра всех оплат по данному заказу
     $('#idModWinBtnAddPayment').on('click', addPaymentInModalWinAllPayments);
 
-//    вешаем клик на отобрыжение кнопок удаления
+//    вешаем клик на отобрыжение кнопок удаления в модальном окне где показаны платежи по заказу
     $('#btnModalShowButtonsTrashInTable').on('click', showButtonsTrashInTableAllPayments);
 
-//повесим клик на удаление конкретного платежа
+//повесим клик на удаление конкретного платежа в модальном окне таблицы платежей по заказу
     $('#tableAllPaymentsForThisOrder ').on('click', deleteThisPaymentFromBase);
 });
 
@@ -41,6 +41,7 @@ function showButtonsTrashInTableAllPayments() {
         });
     return false;
 }
+// добавка в базу нового платежа по заказу, платежи которого показаны в модальном окне всех платежей по кликнутому заказу
 function addPaymentInModalWinAllPayments() {
     console.log(' пробуем добавить оплату добавляем оплату по этому заказу');
 //если сумма добавки 0 или отрицательна или заказ закрыт успешно или закрыт не успешно то не сможем добавить заказ
@@ -63,7 +64,7 @@ function addPaymentInModalWinAllPayments() {
 
     return false;
 }
-//функция удаления оплаты из базы оплат
+//функция удаления оплаты из базы оплат срабатывает в модальном окне при клике красного значка удалить
 function     deleteThisPaymentFromBase (event) {
     var target = event.target;
     while (target.tagName !='TABLE'){
@@ -114,15 +115,28 @@ $(function () {
     $('#modalWinForDeletePayment').on('show.bs.modal',function () {
 
     });
-    //функция поиска платежа по подобию названия клиентов
-    $('#btnSearchPClientLikeNameORLikeContactPerson').on('click',function () {
-        console.log('нажали кнопку поиска поставщика по подобию названию или добхарактеристик');
-        var inputSearchValue = $('#inputFindClient').val();
-        if(inputSearchValue.length < 3 || inputSearchValue.length == 0){
-            $('#inputFindClient').val('').attr('placeholder','минимум 3 символа');
-        }else {
-            console.log('отправим запрос на поиск');
-            jquery_send('#tbViewAllClients tbody','post','../App/controllers/controllerViewAllClients.php',['searchLike','likeValue'],['',inputSearchValue]);
+    //функция поиска платежа по подобию названия клиентов или по дате или по клиенту и дате
+    $('#btnSearchPaymentForClient').on('click',function () {
+        console.log('нажали кнопку поиска платежа в блоке поиска на странице viewAllPayments');
+        //объект поле Input Для ввода имени клиента 
+        var $inputSearchNameClientValue = $('#inputFindPaymentForNameClient');
+        //значение в поле input клиента
+        var inputSearchNameClientValue = $inputSearchNameClientValue.val();
+        
+        var $dateFrom = $('#inputFindPaymentForDatePaymentFromDate');
+        var $dateTo = $('#inputFindPaymentForDatePaymentToDate');
+        if($dateFrom.val()== "" && $dateTo.val() == ""){
+            console.log('нет выбора по датам пошле запрос поиска проплат по назнанию клиента');
+            if(inputSearchNameClientValue.length < 3 || inputSearchNameClientValue.length == 0){
+                $inputSearchNameClientValue.val('').attr('placeholder','минимум 3 символа');
+                var sI = setTimeout(function () {
+                    $inputSearchNameClientValue.val('').attr('placeholder','имя клиента');
+                    clearTimeout(sI);
+                },1500);
+            }else {
+                console.log('отправим запрос на поиск платежей только по подобию названию клиента');
+                 jquery_send('.divForAnswerServer','post','../App/controllers/controllerViewAllPayments.php',['searcPaymentshLikeNameClient','likeValue'],['',inputSearchNameClientValue]);
+            }
         }
     });
     //вызов модального окна показа всех оплат по заказу ( нажата кнопка

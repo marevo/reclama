@@ -37,3 +37,23 @@ SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS name
                   GROUP BY idOrder
                   ORDER BY nameClient
 
+
+Найти оплаты, клиенты, заказы по подобию в названию клиентов
+ SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   GROUP BY nameClient, nameOrder
+
+найти idClient с именем подобным "рог"
+ SELECT c.id, c.name FROM clients AS c  WHERE c.name LIKE '%рог%';
+ 
+найти оплаты клиентов , заказы по подобию в названию клиентов
+SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%рог%')
+                   GROUP BY c.name , o.name
