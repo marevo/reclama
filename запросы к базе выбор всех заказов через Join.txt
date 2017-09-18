@@ -48,7 +48,7 @@ SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS name
 
 найти idClient с именем подобным "рог"
  SELECT c.id, c.name FROM clients AS c  WHERE c.name LIKE '%рог%';
- 
+
 найти оплаты клиентов , заказы по подобию в названию клиентов
 SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
                    SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
@@ -56,4 +56,13 @@ SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS name
                    LEFT OUTER JOIN clients c ON p.idClient = c.id
                    LEFT OUTER JOIN orders o ON p.idOrder = o.id
                    WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%рог%')
+                   GROUP BY c.name , o.name
+
+найти оплаты клиентов , заказы по подобию в названию клиентов и даты между "от" и  "до"
+SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%рог%') AND p.date BETWEEN '2017-07-60' AND '2017-09-14'
                    GROUP BY c.name , o.name

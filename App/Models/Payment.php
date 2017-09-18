@@ -21,14 +21,7 @@ class Payment extends ModelLikeTable
     const TABLE = 'payments';
     const NAME_ID ='id';
 
-//    public function  __construct(int $id=NULL, int $idOrder=NULL, int $idClient=NULL, float $sumPayment=NULL, string $date=NULL){
-//        $this->id = $id;
-//        $this->idOrder = $idOrder;
-//        $this->idClient = $idClient;
-//        $this->sumPayment = $sumPayment;
-//        $this->date = $date;
-//    }
-    
+
     public function isNew()
     {
         // TODO: Implement isNew() method.
@@ -105,7 +98,9 @@ class Payment extends ModelLikeTable
             return false;
         }
     }
-    public static function getClientsOrdersSumPaymentsCountPaymantsLikeName($likeName){
+//    найти все оплаты по клиенту с именем подобным $likeName (поиск только по имени)
+// 1 - по блок-схеме поиска платежей
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsLikeName($likeName){
         $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
                    SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
                    FROM payments p
@@ -122,4 +117,123 @@ class Payment extends ModelLikeTable
             return false;
         }
     }
+//найти все оплаты по клиенту с именем подобным $likeName и между датами "от" и "до"
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsLikeNameDateFromDateTo($likeName, $dateFrom, $dateTo){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%$likeName%') AND p.date BETWEEN '$dateFrom' AND '$dateTo'
+                   GROUP BY c.name , o.name
+                   " ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
+//найти все оплаты между датами "от" и "до"
+//по блок-схеме 3 
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsDateFromDateTo($dateFrom, $dateTo){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE  p.date BETWEEN '$dateFrom' AND '$dateTo'
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
+//найти все оптаты по всем клиентам до даты $dateTo
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsDateLessDateTo($dateTo){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE  p.date <= '$dateTo'
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
+    //найти все оптаты  до даты $dateTo  и по подобию имени
+    //6 на блок схеме поиска платежей
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsDateLessDateToAndLikeName($dateTo, $likeName){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%$likeName%') AND p.date <= '$dateTo'
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
+    //найти все оптаты по всем клиентам от даты $dateFrom
+    // 5 пункт в блок схеме
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsDateMoreDateFrom($dateFrom){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE   '$dateFrom' <= p.date 
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
+    //найти все оптаты по клиентам (только по именам подобным) и от даты $dateFrom
+    // 4 - на блок-схеме
+    public static function getPaymentsClientsOrdersSumPaymentsCountPaymantsDateMoreDateFromAndLikeName($dateFrom, $likeName){
+        $query ="SELECT c.id AS idClient , c.name AS nameClient, o.id AS idOrder , o.name AS nameOrder ,
+                   SUM(p.sumPayment) AS sumAllPaymentOrder , COUNT(p.sumPayment) AS countPayments , o.orderPrice AS orderPrice
+                   FROM payments p
+                   LEFT OUTER JOIN clients c ON p.idClient = c.id
+                   LEFT OUTER JOIN orders o ON p.idOrder = o.id
+                   WHERE c.id IN(SELECT id FROM clients AS c  WHERE name LIKE '%$likeName%') AND '$dateFrom' <= p.date 
+                   GROUP BY c.name , o.name" ;
+        $db = new Db();
+        $sth = $db->get_dbh()->prepare($query);
+        $res = $sth->execute();
+        if($res){
+            return $sth->fetchAll();
+        }else{
+            return false;
+        }
+    }
+
 }

@@ -2,6 +2,21 @@
  * Created by marevo on 14.09.2017.
  */
 
+// выбор даты в первом поле "от"  после выбора даты в первом поле должен быть автоматом установлен в сегодняшнюю дату в поле "до"
+$('#inputFindPaymentForDatePaymentFromDate').on('input',function () {
+    //при выборе даты от автоматом ставится сегодняшняя дата до при обнулении от обнуляется и до
+    // if($(this).val()=="")
+    //     $('#inputFindPaymentForDatePaymentToDate').val('');
+    // else
+    //    $('#inputFindPaymentForDatePaymentToDate').val(getDate());
+});
+// выбор даты во втором поле "до"  если дата "до" меньше даты "от" то после дату от ставим такуюже как и "до"
+$('#inputFindPaymentForDatePaymentToDate').on('input',function () {
+    //при выборе даты от автоматом ставится сегодняшняя дата до при обнулении от обнуляется и до
+    // if($(this).val() < $('#inputFindPaymentForDatePaymentFromDate').val() )
+    //     $('#inputFindPaymentForDatePaymentFromDate').val($(this).val());
+});
+
 $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function (idOrder) {
     //отправляем запрос на загрузку данных всех оплат из базы в таблицу #tableAllPaymentsForThisOrder
     console.log('отпавим запрос на получение данных всех оплат по idOrder='+
@@ -86,65 +101,124 @@ function     deleteThisPaymentFromBase (event) {
 //по загрузке страницы повесим на таблицу где показаны  все оплтаты всех заказов
 $(function () {
     //функция обработки клика на таблице всех оплат
-    $('#tbViewAllPayments').on('click',function (event) {
+    $('#tbViewAllPayments').on('click', function (event) {
         var target = event.target;
-        if(target.nodeName == 'SPAN' && target.parentNode.nodeName=="BUTTON"  )
+        if (target.nodeName == 'SPAN' && target.parentNode.nodeName == "BUTTON")
             target = target.parentNode;
-        if(target.nodeName== 'BUTTON' && target.name =='btnViewModalAllPaymentThisOrder'){
+        if (target.nodeName == 'BUTTON' && target.name == 'btnViewModalAllPaymentThisOrder') {
             // var idOrder = $(target).data('idorder');
             var dataPayment = $(target).data('payment');
-            console.log('click on button for viewAllPaymentsForThisOrder with idOrder='+ dataPayment.idOrder);
+            console.log('click on button for viewAllPaymentsForThisOrder with idOrder=' + dataPayment.idOrder);
             // занесем даный idOrder  в модальное окно что бы при его показе подгрузить все оплаты по этому id
-            $('#modalViewAllPaymentsToThisOrder').
-            find('[data-idorder]').text(dataPayment.idOrder).end().
-            find('[data-nameorder]').text(dataPayment.nameOrder).end().
-            find('[data-idclient]').text(dataPayment.idClient).end().
-            find('[data-nameclient]').text(dataPayment.nameClient).end().
-            find('[data-sumpayments]').text(dataPayment.sumPayments).end().
-            modal('show');
+            $('#modalViewAllPaymentsToThisOrder').find('[data-idorder]').text(dataPayment.idOrder).end().find('[data-nameorder]').text(dataPayment.nameOrder).end().find('[data-idclient]').text(dataPayment.idClient).end().find('[data-nameclient]').text(dataPayment.nameClient).end().find('[data-sumpayments]').text(dataPayment.sumPayments).end().modal('show');
             // вызов модального окна просмотра оплат
             // $('#modalViewAllPaymentsToThisOrder').modal('show');
-
             return false;
         }
-
-        console.log('click по таблице');
+        console.log('click по таблице показа оплат на странице viewAllPayments.php');
     });
 
     //функция обработки при вызове модального окна
-    $('#modalWinForDeletePayment').on('show.bs.modal',function () {
+    $('#modalWinForDeletePayment').on('show.bs.modal', function () {
 
     });
-    //функция поиска платежа по подобию названия клиентов или по дате или по клиенту и дате
-    $('#btnSearchPaymentForClient').on('click',function () {
-        console.log('нажали кнопку поиска платежа в блоке поиска на странице viewAllPayments');
-        //объект поле Input Для ввода имени клиента 
+    // функция проверки на валидность поля поиска имени если правильное вернет это имя, если нет вернет false
+    function trueLikeName() {
+        //объект поле Input Для ввода имени клиента
         var $inputSearchNameClientValue = $('#inputFindPaymentForNameClient');
         //значение в поле input клиента
         var inputSearchNameClientValue = $inputSearchNameClientValue.val();
-        
-        var $dateFrom = $('#inputFindPaymentForDatePaymentFromDate');
-        var $dateTo = $('#inputFindPaymentForDatePaymentToDate');
-        if($dateFrom.val()== "" && $dateTo.val() == ""){
-            console.log('нет выбора по датам пошле запрос поиска проплат по назнанию клиента');
-            if(inputSearchNameClientValue.length < 3 || inputSearchNameClientValue.length == 0){
-                $inputSearchNameClientValue.val('').attr('placeholder','минимум 3 символа');
-                var sI = setTimeout(function () {
-                    $inputSearchNameClientValue.val('').attr('placeholder','имя клиента');
-                    clearTimeout(sI);
-                },1500);
-            }else {
-                console.log('отправим запрос на поиск платежей только по подобию названию клиента');
-                 jquery_send('.divForAnswerServer','post','../App/controllers/controllerViewAllPayments.php',['searcPaymentshLikeNameClient','likeValue'],['',inputSearchNameClientValue]);
+        if (inputSearchNameClientValue.length < 3 || inputSearchNameClientValue.length == 0) {
+            // в поле имя нет 3 символов вышлем подсказку и выйдем из поиска
+            $inputSearchNameClientValue.val('').attr('placeholder', 'минимум 3 символа');
+            var sI = setTimeout(function () {
+                $inputSearchNameClientValue.val('').attr('placeholder', 'имя клиента');
+                clearTimeout(sI);
+            }, 1500);
+            return false;
+        } else {
+            return $inputSearchNameClientValue.val();
+        }
+    }
+
+    //функция поиска платежа по подобию названия клиентов или по дате или по клиенту и дате
+    $('#btnSearchPaymentForClient').on('click', function () {
+        console.log('нажали кнопку поиска платежа в блоке поиска на странице viewAllPayments');
+        var dateFrom = $('#inputFindPaymentForDatePaymentFromDate').val();
+        var dateTo = $('#inputFindPaymentForDatePaymentToDate').val();
+        var likeName = trueLikeName();
+        //пройдем по блок-схеме запроса оплат
+        if (dateFrom && dateTo) {
+            // 2 даты
+            if (likeName) {
+                //2 даты , имя
+                //2 - getPaymentsClientsOrdersSumPaymentsCountPaymantsLikeNameDateFromDateTo($likeNameClient, $dateFrom, $dateTo);
+                console.log('отправим запрос на поиск платежей по датам и  по подобию названию клиента');
+                jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                    ['searchPaymentsLikeNameClientDateFromDateTo', 'likeNameClient', 'dateFrom', 'dateTo'],
+                    ['', likeName, dateFrom, dateTo]);
+                return false;
+            } else {
+                //2 даты
+                //3 - getPaymentsClientsOrdersSumPaymentsCountPaymantsDateFromDateTo($dateFrom, $dateTo);
+                jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                    ['searchPaymentsDateFromDateTo', 'dateFrom', 'dateTo'],
+                    ['', dateFrom, dateTo]);
+                return false;
+            }
+        } else {
+            //только 1 дата
+            if (dateFrom || dateTo) {
+                // выбрано 1 дату dateFrom
+                if (dateFrom) {
+                    //дата "от"
+                    if (likeName) {
+                        //дата "от" "имя"
+                        //4 - getPaymentsClientsOrdersSumPaymentsCountPaymantsDateMoreDateFromAndLikeName($dateFrom, $likeName);
+                        jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                            ['searchPaymentsDateMoreDateFromAndLikeName', 'dateFrom', 'likeNameClient'],
+                            ['', dateFrom, likeName]);
+                        return false;
+                    } else {
+                        //дата "от"
+                        //5 - getPaymentsClientsOrdersSumPaymentsCountPaymantsDateMoreDateFrom($dateFrom);
+                        jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                            ['searchPaymentsDateMoreDateFrom', 'dateFrom'],
+                            ['', dateFrom]);
+                        return false;
+                    }
+
+                } else {
+                    // дату dateTo
+                    if (likeName) {
+                        // дату "до" "имя"
+                        //6 - getPaymentsClientsOrdersSumPaymentsCountPaymantsDateLessDateToAndLikeName($dateTo, $likeName)
+                        jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                            ['searchPaymentsDateLessDateToAndLikeName', 'dateTo', 'likeNameClient'],
+                            ['', dateTo, likeName]);
+                        return false;
+                    } else {
+                        //только "до"
+                        //7 - getPaymentsClientsOrdersSumPaymentsCountPaymantsDateLessDateTo($dateTo)
+                        jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                            ['searchPaymentsDateLessDateTo', 'dateTo'],
+                            ['', dateTo]);
+                        return false;
+                    }
+                }
+            } else {
+                // только имя
+                //1 - getPaymentsClientsOrdersSumPaymentsCountPaymantsLikeName($likeNameClient)
+                jquery_send('.divForAnswerServer', 'post', '../App/controllers/controllerViewAllPayments.php',
+                    ['searchPaymentsLikeName', 'likeNameClient'],
+                    ['', likeName]);
+                return false;
             }
         }
     });
-    //вызов модального окна показа всех оплат по заказу ( нажата кнопка
-    //функция просмотра оплат для этого заказа (просмотр оплат в модальном окне)
-
-
+    //*/функция поиска платежа по подобию названия клиентов или по дате или по клиенту и дате
 });
-
+//перезагрузка показанного модального окна для обновления результатов добавления-удаления оплат
 function modalAllPaymentsForThisOrder_HIDE_SHOW() {
     $('#modalViewAllPaymentsToThisOrder').modal('hide');
     var sTH_S = setTimeout(function () {
