@@ -25,27 +25,7 @@ function createTableTbodyPayments($searchedPayments = NULL){
     }
     return $tableTbodySearchedPayments;
 }
-// здесь нет используется только для образца для функция с подобным назаванием для проверки вывода - так идет сборка таблицы в viewAllPayments.php
-function createTableTbodyPayments_2($searchedPayments = NULL){
-    $tableTbodySearchedPayments="";
-    if($searchedPayments){
-        foreach ($searchedPayments as $payment){
-//                                 $paymentItem = new Payment($payment->id,$payment->idOrder,$payment->idClient,$payment->sumPayment,$payment->date);
-            $tableTbodySearchedPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
-                "<td>$payment[nameOrder]</td><td data-idOrder ='$payment[idOrder]' title='цена заказа $payment[orderPrice] грн' >$payment[sumAllPaymentOrder]</td>" .
-                "<td>$payment[countPayments]</td>" .
-                "<td class='text-center'><button class='btn btn-default'" .
-                " data-idOrder='$payment[idOrder]' name='btnViewModalAllPaymentThisOrder'" .
-                " ><span class='glyphicon glyphicon-eye-open'> оплаты</span></button></td></tr>";
-        }
 
-    }
-    else{
-        $tableTbodySearchedPayments .= "<tr>по таким данным  ничего нет ( </tr>";
-    }
-    return $tableTbodySearchedPayments;
-}
-//*/здесь нет используется только для образца для функция с подобным назаванием для проверки вывода - так идет сборка таблицы в viewAllPayments.php
 //поиск только по имени
 if(isset($_POST['searchPaymentsLikeName'])){
     //    'likeNameClient'
@@ -72,7 +52,8 @@ if(isset($_POST['searchPaymentsLikeNameClientDateFromDateTo'])){
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('".$tableTbodeSearchedPayments."');</script>";
+
     }
 }
 
@@ -88,7 +69,8 @@ if(isset($_POST['searchPaymentsDateFromDateTo'])){
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html(\"$tableTbodeSearchedPayments\");</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
+
     }
 }
 
@@ -102,7 +84,7 @@ if(isset($_POST['searchPaymentsDateMoreDateFromAndLikeName'])){
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html(\"$tableTbodeSearchedPayments\");</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
     }
 }
 
@@ -116,7 +98,7 @@ if(isset($_POST['searchPaymentsDateMoreDateFrom'])) {
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html(\"$tableTbodeSearchedPayments\");</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
     }
 }
 
@@ -130,7 +112,7 @@ if(isset($_POST['searchPaymentsDateLessDateToAndLikeName'])) {
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html(\"$tableTbodeSearchedPayments\");</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
     }
 }
 
@@ -143,7 +125,7 @@ if(isset($_POST['searchPaymentsDateLessDateTo'])) {
         $tableTbodeSearchedPayments = createTableTbodyPayments($searchedPaymentsInBase) ;
 //        \App\ModelLikeTable::showUspeh($tableTbodeSearchedPayments);
 //        die();
-        echo "<script>$('#tbViewAllPayments tbody').html(\"$tableTbodeSearchedPayments\");</script>";
+        echo "<script>$('#tbViewAllPayments tbody').html('$tableTbodeSearchedPayments');</script>";
     }
 }
 

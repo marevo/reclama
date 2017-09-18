@@ -2,19 +2,19 @@
  * Created by marevo on 14.09.2017.
  */
 
-// выбор даты в первом поле "от"  после выбора даты в первом поле должен быть автоматом установлен в сегодняшнюю дату в поле "до"
+// выбор даты в первом поле "от"  после выбора даты в первом поле если есть дата в первом поле больше чем во втором, то во втором установим такое же как и в первом
 $('#inputFindPaymentForDatePaymentFromDate').on('input',function () {
     //при выборе даты от автоматом ставится сегодняшняя дата до при обнулении от обнуляется и до
-    // if($(this).val()=="")
-    //     $('#inputFindPaymentForDatePaymentToDate').val('');
+    if($(this).val()>$('#inputFindPaymentForDatePaymentToDate').val() )
+        $('#inputFindPaymentForDatePaymentToDate').val($(this).val());
     // else
     //    $('#inputFindPaymentForDatePaymentToDate').val(getDate());
 });
-// выбор даты во втором поле "до"  если дата "до" меньше даты "от" то после дату от ставим такуюже как и "до"
+// выбор даты во втором поле если после выбора даты во втором поле дата будет меньше чем в первом, то установим дату в первом поле
 $('#inputFindPaymentForDatePaymentToDate').on('input',function () {
     //при выборе даты от автоматом ставится сегодняшняя дата до при обнулении от обнуляется и до
-    // if($(this).val() < $('#inputFindPaymentForDatePaymentFromDate').val() )
-    //     $('#inputFindPaymentForDatePaymentFromDate').val($(this).val());
+    if($(this).val() < $('#inputFindPaymentForDatePaymentFromDate').val() )
+        $('#inputFindPaymentForDatePaymentFromDate').val($(this).val());
 });
 
 $('#modalViewAllPaymentsToThisOrder').on('show.bs.modal',function (idOrder) {

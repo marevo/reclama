@@ -145,7 +145,7 @@ class Payment extends ModelLikeTable
                    FROM payments p
                    LEFT OUTER JOIN clients c ON p.idClient = c.id
                    LEFT OUTER JOIN orders o ON p.idOrder = o.id
-                   WHERE  p.date BETWEEN '$dateFrom' AND '$dateTo'
+                   WHERE  p.date  BETWEEN '$dateFrom' AND '$dateTo'
                    GROUP BY c.name , o.name" ;
         $db = new Db();
         $sth = $db->get_dbh()->prepare($query);
