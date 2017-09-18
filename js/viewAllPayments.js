@@ -100,17 +100,22 @@ function     deleteThisPaymentFromBase (event) {
 }
 //по загрузке страницы повесим на таблицу где показаны  все оплтаты всех заказов
 $(function () {
-    //функция обработки клика на таблице всех оплат
+    //функция обработки клика на таблице всех оплат (будем искать клик на кнопке просмотр - стоит справа в каждой строке )
     $('#tbViewAllPayments').on('click', function (event) {
         var target = event.target;
         if (target.nodeName == 'SPAN' && target.parentNode.nodeName == "BUTTON")
             target = target.parentNode;
         if (target.nodeName == 'BUTTON' && target.name == 'btnViewModalAllPaymentThisOrder') {
-            // var idOrder = $(target).data('idorder');
-            var dataPayment = $(target).data('payment');
-            console.log('click on button for viewAllPaymentsForThisOrder with idOrder=' + dataPayment.idOrder);
+            var idOrder = $(target).data('idorder');
+            console.log('click on button for viewAllPaymentsForThisOrder with idOrder=' + idOrder);
             // занесем даный idOrder  в модальное окно что бы при его показе подгрузить все оплаты по этому id
-            $('#modalViewAllPaymentsToThisOrder').find('[data-idorder]').text(dataPayment.idOrder).end().find('[data-nameorder]').text(dataPayment.nameOrder).end().find('[data-idclient]').text(dataPayment.idClient).end().find('[data-nameclient]').text(dataPayment.nameClient).end().find('[data-sumpayments]').text(dataPayment.sumPayments).end().modal('show');
+            var $modalViewAllPaymentsToThisOrder = $('#modalViewAllPaymentsToThisOrder');
+            $modalViewAllPaymentsToThisOrder.find('[data-idOrder]').text(idOrder) ;
+            $modalViewAllPaymentsToThisOrder.find('[data-nameOrder]').text($(target).parent().siblings()[3].textContent) ;
+            $modalViewAllPaymentsToThisOrder.find('[data-idClient]').text($(target).parent().siblings()[0].textContent) ;
+            $modalViewAllPaymentsToThisOrder.find('[data-nameClient]').text($(target).parent().siblings()[1].textContent) ;
+            $modalViewAllPaymentsToThisOrder.find('[data-sumPayments]').text($(target).parent().siblings()[4].textContent) ;
+            $modalViewAllPaymentsToThisOrder.modal('show');
             // вызов модального окна просмотра оплат
             // $('#modalViewAllPaymentsToThisOrder').modal('show');
             return false;

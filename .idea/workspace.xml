@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f040d1e6-ec12-49bf-a9a0-789ab6e65962" name="Default" comment="добавил ajax_post_get по загрузке этого файла вызов времени сервера и отображение его в меню">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/Models/Payment.php" afterPath="$PROJECT_DIR$/App/Models/Payment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php" afterPath="$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/viewAllPayments.js" afterPath="$PROJECT_DIR$/js/viewAllPayments.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" afterPath="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllPayments.php" afterPath="$PROJECT_DIR$/templates/viewAllPayments.php" />
     </list>
     <ignored path="reclama.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,46 +30,46 @@
       <file leaf-file-name="viewAllPayments.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/viewAllPayments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="60" column="134" selection-start-line="60" selection-start-column="96" selection-end-line="60" selection-end-column="134" />
+            <state relative-caret-position="481">
+              <caret line="92" column="25" selection-start-line="84" selection-start-column="24" selection-end-line="92" selection-end-column="25" />
               <folding>
                 <element signature="e#116#139#0#PHP" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1505559799376" expanded="true" signature="5165:6167" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="5594:6162" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="5629:6157" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="5710:6157" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="6705:8434" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="6745:8399" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="6800:6921" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="6962:8363" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7012:8340" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7089:8313" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7171:8282" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7221:7374" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7424:7714" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7591:7606" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7764:8247" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7862:8039" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="7894:8033" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="8674:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="8709:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="8749:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="8804:9439" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="8935:9416" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="9480:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="9530:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="9612:10667" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="10350:10636" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="10500:10601" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="10750:11003" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="10802:10972" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="11130:11902" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="11561:11718" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="12036:12151" placeholder="..." />
-                <marker date="1505559799376" expanded="true" signature="12291:12314" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="5165:5834" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="5571:5829" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="5606:5824" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="5720:5824" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6372:8101" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6412:8066" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6467:6588" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6629:8030" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6679:8007" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6756:7980" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6838:7949" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="6888:7041" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="7091:7381" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="7258:7273" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="7431:7914" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="7529:7706" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="7561:7700" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="8341:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="8376:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="8416:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="8471:9106" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="8602:9083" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="9147:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="9197:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="9279:10334" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="10017:10303" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="10167:10268" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="10417:10670" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="10469:10639" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="10797:11569" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="11228:11385" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="11703:11818" placeholder="..." />
+                <marker date="1505758535677" expanded="true" signature="11958:11981" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -78,34 +78,39 @@
       <file leaf-file-name="viewAllPayments.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/viewAllPayments.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="646">
+              <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
                 <element signature="n#!!block;n#showButtonsTrashInTableAllPayments#0" expanded="false" />
-                <element signature="e#6941#7754#0" expanded="false" />
+                <element signature="n#!!block;n#addPaymentInModalWinAllPayments#0" expanded="false" />
+                <element signature="n#!!block;n#deleteThisPaymentFromBase#0" expanded="false" />
+                <element signature="e#7308#8121#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllerViewAllPayments.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controllerViewAllPayments.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+            <state relative-caret-position="76">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
               <folding>
-                <element signature="n#createTableTbodyPayments#0;n#!!top" expanded="false" />
+                <element signature="n#createTableTbodyPayments_2#0;n#!!top" expanded="false" />
+                <marker date="1505760701904" expanded="true" signature="1957:2460" placeholder="..." />
+                <marker date="1505760701904" expanded="true" signature="2310:2445" placeholder="..." />
+                <marker date="1505760701904" expanded="true" signature="2310:2460" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Payment.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Payment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="127" column="43" selection-start-line="121" selection-start-column="17" selection-end-line="127" selection-end-column="43" />
+            <state relative-caret-position="207">
+              <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="127" selection-end-column="43" />
               <folding>
                 <marker date="1505731095811" expanded="true" signature="720:790" placeholder="SELECT SUM(s... payments" />
                 <marker date="1505731095811" expanded="true" signature="1181:1256" placeholder="SELECT COUNT... payments" />
@@ -216,11 +221,11 @@
         <option value="$PROJECT_DIR$/App/ModelLikeTable.php" />
         <option value="$PROJECT_DIR$/App/Models/Order.php" />
         <option value="$PROJECT_DIR$/App/controllers/controllerModalWinShowAllPayments.php" />
-        <option value="$PROJECT_DIR$/templates/viewAllPayments.php" />
         <option value="$PROJECT_DIR$/запросы к базе выбор всех заказов через Join.txt" />
-        <option value="$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php" />
-        <option value="$PROJECT_DIR$/js/viewAllPayments.js" />
         <option value="$PROJECT_DIR$/App/Models/Payment.php" />
+        <option value="$PROJECT_DIR$/templates/viewAllPayments.php" />
+        <option value="$PROJECT_DIR$/js/viewAllPayments.js" />
+        <option value="$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php" />
       </list>
     </option>
   </component>
@@ -356,12 +361,12 @@
       <workItem from="1504385135520" duration="78991000" />
       <workItem from="1504684969291" duration="41700000" />
       <workItem from="1504808260476" duration="144671000" />
-      <workItem from="1505365457566" duration="107350000" />
+      <workItem from="1505365457566" duration="128613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1533855000" />
+    <option name="totallyTimeSpent" value="1555118000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -448,8 +453,19 @@
           <line>495</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/viewAllPayments.js</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="38" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -963,78 +979,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-          <folding>
-            <element signature="n#createTableTbodyPayments#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllPayments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="60" column="134" selection-start-line="60" selection-start-column="96" selection-end-line="60" selection-end-column="134" />
-          <folding>
-            <element signature="e#116#139#0#PHP" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1505559799376" expanded="true" signature="5165:6167" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="5594:6162" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="5629:6157" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="5710:6157" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="6705:8434" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="6745:8399" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="6800:6921" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="6962:8363" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7012:8340" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7089:8313" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7171:8282" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7221:7374" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7424:7714" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7591:7606" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7764:8247" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7862:8039" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="7894:8033" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="8674:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="8709:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="8749:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="8804:9439" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="8935:9416" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="9480:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="9530:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="9612:10667" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="10350:10636" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="10500:10601" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="10750:11003" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="10802:10972" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="11130:11902" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="11561:11718" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="12036:12151" placeholder="..." />
-            <marker date="1505559799376" expanded="true" signature="12291:12314" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/viewAllPayments.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-            <element signature="n#!!block;n#showButtonsTrashInTableAllPayments#0" expanded="false" />
-            <element signature="e#6941#7754#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Models/Payment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="127" column="43" selection-start-line="121" selection-start-column="17" selection-end-line="127" selection-end-column="43" />
+        <state relative-caret-position="207">
+          <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="127" selection-end-column="43" />
           <folding>
             <marker date="1505731095811" expanded="true" signature="720:790" placeholder="SELECT SUM(s... payments" />
             <marker date="1505731095811" expanded="true" signature="1181:1256" placeholder="SELECT COUNT... payments" />
@@ -1058,6 +1006,79 @@
             <marker date="1505731095811" expanded="true" signature="8503:8976" placeholder="SELECT c.id payments" />
             <marker date="1505731095811" expanded="true" signature="9448:9991" placeholder="SELECT c.id payments" />
             <marker date="1505731095811" expanded="true" signature="9861:9919" placeholder="SELECT id FR... clients" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/viewAllPayments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+            <element signature="n#!!block;n#showButtonsTrashInTableAllPayments#0" expanded="false" />
+            <element signature="n#!!block;n#addPaymentInModalWinAllPayments#0" expanded="false" />
+            <element signature="n#!!block;n#deleteThisPaymentFromBase#0" expanded="false" />
+            <element signature="e#7308#8121#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewAllPayments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="92" column="25" selection-start-line="84" selection-start-column="24" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <element signature="e#116#139#0#PHP" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1505758535677" expanded="true" signature="5165:5834" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="5571:5829" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="5606:5824" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="5720:5824" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6372:8101" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6412:8066" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6467:6588" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6629:8030" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6679:8007" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6756:7980" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6838:7949" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="6888:7041" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="7091:7381" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="7258:7273" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="7431:7914" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="7529:7706" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="7561:7700" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="8341:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="8376:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="8416:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="8471:9106" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="8602:9083" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="9147:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="9197:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="9279:10334" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="10017:10303" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="10167:10268" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="10417:10670" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="10469:10639" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="10797:11569" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="11228:11385" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="11703:11818" placeholder="..." />
+            <marker date="1505758535677" expanded="true" signature="11958:11981" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/controllers/controllerViewAllPayments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="n#createTableTbodyPayments_2#0;n#!!top" expanded="false" />
+            <marker date="1505760701904" expanded="true" signature="1957:2460" placeholder="..." />
+            <marker date="1505760701904" expanded="true" signature="2310:2445" placeholder="..." />
+            <marker date="1505760701904" expanded="true" signature="2310:2460" placeholder="..." />
           </folding>
         </state>
       </provider>

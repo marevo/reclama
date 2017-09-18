@@ -85,13 +85,10 @@ include('../head.html');
                         foreach ($allPaymentsInBase as $payment){
 //                                 $paymentItem = new Payment($payment->id,$payment->idOrder,$payment->idClient,$payment->sumPayment,$payment->date);
                                 $tableAllPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
-                                    "<td>$payment[nameOrder]</td><td data-idOrderForShangedSumAllPayments='$payment[idOrder]' title='цена заказа $payment[orderPrice] грн' >$payment[sumAllPaymentOrder]</td>" .
+                                    "<td>$payment[nameOrder]</td><td data-idOrder ='$payment[idOrder]' title='цена заказа $payment[orderPrice] грн' >$payment[sumAllPaymentOrder]</td>" .
                                     "<td>$payment[countPayments]</td>" .
                                     "<td class='text-center'><button class='btn btn-default'" .
-                                    " name='btnViewModalAllPaymentThisOrder'" .
-                                    " data-payment='{\"idOrder\":\"$payment[idOrder]\",\"nameOrder\":\"$payment[nameOrder]\", " .
-                                    " \"idClient\":\"$payment[idClient]\",\"nameClient\":\"$payment[nameClient]\", " .
-                                    " \"sumPayments\":\"$payment[sumAllPaymentOrder]\" }' " .
+                                    " data-idOrder='$payment[idOrder]' name='btnViewModalAllPaymentThisOrder'" .
                                     " ><span class='glyphicon glyphicon-eye-open'> оплаты</span></button></td></tr>";
                         }
                         $tableAllPayments .= "</tbody></table>";
