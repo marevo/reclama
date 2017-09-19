@@ -19,7 +19,7 @@ require_once('../head.html');
         </script>
     </div>
     <!--строка показа времени и показа результата добавки материала в базу  -->
-    <?php include_once '../App/html/forDisplayTimeShowAnswerServer.html' ?>
+    <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
 
     <div class="row"><!-- основной блок контета состоит из 2 колонок слева и 10 колонок справа -->
         <div class="col-lg-2 backForDiv"> <!-- начало доп блока слева-->

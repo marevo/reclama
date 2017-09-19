@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="col-lg-10">
-<?php require_once('App/html/forDisplayTimeShowAnswerServer.html');?>
+<?php require_once ('App/html/forDisplayTimeShowAnswerServer.html');?>
         </div>
     </div>
 <!--    <div id="cartMenu" class="row highligh2">это просто для проверки  загрузки таблицы</div>-->

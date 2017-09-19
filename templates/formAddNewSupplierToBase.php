@@ -32,7 +32,7 @@ require '../autoload.php';
         </div>
         <div class="col-lg-10 backForDiv">
             <!--строка показа времени и показа результата добавки материала в базу  -->
-            <?php include_once '../App/html/forDisplayTimeShowAnswerServer.html' ?>
+            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <div class="row">
                 <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">добавление поставщика в базу</div>
 

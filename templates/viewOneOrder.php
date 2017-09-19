@@ -86,7 +86,7 @@ showLi('');
         <!--рабочее место справа-->
         <div class="col-lg-10 backForDiv ">
             <!--строка показа времени и показа результата добавки материала в базу  -->
-            <?php include_once '../App/html/forDisplayTimeShowAnswerServer.html' ?>
+            <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
             <!--  блок отображения что меняем и кнокпки обновить страницу и кнопка править(покажет поля для внесения новых значений)  -->
             <div class="row headingContent">
                 <div class="col-lg-8      text-center ">просмотр/правка заказа <?php echo $order->name; ?> для <?php echo $nameClient; ?></div>
@@ -809,9 +809,9 @@ var ORDER_NEW ;
     //подключение модального окна для добавления материалов к заказу
     include_once('formAddMaterialToOrderModal.html');
     //подключение модального окна просмотра всех оплат по этому заказу
-    include_once('../App/html/viewModalAllPaymentsForThisOrder.html');
+    include_once ('../App/html/viewModalAllPaymentsForThisOrder.html');
     //подключим модальное окно быстрой добавки материала к заказу по двойному клику в таблице всех материалов (в модальном окне)
-    include_once('../App/html/modalWindowAddMaterToOrderFast.html');
+    include_once ('../App/html/modalWindowAddMaterToOrderFast.html');
     ?>
 
 </div>
