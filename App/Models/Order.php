@@ -165,6 +165,78 @@ public static function getOrdersLikeNameClient(string $likeName){
         }
     }
 
+    // найти все заказы в виде объектов по подобию в названии заказа или названи клиента
+    /**
+     * @param string  $likeNameClient
+     * @param string $likeNameOrder
+     * @return bool|mixed
+     */
+    public static function getOrdersLikeNameOrderOrLikeNameClient( string $likeNameClient = NULL , string $likeNameOrder = NULL){
+        $queryFindOrderLikeName ="";
+//        если передали 2 параметра
+        if($likeNameClient && $likeNameOrder){
+            $queryFindOrderLikeName = "SELECT o.id AS idOrder, o.name AS nameOrder, c.id AS idClient, c.name AS nameClient, o.isReady AS orderIsReady
+                                   FROM orders AS o INNER JOIN  clients AS c ON o.idClient = c.id 
+                                   WHERE ( o.name  LIKE '%$likeNameOrder%' AND c.name LIKE '%$likeNameClient%' ) AND ( o.isReady = 0 OR o.isReady = 3 )
+                                   ORDER BY c.name, o.name
+                                  ";
+        }else{
+            if($likeNameClient || $likeNameOrder){
+                //            если один парметр
+                if($likeNameOrder ) {
+                    $queryFindOrderLikeName = "SELECT o.id AS idOrder, o.name AS nameOrder, c.id AS idClient, c.name AS nameClient, o.isReady AS orderIsReady
+                                   FROM orders AS o INNER JOIN  clients AS c ON o.idClient = c.id 
+                                   WHERE ( o.name  LIKE '%$likeNameOrder%' OR c.name LIKE '%$likeNameOrder%' ) AND ( o.isReady = 0 OR o.isReady = 3 )
+                                   ORDER BY c.name, o.name
+                                  ";
+                }else{
+                    $queryFindOrderLikeName = "SELECT o.id AS idOrder, o.name AS nameOrder, c.id AS idClient, c.name AS nameClient, o.isReady AS orderIsReady
+                                   FROM orders AS o INNER JOIN  clients AS c ON o.idClient = c.id 
+                                   WHERE ( o.name  LIKE '%$likeNameClient%' OR c.name LIKE '%$likeNameClient%' ) AND ( o.isReady = 0 OR o.isReady = 3 )
+                                   ORDER BY c.name, o.name
+                                  ";
+
+                }
+
+
+//                if($likeNameClient){
+//                    $queryFindOrderLikeName = "SELECT o.id AS idOrder, o.name AS nameOrder, c.id AS idClient, c.name AS nameClient, o.isReady AS orderIsReady
+//                                   FROM orders AS o INNER JOIN  clients AS c ON o.idClient = c.id
+//                                   WHERE  c.name LIKE '%$likeNameClient%'  AND ( o.isReady = 0 OR o.isReady = 3 )
+//                                   ORDER BY c.name, o.name
+//                                  ";
+//                }else{
+////                    передали $likeNameOrder
+//                    $queryFindOrderLikeName = "SELECT o.id AS idOrder, o.name AS nameOrder, c.id AS idClient, c.name AS nameClient, o.isReady AS orderIsReady
+//                                   FROM orders AS o INNER JOIN  clients AS c ON o.idClient = c.id
+//                                   WHERE ( o.name  LIKE '%$likeNameOrder%' AND c.name LIKE '%$likeNameClient%' ) AND ( o.isReady = 0 OR o.isReady = 3 )
+//                                   ORDER BY c.name, o.name
+//                                  ";
+//                }
+            }
+        }
+//есть строка запроса
+        if($queryFindOrderLikeName){
+            //    echo $queryFindOrderLikeName;
+//    die();
+            $db = new Db();
+            $sth = $db->get_dbh()->prepare($queryFindOrderLikeName);
+            $res = $sth->execute();
+            if(false != $res) {
+//            var_dump('<br>должен быть результат вызова в  function query in Db.php<br>');
+//            return $sth->fetchObject('Order');
+                return $sth->fetchAll();
+            }
+            else{
+//            var_dump('<br>последняя строка в результата нет !!! function query in Db.php<br>');
+                return false;
+            }
+        }
+        
+        return false;
+    }
+
+
 //найти все поля закза по переданному id
     public static function findObjByIdForViewOneOrder(int $id){
 //        echo '<br>вызов из класса Order  функция findObjByIdForViewOneOrder получили результат не false<br>';

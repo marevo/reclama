@@ -67,8 +67,8 @@ include('../head.html');
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <label for="makeNewClient"  class="text-center">новый платеж</label>
-                    <div title="создать новый платеж" id="makeNewPayment"></div>
-                    <a href='formAddNewPaymentToBase.html'> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
+                    <div title="создать новый платеж" ></div>
+                    <a  id="makeNewPaymentFromModalFormAddNewPayment"> <div class="text-center"> <span class='glyphicon glyphicon-plus'></span></div></a>
                 </div>
             </div><!-- конец блока строки поиска  -->
 
@@ -190,6 +190,8 @@ include('../head.html');
             </div><!--modal content-->
         </div><!--modal-dialog-->
     </div><!--modal-fade -->
+    <!-- модальное окно добавления оплаты для любого заказа найденного в базе -->
+    <?php include_once ('modalFormAddNewPaymentToBase.html')?>
 
 </div>
 </body>

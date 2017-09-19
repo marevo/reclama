@@ -25,7 +25,7 @@ abstract class ModelLikeTable
         return $res;
     }
 
-    public static function findAllOrderByName(){
+    public static function findAllByName(){
 //        echo '<br>вызов из класса '.get_called_class().'<br>';
 //        echo '<br>вызов данных из таблицы '.static::TABLE .'<br>';
 //        echo '<br>вызов из класса '.static::class.'<br>';
@@ -205,7 +205,7 @@ abstract class ModelLikeTable
             return false;
         $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;
         $mes = "";
-        $res = false;
+        $res =false;
         $db = new  Db();
         try{
             $res = $db->execute($queryStrDelete,NULL);
@@ -232,6 +232,19 @@ abstract class ModelLikeTable
     public static function searchObjectsLikeNameOrLikeAddCharacteristic(string  $likeNameAddChar){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' OR `addCharacteristic` LIKE '%".$likeNameAddChar."%' ;";
+//        echo "query";
+//        die();
+        $res = $db->query($query ,static::class );
+//        var_dump('<br>$res = '.$res.'<br>');
+        return $res;
+
+
+    }
+
+    //поиск объектов по подобию name можно применять к всем классам
+    public static function searchObjectsLikeName(string  $likeNameAddChar){
+        $db = new Db();
+        $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' ;";
 //        echo "query";
 //        die();
         $res = $db->query($query ,static::class );

@@ -123,6 +123,11 @@ $(function () {
         console.log('click по таблице показа оплат на странице viewAllPayments.php');
     });
 
+    //повесим на кнопку добавка оплаты вызов модального окна modalFormAddNewPaymentToBase.html для поиска заказа и добавки оплаты к нему
+    $('#makeNewPaymentFromModalFormAddNewPayment').on('click',function (event) {
+        $('#modalAddPaymentToBaseForViewAllPayments').modal('show');
+        return false;
+    });
     //функция обработки при вызове модального окна
     $('#modalWinForDeletePayment').on('show.bs.modal', function () {
 

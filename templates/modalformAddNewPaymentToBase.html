@@ -1,0 +1,131 @@
+
+<div id="modalAddPaymentToBaseForViewAllPayments" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">внесение платежа к заказу
+                <button class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" style="background-color: #c0c7d2;">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><input id="InputSearchOrderByNameClientOrNameOrderViewAllPayments" size="30" placeholder="название клиента  название  заказа"/></div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><button class="btn btn-sm btn-primary" id="btnSearchOrderViewAllPayments"> искать</button></div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <input id="modalAddPaymentToOrderCount" value="0.00" size="4" />
+                            <script type="text/javascript">
+                                povesitProverkuValidnostyNaInput($('#modalAddPaymentToOrderCount'));
+                            </script>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><input type="date" id="datePaymentModalFormAddPaymentToBase"/>
+                            <script type="text/javascript">
+                            $('#datePaymentModalFormAddPaymentToBase').val(getDate());
+                            $('#datePaymentModalFormAddPaymentToBase').on('change',function (event) {
+                              if($(this).val()==''){
+                                  $(this).val(getDate());
+                              }
+                            return false;
+                        });
+                        </script>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            <button id="modalAddMaterialToOrderFastBtnAddFast" class="btn btn-sm btn-success">добавить</button></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="idDivIdOrder">idOrder</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">клиент</div><div id="divNameClient" class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">заказ</div><div id="divNameOrder" class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" id="_findingNameClient"></div><div  id="_findingNameOrder" class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divForTable">
+                            <table id="tbFindingOrderByLikeNameClientLikeNameOrderModalFormAddNewPaymentToBase"><thead><tr>
+                                <td>idClient</td>
+                                <td>nameClient</td>
+                                <td>idOrder</td>
+                                <td>nameOrder</td>
+                                <td>isReady</td></tr></thead><tbody></tbody></table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+                            <div class=" uspeh text-center "><span class="glyphicon glyphicon-import "> успешно</span></div>
+                            <div class=" noUspeh text-center "><span class="glyphicon glyphicon-alert "> не успешно обратитесь к разработчику</span></div>
+                            <!-- в поле с классом divForAnswerServer будем получать ответы сервера (script ) -->
+                            <div class="divForAnswerServer"></div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div><!--modal-body-->
+            <div class="modal-futer">
+            </div>
+        </div><!--modal content-->
+    </div><!--modal-dialog-->
+</div><!--modal-fade -->
+
+<script type="text/javascript">
+    $('#btnSearchOrderViewAllPayments').on('click',function (event) {
+        $('.fastShowErorCountMat').remove();
+        var $nameClientAndNameOrder = $('#InputSearchOrderByNameClientOrNameOrderViewAllPayments');
+        if($nameClientAndNameOrder.val() < 3 ){
+            //если в поле поиска меньше 3 букв выведем туда подсказку и выйдем иначе запустим запрос на сервер
+            var oldPlaceHolder = $nameClientAndNameOrder.attr('placeholder');
+            $nameClientAndNameOrder.attr('placeholder','минимум 3 символа').val('');
+            var timoutShowHelpForInput =  setTimeout(function () {
+                $nameClientAndNameOrder.attr('placeholder',oldPlaceHolder);
+                clearTimeout('timoutShowHelpForInput');
+            },2000);
+            return false;
+        }
+        else{
+            console.log('произведем поиск по подобию в названии клиента или названнию  заказа');
+
+            jquery_send('.divForAnswerServer','post','../../App/controllers/controllerViewAllPayments.php',
+                    ['searchOrderFromModalFormAddNewPaymentToBase','likeNameClientLikeNameOrder','datePayment'],
+                    ['',$nameClientAndNameOrder.val(), $('#datePaymentModalFormAddPaymentToBase').val()]);
+
+            return false;
+        }
+        if(testSumOnFloat( $('#modalAddPaymentToOrderCount').val()) ){
+            console.log('fast  send for fastAddMaterToOrder to server ');
+            jquery_send('.divForAnswerServer','post','../controllerOneOrder.php',
+                    ['fastAddCountMaterialToOrder', 'idMaterial', 'idOrder','countMaterial'],
+                    ['',$('#modalAddPaymentToOrderCount').text(),ORDER.id, $('#modalAddPaymentToOrderCount').val()]
+            );
+            //очистим поля в этом модальном окне где хранились idMaterial  and countMat
+            $('#modalAddMaterialToOrderFastCountMat').val('');
+            $('#modalAddMaterialToOrderFastIdMat').text('');
+
+        }
+        else {
+            $('#modalAddPaymentToOrderCount').before('<div style="background-color: red;" class="fastShowErorCountMat">правильный формат 1 или 1.11 или 1.1</div>');
+            setTimeout(function () {
+                $('.fastShowErorCountMat').remove();
+            },'2000');
+            //очистим поля в этом модальном окне где хранились idMaterial  and countMat
+            $('#modalAddPaymentToOrderCount').val('');
+            $('#modalAddMaterialToOrderFastIdMat').text('');
+            console.log('ошибка валидации введения количество материала при быстрой добавке по dblclick');
+        }
+        return false;
+    });
+//клик на таблице для будущих найденных значений через поиск по подобию в названии клиента и заказа
+    $('#tbFindingOrderByLikeNameClientLikeNameOrderModalFormAddNewPaymentToBase tbody').on('click',function (event) {
+        var target = event.target;
+        if(target.nodeName == 'BUTTON'){
+            //Ловим клик в таблице и обработаем только на уровне ячейки
+            console.log('кликнули в таблице найденных заказов idOrder='+$(target).data('idorder'));
+            $('#idDivIdOrder').text($(target).data('idorder'));
+            $('#divNameClient').removeClass('tdBackGroundRed').addClass('tdBackGroundGreen').text($(target).parent().siblings()[1].textContent);
+            $('#divNameOrder').removeClass('tdBackGroundRed').addClass('tdBackGroundGreen').text($(target).parent().siblings()[3].textContent);
+        }
+        else{
+            $('#idDivIdOrder').text('');
+            $('#divNameClient').removeClass('tdBackGroundGreen').addClass('tdBackGroundRed').text('');
+            $('#divNameOrder').removeClass('tdBackGroundGreen').addClass('tdBackGroundRed').text('');
+        }
+    });
+</script>

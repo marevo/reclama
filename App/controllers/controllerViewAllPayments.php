@@ -129,3 +129,43 @@ if(isset($_POST['searchPaymentsDateLessDateTo'])) {
     }
 }
 
+//поиска заказов для select в modalFormAddNewPaymentToBase
+if(isset($_POST['searchOrderFromModalFormAddNewPaymentToBase'])){
+    if( isset($_POST['likeNameClientLikeNameOrder']) ) {
+        $likeNameClientOrLikeNameOrder = htmlspecialchars($_POST['likeNameClientLikeNameOrder']);
+        $ArrNameClientNameOrder = explode(" ", $likeNameClientOrLikeNameOrder );
+        if($ArrNameClientNameOrder[0])
+           $likeNameClient = $ArrNameClientNameOrder[0];
+        else $likeNameClient = "" ;
+        if($ArrNameClientNameOrder[1])
+            $likeNameOrder = $ArrNameClientNameOrder[1];
+        else $likeNameOrder = "" ;
+//        $likeNameClient  = "пуп";
+//        $likeNameOrder ="вывеска";
+//        \App\ModelLikeTable::showUspeh("пришел запрос на поиск заказов по подобию в клиенте \"$likeNameClient\" и подобию в заказе \"$likeNameOrder\" за дату ".htmlspecialchars($datePayment)."");
+
+        $arrayObjOrders = \App\Models\Order::getOrdersLikeNameOrderOrLikeNameClient($likeNameClient,$likeNameOrder);
+//        var_dump($arrayObjOrders);
+//        die();
+        if($arrayObjOrders){
+            //$optionsFinding = "<option value='0'>выберите из списка</option>";
+            $findingOrders ="";
+            foreach ($arrayObjOrders as $order){
+              //  $optionsFinding .= "<option value = '$order[idOrder]'>заказ $order[nameOrder] клиент $order[idClent] $order[nameClient] $order[orderIsReady]</option>";
+                $findingOrders  .= "<tr><td>$order[idClient]</td><td>$order[nameClient]</td><td>$order[idOrder]</td><td>$order[nameOrder]</td>" .
+                    "<td>$order[orderIsReady]</td><td><button class='btn btn-sm btn-success ' data-idOrder='$order[idOrder]'>выбрать</button></td></tr>";
+            }
+        }
+        else{
+            //$optionsFinding = "<option value='0'>ничего нет</option>";
+            $findingOrders="<tr><td colspan='5'>ничего нет (</td></tr>";
+        }
+        
+        echo "$optionsFinding";
+        echo "<script>
+$('#tbFindingOrderByLikeNameClientLikeNameOrderModalFormAddNewPaymentToBase tbody').html(\"$findingOrders\");
+</script>";
+
+        
+    }
+}
