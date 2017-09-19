@@ -114,7 +114,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
             </script>
         </div>
         <!--подключение строки с показом времени и результатов запросов на сервер -->
-        <?php include_once ('../App/html/forDisplayTimeShowAnswerServer.html'); ?>
+        <?php include_once('../App/html/forDisplayTimeShowAnswerServer.html'); ?>
 
         <div class="row">
             <div class="col-lg-2 backForDiv">
@@ -169,7 +169,7 @@ function showFromFields($idTable, $arrAll = [], $filds_nameToView){
             </div>
         </div>
         <!-- подключение модального окна которое будет всплывать при нажатии кнопки удалить-->
-        <?php include_once ('../App/html/viewAllOrdersModal.html');?>
+        <?php include_once('../App/html/viewAllOrdersModal.html');?>
         <script src = '../js/viewAllOrders.js'></script>
     </div><!-- container -->
 </body>
