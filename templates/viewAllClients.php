@@ -65,7 +65,7 @@ require '../autoload.php';
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?php
                         //найдем всех поставщиков и отобразим их через таблицу
-                        $allClientsInBase = \App\Models\Client::findAll();
+                        $allClientsInBase = \App\Models\Client::findAllOrderByName();
                         if($allClientsInBase){
                             $tableAllClients = "<table id='tbViewAllClients'><thead><tr><td class='tdDisplayNone'>id</td>" .
                                 "<td>название</td><td>контакт</td><td>телефон 1</td><td class='tdDisplayNone'>телефон 2</td><td class='tdDisplayNone'>email</td>" .

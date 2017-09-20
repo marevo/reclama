@@ -13,9 +13,10 @@ function createTableTbodyPayments($searchedPayments = NULL){
     $tableTbodySearchedPayments="";
     if($searchedPayments){
         foreach ($searchedPayments as $payment){
-            $tableTbodySearchedPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
+            $sumDebet = $payment[sumAllPaymentOrder]-$payment[orderPrice];
+            $tableTbodySearchedPayments .= "<tr><td class=\"tdDisplayNone\">$payment[idClient]</td><td>$payment[nameClient]</td><td class=\"tdDisplayNone\">$payment[idOrder]</td>" .
                 "<td>$payment[nameOrder]</td><td data-idOrder = \"$payment[idOrder]\" title=\"цена заказа $payment[orderPrice] грн\" >$payment[sumAllPaymentOrder]</td>" .
-                "<td>$payment[countPayments]</td>" .
+                "<td>$payment[countPayments]</td><td>$sumDebet</td>" .
                 "<td class=\"text-center\"><button class=\"btn btn-default\" name=\"btnViewModalAllPaymentThisOrder\" " .
                 " data-idOrder = $payment[idOrder] " .
                 " ><span class=\"glyphicon glyphicon-eye-open\"> оплаты</span></button></td></tr>";

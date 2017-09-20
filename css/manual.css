@@ -466,3 +466,16 @@ background-color: #337ab7;
 .tdBackGroundRed{
     background-color: #f9988e;
 }
+#tbViewAllClients tbody a{
+      display: block;
+      border: black 1px solid;
+  }
+        #tbViewAllClients tbody td:last-child span{
+            display: block;
+          border: black 1px solid;
+            border-radius: 4px;
+            padding: 8px;
+        }
+            #tbViewAllClients tbody td:last-child span:hover{
+                cursor: pointer;
+            }

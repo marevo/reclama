@@ -79,14 +79,15 @@ include('../head.html');
                     //idClient , nameClient , idOrder , nameOrder , SUM(sumPayment) , COUNT(sumPayment)
                     $allPaymentsInBase = Payment::getClientsOrdersSumPaymentsCountPaymants();
                     if($allPaymentsInBase){
-                        $tableAllPayments = "<table id='tbViewAllPayments'><thead><tr><td>idClient</td><td>nameClient</td>" .
-                            "<td>idOrder</td><td>nameOrder</td><td>сумма</td><td>ко-во оплат</td>" .
+                        $tableAllPayments = "<table id='tbViewAllPayments'><thead><tr><td class='tdDisplayNone'>idClient</td><td>клиент</td>" .
+                            "<td class='tdDisplayNone'>idOrder</td><td>название заказа</td><td>сумма</td><td>ко-во оплат</td><td>долг</td>" .
                             "<td class='text-center'><span class='glyphicon glyphicon-eye-open'> оплаты</span></td></tr></thead><tbody>";
                         foreach ($allPaymentsInBase as $payment){
+                            $sumDebet = $payment[sumAllPaymentOrder]-$payment[orderPrice];
 //                                 $paymentItem = new Payment($payment->id,$payment->idOrder,$payment->idClient,$payment->sumPayment,$payment->date);
-                                $tableAllPayments .= "<tr><td>$payment[idClient]</td><td>$payment[nameClient]</td><td>$payment[idOrder]</td>" .
+                                $tableAllPayments .= "<tr><td class='tdDisplayNone'>$payment[idClient]</td><td>$payment[nameClient]</td><td class='tdDisplayNone'>$payment[idOrder]</td>" .
                                     "<td>$payment[nameOrder]</td><td data-idOrder ='$payment[idOrder]' title='цена заказа $payment[orderPrice] грн' >$payment[sumAllPaymentOrder]</td>" .
-                                    "<td>$payment[countPayments]</td>" .
+                                    "<td>$payment[countPayments]</td><td>$sumDebet</td>" .
                                     "<td class='text-center'><button class='btn btn-default'" .
                                     " data-idOrder='$payment[idOrder]' name='btnViewModalAllPaymentThisOrder'" .
                                     " ><span class='glyphicon glyphicon-eye-open'> оплаты</span></button></td></tr>";

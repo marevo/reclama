@@ -54,7 +54,7 @@ require_once('../head.html');
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <?php
                     //найдем всех поставщиков и отобразим их через таблицу
-                    $allSuppliersInBase = \App\Models\Supplier::findAll();
+                    $allSuppliersInBase = \App\Models\Supplier::findAllOrderByName();
                     if(! empty ($allSuppliersInBase)){
                         $tableAllSupp = "<table id='tbViewAllSuppliers'><thead><tr><td class='tdDisplayNone'>id</td>" .
                             "<td>название</td><td>доп характ</td><td class='tdDisplayNone'>контакт</td><td>телефон</td><td class='tdDisplayNone'>email</td>" .

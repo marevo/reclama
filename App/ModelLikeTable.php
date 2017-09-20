@@ -25,7 +25,7 @@ abstract class ModelLikeTable
         return $res;
     }
 
-    public static function findAllByName(){
+    public static function findAllOrderByName(){
 //        echo '<br>вызов из класса '.get_called_class().'<br>';
 //        echo '<br>вызов данных из таблицы '.static::TABLE .'<br>';
 //        echo '<br>вызов из класса '.static::class.'<br>';
