@@ -19,7 +19,7 @@ class Db
         return $this->dbh;
     }
     //1 вопрос надо ли создавать кроме $dbh  еще 3 другие переменные или достаточно в конструкторе своих внутренних переменных
-    public function __construct(string $user='root', string $pass='')
+    public function __construct( $user='root',  $pass='')
     {
         //var_dump('<br>path, где лежит Db.php :  '.__DIR__.'<br>');
         $config = include (__DIR__.'/../config.php');
@@ -47,7 +47,7 @@ class Db
      * @param array $params
      * @return bool rez ot query (true or false)
      */
-    public function execute(string  $sqlString, $params = []){
+    public function execute(  $sqlString, $params = []){
         //для операций вставки, апдейта, удаления вернет удачно или не удачно
 //        echo ('запрос в базу '.$sqlString);
 //        echo ('параметры запроса в виде массива  на строку ниже <br> '.$params);
@@ -67,11 +67,11 @@ class Db
      * @param $class
      * @return $class[] in true rez or fasle in false query
      */
-    public function query(string $sqlString, $class){
+    public function query( $sqlString, $class){
 //        для получения данных по запросу
 //        var_dump('<br>зашли в function query in Db.php<br>');
 //        var_dump('в function query in Db.php пришел запрос : '.$sqlString);
-        $sth = $this-> dbh -> prepare($sqlString);
+        $sth = $this-> dbh -> prepare((string)$sqlString);
 //        var_dump('<br>выведем из DB.php $sth: '.$sth); //как посмотреть $sth
         $res = $sth->execute();//вернет true or false
         if(false != $res) {

@@ -44,7 +44,7 @@ class Client extends ModelLikeTable
         return $res;
     }
     //метод  статический существуют ли заказы для клиента с $idClient  вернет false если заказов нет у этого клиента 
-    public static function ifExistAnyOrderForClient(int $idClient){
+    public static function ifExistAnyOrderForClient($idClient){
         $db = new Db();
         $query = "SELECT * FROM orders WHERE idClient =  $idClient ; ";
 //        var_dump('<br>обработаем запрос : '.$query.' в функции getAllSuppliers of class '.self.'<br>');
@@ -61,7 +61,7 @@ class Client extends ModelLikeTable
         return $res;
     }
     //метод найти всех клиентов по подобию имени или контакта    
-    public static function searchAllForLikeNameOrLikeContactPerson(string $likeNamLikeContact){
+    public static function searchAllForLikeNameOrLikeContactPerson( $likeNamLikeContact){
         $db = new Db();
         $query = "SELECT * FROM ".self::TABLE." WHERE name LIKE '%$likeNamLikeContact%' OR contactPerson LIKE '%$likeNamLikeContact%' ; ";
 //        var_dump('<br>обработаем запрос : '.$query.' в функции getAllSuppliers of class '.self.'<br>');

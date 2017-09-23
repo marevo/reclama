@@ -22,6 +22,11 @@
    max-height:400px;
     /*width: 100%;*/
 }
+.divForTableInFormAdd {
+    overflow: auto;
+   max-height:600px;
+    width: 100%;
+}
 .divForTable div{
     /*table-layout: fixed;*/
     padding-left: 0;

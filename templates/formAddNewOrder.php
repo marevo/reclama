@@ -10,7 +10,7 @@ require '../autoload.php';
 //функция вернет всех Client
 function clientsOptions(){
     $option='';
-    $clientsAll = \App\Models\Client::findAll();
+    $clientsAll = \App\Models\Client::findAllOrderByName();
     foreach ($clientsAll as $rowItem){
             $option .= "<option data-id = '$rowItem->id' value='$rowItem->id'>$rowItem->name</option>";
     }
@@ -44,7 +44,7 @@ showLi('создать заказ')
                 <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 bg-primary  h2 text-center text-info">создание и добавление в базу нового заказа</div>
             </div>
             <div class="row"><!--форма добавления нового заказа в базу -->
-                <div class="col-lg-8 сol-md-8 col-sm 10 col-xs-12">
+                <div class="col-lg-8 сol-md-8 col-sm 10 col-xs-12 divForTableInFormAdd">
                         <form  id="formOneOrder"   method="post" action="../App/controllers/controllerAddNewOrderToBase.php">
                             <table>
                                 <thead>

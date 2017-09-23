@@ -33,7 +33,7 @@ abstract class ModelLikeTable
         //позднее связывание для вызова с параметрами класса наследника
         //это позволит вернуть результат сразу в виде массива типа класса наследника
 
-        $res = $db->query('SELECT * FROM '.static::TABLE .' ORDER BY name ;',static::class );
+        $res = $db->query("SELECT * FROM ".static::TABLE ." ORDER BY name ;",static::class );
 //        var_dump('<br>$res = '.$res.'<br>');
         return $res;
     }
@@ -53,7 +53,7 @@ abstract class ModelLikeTable
      * @param int $id
      * @return bool вернет обЪект по id если есть такой иначе вернет false
      */
-    public function findObjById(int $id){
+    public function findObjById( $id){
          return findObjByIdcStatic( $id);
     }
     /**
@@ -61,7 +61,7 @@ abstract class ModelLikeTable
      * @param int $id
      * @return bool вернет обЪект по id если есть такой иначе вернет false
      */
-    public static function findObjByIdStatic(int $id){
+    public static function findObjByIdStatic($id){
 //        echo ('<br>вызов из класса ModelLikeTable начал<br>');
         $db = new Db();
         $query = 'SELECT * FROM '.static::TABLE.' WHERE  '.static::NAME_ID.' = '.$id.';';
@@ -159,7 +159,7 @@ abstract class ModelLikeTable
 
     
     //поиск по  подобному назаванию в любой таблице (естественно должно быть поле name
-    public static function searchAllForLikeName(string $likeName){
+    public static function searchAllForLikeName( $likeName){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeName."%';";
 //       echo "$query";
@@ -170,7 +170,7 @@ abstract class ModelLikeTable
 
     }
     //проверка существует ли объект с таким именем
-    public static function ifExistObjWithName(string $name){
+    public static function ifExistObjWithName( $name){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name`  = '$name';";
         $res = $db->query($query ,static::class );
@@ -179,7 +179,7 @@ abstract class ModelLikeTable
 
     }
 //проверка существует ли объект с таким phone0 номером телефона   
-    public static function ifExistObjWithPhone0(string $phone0){
+    public static function ifExistObjWithPhone0( $phone0){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `phone0`  = '$phone0';";
         $res = $db->query($query ,static::class );
@@ -187,7 +187,7 @@ abstract class ModelLikeTable
         return $res;
     }
 //проверка существует ли объект с таким email0
-    public static function ifExistObjWithEmail0(string $email0){
+    public static function ifExistObjWithEmail0( $email0){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `email0`  = '$email0';";
         $res = $db->query($query ,static::class );
@@ -200,7 +200,7 @@ abstract class ModelLikeTable
      * @param int $_id
      * @return bool if delete in table return true else return false
      */
-    public function delete(int $_id){
+    public function delete($_id){
         if($_id< 1)
             return false;
         $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;
@@ -220,7 +220,7 @@ abstract class ModelLikeTable
      * @param int $_id
      * @return bool if delete in table return true else return false
      */
-    public static function deleteObj(int $_id){
+    public static function deleteObj($_id){
         if($_id< 1)
             return false;
         $queryStrDelete = 'DELETE FROM '.static::TABLE.' WHERE '.static::NAME_ID. ' = '.$_id;
@@ -229,7 +229,7 @@ abstract class ModelLikeTable
         return $res;
     }
     //поиск объектов по подобию name or addCharacteristic можно применять к классам Supplier Material
-    public static function searchObjectsLikeNameOrLikeAddCharacteristic(string  $likeNameAddChar){
+    public static function searchObjectsLikeNameOrLikeAddCharacteristic(  $likeNameAddChar){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' OR `addCharacteristic` LIKE '%".$likeNameAddChar."%' ;";
 //        echo "query";
@@ -242,7 +242,7 @@ abstract class ModelLikeTable
     }
 
     //поиск объектов по подобию name можно применять к всем классам
-    public static function searchObjectsLikeName(string  $likeNameAddChar){
+    public static function searchObjectsLikeName(  $likeNameAddChar){
         $db = new Db();
         $query  = "SELECT * FROM ".static::TABLE ." WHERE `name` LIKE '%".$likeNameAddChar."%' ;";
 //        echo "query";

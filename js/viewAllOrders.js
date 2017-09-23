@@ -96,7 +96,7 @@ $('.rowSearch').ready().on('click',function () {
     if(target.name == 'searchForNameClient'){
         var nameClient = $.trim($('input[name="inputFindOrderForNameClient"]').val());
         if(nameClient != '' && nameClient.length >2){
-            jquery_send('#rezShow','post','controllerViewAllOrders.php',
+            jquery_send('.divForAnswerServer','post','controllerViewAllOrders.php',
                 ['searchOrderForNameClient','nameClient'],
                 ['', nameClient]
             );
@@ -113,7 +113,7 @@ $('.rowSearch').ready().on('click',function () {
         console.log('ищем по названию заказа searchForName');
         var nameOrder = $.trim($('input[name="inputFindOrderForName"]').val());
         if(nameOrder != '' && nameOrder.length >2){
-            jquery_send('#rezShow','post','controllerViewAllOrders.php',
+            jquery_send('.divForAnswerServer','post','controllerViewAllOrders.php',
                 ['searchOrderForName','nameOrder'],
                 ['', nameOrder]
             );

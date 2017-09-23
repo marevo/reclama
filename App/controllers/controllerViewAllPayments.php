@@ -5,9 +5,10 @@
  * Date: 14.09.2017
  * Time: 14:35
  */
-require '../../autoload.php';
+require_once '../../autoload.php';
 use App\Models\Order;
 use App\Models\Payment;
+
 /* html("<tr><td>2</td><td>фирам Рога и Копыта 2</td><td>23</td><td>вывеска для улицы</td><td data-idOrderForShangedSumAllPayments='23' title='цена заказа 0.00 грн' >8.78</td><td>5</td><td class='text-center'><button class='btn btn-default'  name='btnViewModalAllPaymentThisOrder'  data-payment = '{"idOrder":"23" , "nameOrder":"вывеска для улицы",  "idClient":"2","nameClient":"фирам Рога и Копыта 2",  "sumPayments":"8.78"}'  ><span class="glyphicon glyphicon-eye-open"> оплаты</span></button></td></tr><tr><td>2</td><td>фирам Рога и Копыта 2</td><td>26</td><td>еще один заказ для проверки</td><td data-idOrderForShangedSumAllPayments='26' title='цена заказа 0.00 грн' >1.00</td><td>1</td><td class='text-center'><button class='btn btn-default'  name='btnViewModalAllPaymentThisOrder'  data-payment = '{"idOrder":"26" , "nameOrder":"еще один заказ для проверки",  "idClient":"2","nameClient":"фирам Рога и Копыта 2",  "sumPayments":"1.00"}'  ><span class="glyphicon glyphicon-eye-open"> оплаты</span></button></td></tr><tr><td>2</td><td>фирам Рога и Копыта 2</td><td>2</td><td>название ЛайтБокс для фирмы   Рога и Копыта Чернигов</td><td data-idOrderForShangedSumAllPayments='2' title='цена заказа 120.00 грн' >45.00</td><td>2</td><td class='text-center'><button class='btn btn-default'  name='btnViewModalAllPaymentThisOrder'  data-payment = '{"idOrder":"2" , "nameOrder":"название ЛайтБокс для фирмы   Рога и Копыта Чернигов",  "idClient":"2","nameClient":"фирам Рога и Копыта 2",  "sumPayments":"45.00"}'  ><span class="glyphicon glyphicon-eye-open"> оплаты</span></button></td></tr>");*/
 function createTableTbodyPayments($searchedPayments = NULL){
     $tableTbodySearchedPayments="";
@@ -131,7 +132,7 @@ if(isset($_POST['searchPaymentsDateLessDateTo'])) {
     }
 }
 
-//поиска заказов для select в modalFormAddNewPaymentToBase
+//поиска заказов для модального окна в modalFormAddNewPaymentToBase загружать в таблицу
 if(isset($_POST['searchOrderFromModalFormAddNewPaymentToBase'])){
     if( isset($_POST['likeNameClientLikeNameOrder']) ) {
         $likeNameClientOrLikeNameOrder = htmlspecialchars($_POST['likeNameClientLikeNameOrder']);
@@ -146,7 +147,7 @@ if(isset($_POST['searchOrderFromModalFormAddNewPaymentToBase'])){
 //        $likeNameOrder ="вывеска";
 //        \App\ModelLikeTable::showUspeh("пришел запрос на поиск заказов по подобию в клиенте \"$likeNameClient\" и подобию в заказе \"$likeNameOrder\" за дату ".htmlspecialchars($datePayment)."");
 
-        $arrayObjOrders = \App\Models\Order::getOrdersLikeNameOrderOrLikeNameClient($likeNameClient,$likeNameOrder);
+        $arrayObjOrders = Order::getOrdersLikeNameOrderOrLikeNameClient($likeNameClient,$likeNameOrder);
 //        var_dump($arrayObjOrders);
 //        die();
         if($arrayObjOrders){
@@ -163,7 +164,6 @@ if(isset($_POST['searchOrderFromModalFormAddNewPaymentToBase'])){
             $findingOrders="<tr><td colspan='5'>ничего нет (</td></tr>";
         }
         
-        echo "$optionsFinding";
         echo "<script>
 $('#tbFindingOrderByLikeNameClientLikeNameOrderModalFormAddNewPaymentToBase tbody').html(\"$findingOrders\");
 </script>";
@@ -188,7 +188,7 @@ if(isset($_POST['addPaymentToBaseModalFormAddPaymentToBase'])){
         $paymentForAddToBase->idOrder = $idOrder;
         $paymentForAddToBase->idClient = $idClient;
         $res = $paymentForAddToBase->insert();
-        if(res){
+        if($res){
             \App\ModelLikeTable::showUspeh("успешно добавили оплату idOrder=$idOrder idClient=$idClient sumPayment=$sumPayment datePayment=$datePayment ");
         }
         else{

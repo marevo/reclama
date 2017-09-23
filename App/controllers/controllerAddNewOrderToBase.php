@@ -32,7 +32,7 @@ if(isset($_POST['testNameUnuque'])){
     }
 }
 //return orderObject with nameOrderr if it exist, Or return false
-function isExistOrderWithThisName(string $nameOrderr){
+function isExistOrderWithThisName( $nameOrderr){
     //найдем заказ с таким именем
     $orderWithThisNameInOrders = \App\Models\Order::isAllowNameOrder($nameOrderr);
     if($orderWithThisNameInOrders){

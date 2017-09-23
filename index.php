@@ -20,6 +20,7 @@
 <!--    <script type="text/javascript" src="js/ajax_post_get.js"></script>-->
 <!--</head>-->
 <?php
+require __DIR__.'/autoload.php';
       require_once('./head.html');
 //так работает
 //   require_once ("$_SERVER[DOCUMENT_ROOT]/head.html");

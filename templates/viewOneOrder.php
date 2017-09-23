@@ -8,6 +8,7 @@ if(isset($_GET['id'])){
 else{
     $IDORDER = 1;
 }
+//
 $or = new \App\Models\Order();//для вывода полей(чтобы наугад через стрелку не бить
 $order = \App\Models\Order::findObjByIdStatic($IDORDER);//метод нахождения заказа по id=1 id должны передать при вызове этого viewOneOrder.php
 //найдем id клиента по заказу, чтобы из таблицы клиенты найти его имя
@@ -19,7 +20,7 @@ $nameClient = $order->getNameClient();
 $payment =  \App\Models\Payment::getSumAllPaymentsForOrder($IDORDER);
 //функция отображения источника заказа в зависимости от цифры в базе
 // степень готовности заказа 0-новый, 1-закрыт успешно, 2-закрыт неуспешно
-function fIsReady(int $isReady){
+function fIsReady($isReady){
     if($isReady ==0)
         return "<tr><td >статус заказа</td><td class='orderNoSuccessCell' data-name='isReady'>новый</td></tr>";
     if($isReady ==3)
@@ -29,7 +30,7 @@ function fIsReady(int $isReady){
     if($isReady ==2)
         return "<tr><td >статус готовности</td><td class='orderNoSuccessCell' data-name='isReady'>закрыт не успешно </td></tr>";
 }
-function fIsInstall(int $isInstall){
+function fIsInstall($isInstall){
     //установлен у клиента 0-нет, 1-в процессе, 2-установлен
     if($isInstall == 0)
         return "<tr><td >статус установки</td><td class='orderNoSuccessCell' data-name='isInstall'>не установлен </td></tr>";

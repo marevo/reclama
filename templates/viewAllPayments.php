@@ -22,16 +22,13 @@ include('../head.html');
     </div>
     <!--        добавление панели навигации-->
     <div class="row"><!-- навигация -->
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <?php
             require_once('../navigation.html');
             ?>
             <script>
                 showLi('платежи');
             </script>
-        </div>
-        <!-- конец навигации -->
-    </div>
+    </div><!-- конец навигации -->
     <!--строка показа времени и показа результата добавки материала в базу  -->
     <?php  include_once '../App/html/forDisplayTimeShowAnswerServer.html'?>
     <div class="row"><!-- основной блок контета состоит из 2 колонок слева и 10 колонок справа -->

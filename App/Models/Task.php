@@ -6,7 +6,7 @@
  * Time: 9:26
  */
 
-namespace App\Models;
+namespace App;
 
 
 use App\FastViewTable;

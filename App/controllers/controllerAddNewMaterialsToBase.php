@@ -53,7 +53,7 @@ if(isset($_POST['searchSuppliersLikeName'])){
 //    die();
     if(isset($_POST['likeName'])){
         $likeName = htmlspecialchars($_POST['likeName']);
-        \App\ModelLikeTable::showUspeh("пришел запрос на поиск по имени $likeName");
+//        \App\ModelLikeTable::showUspeh("пришел запрос на поиск по имени $likeName");
 //        $suppliersSearcLikeName = \App\Models\Supplier::searchAllForLikeName($likeName);
         $suppliersSearcLikeName = \App\Models\Supplier::searchObjectsLikeNameOrLikeAddCharacteristic($likeName);
         if($suppliersSearcLikeName){

@@ -7,11 +7,9 @@
  */
 
 namespace App\Models;
-//require '../../autoload.php';
 use App\Db;
 use App\ModelLikeTable;
 use App\FastViewTable;
-use App\Models\Payment;
 
 class Order extends ModelLikeTable
 {
@@ -106,7 +104,7 @@ ORDER BY dateBegin DESC ,nameClient, o.name ;
     }
 
 //**найти заказы по подобию названия (покажет даже те что в корзине)
-public static function getOrdersLikeNameClient(string $likeName){
+public static function getOrdersLikeNameClient( $likeName){
 
     $queryFindOrderLikeName = "SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd,
                                   o.name ,  c.name AS nameClient ,o.orderPrice,o.isReady, o.isCompleted,  SUM(p.sumPayment) AS payment
@@ -136,7 +134,7 @@ public static function getOrdersLikeNameClient(string $likeName){
         return false;
     }
 }
-    public static function getOrdersLikeName(string $likeName){
+    public static function getOrdersLikeName( $likeName){
         $queryFindOrderLikeName = "SELECT o.id AS idOrder , o.dateOfOrdering AS dateBegin, o.dateOfComplation AS dateEnd,
                                   o.name ,  c.name AS nameClient ,o.orderPrice,o.isReady, o.isCompleted,  SUM(p.sumPayment) AS payment
                                   FROM orders AS o LEFT OUTER JOIN  clients AS c ON o.idClient = c.id LEFT OUTER JOIN payments AS p ON o.id = p.idOrder
@@ -171,7 +169,7 @@ public static function getOrdersLikeNameClient(string $likeName){
      * @param string $likeNameOrder
      * @return bool|mixed
      */
-    public static function getOrdersLikeNameOrderOrLikeNameClient( string $likeNameClient = NULL , string $likeNameOrder = NULL){
+    public static function getOrdersLikeNameOrderOrLikeNameClient(  $likeNameClient = NULL ,  $likeNameOrder = NULL){
         $queryFindOrderLikeName ="";
 //        если передали 2 параметра
         if($likeNameClient && $likeNameOrder){
@@ -238,7 +236,7 @@ public static function getOrdersLikeNameClient(string $likeName){
 
 
 //найти все поля закза по переданному id
-    public static function findObjByIdForViewOneOrder(int $id){
+    public static function findObjByIdForViewOneOrder($id){
 //        echo '<br>вызов из класса Order  функция findObjByIdForViewOneOrder получили результат не false<br>';
         $res = self::findObjByIdStatic($id);
 //        var_dump($res);
@@ -256,7 +254,7 @@ public static function getOrdersLikeNameClient(string $likeName){
     //метод найдет заказ по названию если он есть такой
     //*если есть заказ с таким именем вернет obj Order заказа
     //*если нет то вернет false
-    public static function isAllowNameOrder (string $name){
+    public static function isAllowNameOrder ( $name){
         $query = "SELECT * FROM orders WHERE orders.name = '$name';";
 //        echo 'пришел запрос на проверку названия заказа '.$query;
         $db = new  Db();
