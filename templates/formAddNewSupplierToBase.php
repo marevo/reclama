@@ -46,7 +46,7 @@ require '../autoload.php';
                                 <td>значение поля</td></tr></thead>
                             <tbody>
                             <!-- скрытое поле для отправки маркера-->
-                            <tr style="display: none;">
+                            <tr class="trDisplayNone">
                                 <td class="text-right"><label for="addNewSupplier">скрытое поле  для отправки маркера</label></td>
                                 <td class="text-left"><input name="addNewSupplier" /></td>
                             </tr>
@@ -103,6 +103,7 @@ require '../autoload.php';
                                 $('.alert').remove();
                             return false;
                         });
+                        //проверка на уникальность имени поставщика
                         $('form textarea').on('blur',function () {
                             if( $(this).attr('name') == 'nameSupplier'){
                                 $(this).val($.trim($(this).val()));

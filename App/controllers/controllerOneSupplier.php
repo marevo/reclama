@@ -95,21 +95,30 @@ if(isset($_POST['addNewSupplier'])){
 
 if(isset($_POST['isExistNameSupplier'])){
 //    echo "пришел запрос на проверку уникальности имени ". $_POST['nameSupplier'];
-    \App\ModelLikeTable::showUspeh('запрос на проверку уникальности имени поставщика '.$_POST['nameSupplier']);
+//    \App\ModelLikeTable::showUspeh('запрос на проверку уникальности имени поставщика '.$_POST['nameSupplier']);
 //    die();
     if(isset($_POST['nameSupplier'])){
         $nameS = htmlspecialchars( $_POST['nameSupplier'] ) ;
         if(\App\Models\Supplier::ifExistObjWithName($nameS)){
             echo "<script> $('[name=nameSupplier').before('<div class=\'alert alert-info\'>$nameS -  такое имя есть ! выберите другое имя :(  </div>');$('[name=nameSupplier').focus(); </script>";
+            \App\ModelLikeTable::showUspeh(" имя $nameS не уникально измените ! ");
+
+        }else{
+            \App\ModelLikeTable::showUspeh("$nameS имя уникально ");
         }
     }
 }
 if(isset($_POST['isExistPhone0Supplier'])){
     if(isset($_POST['phone0Supplier'])){
         $phone0Sup = htmlspecialchars( $_POST['phone0Supplier'] );
-        \App\ModelLikeTable::showUspeh("пришел запрос на проверку уникальности isExistPhone0Supplier $phone0Sup");
+//        \App\ModelLikeTable::showUspeh("пришел запрос на проверку уникальности isExistPhone0Supplier $phone0Sup");
         if(\App\Models\Supplier::ifExistObjWithPhone0($phone0Sup)){
             echo "<script> $('[name=phone0]').before('<div class=\'alert alert-info\'> $phone0Sup такой телефон есть ! выберите другой :(</div>');$('[name=phone0]').focus();</script>";
+            \App\ModelLikeTable::showNoUspeh(" $phone0Sup номер не уникален измените номер");
+
+        }else{
+            \App\ModelLikeTable::showUspeh(" $phone0Sup уникален");
         }
+
     }
 }

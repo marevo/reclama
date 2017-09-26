@@ -63,7 +63,7 @@ class Material extends ModelLikeTable
                      ORDER BY m.name ;
                   ";
 //        GROUP BY m.name
-        var_dump($queryNew);
+//        var_dump($queryNew);
         $db = new Db();
         $sth = $db->get_dbh()->prepare($queryNew);
         $res = $sth->execute();

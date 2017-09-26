@@ -29,7 +29,7 @@ if(isset($_POST['searchLike'])){
     if(isset($_POST['likeValue'])){
         $likeValue = htmlspecialchars($_POST['likeValue']);
         $findMat = \App\Models\Material::selectForViewLikeNameOrLikeAddCharacteristic($likeValue);
-        var_dump($findMat);
+//        var_dump($findMat);
 
         if(! empty ($findMat)){
             $tableSearchMatTbody = "";
